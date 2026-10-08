@@ -53,3 +53,11 @@ Source links are pinned by blueprint/source_commit.txt; mathematical source
 changes require updating the pin and correspondence. Record document build,
 declaration checks and browser inspection truthfully in blueprint/verification.json
 and VERIFICATION.json. Publishing the repository and blueprint is user-authorized.
+
+GitHub Pages CI is .github/workflows/blueprint-pages.yml. It bootstraps the pinned
+Lean toolchain, runs scripts/verify.sh, rebuilds and checks the blueprint, and
+packages the checked site with scripts/package_blueprint_pages.py. Only successful
+main builds deploy; pull requests have no deployment. Site links must work below
+/ginzburg333-lean/, including local MathJax, WASM, source lookup and the PDF.
+Record actual workflow/deployment results separately from local checks. Initial
+Pages source selection requires the owner to choose GitHub Actions in Settings.

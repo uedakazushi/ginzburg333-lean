@@ -4,6 +4,8 @@
 定義・補題・証明の依存関係から読むための日本語blueprintです。
 順方向A〜Eと、任意の体上で成立する逆方向の証明を含みます。
 
+- [GitHub PagesのHTML公開先](https://uedakazushi.github.io/ginzburg333-lean/)
+- [Pagesの日本語PDF公開先](https://uedakazushi.github.io/ginzburg333-lean/blueprint_ja.pdf)
 - [日本語PDF（10ページ）](print/print.pdf)
 - [HTML版の入口](web/index.html)：数式、折り畳める証明、操作できる依存グラフ。
 - [依存グラフのSVG](dependency_graph.svg)
@@ -27,6 +29,18 @@ python3 -m http.server 8000 --directory blueprint/web
 数式用のMathJaxとフォント、依存グラフ用のJavaScript・WebAssemblyを同梱しているため、
 閲覧時に外部CDNから読み込む必要はありません。
 ノードをクリックすると日本語の主張とLeanリンクが開きます。
+
+## GitHub ActionsからのPages公開
+
+[blueprint-pages.yml](../.github/workflows/blueprint-pages.yml)は、mainへの関連ファイルのpushで
+全Leanソースと公理を検証し、日本語PDF・HTMLを生成、103件の実際のLean宣言とリンクを検査します。
+成功した成果物をGitHub Pagesへデプロイします。pull requestでは生成・検査までを実行します。
+Actions画面から手動実行もできます。文書生成・Lean検証のログはActionsのartifactに保存されます。
+
+初回は所有者がリポジトリのSettings → Pages → Build and deployment → Sourceを
+**GitHub Actions**に設定してください。追加のsecretは不要です。
+公開状態は[Actions](https://github.com/uedakazushi/ginzburg333-lean/actions/workflows/blueprint-pages.yml)で確認できます。
+上記のPages URLはデプロイ成功後に利用できます。
 
 ## 再生成と検査
 

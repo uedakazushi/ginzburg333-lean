@@ -38,5 +38,10 @@ lake exe cache get \
   Mathlib.Tactic.FinCases Mathlib.Tactic.Ring Mathlib.Tactic.NormNum Mathlib.Tactic.Push \
   Mathlib.LinearAlgebra.Quotient.Basic Mathlib.Data.Nat.Choose.Basic \
   Mathlib.Algebra.BigOperators.Group.List.Basic Mathlib.Data.Set.Finite.List \
-  Mathlib.Tactic.DeriveFintype Mathlib.Data.Fintype.Prod Mathlib.Data.Finite.Prod
+  Mathlib.Tactic.DeriveFintype Mathlib.Data.Fintype.Prod Mathlib.Data.Finite.Prod \
+  Mathlib.Data.Matrix.Basis Mathlib.Algebra.MonoidAlgebra.Basic \
+  Mathlib.LinearAlgebra.TensorProduct.RightExactness Mathlib.LinearAlgebra.TensorProduct.Basis \
+  Mathlib.Algebra.Ring.Commute Mathlib.LinearAlgebra.Dual.Basis \
+  Mathlib.LinearAlgebra.Finsupp.VectorSpace Mathlib.LinearAlgebra.Pi \
+  Mathlib.LinearAlgebra.Finsupp.Defs
 exec "$@"

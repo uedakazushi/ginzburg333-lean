@@ -1,3 +1,22 @@
+# 引き継ぎ — v7・GitHub Pages CI
+
+.github/workflows/blueprint-pages.ymlが入口です。
+全体verify、blueprintのPDF/HTML生成・実際の宣言検査、公開パッケージ作成の順に進みます。
+成功したmainのartifactをpages:write・id-token:write付きの別jobでデプロイします。
+pull requestはデプロイしません。処理系・mathlib・Python依存の固定は維持しています。
+scripts/package_blueprint_pages.pyは.tooling/pagesを作り、/ginzburg333-lean/以下の相対リンクを検査します。
+PDFへの入口も追加し、実行リビジョンと検証済み数学ソースの保存点をsite-build.jsonに記録します。
+
+初回のPages設定（Settings → Pages → Source: GitHub Actions）は所有者が行う必要があります。
+現在のhas_pages=falseを実際に確認済みで、利用可能な連携はPages管理操作を提供しません。
+実際のCI結果と公開URLの取得が成功するまでは、デプロイ完了と記録しないでください。
+公開先は https://uedakazushi.github.io/ginzburg333-lean/ 、PDFは同URLのblueprint_ja.pdfです。
+Actionsのworkflow/jobログとPagesのHTTP・ブラウザ検査を保存してSTATUS/GAPS/VERIFICATIONを更新してください。
+
+今回の数学的Leanソースは変更していません。v6のLean・blueprintの検証結果は維持されています。
+
+以下はv6の引き継ぎです。
+
 # 引き継ぎ — v6・日本語 Lean blueprint付き
 
 数学的な両主定理・同値は完成したままです。Leanソースへの変更はありません。

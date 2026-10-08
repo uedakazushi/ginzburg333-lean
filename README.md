@@ -20,6 +20,11 @@ TensorRegularは三方向の非零縮約の階数が2以上、GinzburgRegularは
 
 ## 日本語 Lean blueprint
 
+[GitHub PagesのHTML公開先](https://uedakazushi.github.io/ginzburg333-lean/)と
+[Pagesの日本語PDF公開先](https://uedakazushi.github.io/ginzburg333-lean/blueprint_ja.pdf)を用意しました。
+関連ファイルのmainへのpushでLean検証・文書生成・検査を行い、成功した成果物をCIから公開します。
+初回のPages設定と実行状況は[blueprintの公開手順](blueprint/README.md#github-actionsからのpages公開)を参照してください。
+
 [blueprintの入口](blueprint/README.md)と[日本語PDF](blueprint/print/print.pdf)を同梱しています。
 順方向A〜Eと逆方向の証明を51項目に整理し、103件のLean宣言へのリンクと
 操作できる依存グラフを付けました。HTML版、LaTeXソース、再生成スクリプト、

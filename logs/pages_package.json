@@ -1,0 +1,9 @@
+{
+  "revision": "b3a15658b0a80238b6c4bd63c24bc3035d1e8662",
+  "mathematical_source_commit": "ea11e52179e60a9a64b673f43538a8a448e23b74",
+  "blueprint_verification": "verification.json",
+  "html_pages": 14,
+  "local_references_checked": 1144,
+  "project_site_relative_urls_checked": true,
+  "pdf_sha256": "ffc7f389fd104525b88ea42bebef462bf9a4637a130b3aee6cce17e2e15b2ec4"
+}

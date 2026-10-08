@@ -1,3 +1,23 @@
+# 作業状況 — v7・GitHub Pages CI追加（2026年10月8日）
+
+.github/workflows/blueprint-pages.ymlを追加しました。
+mainへの関連ファイルのpushで、固定Leanの全体検証・日本語PDF/HTML生成・
+実際の103宣言と内部参照の検査を行い、成功したサイトだけをPagesへデプロイします。
+pull requestでは生成と検査のみ。workflow_dispatchによる手動実行も可能です。
+数学的Leanソースと述語の定義は変更していません。
+
+ローカルではactionlint 1.7.12の構文検査、bootstrap.shのbash構文検査、
+新しい公開用パッケージ作成と1144件の内部参照検査が成功しました。
+bootstrapのcold-start cache取得に、全24件の直接Mathlib importを含めました。
+
+Pagesの公開先は https://uedakazushi.github.io/ginzburg333-lean/ です。
+この区切りではCI実行・デプロイ成功はまだ未確認です。
+APIの観測ではhas_pages=falseであり、初回は所有者による
+Settings → Pages → Source: GitHub Actionsの設定が必要です。
+確認後に実際のCI結果と公開URLのHTTP取得結果を記録します。
+
+以下はリポジトリ一般公開と日本語blueprint作成のv6の記録です。
+
 # 作業状況 — v6・日本語 Lean blueprint追加（2026年10月8日）
 
 [日本語blueprintの入口](blueprint/README.md)と[PDF](blueprint/print/print.pdf)を作成しました。

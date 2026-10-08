@@ -1,6 +1,6 @@
 {
   "project": "ginzburg333_lean",
-  "snapshot": "20261008_v6_japanese_blueprint",
+  "snapshot": "20261008_v7_pages_ci",
   "status": "REGULARITY_EQUIVALENCE_PROVED",
   "lean_toolchain_target": "leanprover/lean4:v4.19.0",
   "lean_version_executed": "4.19.0",
@@ -59,7 +59,7 @@
   "github_repository_exists": true,
   "github_repository": "uedakazushi/ginzburg333-lean",
   "execution_branch": "work",
-  "execution_start_head": "ea11e52179e60a9a64b673f43538a8a448e23b74",
+  "execution_start_head": "b3a15658b0a80238b6c4bd63c24bc3035d1e8662",
   "baseline_verification_script_exit_code": 0,
   "baseline_kernel_audited_theorems": 1214,
   "publication_status": "The repository is public. GitHub API confirmed visibility=public and private=false; unauthenticated HTTP 200 retrieval of the Japanese blueprint entry, PDF, HTML and Converse/Main.lean matched the verified local SHA-256 hashes. The blueprint is saved on main at c0380df5bc1bc6a14eda856a958d826d9a6625d6 with delivery records at b3398d8a44d16e7dc8e6098ed99747a2bd317885; consult the containing Git commit for this public-access confirmation update.",
@@ -179,5 +179,31 @@
     "main_sha_observed": "b3398d8a44d16e7dc8e6098ed99747a2bd317885",
     "lean_sources_changed_this_confirmation": false,
     "full_lean_tests_rerun_this_confirmation": false
+  },
+  "blueprint_execution_start_head": "ea11e52179e60a9a64b673f43538a8a448e23b74",
+  "pages_ci": {
+    "workflow": ".github/workflows/blueprint-pages.yml",
+    "implemented": true,
+    "site_url": "https://uedakazushi.github.io/ginzburg333-lean/",
+    "pdf_url": "https://uedakazushi.github.io/ginzburg333-lean/blueprint_ja.pdf",
+    "checks_before_deployment": [
+      "scripts/verify.sh",
+      "scripts/build_blueprint.py",
+      "scripts/check_blueprint.py",
+      "scripts/package_blueprint_pages.py"
+    ],
+    "local_checks_log": "logs/pages_ci_local_checks.json",
+    "local_browser_log": "logs/pages_browser_local.json",
+    "local_checks_passed": true,
+    "local_project_site_references_checked": 1144,
+    "lean_sources_changed": false,
+    "full_lean_tests_rerun_locally_this_ci_update": false,
+    "github_workflow_run_observed": false,
+    "build_conclusion": null,
+    "deployment_conclusion": null,
+    "pages_http_verified": false,
+    "initial_pages_source_setting_required": true,
+    "pages_management_available_in_connector": false,
+    "checked_at_utc": "2026-10-08T06:14:14.286884+00:00"
   }
 }
