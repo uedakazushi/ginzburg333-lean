@@ -1,0 +1,100 @@
+{
+  "status": "PUBLIC_PAGES_HTTP_CHECKS_PASSED",
+  "site_url": "https://uedakazushi.github.io/ginzburg333-lean/",
+  "deployed_revision": "45d81afd77f939b3141e8b12972cdc89114662af",
+  "mathematical_source_commit": "ea11e52179e60a9a64b673f43538a8a448e23b74",
+  "checked_at_utc": "2026-10-08T07:08:09.040305+00:00",
+  "pdf_sha256": "c0965bad8b6d56d60420d976a04fb56b896c1a8aba2594136f5c96566b68b596",
+  "pdf_pages": 10,
+  "html_pages": 14,
+  "checks": [
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/site-build.json",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "authentication_sent": false,
+      "bytes": 372,
+      "sha256": "ab6af06b24842c1d65ca377d34f556897f734d31b383762a6dd04ee5bf068e0f"
+    },
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/verification.json",
+      "http_status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "authentication_sent": false,
+      "bytes": 2944,
+      "sha256": "7e32de9cc08ec2fd7ca8a13376bd45923016f1b42c51cffd4f7a5aabdfd8e108"
+    },
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "authentication_sent": false,
+      "bytes": 6048,
+      "sha256": "bb1f04be2fa16ec668d9e4754629fe43f8160c82bbd522e82302dd36d0e86f4e"
+    },
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/dep_graph_document.html",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "authentication_sent": false,
+      "bytes": 101834,
+      "sha256": "49340e9c1006d89779bb0a01eb0b58813cc5d78e132939db18b1af41c6f8042a"
+    },
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/find/index.html",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "authentication_sent": false,
+      "bytes": 39705,
+      "sha256": "365d7d9cae98ff28b6468383acf4b03c53a06248c97f6ee1fdc9bccd6153c4f9"
+    },
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/blueprint_ja.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "authentication_sent": false,
+      "bytes": 228693,
+      "sha256": "c0965bad8b6d56d60420d976a04fb56b896c1a8aba2594136f5c96566b68b596"
+    },
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/js/mathjax/tex-chtml-full.js",
+      "http_status": 200,
+      "content_type": "application/javascript; charset=utf-8",
+      "authentication_sent": false,
+      "bytes": 1327522,
+      "sha256": "91b005503c5d1f0958bf4d73ada1a3be33596b2c4ab5da22277f1b0d3149b5a4"
+    },
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/js/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "http_status": 200,
+      "content_type": "font/woff",
+      "authentication_sent": false,
+      "bytes": 34160,
+      "sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07"
+    },
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/js/graphvizlib.wasm",
+      "http_status": 200,
+      "content_type": "application/wasm",
+      "authentication_sent": false,
+      "bytes": 1099314,
+      "sha256": "d0b94b72100d77383de7e2f2afc344c3f613d1cd453e9cbf264759d7d2c62d86"
+    },
+    {
+      "url": "https://uedakazushi.github.io/ginzburg333-lean/js/expatlib.wasm",
+      "http_status": 200,
+      "content_type": "application/wasm",
+      "authentication_sent": false,
+      "bytes": 100896,
+      "sha256": "3a97493daaa71c38c02f7b67b2d79a93845b0f8824403ae0c15dadb27cef1893"
+    }
+  ],
+  "all_http_statuses_200": true,
+  "pdf_and_vendor_hashes_match": true,
+  "verification_environment": "GitHub-hosted ubuntu-24.04 runner; managed session egress does not permit github.io",
+  "workflow_run_id": 37741580981,
+  "workflow_run_url": "https://github.com/uedakazushi/ginzburg333-lean/actions/runs/37741580981",
+  "workflow_job_id": 113193263315,
+  "workflow_conclusion": "success",
+  "evidence_artifact_id": 11533428375
+}

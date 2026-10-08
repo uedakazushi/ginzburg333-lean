@@ -1,0 +1,52 @@
+{
+  "status": "BLUEPRINT_BUILT_AND_CHECKED",
+  "language": "ja",
+  "verified_at_utc": "2026-10-08T06:57:45.871025+00:00",
+  "mathematical_source_commit": "ea11e52179e60a9a64b673f43538a8a448e23b74",
+  "leanblueprint_version": "0.0.20",
+  "definition_lemma_theorem_nodes": 51,
+  "curated_dependency_edges": 118,
+  "lean_declarations_checked": 103,
+  "lean_declaration_check_exit_code": 0,
+  "declaration_axiom_allowlist": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "unexpected_declaration_axioms": [],
+  "mathematical_lean_sources_changed": false,
+  "pdf_build_exit_code": 0,
+  "html_build_exit_code": 0,
+  "local_mathjax_version": "3.2.2",
+  "local_mathjax_assets_hash_checked": 25,
+  "pdf_pages": 10,
+  "pdf_japanese_text_checked": true,
+  "pdf_missing_glyph_warnings": false,
+  "html_pages": 14,
+  "local_html_references_checked": 1142,
+  "dependency_graph_acyclic": true,
+  "source_link_targets_checked": 103,
+  "source_hashes": {
+    "blueprint/requirements.txt": "ad33d1160eaa7accd40b4bf24d9a66a6b5ec59f1592c51ddcf983d5c9c94d184",
+    "blueprint/source_commit.txt": "40a0323682233d75c4cc3918408c91642f3e8d660c06b73d66b71bc18df594b1",
+    "blueprint/src/blueprint.sty": "16d204e89cd06dd230d55d9c28837c88921289072c4d68f412d98b815ce4068a",
+    "blueprint/src/content.tex": "f02a0a4dc1fb281d463da8757f5dbffbaadc911dd666e50e8b777a214ef7e4e5",
+    "blueprint/src/extra_styles.css": "56b6c250f4b23785adcad0ca62fc1b3035e67df4fcc464222feae846ddb89883",
+    "blueprint/src/latexmkrc": "8569d7b4473bc379f69c048aa12b26b821978f039234c70522ddca2f63739168",
+    "blueprint/src/macros/common.tex": "24ab88dcb8380e78d4f96b2be241640fbd629db10c96b1b19a4e0bad3381860a",
+    "blueprint/src/macros/print.tex": "61371894247b63bd439ab80bca108f355209be18b08f63f807773ddde1ffc586",
+    "blueprint/src/plastex.cfg": "3f9385b5e5fd2fe0b917de070aeddbd0f7ce183a4c85d4b3778838636a197471",
+    "blueprint/src/print.tex": "9067decfedd0bc3fb8d3a65562f0a01c695df62829591f660e36644bce36b49b",
+    "blueprint/src/web.tex": "bc9f99213dcfb5b042057cd3ac47f90ca85d36bc0adec821d8c65f9da6cf4ce8",
+    "blueprint/vendor_manifest.json": "d5fefdd457eff4dddf6e168e16c60852deadc691e9fc3078e31b8abbbf818cbf",
+    "scripts/build_blueprint.py": "43a287b377ac361647c66411e37fcbc621728d464a4fe65b0cdd4bf5c9647636",
+    "scripts/check_blueprint.py": "3f0da7b0d3b049e51ec8bee07388f52eaa46a9a9a49dc6c1658a5f2aa328f55f"
+  },
+  "artifacts": {
+    "blueprint/print/print.pdf": "c0965bad8b6d56d60420d976a04fb56b896c1a8aba2594136f5c96566b68b596",
+    "blueprint/web/index.html": "a4c3208e349e31d8608db0270eae1cc34995fdd365ba0b36c94e50af0a0a2062",
+    "blueprint/dependency_graph.svg": "086c6b010aec85c9d28f47e2b59235bb289c1811f2f92a193a21f41eb59ff374",
+    "blueprint/declarations.json": "ee9389238740cc53a249ed7efbbdb42ed93d8cf9e5a82f0578f85394fda99f36"
+  },
+  "publication_format": "Repository artifacts: generated HTML, PDF, annotated LaTeX, source map and dependency graph"
+}

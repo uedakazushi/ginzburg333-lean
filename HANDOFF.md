@@ -1,28 +1,31 @@
-# 引き継ぎ — v7・GitHub Pages CI
+# 引き継ぎ — v7・GitHub Pages CI公開済み
 
-.github/workflows/blueprint-pages.ymlが入口です。
-全体verify、blueprintのPDF/HTML生成・実際の宣言検査、公開パッケージ作成の順に進みます。
-成功したmainのartifactをpages:write・id-token:write付きの別jobでデプロイします。
-pull requestはデプロイしません。処理系・mathlib・Python依存の固定は維持しています。
-scripts/package_blueprint_pages.pyは.tooling/pagesを作り、/ginzburg333-lean/以下の相対リンクを検査します。
-PDFへの入口も追加し、実行リビジョンと検証済み数学ソースの保存点をsite-build.jsonに記録します。
+公開HTML: https://uedakazushi.github.io/ginzburg333-lean/
+公開PDF: https://uedakazushi.github.io/ginzburg333-lean/blueprint_ja.pdf
 
-所有者がPagesのSourceをGitHub Actionsに設定済みで、APIでhas_pages=trueを確認しました。
-初回run 37736611956はリポジトリ内の処理系ソースを字句監査が走査して失敗しました。
-修正版ではGINZBURG333_TOOLINGをrunner.temp以下に置きます。監査スクリプトの対象は狭めていません。
-次のrun 37737108544ではverify.shと1214件の公理監査が成功し、TeXのpzdr.tfm不足で文書生成が失敗しました。
-texlive-fonts-recommendedを追加しています。verify/build/deployを別jobに分け、
-文書だけの再実行では成功済みLean jobをやり直さず、そのcacheを復元する構成です。
-run 37739062065のverify/build/deployが全て成功し、Pagesへのデプロイを確認しました。
-サイトのリビジョンは45d81afd77f939b3141e8b12972cdc89114662af、数学ソースの保存点はea11e52179e60a9a64b673f43538a8a448e23b74です。
-追加した公開HTTP確認workflowの成功までは、公開URLの取得確認済みとは記録しないでください。
-公開先は https://uedakazushi.github.io/ginzburg333-lean/ 、PDFは同URLのblueprint_ja.pdfです。
-Actionsのworkflow/jobログとPagesのHTTP・ブラウザ検査を保存してSTATUS/GAPS/VERIFICATIONを更新してください。
+.github/workflows/blueprint-pages.ymlが生成・検証・デプロイの入口です。
+verify jobで固定Leanの全体検証と1214件の公理監査を実行し、cacheを保存。
+build jobでそのビルドを復元して日本語PDF/HTMLを生成、103宣言と文書リンクを検査。
+scripts/package_blueprint_pages.pyがPDF入口を付け、/ginzburg333-lean/以下の相対リンクを検査。
+成功したmainのartifactだけをpages:write・id-token:write付きのdeploy jobで公開します。
+pull requestは公開せず、workflow_dispatchにも対応しています。
 
-今回の数学的Leanソースは変更していません。v6のLean・blueprintの検証結果は維持されています。
-.github/scripts/check_pages_publication.pyは、最新の成功済みmainデプロイを確認し、
-認証なしで10資源を取得、PDFとMathJaxのSHA-256、WASMのMIMEを検査します。
-対応するworkflowはMain Pages CI完了後に自動実行されます。確認コードのpushと手動実行にも対応。
+.github/workflows/pages-publication-check.ymlはPages CIの成功後に公開HTTP検査を実行します。
+.github/scripts/check_pages_publication.pyで対応する公開リビジョンを確認し、
+認証なしで10資源を取得、PDF/vendorのSHA-256とWASMのMIMEを検査します。
+実行環境ではgithub.ioへの通信が制限されるため、実際の公開HTTP検査はhosted runnerで行いました。
+ローカルのブラウザではプロジェクトURLの階層で数式・51ノードのグラフ・PDF・幅390pxの表示を確認済みです。
+
+Main Pages run 37739062065、公開HTTP確認run 37741580981はともにsuccess。
+公開リビジョンは45d81afd77f939b3141e8b12972cdc89114662af、数学ソースの保存点はea11e52179e60a9a64b673f43538a8a448e23b74。
+実行ログとartifactの保存版はlogs/pages_ci_lean_verification.*、
+logs/pages_ci_blueprint_verification.*、logs/pages_http.jsonにあります。
+初回の失敗原因と修正履歴はlogs/pages_ci_attempts.jsonに保存しています。
+所有者がPagesのSourceをGitHub Actionsに設定済みで、APIでもhas_pages=trueを確認しました。
+
+数学的Leanソースと元の両述語は変更していません。両主定理・同値は完成したままです。
+数学ソースを更新する場合はblueprintの保存点・対応表を更新し、CIの実行結果を実際に確認してください。
+文書や公開設定だけの更新では、既存のLean検証日時を新しい実行日時へ書き換えないでください。
 
 以下はv6の引き継ぎです。
 

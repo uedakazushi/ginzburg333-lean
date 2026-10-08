@@ -1,13 +1,13 @@
-# 残る義務 — v7・Pages CIの初回公開待ち
+# 残る義務 — v7・PagesのCI公開と公開確認まで完了
 
-両方向・同値のLean形式化と日本語blueprint、リポジトリ一般公開は完了しています。
-Pages用workflowの実装とローカルの構文・公開用リンク検査も完了しました。
+両方向・同値のLean形式化、日本語blueprint、リポジトリ一般公開、
+GitHub PagesへのCI公開を完了しました。依頼された範囲に未解決の義務はありません。
 
-実際のActionsのLean検証・日本語文書生成・Pagesデプロイは全て成功しました。
-公開先 https://uedakazushi.github.io/ginzburg333-lean/ の認証なし取得確認が残っています。
-所有者がPagesのSourceをGitHub Actionsに設定済みで、APIでhas_pages=trueを確認しました。
-公開確認専用の.github/workflows/pages-publication-check.ymlを追加し、
-GitHub Actions側からHTML・PDF・MathJax・フォント・WASMの取得を検査します。
+Main Pages CIのverify/build/deployが成功し、別の公開確認CIで
+HTML・PDF・MathJax・フォント・WASMを認証なしで取得しました。
+10資源が全てHTTP 200で、PDFとvendorのハッシュが一致しています。
+実行記録はlogs/pages_http.jsonとVERIFICATION.jsonを参照してください。
+以前の失敗は処理系の格納先とUbuntuのTeXフォント不足が原因であり、修正・再検証済みです。
 
 以下はv6のリポジトリ公開完了記録です。
 

@@ -1,27 +1,24 @@
-# 作業状況 — v7・GitHub Pages CI追加（2026年10月8日）
+# 作業状況 — v7・GitHub Pages CI公開完了（2026年10月8日）
 
-.github/workflows/blueprint-pages.ymlを追加しました。
-mainへの関連ファイルのpushで、固定Leanの全体検証・日本語PDF/HTML生成・
-実際の103宣言と内部参照の検査を行い、成功したサイトだけをPagesへデプロイします。
-pull requestでは生成と検査のみ。workflow_dispatchによる手動実行も可能です。
-数学的Leanソースと述語の定義は変更していません。
+日本語HTMLを https://uedakazushi.github.io/ginzburg333-lean/ 、
+日本語PDFを同URLのblueprint_ja.pdfへCIで公開しました。
+Main Pages run 37739062065のverify/build/deployは全て成功。
+公開HTTP確認run 37741580981も成功し、認証なしで10資源を取得できました。
+全てHTTP 200、PDF・MathJax・フォントのSHA-256一致、WASMのMIMEを確認済みです。
 
-ローカルではactionlint 1.7.12の構文検査、bootstrap.shのbash構文検査、
-新しい公開用パッケージ作成と1144件の内部参照検査が成功しました。
-bootstrapのcold-start cache取得に、全24件の直接Mathlib importを含めました。
+CIで固定Leanの全体検証と1214件の標準公理監査が成功しました。
+日本語PDF10ページ、HTML14ページ、103件の実際のLean宣言、
+1142文書参照と1144公開用相対参照の検査も成功しています。
+数学的Leanソース・元の述語・順方向/逆方向/同値の証明は変更していません。
 
-Pagesの公開先は https://uedakazushi.github.io/ginzburg333-lean/ です。
-初回Actions run 37736611956は処理系ソースが字句監査へ混入して失敗しました。
-処理系をrunner.temp以下へ移し、プロジェクトの監査範囲を維持して修正しました。
-字句監査に到達する前のLean・固定mathlib・全24直接importのcache取得は成功しています。
-修正版run 37737108544でLean全体検証と1214件の公理監査が成功しました。
-PDF生成はUbuntuのTeXのZapf Dingbatsフォント（pzdr.tfm）が不足して停止。
-texlive-fonts-recommendedを追加し、Lean検証jobと文書生成jobを分離しました。
-run 37739062065（45d81afd77f939b3141e8b12972cdc89114662af）でverify/build/deployの全jobが成功しました。
-日本語PDF10ページ、103宣言、1142文書参照・1144公開参照のCI検査が成功しています。
-実行環境のgithub.ioへの通信制限により、公開HTTP取得は追加のPages確認workflowで検査します。
-所有者がSource: GitHub Actionsを設定し、APIでhas_pages=trueを確認しました。
-確認後に実際のCI結果と公開URLのHTTP取得結果を記録します。
+関連ファイルのmainへのpushでLean検証・文書生成・検査・Pages公開を実行します。
+pull requestは検査のみ。Pages CI成功後に公開HTTP確認workflowが自動実行されます。
+実行環境のgithub.ioへの通信制限に対処し、公開HTTP検査はGitHub-hosted runnerで実行しました。
+初回の処理系格納先とTeXフォント不足は修正済み。失敗履歴はlogs/pages_ci_attempts.jsonに保存。
+成功ログとartifactの保存版はlogs/pages_ci_lean_verification.*、
+logs/pages_ci_blueprint_verification.*、logs/pages_http.jsonにあります。
+公開サイトのリビジョンは45d81afd77f939b3141e8b12972cdc89114662af、
+数学ソースの保存点はea11e52179e60a9a64b673f43538a8a448e23b74です。
 
 以下はリポジトリ一般公開と日本語blueprint作成のv6の記録です。
 

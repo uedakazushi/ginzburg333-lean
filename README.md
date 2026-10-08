@@ -1,4 +1,4 @@
-# Ginzburg (3,3,3)：avatarを用いないLean形式化 — v6・同値証明済み、日本語blueprint付き
+# Ginzburg (3,3,3)：avatarを用いないLean形式化 — v7・同値証明済み、日本語blueprintをPagesで公開
 
 **標数0の代数閉体上で `Ginzburg.GinzburgRegular w ↔ TensorRegular w` をLeanで証明しました。**
 
@@ -20,8 +20,8 @@ TensorRegularは三方向の非零縮約の階数が2以上、GinzburgRegularは
 
 ## 日本語 Lean blueprint
 
-[GitHub PagesのHTML公開先](https://uedakazushi.github.io/ginzburg333-lean/)と
-[Pagesの日本語PDF公開先](https://uedakazushi.github.io/ginzburg333-lean/blueprint_ja.pdf)を用意しました。
+[GitHub Pagesの日本語HTML](https://uedakazushi.github.io/ginzburg333-lean/)と
+[Pagesの日本語PDF](https://uedakazushi.github.io/ginzburg333-lean/blueprint_ja.pdf)を公開しました。
 関連ファイルのmainへのpushでLean検証・文書生成・検査を行い、成功した成果物をCIから公開します。
 初回のPages設定と実行状況は[blueprintの公開手順](blueprint/README.md#github-actionsからのpages公開)を参照してください。
 
@@ -54,7 +54,7 @@ Lean 4.19.0、mathlib c44e0c8ee63ca166450922a373c7409c5d26b00bを固定。
     python3 scripts/check_sources.py
     bash scripts/verify.sh
 
-Linuxの処理系未導入環境にはscripts/bootstrap.shを用意しました。
+Linuxの処理系未導入環境にはscripts/bootstrap.shを公開しました。
 検証スクリプトは全モジュール、Audit.lean、AuditAll.leanを実行します。
 両主定理と同値の型を確認し、名前空間内の全theoremについて標準公理以外を拒否します。
 追加公理、sorry、admit、native_decide、unsafeによる証明は使用しません。
