@@ -6,7 +6,8 @@ blueprint/README.mdから日本語PDF、HTML、依存グラフ、ソース対応
 
 一般公開の設定が残っています。今回のGitHub API確認ではリポジトリはPrivateでした。
 利用中のGitHub連携にはリポジトリの可視性を変更する機能がありません。
-生成物のmainへの保存後、所有者がSettings → General → Danger Zone →
+生成物はmainのc0380df5bc1bc6a14eda856a958d826d9a6625d6に保存・確認済みです。
+所有者がSettings → General → Danger Zone →
 Change repository visibilityでPublicに変更する必要があります。
 これは形式化や文書の検証の穴ではなく、公開設定に必要な管理操作です。
 

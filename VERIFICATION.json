@@ -62,7 +62,7 @@
   "execution_start_head": "ea11e52179e60a9a64b673f43538a8a448e23b74",
   "baseline_verification_script_exit_code": 0,
   "baseline_kernel_audited_theorems": 1214,
-  "publication_status": "The mathematical source ea11e52179e60a9a64b673f43538a8a448e23b74 is saved on main. This verified checkpoint contains the Japanese blueprint for the user-authorized main update. The repository was observed private; anonymous publication requires the owner to change visibility to public. Consult the containing Git commit and remote ref for the main-delivery SHA.",
+  "publication_status": "The Japanese blueprint and verified Lean sources are saved on main at c0380df5bc1bc6a14eda856a958d826d9a6625d6. GitHub API confirmed the commit, parent and exact tree; local work and origin/main were aligned with a clean worktree. The repository remains private; anonymous publication requires the owner to change visibility to public.",
   "bar_filtration_vanishing_implemented": true,
   "bar_simple_quotient_identified": true,
   "bar_finite_dual_reversal_vector_space_equiv": true,
@@ -159,5 +159,14 @@
   "github_repository_visibility_observed": "private",
   "github_pages_enabled_observed": false,
   "anonymous_publication_complete": false,
-  "publication_blocking_capability": "Repository visibility is private; the connected GitHub tools do not provide a visibility-change administration action. GitHub CLI repository access also returned Forbidden."
+  "publication_blocking_capability": "Repository visibility is private; the connected GitHub tools do not provide a visibility-change administration action. GitHub CLI repository access also returned Forbidden.",
+  "blueprint_main_delivery": {
+    "sha": "c0380df5bc1bc6a14eda856a958d826d9a6625d6",
+    "parent_sha": "ea11e52179e60a9a64b673f43538a8a448e23b74",
+    "tree_sha": "b42c4efb1ca449c1a7c799620bf8a3a76a039da7",
+    "github_api_confirmed": true,
+    "local_refs_aligned": true,
+    "worktree_clean_after_alignment": true,
+    "repository_visibility_observed": "private"
+  }
 }

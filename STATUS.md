@@ -17,7 +17,9 @@ HTMLの1142内部参照、PDFの日本語文字抽出と欠字、依存関係の
 CIは今回実行していません。生成HTML、PDF、LaTeX、対応表、生成・検査スクリプトを同梱しています。
 
 mainへの公開はユーザーの明示承認済みです。
-このblueprintを含むコミットの公開状態はGit履歴とremote refで確認してください。
+blueprintを含む保存点c0380df5bc1bc6a14eda856a958d826d9a6625d6をmainへ反映し、
+remoteのSHA・親コミット・ツリーの一致をGitHub APIで確認しました。
+ローカルworkとorigin/mainも同じ保存点に揃え、作業ディレクトリはcleanです。
 今回のAPI確認ではリポジトリの可視性はPrivateです。
 mainへの保存と一般公開を区別し、可視性変更は所有者のGitHub管理画面で行う必要があります。
 
