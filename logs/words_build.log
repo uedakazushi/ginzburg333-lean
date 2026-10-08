@@ -1,0 +1,73 @@
+⚠ [1660/1662] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [1661/1662] Built Ginzburg333.Ginzburg
+✖ [1662/1662] Building Ginzburg333.Ginzburg.Words
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Ginzburg/Words.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Ginzburg/Words.olean -i ././.lake/build/lib/lean/Ginzburg333/Ginzburg/Words.ilean -c ././.lake/build/ir/Ginzburg333/Ginzburg/Words.c --json
+error: ././././Ginzburg333/Ginzburg/Words.lean:58:30: application type mismatch
+  ih hp
+argument
+  hp
+has type
+  p ∈ wordDifferential w gs : Prop
+but is expected to have type
+  ((-1) ^ g.negativeDegree * p.1, g :: p.2) ∈ wordDifferential w gs : Prop
+error: ././././Ginzburg333/Ginzburg/Words.lean:60:24: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  b ≥ 1
+  a ≥ 0
+  a - d ≥ 1
+where
+ a := ↑(wordWeight gs)
+ b := ↑(wordNegative gs)
+ c := ↑g.weight
+ d := ↑(wordWeight p.2)
+error: ././././Ginzburg333/Ginzburg/Words.lean:60:24: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  b ≥ 1
+  b - d ≥ 2
+  a ≥ 0
+where
+ a := ↑(wordWeight gs)
+ b := ↑(wordNegative gs)
+ c := ↑g.negativeDegree
+ d := ↑(wordNegative p.2)
+error: ././././Ginzburg333/Ginzburg/Words.lean:80:35: application type mismatch
+  ih v hv hp
+argument
+  hp
+has type
+  p ∈ wordDifferential w gs : Prop
+but is expected to have type
+  ((-1) ^ g.negativeDegree * p.1, g :: p.2) ∈ wordDifferential w gs : Prop
+error: ././././Ginzburg333/Ginzburg/Words.lean:80:12: unsolved goals
+case pos.inr.intro.intro
+k : Type u_1
+inst✝ : Field k
+w : Tensor k
+start : Vertex
+g : Generator
+gs : List Generator
+finish : Vertex
+hpath : endpoint? start (g :: gs) = some finish
+v : Vertex
+hv : endpoint? start gs = some v
+hgv : g.source = v
+hgf : g.target = finish
+p : k × List Generator
+hp : p ∈ wordDifferential w gs
+ih :
+  ∀ (finish : Vertex),
+    endpoint? start gs = some finish →
+      ((-1) ^ g.negativeDegree * p.1, g :: p.2) ∈ wordDifferential w gs →
+        endpoint? start ((-1) ^ g.negativeDegree * p.1, g :: p.2).2 = some finish
+hend : endpoint? start ((-1) ^ g.negativeDegree * p.1, g :: p.2).2 = some v
+⊢ ((endpoint? start p.2).bind fun v_1 => if v = v_1 then some finish else none) = some finish
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Ginzburg.Words
+error: build failed

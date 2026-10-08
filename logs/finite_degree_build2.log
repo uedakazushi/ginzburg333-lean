@@ -1,0 +1,15 @@
+⚠ [1660/1670] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✖ [1669/1670] Building Ginzburg333.Ginzburg.FiniteDegree
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Ginzburg/FiniteDegree.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Ginzburg/FiniteDegree.olean -i ././.lake/build/lib/lean/Ginzburg333/Ginzburg/FiniteDegree.ilean -c ././.lake/build/ir/Ginzburg333/Ginzburg/FiniteDegree.c --json
+error: ././././Ginzburg333/Ginzburg/FiniteDegree.lean:25:8: failed to synthesize
+  Finite (Vertex × { gs // gs.length ≤ n })
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: ././././Ginzburg333/Ginzburg/FiniteDegree.lean:26:2: no goals to be solved
+error: Lean exited with code 1
+✔ [1670/1670] Built Ginzburg333.Homology.Dual
+Some required builds logged failures:
+- Ginzburg333.Ginzburg.FiniteDegree
+error: build failed

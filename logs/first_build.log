@@ -1,0 +1,64 @@
+✔ [1660/1664] Built Ginzburg333.Homology.Exact
+✖ [1661/1664] Building Ginzburg333.Signs
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Signs.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Signs.olean -i ././.lake/build/lib/lean/Ginzburg333/Signs.ilean -c ././.lake/build/ir/Ginzburg333/Signs.c --json
+error: ././././Ginzburg333/Signs.lean:40:6: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  h ≥ 0
+  g ≥ 0
+  f ≥ 0
+  e ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - g ≤ -1
+  a ≥ 0
+  a + b + c ≥ 0
+where
+ a := ↑(weighted ds)
+ b := ↑(ds.length.choose 2)
+ c := ↑(countThree ds)
+ e := ↑ds.sum
+ f := ↑ds.length
+ g := ↑(ds.length.choose (Nat.succ 1))
+ h := ↑(three d)
+warning: ././././Ginzburg333/Signs.lean:106:7: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+error: Lean exited with code 1
+✔ [1662/1664] Built Ginzburg333.Homology.Filtration
+✖ [1663/1664] Building Ginzburg333.Homology.Quotient
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Homology/Quotient.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Homology/Quotient.olean -i ././.lake/build/lib/lean/Ginzburg333/Homology/Quotient.ilean -c ././.lake/build/ir/Ginzburg333/Homology/Quotient.c --json
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+error: ././././Ginzburg333/Homology/Quotient.lean:56:6: type mismatch, term
+  hb
+after simplification has type
+  (stepProjection P f) (Submodule.Quotient.mk b) = 0 : Prop
+but is expected to have type
+  b ∈ P ⊔ LinearMap.range f : Prop
+error: ././././Ginzburg333/Homology/Quotient.lean:68:10: invalid field notation, type is not of the form (C ...) where C is a constant
+  Submodule.Quotient.mk_eq_zero
+has type
+  ∀ (p : Submodule ?m.25174 ?m.25175), Submodule.Quotient.mk ?m.25176 = 0 ↔ ?m.25176 ∈ p
+error: ././././Ginzburg333/Homology/Quotient.lean:69:4: no goals to be solved
+error: Lean exited with code 1
+✖ [1664/1664] Building Ginzburg333.Finite.Coordinates
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Finite/Coordinates.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Finite/Coordinates.olean -i ././.lake/build/lib/lean/Ginzburg333/Finite/Coordinates.ilean -c ././.lake/build/ir/Ginzburg333/Finite/Coordinates.c --json
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+error: ././././Ginzburg333/Finite/Coordinates.lean:117:4: type mismatch, term
+  hdim
+after simplification has type
+  Module.finrank k ↥(LinearMap.range (dotMap a)) + Module.finrank k ↥(LinearMap.ker (dotMap a)) = 3 : Prop
+but is expected to have type
+  1 + Module.finrank k ↥(LinearMap.ker (dotMap a)) = 3 : Prop
+error: ././././Ginzburg333/Finite/Coordinates.lean:146:2: type mismatch
+  Eq.symm ha
+has type
+  f ↑↑a = 0 : Prop
+but is expected to have type
+  (f ∘ₗ LinearMap.single k (fun i => k) a) 1 = (0 ∘ₗ LinearMap.single k (fun i => k) a) 1 : Prop
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Signs
+- Ginzburg333.Homology.Quotient
+- Ginzburg333.Finite.Coordinates
+error: build failed

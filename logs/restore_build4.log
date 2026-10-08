@@ -1,0 +1,42 @@
+⚠ [1660/1679] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1663/1679] Replayed Ginzburg333.Auxiliary
+warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:58:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+⚠ [1664/1679] Replayed Ginzburg333.Finite.Colon
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: 'omega' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [1666/1679] Replayed Ginzburg333.Homology.Quotient
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1667/1679] Replayed Ginzburg333.Finite.RowIdeals
+info: ././././Ginzburg333/Finite/RowIdeals.lean:139:44: Try this: ring_nf
+warning: ././././Ginzburg333/Finite/RowIdeals.lean:139:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [1668/1679] Replayed Ginzburg333.Finite.Pencil
+warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✖ [1679/1679] Building Ginzburg333.Bar.SquareZero
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/ginzburg333_work/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Bar/SquareZero.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Bar/SquareZero.olean -i ././.lake/build/lib/lean/Ginzburg333/Bar/SquareZero.ilean -c ././.lake/build/ir/Ginzburg333/Bar/SquareZero.c --json
+error: ././././Ginzburg333/Bar/SquareZero.lean:116:12: invalid 'calc' step, left-hand side is
+  ∑ t, positiveMultiplication D g h t • Finsupp.single cs ((A.action (positiveBasis t)) m) : List Generator →₀ M
+but is expected to be
+  (firstAction A) ((∑ x, positiveMultiplication D g h x • tensorWords (Finsupp.single (x :: cs) 1)) m) : Ambient M
+error: ././././Ginzburg333/Bar/SquareZero.lean:121:69: no goals to be solved
+warning: ././././Ginzburg333/Bar/SquareZero.lean:145:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Bar.SquareZero
+error: build failed

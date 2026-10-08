@@ -1,0 +1,14 @@
+⚠ [1660/1671] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1663/1671] Replayed Ginzburg333.Signs
+warning: ././././Ginzburg333/Signs.lean:107:7: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [1664/1671] Built Ginzburg333.Ginzburg
+✖ [1665/1671] Building Ginzburg333.Finite.Rank
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Finite/Rank.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Finite/Rank.olean -i ././.lake/build/lib/lean/Ginzburg333/Finite/Rank.ilean -c ././.lake/build/ir/Ginzburg333/Finite/Rank.c --json
+error: ././././Ginzburg333/Finite/Rank.lean:118:10: unknown constant 'Submodule.finrank_pos_iff.mpr'
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Finite.Rank
+error: build failed

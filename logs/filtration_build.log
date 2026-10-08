@@ -1,0 +1,85 @@
+⚠ [1660/1669] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1663/1669] Replayed Ginzburg333.Auxiliary
+warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:58:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+⚠ [1664/1669] Replayed Ginzburg333.Finite.Colon
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: 'omega' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [1666/1669] Replayed Ginzburg333.Finite.Pencil
+warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1667/1669] Built Ginzburg333.Homology.Quotient
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1668/1669] Built Ginzburg333.Finite.RowIdeals
+info: ././././Ginzburg333/Finite/RowIdeals.lean:139:44: Try this: ring_nf
+warning: ././././Ginzburg333/Finite/RowIdeals.lean:139:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✖ [1669/1669] Building Ginzburg333.Finite.Filtration
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Finite/Filtration.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Finite/Filtration.olean -i ././.lake/build/lib/lean/Ginzburg333/Finite/Filtration.ilean -c ././.lake/build/ir/Ginzburg333/Finite/Filtration.c --json
+error: ././././Ginzburg333/Finite/Filtration.lean:16:29: failed to synthesize
+  Max (Type u_1)
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: ././././Ginzburg333/Finite/Filtration.lean:36:24: application type mismatch
+  congrArg (finrank k)
+argument
+  finrank k
+has type
+  (M : Type ?u.4966) →
+    [inst : Semiring k] → [inst_1 : AddCommMonoid M] → [inst : Module k M] → ℕ : Type (max (?u.4966 + 1) u_1)
+but is expected to have type
+  Submodule k (Vec k) → ?m.4963 : Sort (imax (u_1 + 1) ?u.4960)
+warning: ././././Ginzburg333/Finite/Filtration.lean:49:8: declaration uses 'sorry'
+warning: ././././Ginzburg333/Finite/Filtration.lean:49:57: unused variable `hU`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+error: ././././Ginzburg333/Finite/Filtration.lean:123:24: unsolved goals
+k : Type u_1
+inst✝¹ : Field k
+inst✝ : IsAlgClosed k
+D : CyclicData k
+hD : D.Regular
+i : Vertex
+hne : ⊤ ≠ ⊥
+a : Vec k := unitVec 0
+ha : a ≠ 0
+P : Submodule k (Vec k) := LinearMap.ker (dotMap a)
+hP : finrank k ↥P = 2
+⊢ ¬unitVec 0 0 = 0
+error: ././././Ginzburg333/Finite/Filtration.lean:145:6: tactic 'rewrite' failed, motive is not type correct:
+  fun _a => D.rowGenerated i _a = D.rowGenerated i s.smaller ⊔ LinearMap.range (D.leftOne i s.generator)
+Error: application type mismatch
+  s.smaller
+argument
+  s
+has type
+  D.FiltrationStep i U : Type u_1
+but is expected to have type
+  D.FiltrationStep i _a : Type u_1
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+i : Vertex
+U : Submodule k (Vec k)
+s : D.FiltrationStep i U
+⊢ D.rowGenerated i U = D.rowGenerated i s.smaller ⊔ LinearMap.range (D.leftOne i s.generator)
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Finite.Filtration
+error: build failed

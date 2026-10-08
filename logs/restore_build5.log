@@ -1,0 +1,95 @@
+⚠ [1660/1686] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1663/1686] Replayed Ginzburg333.Auxiliary
+warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:58:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+⚠ [1664/1686] Replayed Ginzburg333.Finite.Colon
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: 'omega' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [1666/1686] Replayed Ginzburg333.Homology.Quotient
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1667/1686] Replayed Ginzburg333.Finite.RowIdeals
+info: ././././Ginzburg333/Finite/RowIdeals.lean:139:44: Try this: ring_nf
+warning: ././././Ginzburg333/Finite/RowIdeals.lean:139:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [1668/1686] Replayed Ginzburg333.Finite.Pencil
+warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [1683/1686] Built Ginzburg333.Ginzburg.FiniteDegree
+⚠ [1684/1686] Built Ginzburg333.Bar.SquareZero
+warning: ././././Ginzburg333/Bar/SquareZero.lean:147:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [1685/1686] Built Ginzburg333.Bar.Homological
+✖ [1686/1686] Building Ginzburg333.Bar.Corners
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/ginzburg333_work/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Bar/Corners.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Bar/Corners.olean -i ././.lake/build/lib/lean/Ginzburg333/Bar/Corners.ilean -c ././.lake/build/ir/Ginzburg333/Bar/Corners.c --json
+error: ././././Ginzburg333/Bar/Corners.lean:55:11: unknown tactic
+error: ././././Ginzburg333/Bar/Corners.lean:49:11: failed to synthesize
+  Decidable (composable [])
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: ././././Ginzburg333/Bar/Corners.lean:52:15: failed to synthesize
+  Decidable (composable [g])
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: ././././Ginzburg333/Bar/Corners.lean:53:18: unsolved goals
+case cons.cons
+k : Type u_1
+inst✝⁴ : Field k
+M : Type u_2
+N : Type u_3
+inst✝³ : AddCommGroup M
+inst✝² : Module k M
+inst✝¹ : AddCommGroup N
+inst✝ : Module k N
+g h : Generator
+cs : List Generator
+ih : Decidable (composable (h :: cs))
+this : Decidable (composable (h :: cs)) := ih
+⊢ Decidable (composable (g :: h :: cs))
+error: ././././Ginzburg333/Bar/Corners.lean:89:48: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  ((normalization ?A) ?x) ?gs
+case h
+k : Type u_1
+inst✝² : Field k
+M : Type u_2
+inst✝¹ : AddCommGroup M
+inst✝ : Module k M
+D : CyclicData k
+A : RightAction D M
+x : Ambient M
+gs : List Generator
+⊢ (if composable gs then (initialProjection A gs) (if composable gs then (initialProjection A gs) (x gs) else 0)
+    else 0) =
+    if composable gs then (initialProjection A gs) (x gs) else 0
+error: ././././Ginzburg333/Bar/Corners.lean:107:6: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  ?m.29695 ∈ Finsupp.support ?m.29694
+case a
+k : Type u_1
+inst✝² : Field k
+M : Type u_2
+inst✝¹ : AddCommGroup M
+inst✝ : Module k M
+D : CyclicData k
+A : RightAction D M
+r : ℕ
+x : Ambient M
+hx : x ∈ lengthComponent r
+gs : List Generator
+hgs : gs ∈ ↑((normalization A) x).support
+⊢ gs ∈ ↑x.support
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Bar.Corners
+error: build failed

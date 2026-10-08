@@ -1,0 +1,43 @@
+⚠ [1660/1683] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1662/1683] Replayed Ginzburg333.Finite.Pencil
+warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1664/1683] Replayed Ginzburg333.Finite.Colon
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: 'omega' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [1665/1683] Replayed Ginzburg333.Auxiliary
+warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:58:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+⚠ [1668/1683] Replayed Ginzburg333.Signs
+warning: ././././Ginzburg333/Signs.lean:107:7: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [1672/1683] Replayed Ginzburg333.Homology.Quotient
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1674/1683] Replayed Ginzburg333.Finite.RowIdeals
+info: ././././Ginzburg333/Finite/RowIdeals.lean:139:44: Try this: ring_nf
+warning: ././././Ginzburg333/Finite/RowIdeals.lean:139:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✖ [1681/1683] Building Ginzburg333.Ginzburg.FiniteDegree
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Ginzburg/FiniteDegree.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Ginzburg/FiniteDegree.olean -i ././.lake/build/lib/lean/Ginzburg333/Ginzburg/FiniteDegree.ilean -c ././.lake/build/ir/Ginzburg333/Ginzburg/FiniteDegree.c --json
+error: ././././Ginzburg333/Ginzburg/FiniteDegree.lean:26:8: failed to synthesize
+  Finite (Vertex × { gs // gs.length ≤ n })
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: ././././Ginzburg333/Ginzburg/FiniteDegree.lean:27:2: no goals to be solved
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Ginzburg.FiniteDegree
+error: build failed

@@ -1,0 +1,76 @@
+{
+  "lean_kernel_verification": false,
+  "main_theorem_verified": false,
+  "auxiliary_algebra": {
+    "basis_dimension": 24,
+    "symbolic_basis_triples": 13824,
+    "unit_checks": 48,
+    "coefficient_ring": "Z[w_000,...,w_222]",
+    "passed": true
+  },
+  "ginzburg_differential": {
+    "generators_checked": 21,
+    "generator_terms_checked": 99,
+    "all_valid_paths_up_to_weight": 6,
+    "valid_paths_checked": 10620,
+    "nonzero_differential_terms_checked": 82890,
+    "coefficient_ring": "Z[w_000,...,w_222]",
+    "passed": true
+  },
+  "comparison_signs": {
+    "max_internal_degree": 14,
+    "words_checked": 6872,
+    "splits_checked": 32124,
+    "passed": true,
+    "scope": "Bounded independent check; all-length Lean proof script remains uncompiled."
+  },
+  "row_ideal_examples": {
+    "field": "F_5",
+    "tensor": "alternating determinant tensor",
+    "projective_rank_checks": 31,
+    "annihilator_cases": 31,
+    "plane_colon_cases": 930,
+    "full_colon_cases": 775,
+    "zero_tensor_negative_control_detected": true,
+    "scope": "Examples only; this finite field is not algebraically closed.",
+    "passed": true
+  },
+  "bar_complex_examples": {
+    "field": "F_5",
+    "tensor": "alternating determinant tensor",
+    "max_internal_degree": 5,
+    "vertices_checked": 3,
+    "square_zero_columns_checked": 2736,
+    "off_diagonal_positions_checked": 45,
+    "diagonal_dimensions": [
+      {
+        "n": 0,
+        "dim_Tor_nn_per_vertex": 1
+      },
+      {
+        "n": 1,
+        "dim_Tor_nn_per_vertex": 3
+      },
+      {
+        "n": 2,
+        "dim_Tor_nn_per_vertex": 6
+      },
+      {
+        "n": 3,
+        "dim_Tor_nn_per_vertex": 10
+      },
+      {
+        "n": 4,
+        "dim_Tor_nn_per_vertex": 15
+      },
+      {
+        "n": 5,
+        "dim_Tor_nn_per_vertex": 21
+      }
+    ],
+    "zero_tensor_Tor_1_internal_2_dimension": 3,
+    "passed": true,
+    "scope": "Finite-degree example, NOT the all-tensor/all-degree theorem."
+  },
+  "elapsed_seconds": 1.045
+}

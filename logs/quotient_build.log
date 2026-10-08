@@ -1,0 +1,12 @@
+✖ [1042/1042] Building Ginzburg333.Homology.Quotient
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Homology/Quotient.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Homology/Quotient.olean -i ././.lake/build/lib/lean/Ginzburg333/Homology/Quotient.ilean -c ././.lake/build/ir/Ginzburg333/Homology/Quotient.c --json
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+error: ././././Ginzburg333/Homology/Quotient.lean:70:10: function expected at
+  le_sup_right
+term has type
+  ?m.26667 ≤ ?m.26666 ⊔ ?m.26667
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Homology.Quotient
+error: build failed

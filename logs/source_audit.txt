@@ -1,0 +1,17 @@
+{
+  "audit_kind": "textual, comments and strings removed",
+  "lean_executed_by_this_audit": false,
+  "kernel_validation": "Not assessed by this textual audit; see VERIFICATION.json and kernel axiom logs.",
+  "main_theorem_proved": false,
+  "source_file_count": 35,
+  "source_line_count": 3751,
+  "declaration_counts": {
+    "abbrev": 11,
+    "theorem": 272,
+    "def": 113,
+    "structure": 3,
+    "inductive": 2
+  },
+  "forbidden_tokens": [],
+  "passed_textual_audit": true
+}

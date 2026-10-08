@@ -1,0 +1,109 @@
+⚠ [1660/1672] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1663/1672] Replayed Ginzburg333.Signs
+warning: ././././Ginzburg333/Signs.lean:107:7: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [1665/1672] Built Ginzburg333.Homology.Quotient
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [1666/1672] Built Ginzburg333.Finite.Rank
+✔ [1667/1672] Built Ginzburg333.Finite.Corner
+⚠ [1668/1672] Built Ginzburg333.Finite.Pencil
+warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✖ [1669/1672] Building Ginzburg333.Finite.Colon
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Finite/Colon.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Finite/Colon.olean -i ././.lake/build/lib/lean/Ginzburg333/Finite/Colon.ilean -c ././.lake/build/ir/Ginzburg333/Finite/Colon.c --json
+error: ././././Ginzburg333/Finite/Colon.lean:59:6: type mismatch, term
+  leftOne_mem_rowGenerated D i U hy (1, 0, 0, 0)
+after simplification has type
+  (D.leftOne i y) (1, 0) ∈ D.rowGenerated i U : Prop
+but is expected to have type
+  (0, y, 0) ∈ D.rowGenerated i U : Prop
+error: ././././Ginzburg333/Finite/Colon.lean:66:6: type mismatch, term
+  leftOne_mem_rowGenerated D i U a.property (0, b, 0, 0)
+after simplification has type
+  (D.leftOne i ↑a) (0, b, 0) ∈ D.rowGenerated i U : Prop
+but is expected to have type
+  (0, 0, ((D.mul i) ↑a) b, 0) ∈ D.rowGenerated i U : Prop
+error: ././././Ginzburg333/Finite/Colon.lean:73:6: simp made no progress
+error: ././././Ginzburg333/Finite/Colon.lean:100:14: function expected at
+  le_sup_left
+term has type
+  ?m.17801 ≤ ?m.17801 ⊔ ?m.17802
+error: ././././Ginzburg333/Finite/Colon.lean:103:14: function expected at
+  le_sup_right
+term has type
+  ?m.17919 ≤ ?m.17918 ⊔ ?m.17919
+error: ././././Ginzburg333/Finite/Colon.lean:173:4: type mismatch, term
+  hdim
+after simplification has type
+  finrank k ↥(LinearMap.range q) + finrank k ↥(LinearMap.ker q) = 3 : Prop
+but is expected to have type
+  1 + finrank k ↥(Submodule.comap f P) = 3 : Prop
+warning: ././././Ginzburg333/Finite/Colon.lean:197:57: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Finite/Colon.lean:197:57: 'omega' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+error: Lean exited with code 1
+✖ [1670/1672] Building Ginzburg333.Auxiliary
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Auxiliary.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Auxiliary.olean -i ././.lake/build/lib/lean/Ginzburg333/Auxiliary.ilean -c ././.lake/build/ir/Ginzburg333/Auxiliary.c --json
+error: ././././Ginzburg333/Auxiliary.lean:24:68: unsolved goals
+k : Type u_1
+inst✝ : Field k
+⊢ finrank k (Fin 3 → k × (Fin 3 → k) × (Fin 3 → k) × k) = 24
+warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:58:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././Ginzburg333/Auxiliary.lean:86:41: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:86:41: Try this: ring_nf
+error: ././././Ginzburg333/Auxiliary.lean:83:49: unsolved goals
+case h.snd.fst.h
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+t : k
+a b : Auxiliary k
+i : Vertex
+j : Fin 3
+⊢ True ∨ (a i).2.1 j = 0
+
+case h.snd.snd.fst.h
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+t : k
+a b : Auxiliary k
+i : Vertex
+j : Fin 3
+⊢ True ∨ (a i).2.2.1 j = 0
+info: ././././Ginzburg333/Auxiliary.lean:92:41: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:41: Try this: ring_nf
+error: ././././Ginzburg333/Auxiliary.lean:89:49: unsolved goals
+case h.snd.fst.h
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+t : k
+a b : Auxiliary k
+i : Vertex
+j : Fin 3
+⊢ True ∨ (b i).2.1 j = 0
+
+case h.snd.snd.fst.h
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+t : k
+a b : Auxiliary k
+i : Vertex
+j : Fin 3
+⊢ True ∨ (b i).2.2.1 j = 0
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Finite.Colon
+- Ginzburg333.Auxiliary
+error: build failed

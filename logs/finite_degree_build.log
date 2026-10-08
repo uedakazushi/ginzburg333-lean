@@ -1,0 +1,40 @@
+⚠ [1660/1670] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✖ [1666/1670] Building Ginzburg333.Homology.Dual
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Homology/Dual.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Homology/Dual.olean -i ././.lake/build/lib/lean/Ginzburg333/Homology/Dual.ilean -c ././.lake/build/ir/Ginzburg333/Homology/Dual.c --json
+error: ././././Ginzburg333/Homology/Dual.lean:12:8: invalid field notation, type is not of the form (C ...) where C is a constant
+  exactAt_iff_range_eq_ker
+has type
+  ∀ (f : ?m.5448 →ₗ[?m.5447] ?m.5449) (g : ?m.5449 →ₗ[?m.5447] ?m.5450),
+    ExactAt f g ↔ LinearMap.range f = LinearMap.ker g
+error: ././././Ginzburg333/Homology/Dual.lean:13:6: no goals to be solved
+error: Lean exited with code 1
+✔ [1667/1670] Built Ginzburg333.Ginzburg
+✔ [1668/1670] Built Ginzburg333.Ginzburg.Words
+✔ [1669/1670] Built Ginzburg333.Ginzburg.Homogeneous
+✖ [1670/1670] Building Ginzburg333.Ginzburg.FiniteDegree
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Ginzburg/FiniteDegree.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Ginzburg/FiniteDegree.olean -i ././.lake/build/lib/lean/Ginzburg333/Ginzburg/FiniteDegree.ilean -c ././.lake/build/ir/Ginzburg333/Ginzburg/FiniteDegree.c --json
+error: ././././Ginzburg333/Ginzburg/FiniteDegree.lean:24:8: failed to synthesize
+  Finite (Vertex × { gs // gs.length ≤ n })
+
+Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: ././././Ginzburg333/Ginzburg/FiniteDegree.lean:25:2: no goals to be solved
+error: ././././Ginzburg333/Ginzburg/FiniteDegree.lean:36:41: application type mismatch
+  Finsupp.supportedEquivFinsupp k
+argument
+  k
+has type
+  Type u_1 : Type (u_1 + 1)
+but is expected to have type
+  Set ?m.1981 : Type ?u.1980
+error: ././././Ginzburg333/Ginzburg/FiniteDegree.lean:34:58: unsolved goals
+k : Type u_1
+inst✝ : Field k
+n : ℕ
+⊢ FiniteDimensional k ↥(internalComponent n)
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Homology.Dual
+- Ginzburg333.Ginzburg.FiniteDegree
+error: build failed

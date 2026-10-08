@@ -1,0 +1,146 @@
+✔ [1662/1676] Built Ginzburg333.Homology.Exact
+⚠ [1663/1676] Built Ginzburg333.Homology.Quotient
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1664/1676] Built Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [1665/1676] Built Ginzburg333.Ginzburg
+✔ [1666/1676] Built Ginzburg333.Finite.Rank
+✔ [1667/1676] Built Ginzburg333.Ginzburg.Words
+✔ [1668/1676] Built Ginzburg333.Finite.Corner
+⚠ [1669/1676] Built Ginzburg333.Finite.Pencil
+warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1670/1676] Built Ginzburg333.Finite.Colon
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: 'omega' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [1671/1676] Built Ginzburg333.Auxiliary
+warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:58:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+⚠ [1672/1676] Built Ginzburg333.Finite.RowIdeals
+info: ././././Ginzburg333/Finite/RowIdeals.lean:139:44: Try this: ring_nf
+warning: ././././Ginzburg333/Finite/RowIdeals.lean:139:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✖ [1673/1676] Building Ginzburg333.Ginzburg.FreeWords
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/ginzburg333_work/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Ginzburg/FreeWords.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Ginzburg/FreeWords.olean -i ././.lake/build/lib/lean/Ginzburg333/Ginzburg/FreeWords.ilean -c ././.lake/build/ir/Ginzburg333/Ginzburg/FreeWords.c --json
+error: ././././Ginzburg333/Ginzburg/FreeWords.lean:85:4: tactic 'apply' failed, failed to unify
+  List.map ?f ?l = List.map ?g ?l
+with
+  List.map (fun x => wordTerm ((-1) ^ g.negativeDegree * x.1, g :: x.2)) (wordDifferential w gs) =
+    List.map (fun x => (-1) ^ g.negativeDegree • x)
+      (List.map (fun x => (prependWords [g]) (wordTerm x)) (wordDifferential w gs))
+case e_a.e_a
+k : Type u_1
+inst✝ : Field k
+w : Tensor k
+g : Generator
+gs : List Generator
+⊢ List.map (fun x => wordTerm ((-1) ^ g.negativeDegree * x.1, g :: x.2)) (wordDifferential w gs) =
+    List.map (fun x => (-1) ^ g.negativeDegree • x)
+      (List.map (fun x => (prependWords [g]) (wordTerm x)) (wordDifferential w gs))
+error: ././././Ginzburg333/Ginzburg/FreeWords.lean:167:18: unsolved goals
+case add
+k : Type u_1
+inst✝ : Field k
+w : Tensor k
+x y : List Generator →₀ k
+hx : (freeDifferential w) (parity x) = -parity ((freeDifferential w) x)
+hy : (freeDifferential w) (parity y) = -parity ((freeDifferential w) y)
+⊢ -parity ((freeDifferential w) x) + -parity ((freeDifferential w) y) =
+    -parity ((freeDifferential w) y) + -parity ((freeDifferential w) x)
+error: Lean exited with code 1
+✔ [1674/1676] Built Ginzburg333.Finite.Filtration
+✔ [1675/1676] Built Ginzburg333.Finite.Grading
+✖ [1676/1676] Building Ginzburg333.Bar.Positive
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/ginzburg333_work/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Bar/Positive.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Bar/Positive.olean -i ././.lake/build/lib/lean/Ginzburg333/Bar/Positive.ilean -c ././.lake/build/ir/Ginzburg333/Bar/Positive.c --json
+error: ././././Ginzburg333/Bar/Positive.lean:36:12: tactic 'apply' failed, failed to unify
+  ?x = ?y
+with
+  ((a 0).2.1 0 • unitVec 0 + ((a 0).2.1 1 • unitVec 1 + (a 0).2.1 2 • unitVec 2),
+        (a 0).2.2.1 0 • unitVec 0 + ((a 0).2.2.1 1 • unitVec 1 + (a 0).2.2.1 2 • unitVec 2), (a 0).2.2.2).1 =
+    (a 0).2.1
+case h.«0».fst
+k : Type u_1
+inst✝ : Field k
+a : Auxiliary k
+⊢ ((a 0).2.1 0 • unitVec 0 + ((a 0).2.1 1 • unitVec 1 + (a 0).2.1 2 • unitVec 2),
+        (a 0).2.2.1 0 • unitVec 0 + ((a 0).2.2.1 1 • unitVec 1 + (a 0).2.2.1 2 • unitVec 2), (a 0).2.2.2).1 =
+    (a 0).2.1
+error: ././././Ginzburg333/Bar/Positive.lean:36:12: tactic 'apply' failed, failed to unify
+  ?x = ?y
+with
+  ((a 1).2.1 0 • unitVec 0 + ((a 1).2.1 1 • unitVec 1 + (a 1).2.1 2 • unitVec 2),
+        (a 1).2.2.1 0 • unitVec 0 + ((a 1).2.2.1 1 • unitVec 1 + (a 1).2.2.1 2 • unitVec 2), (a 1).2.2.2).1 =
+    (a 1).2.1
+case h.«1».fst
+k : Type u_1
+inst✝ : Field k
+a : Auxiliary k
+⊢ ((a 1).2.1 0 • unitVec 0 + ((a 1).2.1 1 • unitVec 1 + (a 1).2.1 2 • unitVec 2),
+        (a 1).2.2.1 0 • unitVec 0 + ((a 1).2.2.1 1 • unitVec 1 + (a 1).2.2.1 2 • unitVec 2), (a 1).2.2.2).1 =
+    (a 1).2.1
+error: ././././Ginzburg333/Bar/Positive.lean:36:12: tactic 'apply' failed, failed to unify
+  ?x = ?y
+with
+  ((a 2).2.1 0 • unitVec 0 + ((a 2).2.1 1 • unitVec 1 + (a 2).2.1 2 • unitVec 2),
+        (a 2).2.2.1 0 • unitVec 0 + ((a 2).2.2.1 1 • unitVec 1 + (a 2).2.2.1 2 • unitVec 2), (a 2).2.2.2).1 =
+    (a 2).2.1
+case h.«2».fst
+k : Type u_1
+inst✝ : Field k
+a : Auxiliary k
+⊢ ((a 2).2.1 0 • unitVec 0 + ((a 2).2.1 1 • unitVec 1 + (a 2).2.1 2 • unitVec 2),
+        (a 2).2.2.1 0 • unitVec 0 + ((a 2).2.2.1 1 • unitVec 1 + (a 2).2.2.1 2 • unitVec 2), (a 2).2.2.2).1 =
+    (a 2).2.1
+error: ././././Ginzburg333/Bar/Positive.lean:28:72: unsolved goals
+unknown goal
+
+unknown goal
+error: ././././Ginzburg333/Bar/Positive.lean:28:72: unknown metavariable '?_uniq.63902'
+error: ././././Ginzburg333/Bar/Positive.lean:54:80: unsolved goals
+case forward.forward
+k : Type u_1
+inst✝ : Field k
+hn : Function.Injective next
+i✝¹ : Vertex
+a✝¹ : Fin 3
+i✝ : Vertex
+a✝ : Fin 3
+⊢ if i✝¹ = i✝ ∧ a✝¹ = a✝ then 1 = (if i✝¹ = i✝ then unitVec a✝¹ else 0) a✝
+  else 0 = (if i✝¹ = i✝ then unitVec a✝¹ else 0) a✝
+
+case reverse.reverse
+k : Type u_1
+inst✝ : Field k
+hn : Function.Injective next
+i✝¹ : Vertex
+a✝¹ : Fin 3
+i✝ : Vertex
+a✝ : Fin 3
+⊢ if i✝¹ = i✝ ∧ a✝¹ = a✝ then 1 = (if i✝¹ = i✝ then unitVec a✝¹ else 0) a✝
+  else 0 = (if i✝¹ = i✝ then unitVec a✝¹ else 0) a✝
+error: ././././Ginzburg333/Bar/Positive.lean:91:8: unknown constant 'Finsupp.congr_fun'
+error: ././././Ginzburg333/Bar/Positive.lean:116:41: application type mismatch
+  CyclicData.multiply_smul_right D a
+argument
+  a
+has type
+  Auxiliary k : Type u_1
+but is expected to have type
+  k : Type u_1
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Ginzburg.FreeWords
+- Ginzburg333.Bar.Positive
+error: build failed

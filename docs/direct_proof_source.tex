@@ -1,0 +1,493 @@
+\documentclass[a4paper,11pt]{ltjsarticle}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage[unicode,pdfencoding=auto,hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\setlength{\headheight}{24pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{テンソル正則性から Ginzburg 正則性へ}
+\fancyhead[R]{2026年10月7日}
+\fancyfoot[C]{\thepage}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{remark}[theorem]{注意}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ann}{Ann}
+\newcommand{\kk}{k}
+\newcommand{\Zthree}{\mathbb Z/3\mathbb Z}
+\newcommand{\dual}{^{\vee}}
+\newcommand{\barE}{\overline E}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\cF}{\mathcal F}
+\title{テンソル正則性から Ginzburg 正則性へ\\[3pt]
+\large 24次元補助代数と Koszul filtration による直接証明}
+\author{}
+\date{2026年10月7日\quad 代替証明ノート（Lean形式検証前）}
+\begin{document}
+\begin{center}
+{\LARGE テンソル正則性から Ginzburg 正則性へ}\\[7pt]
+{\large 24次元補助代数と Koszul filtration による直接証明}\\[9pt]
+2026年10月7日\quad 代替証明ノート（Lean形式検証前）
+\end{center}\vspace{3mm}
+\begin{abstract}
+三頂点 $(3,3,3)$ 箙の三次ポテンシャルについて，テンソル正則性から
+Ginzburg 正則性を直接導く．ポテンシャルの係数を乗法表とする24次元次数付き代数
+$E$ を構成し，階数二の一次元部分空間と全ての二次元部分空間が生成する右イデアルから
+頂点付き Koszul filtration を作る．必要な colon の計算は内部次数 $0,1,2,3$ の
+線形代数に尽きる．bar ホモロジーの対角集中はホモロジー次数と生成元数に関する二重帰納法で
+証明する．最後に，Ginzburg 複体を，内部次数ごとの reduced bar 複体の双対と，
+符号を明示して同定する．avatar，曲線，直線束，球面 helix，導来圏の比較定理は用いない．
+本ノートは添付原稿~\cite{input} の上向きの含意に対する代替証明を記述するものであり，
+Lean のコンパイルによる検証済み成果物ではない．
+\end{abstract}
+
+\section{目標と規約}
+$k$ を標数零の代数閉体とし，$V_0=X,V_1=Y,V_2=Z$ を三次元ベクトル空間とする．
+添字は $\Zthree$ で読む．箙は $i\xrightarrow{V_i}i+1$ とし，元の原稿と同じく
+矢 $a:i\to j$ を $e_jae_i$ と書く．$ba$ は先に $a$，次に $b$ を通る道である．
+$w\in X\otimes Y\otimes Z$ の巡回置換を
+\[
+ w_i\in V_i\otimes V_{i+1}\otimes V_{i+2}
+\]
+と書く．$\alpha\in V_i\dual$ に対して
+\begin{equation}\label{eq:mu}
+ \mu_{i,\alpha}:V_{i+1}\dual\longrightarrow V_{i+2},\qquad
+ \beta\longmapsto(\alpha\otimes\beta\otimes1)w_i
+\end{equation}
+と置く．テンソル正則性は
+\begin{equation}\label{eq:reg}
+ \rank\mu_{i,\alpha}\geq2\qquad(i\in\Zthree,\ 0\ne\alpha\in V_i\dual)
+\end{equation}
+である．これは原稿~\cite[定義1.1]{input} の条件そのものである．
+
+$\Gamma=\Gamma(Q,w)$ は通常の，完備化していない Ginzburg dg 代数とする．
+生成元は元の矢 $a$，逆向き矢 $a^*$，頂点ループ $t_i$ であり，
+\[
+ |a|=0,\quad |a^*|=-1,\quad |t_i|=-2,\qquad
+ \deg_{\mathrm{int}}(a,a^*,t_i)=(1,2,3).
+\]
+微分は
+\begin{equation}\label{eq:gin}
+ d(a)=0,\quad d(a^*)=\partial_aw,\quad
+ d(t_i)=\sum_{s(a)=i}a^*a-\sum_{t(a)=i}aa^*
+\end{equation}
+である．以下，内部次数のシフトは $M(-1)_n=M_{n-1}$ とする．
+
+\begin{theorem}\label{thm:main}
+条件~\eqref{eq:reg} が成り立つならば
+\[
+ H^q\Gamma(Q,w)=0\qquad(q<0).
+\]
+すなわち，テンソル正則な三次ポテンシャルは Ginzburg 正則である．
+\end{theorem}
+
+証明の経路は
+\[
+ \begin{gathered}
+ \text{テンソル正則性}\ \Longrightarrow\
+ \text{24次元代数 $E$ の Koszul filtration}\\
+ \Longrightarrow\ \text{bar ホモロジーの対角集中}\ \Longrightarrow\ H^{<0}\Gamma=0.
+ \end{gathered}
+\]
+である．非可換 Koszul filtration の一般的枠組みは~\cite{Piontkovski} にある．
+本ノートでは，必要な半単純基底付きの主張をそのまま引用せず，証明する．
+
+\section{24次元の補助代数}
+$S=ke_0\oplus ke_1\oplus ke_2$ とし，$S$ 上の内部次数付き代数 $E$ を次の乗法表で定義する．
+\begin{equation}\label{eq:Ecomponents}
+ \begin{aligned}
+ E_0&=S, &e_iE_1e_{i+1}&=V_i\dual,\\
+ e_iE_2e_{i+2}&=V_{i+2},&e_iE_3e_i&=k\tau_i,
+ \end{aligned}
+ \qquad E_d=0\quad(d>3).
+\end{equation}
+表示されていない corner は零である．したがって $\dim_kE=3+9+9+3=24$．
+$\alpha\in V_i\dual$，$\beta\in V_{i+1}\dual$，$v\in V_i$ に対して
+\begin{equation}\label{eq:mult}
+ \alpha\beta=(\alpha\otimes\beta\otimes1)w_i,\qquad
+ \alpha v=\alpha(v)\tau_i,\qquad
+ v\alpha=\alpha(v)\tau_{i+1}
+\end{equation}
+とする．総内部次数が四以上の積は零であり，$E_0$ の作用は corner の規約による．
+ここでは $V_i\dual$ は元の矢とは逆向きの corner にある．
+
+\begin{lemma}
+この乗法は結合的である．
+\end{lemma}
+\begin{proof}
+次数零の元を含む場合は $S$-双加群の規約に帰着する．三つの正次数の元の総次数が四以上なら
+両辺とも零である．残るのは $\alpha\in V_i\dual$，$\beta\in V_{i+1}\dual$，
+$\gamma\in V_{i+2}\dual$ の場合だけであり，
+\[
+ (\alpha\beta)\gamma
+ =w_i(\alpha,\beta,\gamma)\tau_i
+ =\alpha(\beta\gamma)
+\]
+となる．最後の等号は $w_i$ と $w_{i+1}$ が巡回置換で結ばれることによる．
+\end{proof}
+
+各 $i$ について $e_iE$ の次数別次元は $(1,3,3,1)$ である．
+$E_1E_2\to E_3$ と $E_2E_1\to E_3$ の対応する corner の積は完全な評価ペアリングである．
+$\tau_i\mapsto1$，他の次数を零に送る汎関数の和は Frobenius 形式を与えるが，
+以下ではこの用語の一般論を使わず，評価ペアリングのみを用いる．
+
+\begin{remark}
+この時点で $E$ を $J(w)$ の quadratic dual と\emph{仮定しない}．
+$E$ は有限の乗法表から直接定義されている．これを先に quadratic dual と同定し，
+その有限性や Hilbert 級数を既知とすると，正則性の証明が循環するおそれがある．
+\end{remark}
+
+\section{階数条件から得られる三つの補題}
+以下では~\eqref{eq:reg} を仮定する．$\barE=E_{>0}$ と置く．
+
+\begin{lemma}[二次元部分空間の積]\label{lem:plane}
+$U\subset V_i\dual$ が二次元ならば
+\begin{equation}\label{eq:planeproduct}
+ U\,V_{i+1}\dual=V_{i+2}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+左辺が真部分空間ならば，これを消す $0\ne\zeta\in V_{i+2}\dual$ が存在する．
+したがって
+\[
+ w_i(\alpha,\beta,\zeta)=0\qquad(\alpha\in U,\ \beta\in V_{i+1}\dual).
+\]
+$\zeta$ による縮約を $V_i\dual\to V_{i+1}$ と読んだ線形写像の核は $U$ を含む．
+その階数は高々一であり，$V_{i+2}$ 方向のテンソル正則性に反する．
+\end{proof}
+
+特に $E_1E_1=E_2$ であり，評価ペアリングから $E_1E_2=E_3$ でもある．
+したがって $E$ は $S$ と $E_1$ で生成される．
+
+\begin{lemma}[各二次元部分空間内の階数二の元]\label{lem:root}
+任意の二次元部分空間 $U\subset V_i\dual$ は，
+$\rank\mu_{i,\alpha}=2$ を満たす非零元 $\alpha$ を含む．
+\end{lemma}
+\begin{proof}
+$u,v$ を $U$ の基底とする．$\det\mu_{i,v}=0$ ならば $\alpha=v$ とすればよい．
+そうでなければ
+\[
+ p(T)=\det(\mu_{i,u}+T\mu_{i,v})
+\]
+は先頭係数 $\det\mu_{i,v}\ne0$ の三次多項式である．代数閉性から根 $t\in k$ を持つ．
+$\alpha=u+tv\ne0$ に対して行列式が零となり，正則性から階数はちょうど二である．
+\end{proof}
+
+\begin{lemma}[階数二の元の右消去イデアル]\label{lem:ann}
+$0\ne\alpha\in V_i\dual$ が $\rank\mu_{i,\alpha}=2$ を満たすとし，
+$0\ne\beta\in\ker\mu_{i,\alpha}\subset V_{i+1}\dual$ を取る．このとき
+\begin{equation}\label{eq:ann}
+ \rank\mu_{i+1,\beta}=2,\qquad
+ \{b\in e_{i+1}E\mid\alpha b=0\}=\beta E.
+\end{equation}
+\end{lemma}
+\begin{proof}
+$\alpha\beta=0$ なので，任意の $\gamma\in V_{i+2}\dual$ について
+\[
+ \alpha(\beta\gamma)=(\alpha\beta)\gamma=0.
+\]
+$\beta\gamma\in V_i$ であるから，$\im\mu_{i+1,\beta}\subset\ker\alpha$．
+右辺は二次元なので，正則性から $\rank\mu_{i+1,\beta}=2$ となる．
+
+右消去イデアルを次数ごとに計算する．次数零は零，次数一は $k\beta$ である．
+次数二は評価 $\alpha:V_i\to k$ の核であり，先ほどの包含と次元比較から
+$\beta V_{i+2}\dual$ に等しい．次数三は全ての $k\tau_{i+1}$ であり，
+これは $\beta\ne0$ と評価ペアリングにより $\beta(e_{i+2}E_2)$ に等しい．
+これで全ての次数を調べた．
+\end{proof}
+
+\section{頂点付き Koszul filtration の構成}
+各 $i$ について，次の部分空間の族を取る．
+\begin{equation}\label{eq:admissible}
+ \cU_i=\{0,V_i\dual\}\cup
+ \{U\subset V_i\dual\mid\dim U=2\}\cup
+ \{k\alpha\mid0\ne\alpha\in V_i\dual,\ \rank\mu_{i,\alpha}=2\}.
+\end{equation}
+$U\in\cU_i$ に対して $I_i(U)=UE\subset e_iE$ と置く．
+$N_i=e_i\barE=I_i(V_i\dual)$ である．非零の $U$ に対する次数別次元は
+\[
+\begin{array}{c|ccc}
+ U&\dim I_i(U)_1&\dim I_i(U)_2&\dim I_i(U)_3\\\hline
+ \text{階数二の直線}&1&2&1\\
+ \text{二次元部分空間}&2&3&1\\
+ V_i\dual&3&3&1
+\end{array}
+\]
+となる．
+
+\begin{proposition}[colon の閉性]\label{prop:colon}
+$0\ne U\in\cU_i$ に対して，$U'\in\cU_i$，$\gamma\in U$，$T\in\cU_{i+1}$ を
+\[
+ U=U'\oplus k\gamma,\qquad
+ \{b\in e_{i+1}E\mid\gamma b\in I_i(U')\}=I_{i+1}(T)
+\]
+となるように取れる．したがって短完全列
+\begin{equation}\label{eq:ses}
+ 0\longrightarrow
+ \bigl(e_{i+1}E/I_{i+1}(T)\bigr)(-1)
+ \xrightarrow{\ b\mapsto\gamma b\ }
+ e_iE/I_i(U')\longrightarrow e_iE/I_i(U)\longrightarrow0
+\end{equation}
+がある．
+\end{proposition}
+\begin{proof}
+$\dim U$ に応じて三つの場合を調べる．
+
+\emph{一次元の場合．}
+$U=k\alpha$ とし $U'=0$，$\gamma=\alpha$ と置く．補題~\ref{lem:ann} により，
+colon は隣の頂点の階数二の元 $\beta$ が生成する $\beta E$ である．
+
+\emph{二次元の場合．}
+補題~\ref{lem:root} により階数二の $\alpha\in U$ を取り，
+$U'=k\alpha$，$U=k\alpha\oplus k\gamma$ とする．
+colon の次数一部分は
+\begin{equation}\label{eq:Tplane}
+ T=\{b\in V_{i+1}\dual\mid\gamma b\in\alpha V_{i+1}\dual\}.
+\end{equation}
+補題~\ref{lem:plane} により $\alpha V_{i+1}\dual+\gamma V_{i+1}\dual=V_{i+2}$ であり，
+$\alpha V_{i+1}\dual$ は二次元である．よって $T$ は三次元空間から一次元空間への
+全射の核であり，二次元である．colon の次数零は零であり，次数二と三は全体である．
+実際，$\alpha E$ の次数三部分は $k\tau_i$ 全体だからである．
+一方，$TE$ の次数二は補題~\ref{lem:plane} により全体，次数三も評価ペアリングにより全体である．
+従って colon は $TE$ に等しい．
+
+\emph{三次元の場合．}
+任意の二次元部分空間 $U'\subset V_i\dual$ を取り，$\gamma\notin U'$ とする．
+$I_i(U')$ は次数二と三で $e_iE$ と一致する．従って colon は
+$e_{i+1}\barE=I_{i+1}(V_{i+1}\dual)$ である．
+
+各場合において左乗法 $b\mapsto\gamma b$ の核が指定した colon であり，
+その像は $I_i(U)/I_i(U')$ なので，短完全列~\eqref{eq:ses} を得る．
+\end{proof}
+
+\begin{remark}
+族~\eqref{eq:admissible} 自体は有限集合である必要がない．必要なのは各要素について
+colon が同じ族に戻ることであり，次節の帰納法は有限の生成元数 $0,1,2,3$ に関して行う．
+無限列に沿って同時に点を選ぶことや，周期性を証明することは必要ない．
+\end{remark}
+
+\section{bar 複体による対角集中の証明}
+ここでは derived category や一般的な Koszul 双対定理を経由しない．
+非負内部次数の右 $E$-加群 $M$ に対して
+\[
+ B_r(M)=M\otimes_S\barE^{\otimes_S r}\qquad(r\geq0)
+\]
+を考える．微分の符号は，後の比較のため標準の bar 微分全体を $-1$ 倍したものを採用する．
+\begin{align}\label{eq:bardiff}
+ b(m\mid a_1\mid\cdots\mid a_r)
+ ={}&-ma_1\mid a_2\mid\cdots\mid a_r\notag\\
+ &+\sum_{j=1}^{r-1}(-1)^{j-1}
+ m\mid a_1\mid\cdots\mid a_ja_{j+1}\mid\cdots\mid a_r.
+\end{align}
+これは homological degree を一つ下げ，内部次数を保つ．結合則から $b^2=0$ である．
+$H_{r,n}(M)=H_r(B_\bullet(M))_n$ と書く．通常は $\Tor^E_r(M,S)_n$ と呼ぶ空間である．
+
+\begin{lemma}\label{lem:barbasic}
+次の性質が成り立つ．
+\begin{enumerate}
+\item $M$ が非負次数ならば $B_r(M)_n=0$ for $n<r$．
+\item $H_0(M)=M/M\barE$．特に $M=e_iE/I$，$I\subset e_i\barE$ ならば
+$H_0(M)$ は内部次数零に集中する．
+\item $H_r(e_iE)=0$ for $r>0$．
+\item 短完全列の右 $E$-加群から，$H_{r,n}$ の長完全列が得られる．
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(1) は各 $\barE$ 因子の次数が一以上であること，(2) は微分の定義による．
+(3) は normalized bar resolution の収縮を直接書けばよい．
+$m\in e_iE$ の正次数部分を $m_+$ として
+\[
+ h(m\mid a_1\mid\cdots\mid a_r)
+ =-e_i\mid m_+\mid a_1\mid\cdots\mid a_r
+\]
+と置く．内部次数零の augmentation を加えると
+$bh+hb=1$ であり，augmentation を外した次数零では
+$bh=1-\iota\varepsilon$ となる．これは~\eqref{eq:bardiff} に代入して隣接項を相殺すれば分かる．
+(4) では，$S$ が体の有限直積であるから $-\otimes_S\barE^{\otimes r}$ は完全である．
+従って複体の短完全列が得られ，通常のサイクルの持上げによる連結写像が長完全列を与える．
+\end{proof}
+
+\begin{proposition}\label{prop:linear}
+全ての $i$ と $U\in\cU_i$ に対して
+\begin{equation}\label{eq:linear}
+ H_{r,n}\bigl(e_iE/I_i(U)\bigr)=0\qquad(n\ne r)
+\end{equation}
+が成り立つ．特に $E$ は半単純基底 $S$ 上 Koszul である．
+\end{proposition}
+\begin{proof}
+$n<r$ は補題~\ref{lem:barbasic}(1) による．$n>r$ の消滅を，まず $r$，
+次に $d=\dim U$ に関して帰納する．$r=0$ は同補題(2)，$d=0$ は同補題(3)による．
+$r>0,d>0$ とする．命題~\ref{prop:colon} の短完全列から
+\[
+ H_{r,n}\bigl(e_iE/I_i(U')\bigr)
+ \longrightarrow H_{r,n}\bigl(e_iE/I_i(U)\bigr)
+ \longrightarrow H_{r-1,n-1}\bigl(e_{i+1}E/I_{i+1}(T)\bigr)
+\]
+が完全である．左の項は $\dim U'=d-1$ なので内側の帰納法により零である．
+右の項は $n-1>r-1$ なので外側の帰納法により零である．よって中央も零である．
+$U=V_i\dual$ とすれば右単純加群 $e_iS$ が得られ，その直和により
+\begin{equation}\label{eq:diagonal}
+ H_r\bigl(\barE^{\otimes_S\bullet}\bigr)_n=0\qquad(n\ne r)
+\end{equation}
+を得る．これは $S$ の線形分解，すなわち Koszul 性の bar ホモロジーによる定式化である．
+\end{proof}
+
+\section{Ginzburg 複体との直接比較}
+$B_r(S)=\barE^{\otimes_S r}$ と同定する．その内部次数 $n$ の部分を $B_{r,n}$ と書く．
+$S$-双加群の $k$-双対は左右の corner を反転する規約にする．
+$E_d\dual$ の元に対応する自由生成元を $\widehat f$ と書き，その bidegree を
+\[
+ (\deg_{\mathrm{int}}\widehat f,\ |\widehat f|)=(d,1-d)
+\]
+とする．$d=1$ では元の矢，$d=2$ では逆向き矢，$d=3$ ではループに対応する．
+特に $\widehat{\tau_i\dual}=t_i$ と置く．
+
+\begin{lemma}\label{lem:gendiff}
+$E$ の積 $m_{p,q}:E_p\otimes_SE_q\to E_{p+q}$ の双対を因子の順序を逆にして読むと，
+$\Gamma$ の生成元上の微分は
+\begin{equation}\label{eq:gendiff}
+ d(\widehat f)=\sum_{p+q=d}(-1)^{p+1}
+ \operatorname{rev}\bigl(m_{p,q}\dual(f)\bigr),\qquad f\in E_d\dual
+\end{equation}
+である．右辺の各双対因子は対応する自由生成元に置き換える．
+\end{lemma}
+\begin{proof}
+$d=1$ では和は空である．$d=2$ では $(p,q)=(1,1)$ の符号は正である．
+例えば $w=\sum c_{abc}x_a\otimes y_b\otimes z_c$ ならば
+\[
+ d(z_c^*)=\sum_{a,b}c_{abc}y_bx_a,
+\]
+すなわち巡回微分である．$d=3$ の場合，$m_{1,2}$ の双対からは
+$\sum_{s(a)=i}a^*a$ が正符号で，$m_{2,1}$ の双対からは
+$\sum_{t(a)=i}aa^*$ が負符号で現れる．これは~\eqref{eq:gin} に一致する．
+\end{proof}
+
+\begin{proposition}[符号を含む複体の同型]\label{prop:bridge}
+内部次数 $n$ を固定すると，$r=n+q$ に対して自然な複体の同型
+\begin{equation}\label{eq:bridge}
+ (B_{r,n})\dual\ \cong\ \Gamma_n^{\,r-n}
+\end{equation}
+が存在する．従って
+\begin{equation}\label{eq:hombridge}
+ H^q(\Gamma_n)\cong
+ H_{n+q,n}(S)\dual.
+\end{equation}
+右辺では $n+q<0$ のとき零と読む．
+\end{proposition}
+\begin{proof}
+$(d_1,\ldots,d_r)\in\{1,2,3\}^r$，$\sum d_j=n$ に対し
+\begin{equation}\label{eq:sign}
+ \sigma(d_1,\ldots,d_r)
+ =\sum_{j=1}^r(j-1)d_j+\binom r2+\#\{j\mid d_j=3\}\pmod2
+\end{equation}
+と置く．$f_j\in E_{d_j}\dual$ に対して
+\begin{equation}\label{eq:phi}
+ \Phi(f_1\otimes\cdots\otimes f_r)
+ =(-1)^{\sigma(d_1,\ldots,d_r)}\widehat f_r\cdots\widehat f_1
+\end{equation}
+とする．角の向きが反転するため，積の順序を逆にする．
+$\Gamma$ はこれらの自由生成元の道代数なので，これは次数ごとのベクトル空間の同型である．
+$r=0$ は $S\dual\cong S$ とする．
+
+微分との両立を調べる．$k$ 番目の因子 $d_k$ を $p+q$ に分割する項を考える．
+非零となり得るのは $(p,q)=(1,1),(1,2),(2,1)$ だけである．
+bar の双対の係数は $(-1)^{k-1}$ であり，$\Gamma$ 側で対応する項に出る符号の指数は
+\[
+ \sigma(d_1,\ldots,d_r)+
+ \sum_{j>k}(1-d_j)+(p+1).
+\]
+分割後の列を $\boldsymbol d'$ とすると，式~\eqref{eq:sign} から
+\[
+ \sigma(\boldsymbol d')-\sigma(\boldsymbol d)
+ \equiv q+\sum_{j>k}d_j+r+\mathbf1_{p+q=3}
+ \equiv p+\sum_{j>k}d_j+r\pmod2.
+\]
+最後の等号は三つの分割において
+$q+\mathbf1_{p+q=3}\equiv p\pmod2$ であることによる．
+従って両側の指数の差は
+\[
+ \sum_{j>k}(1-d_j)+(p+1)-(k-1)
+ -\bigl(\sigma(\boldsymbol d')-\sigma(\boldsymbol d)\bigr)
+ \equiv0\pmod2.
+\]
+よって $d\Phi=\Phi b\dual$ である．
+
+各内部次数では複体は有限次元である．実際，$r\le n$ であり，各因子も有限次元である．
+従って $k$-双対はホモロジーと交換し，式~\eqref{eq:hombridge} を得る．
+\end{proof}
+
+\begin{proof}[定理~\ref{thm:main}の証明]
+$q<0$ とすると $r=n+q<n$ である．命題~\ref{prop:linear} より
+$H_{n+q,n}(S)=0$ であり，命題~\ref{prop:bridge} より $H^q(\Gamma_n)=0$ となる．
+最後に $\Gamma=\bigoplus_{n\ge0}\Gamma_n$ であり，微分は内部次数を保つので，
+$H^q\Gamma=\bigoplus_nH^q\Gamma_n=0$ を得る．
+\end{proof}
+
+\begin{remark}[完備化と双対について]
+ここでは無限次元空間の無制限な双対を取らない．内部次数ごとの有限次元双対を取り，
+最後に直和する．従って得られるのは原稿と同じ非完備 Ginzburg dg 代数であり，
+直和と直積の混同はない．
+\end{remark}
+
+\begin{corollary}
+自然な dg 代数射 $\Gamma(Q,w)\to J(w)$ は擬同型である．
+\end{corollary}
+\begin{proof}
+$\Gamma$ は非正 cohomological degree のみを持ち，$H^0\Gamma=J(w)$ は定義から分かる．
+負次数の消滅と合わせればよい．
+\end{proof}
+
+\section{形式化上の分割と検証状況}
+証明の対象依存部分は，24次元空間の積と三次元空間の核・像・行列式である．
+高次数の問題は，対象に依存しない bar 複体の帰納補題へ分離されている．
+実装を分割するならば，次の五つを独立した単位とするのがよい．
+\begin{center}
+\begin{tabular}{p{.25\textwidth}p{.63\textwidth}}
+\toprule
+単位&内容\\\midrule
+補助代数&式~\eqref{eq:Ecomponents} と~\eqref{eq:mult}，結合則，corner の対応．\\
+三次元線形代数&補題~\ref{lem:plane}--\ref{lem:ann}．特に二次元部分空間内で行列式の根を取る．\\
+colon の閉性&命題~\ref{prop:colon}．次数 $0,1,2,3$ の核と像を比較する．\\
+bar 帰納補題&命題~\ref{prop:linear}．短完全列の長完全列と $(r,\dim U)$ の二重帰納法．\\
+Ginzburg 比較&式~\eqref{eq:phi}，符号計算，内部次数ごとの有限次元双対．\\\bottomrule
+\end{tabular}
+\end{center}
+一般の Koszul 双対性や derived category を先に実装する必要はない．
+$H_{r,n}(M)$ を明示的 bar 複体のホモロジーとして定義すれば，上記の証明をそのまま追える．
+同様に，最初に $J(w)$ の全次数 Hilbert 級数を求める必要もない．
+
+補助的な Python スクリプトでは，整数係数の Sklyanin 型テンソル
+（巡回項の係数 $1$，逆巡回項 $2$，対角項 $3$）について24個の基底元の
+全 $24^3=13824$ 個の結合則を検査した．同じ例で階数二の消去イデアルと
+二生成元 colon の次数一部分を有理数上で検査した．また，内部次数14以下の全ての
+$\{1,2,3\}$-組成について，式~\eqref{eq:phi} の微分との両立に現れる
+32124個の分割の符号を検査した．いずれも一致した．
+これらは実装ミスを検出する有限検査であり，上の一般証明や Lean 形式検証の代わりではない．
+
+\begin{remark}[仮定の使用箇所]
+この証明では標数零は用いていない．代数閉性を使うのは補題~\ref{lem:root} の
+三次多項式の根の存在だけである．従って同じ議論は，代数閉体上ならば任意の標数で
+この含意を与える．これは原稿の幾何学的分類全体の標数に関する主張ではない．
+\end{remark}
+
+\begin{samepage}\begin{thebibliography}{9}
+\bibitem{input}
+提供原稿，\emph{三頂点 $(3,3,3)$ 箙の Ginzburg 正則ポテンシャルと avatar：
+自由代数商，point 表現，球面 helix による直接分類}，2026年9月30日16:04 JST．
+\texttt{Ginzburg\_333\_avatar\_direct\_20260930.pdf}．
+本ノートは同原稿の定義1.1と微分の規約を使用し，テンソル正則性からGinzburg正則性への
+証明のみを置き換える．
+\bibitem{Piontkovski}
+D.~Piontkovski，\emph{Noncommutative Koszul filtrations}，
+arXiv:math/0301233，\S2，Definition 4，Proposition 2.1．
+非可換 Koszul filtration と二重帰納法の一般的枠組み．
+\end{thebibliography}\end{samepage}
+\end{document}

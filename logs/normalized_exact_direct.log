@@ -1,0 +1,21 @@
+Ginzburg333/Bar/NormalizedExact.lean:28:46: error: typeclass instance problem is stuck, it is often due to metavariables
+  Module ?m.16290 N
+Ginzburg333/Bar/NormalizedExact.lean:47:38: error: unknown identifier 'coefficientMap_lengthProjection'
+Ginzburg333/Bar/NormalizedExact.lean:44:101: error: unsolved goals
+k : Type u_1
+inst✝⁴ : Field k
+M : Type u_3
+N : Type u_4
+inst✝³ : AddCommGroup M
+inst✝² : Module k M
+inst✝¹ : AddCommGroup N
+inst✝ : Module k N
+D : CyclicData k
+A : RightAction D M
+B : RightAction D N
+f : M →ₗ[k] N
+hf : ∀ (a : Auxiliary k) (m : M), f ((A.action a) m) = (B.action a) (f m)
+r : ℕ
+x : Ambient M
+⊢ (normalization B) ((coefficientMap f) ((lengthProjection r) x)) =
+    (normalization B) ((lengthProjection r) ((coefficientMap f) x))

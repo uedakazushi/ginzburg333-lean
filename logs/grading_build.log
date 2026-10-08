@@ -1,0 +1,113 @@
+⚠ [1660/1670] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1663/1670] Replayed Ginzburg333.Auxiliary
+warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:58:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+⚠ [1664/1670] Replayed Ginzburg333.Finite.Colon
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: 'omega' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [1666/1670] Replayed Ginzburg333.Homology.Quotient
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1667/1670] Replayed Ginzburg333.Finite.RowIdeals
+info: ././././Ginzburg333/Finite/RowIdeals.lean:139:44: Try this: ring_nf
+warning: ././././Ginzburg333/Finite/RowIdeals.lean:139:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [1668/1670] Replayed Ginzburg333.Finite.Pencil
+warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✖ [1670/1670] Building Ginzburg333.Finite.Grading
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib/lean:././.lake/packages/batteries/.lake/build/lib/lean:././.lake/packages/Qq/.lake/build/lib/lean:././.lake/packages/aesop/.lake/build/lib/lean:././.lake/packages/proofwidgets/.lake/build/lib/lean:././.lake/packages/importGraph/.lake/build/lib/lean:././.lake/packages/LeanSearchClient/.lake/build/lib/lean:././.lake/packages/plausible/.lake/build/lib/lean:././.lake/packages/mathlib/.lake/build/lib/lean:././.lake/build/lib/lean /workspace/scratch/4218a45f64c1/tooling/lean-4.19.0-linux/bin/lean ././././Ginzburg333/Finite/Grading.lean -R ./././. -o ././.lake/build/lib/lean/Ginzburg333/Finite/Grading.olean -i ././.lake/build/lib/lean/Ginzburg333/Finite/Grading.ilean -c ././.lake/build/ir/Ginzburg333/Finite/Grading.c --json
+error: ././././Ginzburg333/Finite/Grading.lean:95:49: unsolved goals
+case intro
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+i : Vertex
+U : Submodule k (Vec k)
+b c : Auxiliary k
+r : Row k
+⊢ (D.quotientAction i U c) ((D.quotientAction i U b) (Submodule.Quotient.mk r)) =
+    (D.quotientAction i U (D.multiply b c)) (Submodule.Quotient.mk r)
+error: ././././Ginzburg333/Finite/Grading.lean:101:52: unsolved goals
+case intro
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+i : Vertex
+U : Submodule k (Vec k)
+r : Row k
+⊢ (D.quotientAction i U identityAuxiliary) (Submodule.Quotient.mk r) = Submodule.Quotient.mk r
+error: ././././Ginzburg333/Finite/Grading.lean:107:92: unsolved goals
+case intro
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+i : Vertex
+U : Submodule k (Vec k)
+b c : Auxiliary k
+r : Row k
+⊢ (D.quotientAction i U (b + c)) (Submodule.Quotient.mk r) =
+    (D.quotientAction i U b) (Submodule.Quotient.mk r) + (D.quotientAction i U c) (Submodule.Quotient.mk r)
+error: ././././Ginzburg333/Finite/Grading.lean:113:69: unsolved goals
+case intro
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+i : Vertex
+U : Submodule k (Vec k)
+t : k
+b : Auxiliary k
+r : Row k
+⊢ (D.quotientAction i U (t • b)) (Submodule.Quotient.mk r) = t • (D.quotientAction i U b) (Submodule.Quotient.mk r)
+error: ././././Ginzburg333/Finite/Grading.lean:132:61: unsolved goals
+case intro
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+i : Vertex
+U : Submodule k (Vec k)
+s : D.FiltrationStep i U
+d : Fin 4
+r : Row k
+⊢ (D.quotientProjection i U d) (s.projection (Submodule.Quotient.mk r)) =
+    s.projection ((D.quotientProjection i s.smaller d) (Submodule.Quotient.mk r))
+error: ././././Ginzburg333/Finite/Grading.lean:139:61: unsolved goals
+case intro
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+i : Vertex
+U : Submodule k (Vec k)
+s : D.FiltrationStep i U
+b : Auxiliary k
+r : Row k
+⊢ (D.quotientAction i s.smaller b) (s.inclusion (Submodule.Quotient.mk r)) =
+    s.inclusion ((D.quotientAction (next i) s.colon b) (Submodule.Quotient.mk r))
+error: ././././Ginzburg333/Finite/Grading.lean:145:97: unsolved goals
+case intro
+k : Type u_1
+inst✝ : Field k
+D : CyclicData k
+i : Vertex
+U : Submodule k (Vec k)
+s : D.FiltrationStep i U
+b : Auxiliary k
+r : Row k
+⊢ (D.quotientAction i U b) (s.projection (Submodule.Quotient.mk r)) =
+    s.projection ((D.quotientAction i s.smaller b) (Submodule.Quotient.mk r))
+error: Lean exited with code 1
+Some required builds logged failures:
+- Ginzburg333.Finite.Grading
+error: build failed

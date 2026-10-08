@@ -1,0 +1,5 @@
+⚠ [1660/1662] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [1662/1662] Built Ginzburg333.Ginzburg.Words
+Build completed successfully.

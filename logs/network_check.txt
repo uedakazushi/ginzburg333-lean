@@ -1,0 +1,3 @@
+Public distribution connectivity check (no source files uploaded):
+curl: (6) Could not resolve host: github.com
+curl exit code: 6

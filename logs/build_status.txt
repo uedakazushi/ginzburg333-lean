@@ -1,0 +1,1 @@
+LIBRARY BUILT; all project theorem axioms are standard. The main theorem is still absent.

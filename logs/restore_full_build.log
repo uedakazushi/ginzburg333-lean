@@ -1,0 +1,54 @@
+⚠ [1660/1696] Replayed Ginzburg333.Finite.Coordinates
+warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1662/1696] Replayed Ginzburg333.Finite.Pencil
+warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1664/1696] Replayed Ginzburg333.Finite.Colon
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Finite/Colon.lean:199:57: 'omega' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [1665/1696] Replayed Ginzburg333.Auxiliary
+warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././Ginzburg333/Auxiliary.lean:58:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
+⚠ [1669/1696] Replayed Ginzburg333.Homology.Quotient
+warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [1670/1696] Replayed Ginzburg333.Finite.RowIdeals
+info: ././././Ginzburg333/Finite/RowIdeals.lean:139:44: Try this: ring_nf
+warning: ././././Ginzburg333/Finite/RowIdeals.lean:139:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [1676/1696] Built Ginzburg333.Homology.Filtration
+✔ [1677/1696] Built Ginzburg333.Ginzburg
+✔ [1678/1696] Built Ginzburg333.Homology.Dual
+⚠ [1679/1696] Built Ginzburg333.Signs
+warning: ././././Ginzburg333/Signs.lean:107:7: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [1680/1696] Built Ginzburg333.Ginzburg.Words
+✔ [1681/1696] Built Ginzburg333.Ginzburg.Homogeneous
+✔ [1682/1696] Built Ginzburg333.Ginzburg.FiniteDegree
+✔ [1683/1696] Built Ginzburg333.Bar.Positive
+✔ [1684/1696] Built Ginzburg333.Ginzburg.FreeWords
+✔ [1685/1696] Built Ginzburg333.Ginzburg.SquareZero
+✔ [1686/1696] Built Ginzburg333.Bar.Ambient
+✔ [1687/1696] Built Ginzburg333.Ginzburg.Complex
+✔ [1688/1696] Built Ginzburg333.Bar.InnerSquare
+⚠ [1689/1696] Built Ginzburg333.Bar.SquareZero
+warning: ././././Ginzburg333/Bar/SquareZero.lean:147:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [1690/1696] Built Ginzburg333.Bar.Homological
+✔ [1691/1696] Built Ginzburg333.Bar.Corners
+✔ [1692/1696] Built Ginzburg333.Bar.Support
+✔ [1693/1696] Built Ginzburg333.Bar.Normalized
+✔ [1694/1696] Built Ginzburg333.Bar.NormalizedExact
+✔ [1695/1696] Built Ginzburg333
+Build completed successfully.
