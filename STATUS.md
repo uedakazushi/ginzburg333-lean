@@ -17,7 +17,9 @@ Pagesの公開先は https://uedakazushi.github.io/ginzburg333-lean/ です。
 修正版run 37737108544でLean全体検証と1214件の公理監査が成功しました。
 PDF生成はUbuntuのTeXのZapf Dingbatsフォント（pzdr.tfm）が不足して停止。
 texlive-fonts-recommendedを追加し、Lean検証jobと文書生成jobを分離しました。
-数学的な検証は成功済みで、デプロイ成功はまだ未確認です。
+run 37739062065（45d81afd77f939b3141e8b12972cdc89114662af）でverify/build/deployの全jobが成功しました。
+日本語PDF10ページ、103宣言、1142文書参照・1144公開参照のCI検査が成功しています。
+実行環境のgithub.ioへの通信制限により、公開HTTP取得は追加のPages確認workflowで検査します。
 所有者がSource: GitHub Actionsを設定し、APIでhas_pages=trueを確認しました。
 確認後に実際のCI結果と公開URLのHTTP取得結果を記録します。
 

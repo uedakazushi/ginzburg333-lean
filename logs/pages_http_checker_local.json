@@ -1,0 +1,95 @@
+{
+  "status": "PUBLIC_PAGES_HTTP_CHECKS_PASSED",
+  "site_url": "http://127.0.0.1:40931/ginzburg333-lean/",
+  "deployed_revision": "b3a15658b0a80238b6c4bd63c24bc3035d1e8662",
+  "mathematical_source_commit": "ea11e52179e60a9a64b673f43538a8a448e23b74",
+  "checked_at_utc": "2026-10-08T07:04:38.580703+00:00",
+  "pdf_sha256": "ffc7f389fd104525b88ea42bebef462bf9a4637a130b3aee6cce17e2e15b2ec4",
+  "pdf_pages": 10,
+  "html_pages": 14,
+  "checks": [
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/site-build.json",
+      "http_status": 200,
+      "content_type": "application/json",
+      "authentication_sent": false,
+      "bytes": 372,
+      "sha256": "43ccbe1bf130b311e28e95af3099faffeb60c6671f225534eeb32fd26f54bf19"
+    },
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/verification.json",
+      "http_status": 200,
+      "content_type": "application/json",
+      "authentication_sent": false,
+      "bytes": 2944,
+      "sha256": "b0cf158179b1d700f08e829102db7adf5c08c7443c57fad085cfb16b72a99a2e"
+    },
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/",
+      "http_status": 200,
+      "content_type": "text/html",
+      "authentication_sent": false,
+      "bytes": 6048,
+      "sha256": "bb1f04be2fa16ec668d9e4754629fe43f8160c82bbd522e82302dd36d0e86f4e"
+    },
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/dep_graph_document.html",
+      "http_status": 200,
+      "content_type": "text/html",
+      "authentication_sent": false,
+      "bytes": 101834,
+      "sha256": "332d608d7fa5bf1eaadd2e4853a0160ec24883679c2e6c85201d41e3c044b63c"
+    },
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/find/index.html",
+      "http_status": 200,
+      "content_type": "text/html",
+      "authentication_sent": false,
+      "bytes": 39705,
+      "sha256": "365d7d9cae98ff28b6468383acf4b03c53a06248c97f6ee1fdc9bccd6153c4f9"
+    },
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/blueprint_ja.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "authentication_sent": false,
+      "bytes": 228727,
+      "sha256": "ffc7f389fd104525b88ea42bebef462bf9a4637a130b3aee6cce17e2e15b2ec4"
+    },
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/js/mathjax/tex-chtml-full.js",
+      "http_status": 200,
+      "content_type": "text/javascript",
+      "authentication_sent": false,
+      "bytes": 1327522,
+      "sha256": "91b005503c5d1f0958bf4d73ada1a3be33596b2c4ab5da22277f1b0d3149b5a4"
+    },
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/js/mathjax/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff",
+      "http_status": 200,
+      "content_type": "font/woff",
+      "authentication_sent": false,
+      "bytes": 34160,
+      "sha256": "1cb1c39ea642f26a4dfed230b4aea1c3c218689421f6e9c0a7c1811693c4fa07"
+    },
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/js/graphvizlib.wasm",
+      "http_status": 200,
+      "content_type": "application/wasm",
+      "authentication_sent": false,
+      "bytes": 1099314,
+      "sha256": "d0b94b72100d77383de7e2f2afc344c3f613d1cd453e9cbf264759d7d2c62d86"
+    },
+    {
+      "url": "http://127.0.0.1:40931/ginzburg333-lean/js/expatlib.wasm",
+      "http_status": 200,
+      "content_type": "application/wasm",
+      "authentication_sent": false,
+      "bytes": 100896,
+      "sha256": "3a97493daaa71c38c02f7b67b2d79a93845b0f8824403ae0c15dadb27cef1893"
+    }
+  ],
+  "all_http_statuses_200": true,
+  "pdf_and_vendor_hashes_match": true,
+  "test_kind": "Local packaged-site fixture; actual public-site check runs in GitHub Actions."
+}

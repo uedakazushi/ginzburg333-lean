@@ -1,0 +1,22 @@
+{
+  "run_id": 37739062065,
+  "job_id": 113185284762,
+  "head_sha": "45d81afd77f939b3141e8b12972cdc89114662af",
+  "job_conclusion": "success",
+  "verify_exit_code": 0,
+  "source_file_count": 73,
+  "source_line_count": 7954,
+  "source_theorems": 540,
+  "source_hashes_match_local": true,
+  "kernel_theorems_checked": 1214,
+  "axiom_allowlist": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "unexpected_axioms": [],
+  "artifact_id": 11532934746,
+  "archive": "logs/pages_ci_lean_verification.zip",
+  "archive_sha256": "379f6152f3f0313c5a2aa5e304ac88f0fb03bc22ec2fb08e4e2cc070de009e39",
+  "checked_at_utc": "2026-10-08T06:57:56.851091+00:00"
+}

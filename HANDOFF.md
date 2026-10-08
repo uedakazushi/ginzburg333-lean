@@ -13,11 +13,16 @@ PDFへの入口も追加し、実行リビジョンと検証済み数学ソー�
 次のrun 37737108544ではverify.shと1214件の公理監査が成功し、TeXのpzdr.tfm不足で文書生成が失敗しました。
 texlive-fonts-recommendedを追加しています。verify/build/deployを別jobに分け、
 文書だけの再実行では成功済みLean jobをやり直さず、そのcacheを復元する構成です。
-実際のCI結果と公開URLの取得が成功するまでは、デプロイ完了と記録しないでください。
+run 37739062065のverify/build/deployが全て成功し、Pagesへのデプロイを確認しました。
+サイトのリビジョンは45d81afd77f939b3141e8b12972cdc89114662af、数学ソースの保存点はea11e52179e60a9a64b673f43538a8a448e23b74です。
+追加した公開HTTP確認workflowの成功までは、公開URLの取得確認済みとは記録しないでください。
 公開先は https://uedakazushi.github.io/ginzburg333-lean/ 、PDFは同URLのblueprint_ja.pdfです。
 Actionsのworkflow/jobログとPagesのHTTP・ブラウザ検査を保存してSTATUS/GAPS/VERIFICATIONを更新してください。
 
 今回の数学的Leanソースは変更していません。v6のLean・blueprintの検証結果は維持されています。
+.github/scripts/check_pages_publication.pyは、最新の成功済みmainデプロイを確認し、
+認証なしで10資源を取得、PDFとMathJaxのSHA-256、WASMのMIMEを検査します。
+対応するworkflowはMain Pages CI完了後に自動実行されます。確認コードのpushと手動実行にも対応。
 
 以下はv6の引き継ぎです。
 

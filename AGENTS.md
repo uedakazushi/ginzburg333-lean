@@ -61,3 +61,10 @@ main builds deploy; pull requests have no deployment. Site links must work below
 /ginzburg333-lean/, including local MathJax, WASM, source lookup and the PDF.
 Record actual workflow/deployment results separately from local checks. Initial
 Pages source selection requires the owner to choose GitHub Actions in Settings.
+
+Public HTTPS checks run separately in .github/workflows/pages-publication-check.yml,
+using .github/scripts/check_pages_publication.py. The managed session cannot access
+github.io; the hosted runner checks ten public resources without credentials,
+including PDF/vendor hashes and WASM MIME. This workflow follows successful main
+Pages runs and checks the corresponding deployed revision. Do not claim successful
+public HTTP retrieval solely from a successful deploy job.
