@@ -1,8 +1,9 @@
 # Agent instructions for this local Lean project
 
-The target is the avatar-free implication from tensor regularity to Ginzburg
+The target is the avatar-free equivalence of tensor regularity and Ginzburg
 regularity for the labelled (3,3,3) quiver over an algebraically closed field
-of characteristic zero. Inputs are in docs/.
+of characteristic zero. Both implications are proved; the converse holds over
+any field. Inputs are in docs/.
 
 The v3 source snapshot builds with Lean 4.19.0 and the pinned mathlib commit.
 All source theorem declarations compile. AuditAll.lean audits all theorems in
@@ -33,7 +34,12 @@ bootstrapped with scripts/bootstrap.sh. The readlink compatibility shim fixes
 only executable path discovery in PID namespaces and does not change Lean's
 kernel or proof validation.
 
-Current additional goal: prove GinzburgRegular -> TensorRegular and equivalence.
-Converse/LowDegree excludes rank zero; Euler/Paths/Counting prove actual
-finite-degree Jacobi growth. The rank-one free-corner lower bound and converse
-main theorem remain unfinished. Preserve the proved forward theorem.
+The converse is proved in Converse/Main.lean as
+Ginzburg333.ginzburgRegular_tensorRegular, and the equivalence is
+Ginzburg333.ginzburgRegular_iff_tensorRegular. Converse/Euler and Counting
+derive actual finite-degree Jacobi growth from negative exactness. Factors,
+Quotient, Representation, MatrixRelations, WordMap and JacobiMap construct
+the genuine free-corner representation; LoopLifts and Growth establish the
+exponential lower bound and the converse contradiction. Preserve both original
+predicates and both implications. Record converse/equivalence proof status
+only after the corresponding theorem and required kernel checks pass.

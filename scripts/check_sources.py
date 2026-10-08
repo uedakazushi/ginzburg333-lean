@@ -100,6 +100,8 @@ def audit() -> dict:
         "kernel_validation": "Not assessed by this textual audit; see VERIFICATION.json and kernel axiom logs.",
         "main_theorem_declared_textually": any(d["kind"] == "theorem" and d["name"] == "tensorRegular_ginzburgRegular" for d in declarations),
         "main_theorem_proof": "Not assessed by this textual audit; see the actual Lean and kernel audit logs.",
+        "converse_theorem_declared_textually": any(d["kind"] == "theorem" and d["name"] == "ginzburgRegular_tensorRegular" for d in declarations),
+        "equivalence_theorem_declared_textually": any(d["kind"] == "theorem" and d["name"] == "ginzburgRegular_iff_tensorRegular" for d in declarations),
         "source_file_count": len(files), "source_line_count": sum(f["lines"] for f in files),
         "declaration_counts": counts, "forbidden_tokens": flags,
         "passed_textual_audit": not flags, "files": files, "declarations": declarations}

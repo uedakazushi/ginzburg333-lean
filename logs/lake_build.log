@@ -1,15 +1,15 @@
-⚠ [1660/1725] Replayed Ginzburg333.Finite.Coordinates
+⚠ [1660/1736] Replayed Ginzburg333.Finite.Coordinates
 warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [1662/1725] Replayed Ginzburg333.Finite.Pencil
+⚠ [1662/1736] Replayed Ginzburg333.Finite.Pencil
 warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [1664/1725] Replayed Ginzburg333.Finite.Colon
+⚠ [1664/1736] Replayed Ginzburg333.Finite.Colon
 warning: ././././Ginzburg333/Finite/Colon.lean:199:57: this tactic is never executed
 note: this linter can be disabled with `set_option linter.unreachableTactic false`
 warning: ././././Ginzburg333/Finite/Colon.lean:199:57: 'omega' tactic does nothing
 note: this linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [1665/1725] Replayed Ginzburg333.Auxiliary
+⚠ [1665/1736] Replayed Ginzburg333.Auxiliary
 warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
@@ -20,20 +20,20 @@ info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
 info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
 info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
 info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
-⚠ [1668/1725] Replayed Ginzburg333.Signs
+⚠ [1668/1736] Replayed Ginzburg333.Signs
 warning: ././././Ginzburg333/Signs.lean:107:7: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [1672/1725] Replayed Ginzburg333.Homology.Quotient
+⚠ [1672/1736] Replayed Ginzburg333.Homology.Quotient
 warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [1674/1725] Replayed Ginzburg333.Finite.RowIdeals
+⚠ [1674/1736] Replayed Ginzburg333.Finite.RowIdeals
 info: ././././Ginzburg333/Finite/RowIdeals.lean:139:44: Try this: ring_nf
 warning: ././././Ginzburg333/Finite/RowIdeals.lean:139:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [1689/1725] Replayed Ginzburg333.Bar.SquareZero
+⚠ [1689/1736] Replayed Ginzburg333.Bar.SquareZero
 warning: ././././Ginzburg333/Bar/SquareZero.lean:147:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [1709/1725] Replayed Ginzburg333.Comparison.Generators
+⚠ [1709/1736] Replayed Ginzburg333.Comparison.Generators
 warning: ././././Ginzburg333/Comparison/Generators.lean:41:92: this tactic is never executed
 note: this linter can be disabled with `set_option linter.unreachableTactic false`
 warning: ././././Ginzburg333/Comparison/Generators.lean:41:113: this tactic is never executed
@@ -238,13 +238,13 @@ warning: ././././Ginzburg333/Comparison/Generators.lean:177:92: 'simp_all [coeff
 note: this linter can be disabled with `set_option linter.unusedTactic false`
 warning: ././././Ginzburg333/Comparison/Generators.lean:177:113: 'norm_num' tactic does nothing
 note: this linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [1717/1725] Replayed Ginzburg333.Comparison.Primitives
+⚠ [1717/1736] Replayed Ginzburg333.Comparison.Primitives
 warning: ././././Ginzburg333/Comparison/Primitives.lean:85:0: automatically included section variable(s) unused in theorem 'Ginzburg333.tensorRegular_ginzburgRegular':
   [CharZero k]
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [CharZero k] in theorem ...
 note: this linter can be disabled with `set_option linter.unusedSectionVars false`
-⚠ [1723/1725] Replayed Ginzburg333.Converse.Counting
+⚠ [1723/1736] Replayed Ginzburg333.Converse.Counting
 warning: ././././Ginzburg333/Converse/Counting.lean:45:28: try 'simp at h' instead of 'simpa using h'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
 warning: ././././Ginzburg333/Converse/Counting.lean:45:28: try 'simp at h' instead of 'simpa using h'
@@ -261,5 +261,17 @@ warning: ././././Ginzburg333/Converse/Counting.lean:86:14: try 'simp at h' inste
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
 warning: ././././Ginzburg333/Converse/Counting.lean:86:14: try 'simp at h' instead of 'simpa using h'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
-✔ [1724/1725] Built Ginzburg333
+⚠ [1728/1736] Replayed Ginzburg333.Converse.Representation
+warning: ././././Ginzburg333/Converse/Representation.lean:77:0: automatically included section variable(s) unused in theorem 'Ginzburg333.Converse.coeff_next':
+  [Field k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Field k] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././Ginzburg333/Converse/Representation.lean:79:0: automatically included section variable(s) unused in theorem 'Ginzburg333.Converse.coeff_prev':
+  [Field k]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Field k] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [1734/1736] Built Ginzburg333.Converse.Main
+✔ [1735/1736] Built Ginzburg333
 Build completed successfully.

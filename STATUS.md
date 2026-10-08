@@ -1,65 +1,72 @@
-# 作業状況 — v5・逆向き含意の実装中（2026年10月8日）
+# 作業状況 — v5・両方向と同値の証明完了（2026年10月8日）
 
-順方向の本来の主定理は証明済みです。今回追加された逆方向
-`Ginzburg.GinzburgRegular w → TensorRegular w` は、現時点では未宣言・未証明です。
+**元の二つの正則性の同値をLeanで証明しました。**
 
-今回の開始HEADは4a7657078a0af9ea51592bffc08988d135c4e2d9、ブランチwork、作業ディレクトリ/workspace/ginzburg333-lean。
-Lean 4.19.0 / mathlib c44e0c8ee63ca166450922a373c7409c5d26b00bを再確認しました。
-今回のverify.shは終了0。60数学モジュール、明示的theorem 472件、全公理監査1062件、Leanソース64件・7045行。標準の3公理以外の依存なし。
+- 順方向: `Ginzburg333.tensorRegular_ginzburgRegular`
+  （Comparison/Primitives.lean、標数0の代数閉体）。
+- 逆方向: `Ginzburg333.ginzburgRegular_tensorRegular`
+  （Converse/Main.lean、任意の体）。
+- 同値: `Ginzburg333.ginzburgRegular_iff_tensorRegular`
+  （Converse/Main.lean、標数0の代数閉体）。
 
-Converse/LowDegreeで階数0の縮約を実際の負次数閉元から除外しました。
-Converse/Eulerで元のGinzburgRegularから実際の内部次数別完全性とJacobi商のEuler等式を導出。
-Converse/Paths、Countingで頂点・次数を保つ有限基底の符号化と符号付き計数を証明し、
-内部次数nのJacobi商について2·dim=3(n+1)(n+2)、特にn=36でdim=2109を証明しました。
+TensorRegularとGinzburgRegularの元の意味を維持しています。
+両述語と微分を定義するFinite/Coordinates.leanとGinzburg.leanは、
+今回の開始HEADから一字も変更していません。avatar、sorry、admit、追加公理なし。
+一般の独立した三つの三次元空間についても、実際のテンソル積基底と選択基底を介する逆方向・同値を実装しました。
 
-階数1の場合には自由代数cornerへの写像と指数増大の下界を証明する必要があります。
-この下界を仮定して逆主定理を宣言することはしていません。
-以下は順方向を完成したv4の記録です。
+## 今回の検証
 
-# 作業状況 — 2026年10月8日 v4・主定理証明済み
+作業ディレクトリ /workspace/ginzburg333-lean、ブランチwork、
+開始HEAD 4a7657078a0af9ea51592bffc08988d135c4e2d9。
+以前のWorkのプロセスを仮定せず、途中の実行環境再開後もGitと処理系を確認して実行しました。
+Lean 4.19.0（6caaee842e94）、Lake 5.0.0、
+mathlib c44e0c8ee63ca166450922a373c7409c5d26b00b。
 
-**本来の主定理 `TensorRegular w → Ginzburg.GinzburgRegular w` をLeanで宣言・証明しました。**
-`Ginzburg333.tensorRegular_ginzburgRegular`（Comparison/Primitives.lean）が入口です。
-標数0の代数閉体上で要求された結論を満たします。avatarは使用せず、
-TensorRegularとGinzburgRegularの定義、実際の有限支持道微分を維持しました。
-
-今回の作業ディレクトリは `/workspace/ginzburg333-lean`、開始ブランチ `work`、開始HEAD
-`9aeada1ce4b797b8be39e9c78e452cf21b2ea14f`。以前のWorkの実行状態は引き継いでいません。
-Lean 4.19.0（6caaee842e94）、Lake 5.0.0、mathlib
-c44e0c8ee63ca166450922a373c7409c5d26b00bを今回の環境で確認して実行しました。
-基準verifyは終了0・全監査561件、Aの区切りは終了0・630件、
-B〜Cのみの区切りは終了0・698件、D部分までの保存時点は終了0・793件でした。
-
-最終の `bash scripts/verify.sh` は終了0。56数学モジュール、明示的theorem 433件、全公理監査923件（生成定理を含む）、Leanソース60件・6451行。
-主定理の型確認と公理監査も実行済み。sorry・admit・追加公理なし。
+最終の `bash scripts/verify.sh` は終了0。
+69数学モジュール、明示的theorem 540件、全公理監査1214件（生成定理を含む）、
+Leanソース73件・7954行。両主定理と同値の型確認も成功。
 依存公理はpropext、Classical.choice、Quot.soundのみです。
-logs/とVERIFICATION.jsonは今回の実行結果です。CIと独立数値検査は今回は実行していません。
+ログとVERIFICATION.jsonは今回の実行結果に基づいています。
+CIと独立Python数値検査は今回は実行していません。
 
-## A〜Eの完成箇所
+## 逆方向の完成箇所
 
-- A: Bar/Internal、InternalDifferential、InternalExact。
-  係数次数と語の重みによる内部次数、実際の微分との可換射影、有限次元性、n<rの零。
-  包含の次数+1を反映した内部次数別短完全列と微分の両立。
-- B: Bar/Free、FreeHomotopy、FreeExact。
-  頂点条件付きの実際の正規化自由行bar上で収縮を構成し、正の語長でBH+HB=1。
-- C: Bar/Zero、Filtration、Simple。
-  r=0,n>0の消滅、実際の短完全列のdiagram chase、filtration帰納法。
-  Allowedな商行と頂点単純加群の実際の正規化barの対角外完全性。
-- D: Comparison/FiniteDual、Reversal、Generators、Transpose、WordReversal、FiniteChain、Total。
-  各(r,n)の有限次元双対と有効道成分を符号付き因子反転で同定。
-  頂点、生成元係数、全長の符号、実際の微分の両立を証明。
-  finiteDualReversal_differentialとtotalDualReversal_differentialが実際の鎖同型を与えます。
-  totalDualReversalは三頂点の有限双対の直和とGinzburgの二重次数成分全体の同型です。
-- E: Comparison/Primitives、Bases。
-  実際の双対bar完全性から内部次数別の原始元を構成し、有限支持の有限和へ戻しました。
-  任意の独立した三つの三次元空間のテンソル積基底と基底選択を接続。
-  tensorRegular_ginzburgRegularが本来の主定理です。
+1. LowDegree: 階数0の縮約から内部次数2の実際の負次数閉元を構成し、非完全性を導出。
+2. Euler、Paths、Counting: 元のGinzburgRegularから実際の内部次数別完全性を得て、
+   実際のJacobi商のEuler等式と頂点付き道の計数を証明。
+   `2·finrank = 3(n+1)(n+2)`、内部次数36では2109次元。
+3. Factors、Quotient: 階数1の縮約の因子分解、二つの直線を消す実際の商、
+   全射な二次元関係商座標を構成。
+4. Representation、MatrixRelations、WordMap、JacobiMap:
+   2生成自由代数を係数とする行列表現を構成し、全生成元と有限支持の有効道で
+   元の微分の像が零に写ることを証明。実際の内部Jacobi商へ写像を降ろしました。
+5. LoopLifts、Growth: 自由語の実際の閉道への有限支持持ち上げを構成し、
+   `2^m ≤ finrank (internalJacobi w (3*m))` を証明。
+   m=12では4096以上となり、2109次元と矛盾します。
+6. Main: 逆主定理、既存の順方向との同値、三つの基底・選択基底への接続。
 
-`ginzburgRegular_of_internal_primitives`自体は条件付き還元補題です。
-今回はその仮定をginzburg_internal_primitivesで証明し、主定理へ適用しました。
-結論を含む仮定によって主定理を補っていません。
+FreeCornerDataは補助的な表現データです。主定理では階数1の因子分解から
+その存在と指数下界を実際に証明して使っています。
+下界や目的の結論を新しい仮定として置いていません。
 
-originはuedakazushi/ginzburg333-lean。ユーザーは検証済み区切りのmainへのpushを明示承認しました。
-Aのc6062b2a04a3378f3407bd339ae087a21b18375aと、B〜C・D部分の69e7c880d2cdbbe6d7e40cce3eb4dc4cd52f075aは
-実際にmainへpushし、参照確認済みです。この完成版も同じmainへの公開対象です。
-このファイルを含む完成コミットの公開状態・SHAはGit履歴とremote refで確認してください。
+## 順方向A〜Eと保存履歴
+
+v4でA〜Eを完成しています。内部次数と包含+1付き短完全列、
+頂点条件付き正規化自由行barの収縮、filtrationによる対角外完全性、
+内部次数別有限双対と道複体の鎖同型、有限支持原始元と基底選択が実装済みです。
+証明の入口はHANDOFF.mdを参照してください。
+
+| 検証済み区切り | 全公理監査件数 |
+|---|---:|
+| 保存済みv3 | 561 |
+| A | 630 |
+| B〜C | 698 |
+| A〜C・D部分 | 793 |
+| 順方向完成v4 | 923 |
+| 逆方向・多項式増大 | 1062 |
+| 両方向・同値完成v5 | 1214 |
+
+順方向完成4a7657078a0af9ea51592bffc08988d135c4e2d9と、
+今回の増大度の区切り6718bd70f54bfa2c006cea24f82db8c5d114b8ebは実際にmainへ公開済み。
+ユーザーは検証済み区切りのmainへのpushを明示承認済みです。
+この完成版を含むコミットのSHAと公開状態はGit履歴とremote refで確認してください。

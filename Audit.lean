@@ -56,3 +56,13 @@ import Ginzburg333
 #print axioms Ginzburg333.Ginzburg.internalJacobi_finrank_euler
 #print axioms Ginzburg333.Ginzburg.internalJacobi_quadratic_growth
 #print axioms Ginzburg333.Ginzburg.internalJacobi_finrank_36
+#print axioms Ginzburg333.Converse.rankOneSlice_exists
+#print axioms Ginzburg333.Converse.freeCornerData_exists
+#print axioms Ginzburg333.Converse.pathMatrixEvaluation_differential
+#print axioms Ginzburg333.Converse.liftFreeWord_entry00
+#print axioms Ginzburg333.Converse.freeCorner_exponential_lower_bound
+#print axioms Ginzburg333.ginzburgRegular_tensorRegular
+#print axioms Ginzburg333.ginzburgRegular_iff_tensorRegular
+#print axioms Ginzburg333.Comparison.ginzburgRegular_iff_tensorRegular_chosen_bases
+#check Ginzburg333.ginzburgRegular_tensorRegular
+#check Ginzburg333.ginzburgRegular_iff_tensorRegular

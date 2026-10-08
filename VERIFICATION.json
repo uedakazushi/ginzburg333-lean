@@ -1,7 +1,7 @@
 {
   "project": "ginzburg333_lean",
-  "snapshot": "20261008_v5_converse_growth",
-  "status": "FORWARD_PROVED_CONVERSE_PARTIAL",
+  "snapshot": "20261008_v5_complete",
+  "status": "REGULARITY_EQUIVALENCE_PROVED",
   "lean_toolchain_target": "leanprover/lean4:v4.19.0",
   "lean_version_executed": "4.19.0",
   "lean_commit_executed": "6caaee842e94",
@@ -17,8 +17,8 @@
   "audit_all_lean_executed": true,
   "audit_all_exit_code": 0,
   "kernel_checked": true,
-  "kernel_verified_source_theorems": 472,
-  "kernel_audited_theorems_including_generated": 1062,
+  "kernel_verified_source_theorems": 540,
+  "kernel_audited_theorems_including_generated": 1214,
   "axiom_allowlist": [
     "propext",
     "Classical.choice",
@@ -28,9 +28,9 @@
   "main_theorem_declared": true,
   "main_theorem_proved": true,
   "lean_errors": [],
-  "mathematical_modules": 60,
-  "lean_source_files": 64,
-  "lean_source_lines": 7045,
+  "mathematical_modules": 69,
+  "lean_source_files": 73,
+  "lean_source_lines": 7954,
   "textual_audit_passed": true,
   "independent_checks_executed_this_update": false,
   "independent_checks_previous_checkpoint_passed": true,
@@ -42,15 +42,17 @@
   "github_push_performed": true,
   "ci_run_triggered": false,
   "blocking_environment": null,
-  "remaining_formalization_gaps": [
-    "Converse: actual free-algebra corner image and exponential lower bound from a rank-one slice; converse theorem and equivalence"
-  ],
-  "verified_at_utc": "2026-10-08T04:13:33.826966+00:00",
-  "new_source_theorems_this_update": 39,
+  "remaining_formalization_gaps": [],
+  "verified_at_utc": "2026-10-08T04:44:33.798308+00:00",
+  "new_source_theorems_this_update": 107,
   "proved_this_update": [
     "Rank-zero contractions excluded by actual internal-degree-2 negative Ginzburg cycles",
-    "Actual internally homogeneous negative exactness and finite Euler identity derived from GinzburgRegular",
-    "Actual vertex/path basis counting and quadratic internal Jacobi growth; internal degree 36 has dimension 2109"
+    "Actual internally homogeneous negative exactness, finite Euler identity, path counting and quadratic growth of the actual internal Jacobi quotient",
+    "Rank-one factorization, genuine line quotients and surjective two-dimensional relation quotient coordinates",
+    "Free-algebra matrix representation annihilates the original differential on all finite-support valid paths",
+    "Actual closed-path lifts of free words and the bound 2^m <= finrank(internalJacobi w (3*m))",
+    "Converse over any field by the degree-36 contradiction 4096 <= 2109",
+    "Equivalence over algebraically closed fields of characteristic zero, including independent three-dimensional tensor-factor basis bridges"
   ],
   "bar_internal_grading_implemented": true,
   "bar_free_contraction_implemented": true,
@@ -64,14 +66,14 @@
   "execution_start_head": "4a7657078a0af9ea51592bffc08988d135c4e2d9",
   "baseline_verification_script_exit_code": 0,
   "baseline_kernel_audited_theorems": 923,
-  "publication_status": "Main publication authorized; forward-complete checkpoint already published. This verified converse-growth checkpoint is to be published; consult Git history and remote ref for its SHA.",
+  "publication_status": "The verified converse-growth checkpoint 6718bd70f54bfa2c006cea24f82db8c5d114b8eb was published to main during this update. This equivalence-complete record is prepared for the already authorized main publication; its containing commit SHA and publication are recorded by Git history and the remote ref.",
   "bar_filtration_vanishing_implemented": true,
   "bar_simple_quotient_identified": true,
   "bar_finite_dual_reversal_vector_space_equiv": true,
   "bar_ginzburg_generator_coefficients_compatible": true,
   "finite_support_primitives_from_tensor_regularity_implemented": true,
   "general_three_space_basis_bridge_implemented": true,
-  "previously_published_checkpoint_sha": "4a7657078a0af9ea51592bffc08988d135c4e2d9",
+  "previously_published_checkpoint_sha": "6718bd70f54bfa2c006cea24f82db8c5d114b8eb",
   "audit_lean_exit_code": 0,
   "main_theorem": "Ginzburg333.tensorRegular_ginzburgRegular",
   "main_theorem_source": "Ginzburg333/Comparison/Primitives.lean",
@@ -84,12 +86,39 @@
     "A": 630,
     "BC": 698,
     "ABC_D_partial": 793,
-    "complete": 923
+    "complete": 923,
+    "converse_growth": 1062,
+    "equivalence_complete": 1214
   },
-  "converse_theorem_declared": false,
-  "converse_theorem_proved": false,
+  "converse_theorem_declared": true,
+  "converse_theorem_proved": true,
   "converse_rank_zero_excluded": true,
   "converse_actual_internal_euler_identity_proved": true,
   "converse_actual_polynomial_growth_proved": true,
-  "converse_free_corner_lower_bound_proved": false
+  "converse_free_corner_lower_bound_proved": true,
+  "verification_attempted_at_utc": "2026-10-08T04:39:04Z",
+  "converse_theorem_type_checked": true,
+  "converse_theorem": "Ginzburg333.ginzburgRegular_tensorRegular",
+  "converse_theorem_source": "Ginzburg333/Converse/Main.lean",
+  "converse_field_assumptions": [
+    "Field k"
+  ],
+  "equivalence_theorem_declared": true,
+  "equivalence_theorem_proved": true,
+  "equivalence_theorem_type_checked": true,
+  "equivalence_theorem": "Ginzburg333.ginzburgRegular_iff_tensorRegular",
+  "equivalence_theorem_source": "Ginzburg333/Converse/Main.lean",
+  "equivalence_field_assumptions": [
+    "Field k",
+    "IsAlgClosed k",
+    "CharZero k"
+  ],
+  "converse_actual_differential_annihilated_by_representation": true,
+  "converse_finite_support_free_word_lifts_implemented": true,
+  "converse_general_three_space_basis_bridge_implemented": true,
+  "equivalence_general_three_space_basis_bridge_implemented": true,
+  "predicate_source_files_unchanged_from_turn_start": {
+    "Ginzburg333/Ginzburg.lean": true,
+    "Ginzburg333/Finite/Coordinates.lean": true
+  }
 }

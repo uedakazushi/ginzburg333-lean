@@ -56,3 +56,17 @@ Ginzburg333.tensorRegular_ginzburgRegular.{u_1} {k : Type u_1} [Field k] [IsAlgC
 'Ginzburg333.Ginzburg.internalJacobi_finrank_euler' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Ginzburg333.Ginzburg.internalJacobi_quadratic_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Ginzburg333.Ginzburg.internalJacobi_finrank_36' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Converse.rankOneSlice_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Converse.freeCornerData_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Converse.pathMatrixEvaluation_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Converse.liftFreeWord_entry00' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Converse.freeCorner_exponential_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.ginzburgRegular_tensorRegular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.ginzburgRegular_iff_tensorRegular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Comparison.ginzburgRegular_iff_tensorRegular_chosen_bases' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Ginzburg333.ginzburgRegular_tensorRegular.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hw : Ginzburg333.Ginzburg.GinzburgRegular w) : Ginzburg333.TensorRegular w
+Ginzburg333.ginzburgRegular_iff_tensorRegular.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k] [CharZero k]
+  (w : Ginzburg333.Tensor k) : Ginzburg333.Ginzburg.GinzburgRegular w ↔ Ginzburg333.TensorRegular w

@@ -4,13 +4,15 @@
   "kernel_validation": "Not assessed by this textual audit; see VERIFICATION.json and kernel axiom logs.",
   "main_theorem_declared_textually": true,
   "main_theorem_proof": "Not assessed by this textual audit; see the actual Lean and kernel audit logs.",
-  "source_file_count": 64,
-  "source_line_count": 7045,
+  "converse_theorem_declared_textually": true,
+  "equivalence_theorem_declared_textually": true,
+  "source_file_count": 73,
+  "source_line_count": 7954,
   "declaration_counts": {
-    "abbrev": 20,
-    "theorem": 472,
-    "def": 187,
-    "structure": 3,
+    "abbrev": 26,
+    "theorem": 540,
+    "def": 215,
+    "structure": 6,
     "inductive": 3
   },
   "forbidden_tokens": [],
@@ -18,8 +20,8 @@
   "files": [
     {
       "file": "Audit.lean",
-      "lines": 58,
-      "sha256": "1eff08ede02c7e4cb70dc9d4ff0498a27cfb29c108feeb2182c7d5126455df16"
+      "lines": 68,
+      "sha256": "ba0a61613d23a6b6a58279a67fe93454020a691ed9751a943a3e9f71d5d49c73"
     },
     {
       "file": "AuditAll.lean",
@@ -212,14 +214,59 @@
       "sha256": "e6db975038163b7c9caf8783a6ea87769eea448437c6959666148fcca30418ab"
     },
     {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "lines": 125,
+      "sha256": "caab04efb5f741d9553739a9efeae78cb437d56f6bdc1aa9efaf936fd3578eba"
+    },
+    {
+      "file": "Ginzburg333/Converse/Growth.lean",
+      "lines": 38,
+      "sha256": "51fb60a4b911e6dfa3af95ef0389993f6bf199b8ef1331960b95ed0e11ab6a4f"
+    },
+    {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "lines": 68,
+      "sha256": "74e59645199af0102783b7121222b58d2b882c3093a9c5131a358b6b2eb8f74c"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "lines": 145,
+      "sha256": "1486e9a0fe960eb27bfac6a553dd83fab36ea7ec5b9bb152a859fe7ef438aec3"
+    },
+    {
       "file": "Ginzburg333/Converse/LowDegree.lean",
       "lines": 100,
       "sha256": "b5f8bd92820dfc33f65cd09a4a71b670054f77febad9921c7a63865c2d2311b4"
     },
     {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "lines": 64,
+      "sha256": "cfd2979bc9e96c93e848cc60ddc9cc09a06ab7091930b08904974833e32656c7"
+    },
+    {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "lines": 108,
+      "sha256": "570e8a19b5e5612d52e8b8f72fe700aa3ee80a4ef56820480a7c6e7d94e6aa3e"
+    },
+    {
       "file": "Ginzburg333/Converse/Paths.lean",
       "lines": 187,
       "sha256": "523e597b962e1edcd4ca69cad0835d1bb40db9d581b4f65592424aaed584da40"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "lines": 136,
+      "sha256": "909f47a859841424c2b35d59c21712d16f9ed04f9e8b65e886b00f035b9f18c2"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "lines": 98,
+      "sha256": "c62db8553b082520f4ef4f2ac82dd442c58aa5cf1fa37ad08a21da570b712246"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "lines": 108,
+      "sha256": "17dc602402afb31fc56a53cfcdd1a6d78398fdacef067ea5c7125951c10af1a8"
     },
     {
       "file": "Ginzburg333/Finite/Colon.lean",
@@ -328,8 +375,8 @@
     },
     {
       "file": "Ginzburg333.lean",
-      "lines": 60,
-      "sha256": "d5206a791c4963eda1c6e820d23b268b572a1ab20912238810470f7bb703c59d"
+      "lines": 69,
+      "sha256": "4a5bcc452100ac10df5b9bf0bffba751d555e0b4ee83a66a1063cebf37189be6"
     },
     {
       "file": "lakefile.lean",
@@ -2613,6 +2660,258 @@
       "name": "internalJacobi_finrank_euler"
     },
     {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 10,
+      "kind": "theorem",
+      "name": "contraction_unit_coefficients"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 14,
+      "kind": "structure",
+      "name": "RankOneSlice"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 21,
+      "kind": "theorem",
+      "name": "rankOneSlice_exists"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 67,
+      "kind": "theorem",
+      "name": "rankOneSlice_of_not_regular"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 79,
+      "kind": "abbrev",
+      "name": "SmallVec"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 80,
+      "kind": "def",
+      "name": "smallUnit"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 82,
+      "kind": "theorem",
+      "name": "sum_smallUnit"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 88,
+      "kind": "def",
+      "name": "firstTwoCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 94,
+      "kind": "theorem",
+      "name": "firstTwoCoordinates_surjective"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 103,
+      "kind": "abbrev",
+      "name": "LineQuotient"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 105,
+      "kind": "theorem",
+      "name": "lineQuotient_finrank"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 111,
+      "kind": "def",
+      "name": "quotientCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 114,
+      "kind": "def",
+      "name": "killLine"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 117,
+      "kind": "theorem",
+      "name": "killLine_surjective"
+    },
+    {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 120,
+      "kind": "theorem",
+      "name": "killLine_self"
+    },
+    {
+      "file": "Ginzburg333/Converse/Growth.lean",
+      "line": 11,
+      "kind": "theorem",
+      "name": "freeCorner_exponential_lower_bound"
+    },
+    {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 11,
+      "kind": "theorem",
+      "name": "matrixEvaluation_word_differential"
+    },
+    {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 21,
+      "kind": "theorem",
+      "name": "locatedMatrixEvaluation_differential"
+    },
+    {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 32,
+      "kind": "theorem",
+      "name": "pathMatrixEvaluation_differential"
+    },
+    {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 37,
+      "kind": "def",
+      "name": "jacobiMatrixEvaluation"
+    },
+    {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 46,
+      "kind": "theorem",
+      "name": "jacobiMatrixEvaluation_mk"
+    },
+    {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 51,
+      "kind": "def",
+      "name": "matrixEntry00"
+    },
+    {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 56,
+      "kind": "def",
+      "name": "jacobiEvaluation"
+    },
+    {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 60,
+      "kind": "theorem",
+      "name": "jacobiEvaluation_wordToPaths"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "vecTensor_expansion"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 23,
+      "kind": "def",
+      "name": "originalOutput"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 27,
+      "kind": "theorem",
+      "name": "originalOutput_surjective"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 31,
+      "kind": "theorem",
+      "name": "outputCoefficients_exists"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 41,
+      "kind": "def",
+      "name": "loopTriple"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 44,
+      "kind": "theorem",
+      "name": "loopTriple_closed"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 50,
+      "kind": "theorem",
+      "name": "loopTriple_matrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 58,
+      "kind": "def",
+      "name": "loopWordVector"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 61,
+      "kind": "theorem",
+      "name": "loopWordVector_closed"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 70,
+      "kind": "theorem",
+      "name": "loopWordVector_matrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 83,
+      "kind": "theorem",
+      "name": "freeLetterMap_smallUnit"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 87,
+      "kind": "theorem",
+      "name": "liftLoop_exists"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 95,
+      "kind": "structure",
+      "name": "LoopLiftData"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 100,
+      "kind": "theorem",
+      "name": "loopLiftData_exists"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 111,
+      "kind": "def",
+      "name": "liftFreeWord"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 116,
+      "kind": "theorem",
+      "name": "liftFreeWord_closed"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 125,
+      "kind": "theorem",
+      "name": "liftFreeWord_matrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 136,
+      "kind": "theorem",
+      "name": "liftFreeWord_entry00"
+    },
+    {
       "file": "Ginzburg333/Converse/LowDegree.lean",
       "line": 9,
       "kind": "theorem",
@@ -2671,6 +2970,90 @@
       "line": 84,
       "kind": "theorem",
       "name": "ginzburgRegular_contraction_ne_zero"
+    },
+    {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "ginzburgRegular_tensorRegular"
+    },
+    {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "ginzburgRegular_iff_tensorRegular"
+    },
+    {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 35,
+      "kind": "theorem",
+      "name": "ginzburgRegular_tensorRegular_in_bases"
+    },
+    {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 42,
+      "kind": "theorem",
+      "name": "ginzburgRegular_iff_tensorRegular_in_bases"
+    },
+    {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 51,
+      "kind": "theorem",
+      "name": "ginzburgRegular_tensorRegular_chosen_bases"
+    },
+    {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 58,
+      "kind": "theorem",
+      "name": "ginzburgRegular_iff_tensorRegular_chosen_bases"
+    },
+    {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "line": 10,
+      "kind": "theorem",
+      "name": "sum_cycle_three"
+    },
+    {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "line": 19,
+      "kind": "theorem",
+      "name": "sum_reverse_three"
+    },
+    {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "line": 26,
+      "kind": "def",
+      "name": "reverseMatrixSum"
+    },
+    {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "line": 31,
+      "kind": "theorem",
+      "name": "reverseMatrixSum_same"
+    },
+    {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "line": 38,
+      "kind": "theorem",
+      "name": "reverseMatrixSum_next"
+    },
+    {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "line": 60,
+      "kind": "theorem",
+      "name": "reverseMatrixSum_prev"
+    },
+    {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "line": 86,
+      "kind": "theorem",
+      "name": "reverseMatrixSum_zero"
+    },
+    {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "line": 94,
+      "kind": "theorem",
+      "name": "matrixEvaluation_generator_differential"
     },
     {
       "file": "Ginzburg333/Converse/Paths.lean",
@@ -2845,6 +3228,300 @@
       "line": 173,
       "kind": "theorem",
       "name": "negativeDimension_letterCount"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 8,
+      "kind": "abbrev",
+      "name": "SmallTensor"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 10,
+      "kind": "theorem",
+      "name": "smallTensor_finrank"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 13,
+      "kind": "def",
+      "name": "projectedRelation"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 17,
+      "kind": "def",
+      "name": "projectedRelationMap"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 23,
+      "kind": "theorem",
+      "name": "projectedRelationMap_unit"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 28,
+      "kind": "theorem",
+      "name": "projected_tmul"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 42,
+      "kind": "theorem",
+      "name": "projectedRelationMap_factor_zero"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 60,
+      "kind": "theorem",
+      "name": "projectedRelationMap_rank_le_two"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 75,
+      "kind": "abbrev",
+      "name": "RelationQuotient"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 78,
+      "kind": "theorem",
+      "name": "relationQuotient_finrank_ge_two"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 90,
+      "kind": "structure",
+      "name": "FreeCornerData"
+    },
+    {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 101,
+      "kind": "theorem",
+      "name": "freeCornerData_exists"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 10,
+      "kind": "abbrev",
+      "name": "LoopWords"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 11,
+      "kind": "abbrev",
+      "name": "CornerMatrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 13,
+      "kind": "def",
+      "name": "freeLetterMap"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 18,
+      "kind": "def",
+      "name": "matrixUnit"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 23,
+      "kind": "theorem",
+      "name": "matrixUnit_mul"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 30,
+      "kind": "def",
+      "name": "smallIndex"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 32,
+      "kind": "def",
+      "name": "xMatrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 33,
+      "kind": "def",
+      "name": "yMatrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 34,
+      "kind": "def",
+      "name": "zMatrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 37,
+      "kind": "theorem",
+      "name": "tensorOutput_expand"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 42,
+      "kind": "theorem",
+      "name": "zMatrix_mul_yMatrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 48,
+      "kind": "theorem",
+      "name": "xMatrix_mul_zMatrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 53,
+      "kind": "theorem",
+      "name": "yMatrix_mul_xMatrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 58,
+      "kind": "def",
+      "name": "forwardMatrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 64,
+      "kind": "theorem",
+      "name": "forwardMatrix_same"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 68,
+      "kind": "theorem",
+      "name": "forwardMatrix_next"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 72,
+      "kind": "theorem",
+      "name": "forwardMatrix_prev"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 77,
+      "kind": "theorem",
+      "name": "coeff_next"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 79,
+      "kind": "theorem",
+      "name": "coeff_prev"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 82,
+      "kind": "def",
+      "name": "generatorMatrix"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 87,
+      "kind": "def",
+      "name": "matrixWord"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 90,
+      "kind": "def",
+      "name": "matrixEvaluation"
+    },
+    {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 93,
+      "kind": "theorem",
+      "name": "matrixEvaluation_single"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "matrixWord_append"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 13,
+      "kind": "theorem",
+      "name": "matrixEvaluation_prepend"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 21,
+      "kind": "theorem",
+      "name": "matrixEvaluation_append"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 29,
+      "kind": "theorem",
+      "name": "matrixEvaluation_concatenate"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 37,
+      "kind": "def",
+      "name": "locatedMatrixEvaluation"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 40,
+      "kind": "theorem",
+      "name": "locatedMatrixEvaluation_locate"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 48,
+      "kind": "def",
+      "name": "pathMatrixEvaluation"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 51,
+      "kind": "theorem",
+      "name": "pathMatrixEvaluation_term"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 56,
+      "kind": "def",
+      "name": "closedWords"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 59,
+      "kind": "theorem",
+      "name": "closedWords_nil"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 63,
+      "kind": "theorem",
+      "name": "closedWords_concatenate"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 79,
+      "kind": "def",
+      "name": "wordToPaths"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 82,
+      "kind": "theorem",
+      "name": "wordToPaths_bigraded"
+    },
+    {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 94,
+      "kind": "theorem",
+      "name": "wordToPaths_matrix"
     },
     {
       "file": "Ginzburg333/Finite/Colon.lean",

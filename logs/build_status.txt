@@ -1,1 +1,1 @@
-LIBRARY BUILT; main theorem checked by Audit.lean; all project theorem axioms are standard.
+LIBRARY BUILT; both regularity implications and equivalence checked by Audit.lean; all project theorem axioms are standard.
