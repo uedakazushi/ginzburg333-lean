@@ -43,3 +43,13 @@ the genuine free-corner representation; LoopLifts and Growth establish the
 exponential lower bound and the converse contradiction. Preserve both original
 predicates and both implications. Record converse/equivalence proof status
 only after the corresponding theorem and required kernel checks pass.
+
+The Japanese leanblueprint is in blueprint/src/content.tex. Generated HTML and
+Japanese PDF are tracked under blueprint/web and blueprint/print/print.pdf.
+Use scripts/build_blueprint.py and scripts/check_blueprint.py with the pinned
+blueprint/requirements.txt. These preserve the Lean dependency pins and use
+actual Lean declaration/axiom checks without adding a checkdecls dependency.
+Source links are pinned by blueprint/source_commit.txt; mathematical source
+changes require updating the pin and correspondence. Record document build,
+declaration checks and browser inspection truthfully in blueprint/verification.json
+and VERIFICATION.json. Publishing the repository and blueprint is user-authorized.

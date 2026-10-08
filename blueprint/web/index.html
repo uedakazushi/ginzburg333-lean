@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>MathJax = {"tex": {"macros": {"kk": "k", "Bbar": "B", "Jac": "J", "G": "\\mathcal{G}", "wt": "\\operatorname{wt}", "rank": "\\operatorname{rank}", "im": "\\operatorname{im}", "TR": "\\operatorname{TR}", "GR": "\\operatorname{GR}", "spanof": ["\\langle #1\\rangle", 1]}, "inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "options": {"enableMenu": false}};</script>
+<script type="text/javascript" src="js/mathjax/tex-chtml-full.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ginzburg (3,3,3) 正則性の同値<br />日本語 Lean blueprint</title>
+<link rel="next" href="sect0001.html" title="目的と読み方" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">目的と読み方</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">座標、道、二つの正則性</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">順方向の準備：補助乗法とfiltration</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">A：正規化barの内部次数と短完全列</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">B・C：自由行収縮から対角外完全性へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">D：有限次数双対とGinzburg道複体</span></a>
+ </li>
+<li class="">
+  <a href="sect0007.html"><span class="toc_ref">7</span> <span class="toc_entry">E：有限支持原始元と順主定理</span></a>
+ </li>
+<li class="">
+  <a href="sect0008.html"><span class="toc_ref">8</span> <span class="toc_entry">逆方向：負次数完全性から多項式増大へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0009.html"><span class="toc_ref">9</span> <span class="toc_entry">階数1からの自由語と指数下界</span></a>
+ </li>
+<li class="">
+  <a href="sect0010.html"><span class="toc_ref">10</span> <span class="toc_entry">逆主定理、同値、一般の三次元因子</span></a>
+ </li>
+<li class="">
+  <a href="sect0011.html"><span class="toc_ref">11</span> <span class="toc_entry">再現と検証範囲</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">依存グラフ</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+ <div class="titlepage">
+<h1>Ginzburg (3,3,3) 正則性の同値<br />日本語 Lean blueprint</h1>
+<p class="authors">
+<span class="author">ginzburg333-lean</span>
+</p>
+</div>
+</div> <!--main-text -->
+<nav class=local_toc>
+<ul>
+  <li>
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">目的と読み方</span></a>
+  </li>
+  <li>
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">座標、道、二つの正則性</span></a>
+  </li>
+  <li>
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">順方向の準備：補助乗法とfiltration</span></a>
+  </li>
+  <li>
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">A：正規化barの内部次数と短完全列</span></a>
+  </li>
+  <li>
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">B・C：自由行収縮から対角外完全性へ</span></a>
+  </li>
+  <li>
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">D：有限次数双対とGinzburg道複体</span></a>
+  </li>
+  <li>
+  <a href="sect0007.html"><span class="toc_ref">7</span> <span class="toc_entry">E：有限支持原始元と順主定理</span></a>
+  </li>
+  <li>
+  <a href="sect0008.html"><span class="toc_ref">8</span> <span class="toc_entry">逆方向：負次数完全性から多項式増大へ</span></a>
+  </li>
+  <li>
+  <a href="sect0009.html"><span class="toc_ref">9</span> <span class="toc_entry">階数1からの自由語と指数下界</span></a>
+  </li>
+  <li>
+  <a href="sect0010.html"><span class="toc_ref">10</span> <span class="toc_entry">逆主定理、同値、一般の三次元因子</span></a>
+  </li>
+  <li>
+  <a href="sect0011.html"><span class="toc_ref">11</span> <span class="toc_entry">再現と検証範囲</span></a>
+  </li>
+</ul>
+</nav>
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0001.html" title="目的と読み方"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

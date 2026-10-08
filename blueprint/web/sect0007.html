@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>MathJax = {"tex": {"macros": {"kk": "k", "Bbar": "B", "Jac": "J", "G": "\\mathcal{G}", "wt": "\\operatorname{wt}", "rank": "\\operatorname{rank}", "im": "\\operatorname{im}", "TR": "\\operatorname{TR}", "GR": "\\operatorname{GR}", "spanof": ["\\langle #1\\rangle", 1]}, "inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "options": {"enableMenu": false}};</script>
+<script type="text/javascript" src="js/mathjax/tex-chtml-full.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>E：有限支持原始元と順主定理</title>
+<link rel="next" href="sect0008.html" title="逆方向：負次数完全性から多項式増大へ" />
+<link rel="prev" href="sect0006.html" title="D：有限次数双対とGinzburg道複体" />
+<link rel="up" href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Ginzburg (3,3,3) 正則性の同値<br />日本語 Lean blueprint</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">目的と読み方</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">座標、道、二つの正則性</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">順方向の準備：補助乗法とfiltration</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">A：正規化barの内部次数と短完全列</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">B・C：自由行収縮から対角外完全性へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">D：有限次数双対とGinzburg道複体</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0007.html"><span class="toc_ref">7</span> <span class="toc_entry">E：有限支持原始元と順主定理</span></a>
+ </li>
+<li class="">
+  <a href="sect0008.html"><span class="toc_ref">8</span> <span class="toc_entry">逆方向：負次数完全性から多項式増大へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0009.html"><span class="toc_ref">9</span> <span class="toc_entry">階数1からの自由語と指数下界</span></a>
+ </li>
+<li class="">
+  <a href="sect0010.html"><span class="toc_ref">10</span> <span class="toc_entry">逆主定理、同値、一般の三次元因子</span></a>
+ </li>
+<li class="">
+  <a href="sect0011.html"><span class="toc_ref">11</span> <span class="toc_entry">再現と検証範囲</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">依存グラフ</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000008">7 E：有限支持原始元と順主定理</h1>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:internal-primitive">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">28</span>
+    <span class="lemma_thmtitle">同じ内部次数の原始元</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0007.html#lem:internal-primitive">#</a>
+
+    <a class="icon proof" href="sect0007.html#a0000000040"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:tensor-regular">定義 2</a></li>
+
+          <li><a href="sect0002.html#def:ginzburg">定義 3</a></li>
+
+          <li><a href="sect0006.html#thm:chain-isomorphism">定理 26</a></li>
+
+          <li><a href="sect0006.html#lem:dual-exact">補題 27</a></li>
+
+          <li><a href="sect0002.html#lem:ginzburg-grading">補題 4</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.rowPath_primitive" class="lean_decl">Ginzburg333.Comparison.rowPath_primitive</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.ginzburg_internal_primitives" class="lean_decl">Ginzburg333.Comparison.ginzburg_internal_primitives</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Primitives.lean#L10"><span class="ttfamily">rowPath_primitive</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Primitives.lean#L30"><span class="ttfamily">ginzburg_internal_primitives</span></a></p>
+<p> 代数閉体上で \(\operatorname {TR}(w)\) とし、\(x\in \mathcal{G}_n^q\)、\(q{\lt}0\)、\(dx=0\) とする。 同じ内部次数 \(n\) の \(y\in \mathcal{G}_n^{q-1}\) が存在して \(dy=x\)。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000040">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>非零の \(x\) に含まれる道の長さを \(r+1\) とする。 \(q=(r+1)-n{\lt}0\) だから \(n\ne r+1\)。 頂点ごとに有限双対の閉元へ戻し、双対完全性で原始元を取り、鎖同型で道空間へ送る。 最後に三頂点の原始元を足す。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:finite-primitives">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">29</span>
+    <span class="lemma_thmtitle">有限和による原始元の組み立て</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0007.html#lem:finite-primitives">#</a>
+
+    <a class="icon proof" href="sect0007.html#a0000000041"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:ginzburg-regular">定義 5</a></li>
+
+          <li><a href="sect0002.html#lem:ginzburg-grading">補題 4</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.ginzburgRegular_of_internal_primitives" class="lean_decl">Ginzburg333.Ginzburg.ginzburgRegular_of_internal_primitives</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg/Complex.lean#L98"><span class="ttfamily">ginzburgRegular_of_internal_primitives</span></a></p>
+<p> 各内部次数の負次数閉元に同じ内部次数の原始元を作れるなら、\(\operatorname {GR}(w)\) が成立する。 これは条件付きの還元補題である。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000041">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>有限支持の \(x\) を、その支持に現れる有限個の内部次数へ射影する。 各射影は閉元であり、得られた原始元を有限個足せばよい。 有限和なので道空間の直和からはみ出さない。 </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:forward">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    定理
+    </span>
+    <span class="theorem_thmlabel">30</span>
+    <span class="theorem_thmtitle">順主定理</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0007.html#thm:forward">#</a>
+
+    <a class="icon proof" href="sect0007.html#a0000000042"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:tensor-regular">定義 2</a></li>
+
+          <li><a href="sect0002.html#def:ginzburg-regular">定義 5</a></li>
+
+          <li><a href="sect0007.html#lem:internal-primitive">補題 28</a></li>
+
+          <li><a href="sect0007.html#lem:finite-primitives">補題 29</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.tensorRegular_ginzburgRegular" class="lean_decl">Ginzburg333.tensorRegular_ginzburgRegular</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Primitives.lean#L85"><span class="ttfamily">tensorRegular_ginzburgRegular</span></a></p>
+<p> 標数0の代数閉体上で \(\operatorname {TR}(w)\Rightarrow \operatorname {GR}(w)\)。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000042">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>実際のbar比較で内部次数別原始元の存在を証明し、有限和の還元に代入する。 原始元の存在を新しい仮定として残していない。 </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0006.html" title="D：有限次数双対とGinzburg道複体"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0008.html" title="逆方向：負次数完全性から多項式増大へ"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

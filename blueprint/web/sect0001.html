@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>MathJax = {"tex": {"macros": {"kk": "k", "Bbar": "B", "Jac": "J", "G": "\\mathcal{G}", "wt": "\\operatorname{wt}", "rank": "\\operatorname{rank}", "im": "\\operatorname{im}", "TR": "\\operatorname{TR}", "GR": "\\operatorname{GR}", "spanof": ["\\langle #1\\rangle", 1]}, "inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "options": {"enableMenu": false}};</script>
+<script type="text/javascript" src="js/mathjax/tex-chtml-full.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>目的と読み方</title>
+<link rel="next" href="sect0002.html" title="座標、道、二つの正則性" />
+<link rel="prev" href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint" />
+<link rel="up" href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Ginzburg (3,3,3) 正則性の同値<br />日本語 Lean blueprint</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class=" active current">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">目的と読み方</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">座標、道、二つの正則性</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">順方向の準備：補助乗法とfiltration</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">A：正規化barの内部次数と短完全列</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">B・C：自由行収縮から対角外完全性へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">D：有限次数双対とGinzburg道複体</span></a>
+ </li>
+<li class="">
+  <a href="sect0007.html"><span class="toc_ref">7</span> <span class="toc_entry">E：有限支持原始元と順主定理</span></a>
+ </li>
+<li class="">
+  <a href="sect0008.html"><span class="toc_ref">8</span> <span class="toc_entry">逆方向：負次数完全性から多項式増大へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0009.html"><span class="toc_ref">9</span> <span class="toc_entry">階数1からの自由語と指数下界</span></a>
+ </li>
+<li class="">
+  <a href="sect0010.html"><span class="toc_ref">10</span> <span class="toc_entry">逆主定理、同値、一般の三次元因子</span></a>
+ </li>
+<li class="">
+  <a href="sect0011.html"><span class="toc_ref">11</span> <span class="toc_entry">再現と検証範囲</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">依存グラフ</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000002">1 目的と読み方</h1>
+<p>このblueprintは、Ginzburg (3,3,3) 形式化の実装に対応する日本語の数学的案内である。 主張は、標数0の代数閉体上で </p>
+<div class="displaymath" id="a0000000013">
+  \[  \operatorname {TR}(w)\quad \Longleftrightarrow \quad \operatorname {GR}(w)  \]
+</div>
+<p> が成り立つことである。本文では \(\operatorname {TR}\) を <span class="ttfamily">TensorRegular</span>、 \(\operatorname {GR}\) を <span class="ttfamily">GinzburgRegular</span> の略記とする。 順方向は正規化bar複体と有限次数双対を用い、 逆方向は実際の内部Jacobi商の多項式増大と、階数1から得られる指数増大の矛盾を用いる。 逆方向には代数閉性も標数0も必要ない。 </p>
+<p>本文の各定義・補題には対応するLean宣言を付けた。証明の依存グラフは 本文で選んだ数学的依存関係であり、Leanの全証明項の依存関係を列挙したものではない。 緑色の項目は対応する宣言と証明が実装済みであることを表す。 各Leanリンクは、両方向を完成したソースの保存点へ飛ぶ。 元の二つの正則性を、bar完全性や表現データの存在という証明用の条件に置き換えてはいない。 </p>
+<p>全体のLean検証は69数学モジュール、明示的theorem 540件、生成定理を含む公理監査1214件で成功している。 依存公理はLeanの標準的な <span class="ttfamily">propext</span>、<span class="ttfamily">Classical.choice</span>、<span class="ttfamily">Quot.sound</span> のみである。 本文の生成・宣言対応の検査結果はリポジトリのblueprint検証記録に保存する。 </p>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0002.html" title="座標、道、二つの正則性"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

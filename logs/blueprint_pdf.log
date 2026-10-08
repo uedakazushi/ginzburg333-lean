@@ -1,0 +1,6 @@
+Rc files read:
+  /etc/LatexMk
+  latexmkrc
+Latexmk: This is Latexmk, John Collins, 11 Dec. 2024. Version 4.86.
+Latexmk: Nothing to do for 'print.tex'.
+Latexmk: All targets (/workspace/ginzburg333-lean/blueprint/print/print.pdf) are up-to-date

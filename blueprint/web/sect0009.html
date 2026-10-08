@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>MathJax = {"tex": {"macros": {"kk": "k", "Bbar": "B", "Jac": "J", "G": "\\mathcal{G}", "wt": "\\operatorname{wt}", "rank": "\\operatorname{rank}", "im": "\\operatorname{im}", "TR": "\\operatorname{TR}", "GR": "\\operatorname{GR}", "spanof": ["\\langle #1\\rangle", 1]}, "inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "options": {"enableMenu": false}};</script>
+<script type="text/javascript" src="js/mathjax/tex-chtml-full.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>階数1からの自由語と指数下界</title>
+<link rel="next" href="sect0010.html" title="逆主定理、同値、一般の三次元因子" />
+<link rel="prev" href="sect0008.html" title="逆方向：負次数完全性から多項式増大へ" />
+<link rel="up" href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Ginzburg (3,3,3) 正則性の同値<br />日本語 Lean blueprint</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">目的と読み方</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">座標、道、二つの正則性</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">順方向の準備：補助乗法とfiltration</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">A：正規化barの内部次数と短完全列</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">B・C：自由行収縮から対角外完全性へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">D：有限次数双対とGinzburg道複体</span></a>
+ </li>
+<li class="">
+  <a href="sect0007.html"><span class="toc_ref">7</span> <span class="toc_entry">E：有限支持原始元と順主定理</span></a>
+ </li>
+<li class="">
+  <a href="sect0008.html"><span class="toc_ref">8</span> <span class="toc_entry">逆方向：負次数完全性から多項式増大へ</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0009.html"><span class="toc_ref">9</span> <span class="toc_entry">階数1からの自由語と指数下界</span></a>
+ </li>
+<li class="">
+  <a href="sect0010.html"><span class="toc_ref">10</span> <span class="toc_entry">逆主定理、同値、一般の三次元因子</span></a>
+ </li>
+<li class="">
+  <a href="sect0011.html"><span class="toc_ref">11</span> <span class="toc_entry">再現と検証範囲</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">依存グラフ</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000010">9 階数1からの自由語と指数下界</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def:rank-one">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">38</span>
+    <span class="definition_thmtitle">階数1の縮約の因子</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#def:rank-one">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:coordinates">定義 1</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.RankOneSlice" class="lean_decl">Ginzburg333.Converse.RankOneSlice</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Factors.lean#L14"><span class="ttfamily">RankOneSlice</span></a></p>
+<p> 階数1の縮約データは、非零の \(v,u\in k^3\) と </p>
+<div class="displaymath" id="a0000000053">
+  \[  \sum _j a_jw_i(j,b,c)=v_bu_c  \]
+</div>
+<p> を持つ。これは元の縮約係数の因子分解である。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:rank-one-factor">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">39</span>
+    <span class="lemma_thmtitle">正則性が破れたときの因子分解</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#lem:rank-one-factor">#</a>
+
+    <a class="icon proof" href="sect0009.html#a0000000054"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0009.html#def:rank-one">定義 38</a></li>
+
+          <li><a href="sect0008.html#lem:rank-zero">補題 33</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.rankOneSlice_exists" class="lean_decl">Ginzburg333.Converse.rankOneSlice_exists</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.rankOneSlice_of_not_regular" class="lean_decl">Ginzburg333.Converse.rankOneSlice_of_not_regular</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Factors.lean#L21"><span class="ttfamily">rankOneSlice_exists</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Factors.lean#L67"><span class="ttfamily">rankOneSlice_of_not_regular</span></a></p>
+<p> \(\operatorname {GR}(w)\) の下で、\(a\ne 0\) かつ \(\operatorname {rank}C_i(a){\lt}2\) なら階数1の縮約データが存在する。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000054">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>階数0を除外すると階数は1である。 一次元の像の非零基底 \(u\) を選び、各基底ベクトルの像の係数を \(v_b\) とする。 元の縮約が非零なので \(v\) も非零である。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:relation-quotient">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">40</span>
+    <span class="lemma_thmtitle">直線商と関係商の次元</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#lem:relation-quotient">#</a>
+
+    <a class="icon proof" href="sect0009.html#a0000000055"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0009.html#def:rank-one">定義 38</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.killLine_surjective" class="lean_decl">Ginzburg333.Converse.killLine_surjective</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.projectedRelationMap_rank_le_two" class="lean_decl">Ginzburg333.Converse.projectedRelationMap_rank_le_two</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.relationQuotient_finrank_ge_two" class="lean_decl">Ginzburg333.Converse.relationQuotient_finrank_ge_two</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Factors.lean#L117"><span class="ttfamily">killLine_surjective</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Quotient.lean#L60"><span class="ttfamily">projectedRelationMap_rank_le_two</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Quotient.lean#L78"><span class="ttfamily">relationQuotient_finrank_ge_two</span></a></p>
+<p> 実際の商 \(k^3/kv\)、\(k^3/ku\) の二次元座標を \(p,z:k^3\to k^2\) とする。 三つの射影されたJacobi関係 </p>
+<div class="displaymath" id="a0000000056">
+  \[  R_j=\sum _{b,c}w_i(j,b,c)p(e_b)\otimes z(e_c)  \]
+</div>
+<p> の張る空間は高々二次元である。そのため \((k^2\otimes k^2)/\langle R_j\rangle \) は二次元以上を持つ。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000055">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>\(a\) による関係の線形結合は \(p(v)\otimes z(u)=0\)。 \(a\ne 0\) なので、三次元から関係空間への写像の核は非零である。 階数は2以下。四次元のテンソル積の商の次元は2以上になる。 </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:free-corner">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">41</span>
+    <span class="definition_thmtitle">自由語への評価に必要なデータ</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#def:free-corner">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:coordinates">定義 1</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.FreeCornerData" class="lean_decl">Ginzburg333.Converse.FreeCornerData</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Quotient.lean#L90"><span class="ttfamily">FreeCornerData</span></a></p>
+<p> 全射 \(p,z:k^3\to k^2\)、全射 \(o:k^2\otimes k^2\to k^2\) と、 三方向の巡回Jacobi関係が零になる恒等式を記録する。 これは線形写像とその関係式のデータであり、指数下界そのものは含まない。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:free-corner-exists">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">42</span>
+    <span class="lemma_thmtitle">評価データの存在</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#lem:free-corner-exists">#</a>
+
+    <a class="icon proof" href="sect0009.html#a0000000057"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0009.html#def:rank-one">定義 38</a></li>
+
+          <li><a href="sect0009.html#def:free-corner">定義 41</a></li>
+
+          <li><a href="sect0009.html#lem:relation-quotient">補題 40</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.freeCornerData_exists" class="lean_decl">Ginzburg333.Converse.freeCornerData_exists</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Quotient.lean#L101"><span class="ttfamily">freeCornerData_exists</span></a></p>
+<p> \(a\ne 0\) と階数1の縮約データから、自由語への評価データを構成できる。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000057">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>\(p,z\) は実際の直線商の座標写像を使う。 関係商の基底から二つの座標を選び、商写像と合成して \(o\) を得る。 第一の関係は商の定義から、他の二つは因子分解と \(p(v)=z(u)=0\) から消える。 </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:matrix-evaluation">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">43</span>
+    <span class="definition_thmtitle">自由代数係数の行列評価</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#def:matrix-evaluation">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0009.html#def:free-corner">定義 41</a></li>
+
+          <li><a href="sect0002.html#def:ginzburg">定義 3</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.LoopWords" class="lean_decl">Ginzburg333.Converse.LoopWords</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.generatorMatrix" class="lean_decl">Ginzburg333.Converse.generatorMatrix</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.matrixEvaluation" class="lean_decl">Ginzburg333.Converse.matrixEvaluation</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Representation.lean#L10"><span class="ttfamily">LoopWords</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Representation.lean#L82"><span class="ttfamily">generatorMatrix</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Representation.lean#L90"><span class="ttfamily">matrixEvaluation</span></a></p>
+<p> \(F=k\langle T_0,T_1\rangle \) を実際の自由モノイドのモノイド代数とする。 \(F\) 上の \(4\times 4\) 行列を用い、三種類の順矢をブロック \(1,2,1\) の間に配置する。 \(i\) の順矢は \(a_bE_{0,3}\)、\(i+1\) の順矢は \(p(e_b)\) の列、 \(i+2\) の順矢は \(o\) の出力を自由文字にした行とする。 逆矢とloopの像は零。語の像は生成元行列の順序付き積で、有限線形結合へ拡張する。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:matrix-relations">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">44</span>
+    <span class="lemma_thmtitle">全生成元の微分の消滅</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#lem:matrix-relations">#</a>
+
+    <a class="icon proof" href="sect0009.html#a0000000058"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0009.html#def:matrix-evaluation">定義 43</a></li>
+
+          <li><a href="sect0009.html#lem:free-corner-exists">補題 42</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.matrixEvaluation_generator_differential" class="lean_decl">Ginzburg333.Converse.matrixEvaluation_generator_differential</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/MatrixRelations.lean#L94"><span class="ttfamily">matrixEvaluation_generator_differential</span></a></p>
+<p> 全ての生成元 \(g\) に対し、行列評価は元の生成元微分 \(dg\) を零へ送る。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000058">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>逆矢の微分の像は、評価データの三種類の関係式になる。 頂点を巡回して三場合を扱う。 loopの微分は逆矢の像が零なので消える。順矢の微分は最初から零である。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:jacobi-evaluation">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">45</span>
+    <span class="lemma_thmtitle">実際の道とJacobi商への接続</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#lem:jacobi-evaluation">#</a>
+
+    <a class="icon proof" href="sect0009.html#a0000000059"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0009.html#def:matrix-evaluation">定義 43</a></li>
+
+          <li><a href="sect0008.html#def:jacobi">定義 31</a></li>
+
+          <li><a href="sect0009.html#lem:matrix-relations">補題 44</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.wordToPaths_bigraded" class="lean_decl">Ginzburg333.Converse.wordToPaths_bigraded</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.pathMatrixEvaluation_differential" class="lean_decl">Ginzburg333.Converse.pathMatrixEvaluation_differential</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.jacobiEvaluation" class="lean_decl">Ginzburg333.Converse.jacobiEvaluation</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/WordMap.lean#L82"><span class="ttfamily">wordToPaths_bigraded</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/JacobiMap.lean#L32"><span class="ttfamily">pathMatrixEvaluation_differential</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/JacobiMap.lean#L56"><span class="ttfamily">jacobiEvaluation</span></a></p>
+<p> 行列評価は任意の有限支持の実際の有効道 \(x\) に対して \(dx\) を零へ送る。 したがって \(J_n(w)\to F\) という線形写像を、行列の \((0,0)\) 成分から得る。 同じ始終点を持つ重み \(n\) の順矢語の有限線形結合は、実際の次数 \((n,0)\) の道成分へ写る。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000059">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>語の導分の再帰式と評価の積との両立から、全語の微分の像が消える。 有効道を有限語へ忘れる写像と元の微分の可換性を使い、実際の道微分にも適用する。 その像を消すので実際の微分の像の商へ降りる。 持ち上げに用いる語の頂点・始終点条件は別途保持する。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:loop-lifts">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">46</span>
+    <span class="lemma_thmtitle">二つの自由文字の閉道持ち上げ</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#lem:loop-lifts">#</a>
+
+    <a class="icon proof" href="sect0009.html#a0000000060"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0009.html#def:matrix-evaluation">定義 43</a></li>
+
+          <li><a href="sect0009.html#lem:free-corner-exists">補題 42</a></li>
+
+          <li><a href="sect0009.html#lem:jacobi-evaluation">補題 45</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.loopLiftData_exists" class="lean_decl">Ginzburg333.Converse.loopLiftData_exists</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.liftFreeWord_closed" class="lean_decl">Ginzburg333.Converse.liftFreeWord_closed</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.liftFreeWord_entry00" class="lean_decl">Ginzburg333.Converse.liftFreeWord_entry00</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/LoopLifts.lean#L100"><span class="ttfamily">loopLiftData_exists</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/LoopLifts.lean#L116"><span class="ttfamily">liftFreeWord_closed</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/LoopLifts.lean#L136"><span class="ttfamily">liftFreeWord_entry00</span></a></p>
+<p> \(a\ne 0\) なら、二つの自由文字は内部次数3・次数0の有限支持閉道へ持ち上がる。 任意の自由語 \(s\) は、同じ頂点の内部次数 \(3|s|\) の閉道の有限線形結合に持ち上がり、 評価の \((0,0)\) 成分は自由モノイド基底の \(s\) に等しい。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000060">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>\(a_{a_0}\ne 0\) を選ぶ。\(o\circ (p\otimes z)\) の全射性から二つの座標単位を持ち上げ、 \([x_{i,a_0},x_{i+2,c},x_{i+1,b}]\) の有限和を作る。 この語は始点 \(i+1\) の閉道であり、\(a_{a_0}^{-1}\) で正規化する。 自由語の連結に沿って再帰的に閉道を連結する。空語の \((0,0)\) 成分も1である。 </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:exponential-growth">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    定理
+    </span>
+    <span class="theorem_thmlabel">47</span>
+    <span class="theorem_thmtitle">実際のJacobi商の指数下界</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0009.html#thm:exponential-growth">#</a>
+
+    <a class="icon proof" href="sect0009.html#a0000000061"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0009.html#def:free-corner">定義 41</a></li>
+
+          <li><a href="sect0008.html#def:jacobi">定義 31</a></li>
+
+          <li><a href="sect0009.html#lem:loop-lifts">補題 46</a></li>
+
+          <li><a href="sect0009.html#lem:jacobi-evaluation">補題 45</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Converse.freeCorner_exponential_lower_bound" class="lean_decl">Ginzburg333.Converse.freeCorner_exponential_lower_bound</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Growth.lean#L11"><span class="ttfamily">freeCorner_exponential_lower_bound</span></a></p>
+<p> \(a\ne 0\) と自由語への評価データがあるとき、全ての \(m\ge 0\) で </p>
+<div class="displaymath" id="a0000000062">
+  \[  2^m\le \dim _kJ_{3m}(w).  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000061">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>長さ \(m\) の二文字自由語に対応する \(2^m\) 個の閉道持ち上げを、実際のJacobi商へ送る。 それらの評価は異なる自由モノイド基底なので線形独立である。 線形写像の像が独立なら、元の商の元も独立である。 したがって高次の関係がこれらの元を追加で潰すことはない。 </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0008.html" title="逆方向：負次数完全性から多項式増大へ"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0010.html" title="逆主定理、同値、一般の三次元因子"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>MathJax = {"tex": {"macros": {"kk": "k", "Bbar": "B", "Jac": "J", "G": "\\mathcal{G}", "wt": "\\operatorname{wt}", "rank": "\\operatorname{rank}", "im": "\\operatorname{im}", "TR": "\\operatorname{TR}", "GR": "\\operatorname{GR}", "spanof": ["\\langle #1\\rangle", 1]}, "inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "options": {"enableMenu": false}};</script>
+<script type="text/javascript" src="js/mathjax/tex-chtml-full.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D：有限次数双対とGinzburg道複体</title>
+<link rel="next" href="sect0007.html" title="E：有限支持原始元と順主定理" />
+<link rel="prev" href="sect0005.html" title="B・C：自由行収縮から対角外完全性へ" />
+<link rel="up" href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Ginzburg (3,3,3) 正則性の同値<br />日本語 Lean blueprint</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">目的と読み方</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">座標、道、二つの正則性</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">順方向の準備：補助乗法とfiltration</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">A：正規化barの内部次数と短完全列</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">B・C：自由行収縮から対角外完全性へ</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">D：有限次数双対とGinzburg道複体</span></a>
+ </li>
+<li class="">
+  <a href="sect0007.html"><span class="toc_ref">7</span> <span class="toc_entry">E：有限支持原始元と順主定理</span></a>
+ </li>
+<li class="">
+  <a href="sect0008.html"><span class="toc_ref">8</span> <span class="toc_entry">逆方向：負次数完全性から多項式増大へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0009.html"><span class="toc_ref">9</span> <span class="toc_entry">階数1からの自由語と指数下界</span></a>
+ </li>
+<li class="">
+  <a href="sect0010.html"><span class="toc_ref">10</span> <span class="toc_entry">逆主定理、同値、一般の三次元因子</span></a>
+ </li>
+<li class="">
+  <a href="sect0011.html"><span class="toc_ref">11</span> <span class="toc_entry">再現と検証範囲</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">依存グラフ</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000007">6 D：有限次数双対とGinzburg道複体</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def:finite-dual">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">22</span>
+    <span class="definition_thmtitle">有限次数の双対座標</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#def:finite-dual">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0004.html#def:bar-internal">定義 14</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.simpleBarLinearBasis" class="lean_decl">Ginzburg333.Comparison.simpleBarLinearBasis</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.simpleBarDualCoordinates" class="lean_decl">Ginzburg333.Comparison.simpleBarDualCoordinates</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/FiniteDual.lean#L22"><span class="ttfamily">simpleBarLinearBasis</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/FiniteDual.lean#L39"><span class="ttfamily">simpleBarDualCoordinates</span></a></p>
+<p> 頂点単純行の \(B_{r,n}(i,k^3)\) は、始点条件を満たす長さ \(r\)・重み \(n\) の語を基底に持つ。 この有限基底を用いて、線形双対を同じ語上の有限支持座標へ移す。 無制限なbar直和全体の双対を道の直和と同一視しない。 </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:reversal">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">23</span>
+    <span class="definition_thmtitle">符号付き因子反転</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#def:reversal">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0006.html#def:finite-dual">定義 22</a></li>
+
+          <li><a href="sect0002.html#def:ginzburg">定義 3</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.finiteDualReversal" class="lean_decl">Ginzburg333.Comparison.finiteDualReversal</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.wordSign" class="lean_decl">Ginzburg333.Comparison.wordSign</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Signs.sigma" class="lean_decl">Ginzburg333.Signs.sigma</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Reversal.lean#L63"><span class="ttfamily">finiteDualReversal</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Reversal.lean#L34"><span class="ttfamily">wordSign</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Signs.lean#L28"><span class="ttfamily">sigma</span></a></p>
+<p> 語の因子を反転し、 </p>
+<div class="displaymath" id="a0000000033">
+  \[  (-1)^{\sigma (d_1,\ldots ,d_r)},\qquad \sigma =\sum _{j=1}^r(j-1)d_j+\binom r2+\# \{ j:d_j=3\}   \]
+</div>
+<p> を掛ける。これにより </p>
+<div class="displaymath" id="a0000000034">
+  \[  B_{r,n}(i,k^3)^\vee \  \simeq \  \mathcal{G}_{i;r,n}  \]
+</div>
+<p> を得る。右辺は始点 \(i\)、長さ \(r\)、内部次数 \(n\) の実際の有効道成分である。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:generator-coefficients">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">24</span>
+    <span class="lemma_thmtitle">生成元係数の一致</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#lem:generator-coefficients">#</a>
+
+    <a class="icon proof" href="sect0006.html#a0000000035"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0006.html#def:reversal">定義 23</a></li>
+
+          <li><a href="sect0003.html#def:auxiliary">定義 6</a></li>
+
+          <li><a href="sect0002.html#def:ginzburg">定義 3</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.generator_structure_coefficient" class="lean_decl">Ginzburg333.Comparison.generator_structure_coefficient</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Generators.lean#L32"><span class="ttfamily">generator_structure_coefficient</span></a></p>
+<p> 補助正次数乗法の構造係数は、反転と生成元の次数に応じた符号を通じて 元のGinzburg生成元微分の係数と一致する。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000035">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>順矢、逆矢、loopを分けて、縮約係数と内積の乗法表を展開する。 逆矢の場合は \(w_i(a,b,c)\)、loopの場合は二つの積の符号差を得る。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:all-length-sign">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">25</span>
+    <span class="lemma_thmtitle">全ての語長での符号と転置</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#lem:all-length-sign">#</a>
+
+    <a class="icon proof" href="sect0006.html#a0000000036"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0006.html#def:reversal">定義 23</a></li>
+
+          <li><a href="sect0006.html#lem:generator-coefficients">補題 24</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Signs.sigma_formula" class="lean_decl">Ginzburg333.Signs.sigma_formula</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Signs.comparison_parity" class="lean_decl">Ginzburg333.Signs.comparison_parity</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.cobarBasis_transpose" class="lean_decl">Ginzburg333.Comparison.cobarBasis_transpose</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.signedWordReversal_differential" class="lean_decl">Ginzburg333.Comparison.signedWordReversal_differential</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Signs.lean#L33"><span class="ttfamily">sigma_formula</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Signs.lean#L84"><span class="ttfamily">comparison_parity</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Transpose.lean#L54"><span class="ttfamily">cobarBasis_transpose</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/WordReversal.lean#L170"><span class="ttfamily">signedWordReversal_differential</span></a></p>
+<p> 転置bar微分で因子を分割する符号は、反転後の次数付きLeibniz則の符号と一致する。 この一致は任意の前後の語、任意の語長で成立する。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000036">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>非零の分割 \((1,1),(1,2),(2,1)\) を調べる。 分割前後の \(\sigma \) の差、barの位置符号、反転後の前置語の次数を比較する。 再帰によって任意の語長へ拡張し、双対微分の基底係数を転置する。 </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:chain-isomorphism">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    定理
+    </span>
+    <span class="theorem_thmlabel">26</span>
+    <span class="theorem_thmtitle">内部次数別の実際の鎖同型</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#thm:chain-isomorphism">#</a>
+
+    <a class="icon proof" href="sect0006.html#a0000000037"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0006.html#def:reversal">定義 23</a></li>
+
+          <li><a href="sect0006.html#lem:all-length-sign">補題 25</a></li>
+
+          <li><a href="sect0002.html#lem:ginzburg-grading">補題 4</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.finiteDualReversal_differential" class="lean_decl">Ginzburg333.Comparison.finiteDualReversal_differential</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.totalDualReversal" class="lean_decl">Ginzburg333.Comparison.totalDualReversal</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.totalDualReversal_differential" class="lean_decl">Ginzburg333.Comparison.totalDualReversal_differential</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/FiniteChain.lean#L164"><span class="ttfamily">finiteDualReversal_differential</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Total.lean#L58"><span class="ttfamily">totalDualReversal</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Total.lean#L68"><span class="ttfamily">totalDualReversal_differential</span></a></p>
+<p> \(\Phi _{i;r,n}\) を符号付き反転同型とすると </p>
+<div class="displaymath" id="a0000000038">
+  \[  \Phi _{i;r+1,n}\partial ^\vee =d\Phi _{i;r,n}.  \]
+</div>
+<p> 三頂点の有限双対の和を取ると、 \(\bigoplus _iB_{r,n}(i,k^3)^\vee \simeq \mathcal{G}_n^{\, r-n}\) という鎖同型になる。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000037">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>語の有限座標上で微分の係数が一致することを示す。 因子反転はbarの合成可能性を右端から辿る有効道へ移す。 頂点射影で道成分を分解し、三頂点の同型を足し合わせる。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:dual-exact">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">27</span>
+    <span class="lemma_thmtitle">対角外の双対完全性</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0006.html#lem:dual-exact">#</a>
+
+    <a class="icon proof" href="sect0006.html#a0000000039"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0006.html#def:finite-dual">定義 22</a></li>
+
+          <li><a href="sect0005.html#thm:bar-off-diagonal">定理 21</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Comparison.simple_dual_bar_off_diagonal" class="lean_decl">Ginzburg333.Comparison.simple_dual_bar_off_diagonal</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/DualExact.lean#L11"><span class="ttfamily">simple_dual_bar_off_diagonal</span></a></p>
+<p> 頂点単純barの有限次数双対は、\(n\ne r+1\) の中央項で完全である。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000039">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>元の有限次数の完全列を線形双対化する。 ここで中央項の語長は \(r+1\) であるため、対角の条件も \(n=r+1\) になる。 </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0005.html" title="B・C：自由行収縮から対角外完全性へ"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0007.html" title="E：有限支持原始元と順主定理"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

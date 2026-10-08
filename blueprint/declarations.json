@@ -1,0 +1,1307 @@
+{
+  "language": "ja",
+  "source_commit": "ea11e52179e60a9a64b673f43538a8a448e23b74",
+  "repository": "https://github.com/uedakazushi/ginzburg333-lean",
+  "graph_kind": "curated mathematical dependencies, not all Lean proof-term dependencies",
+  "nodes": [
+    {
+      "label": "def:coordinates",
+      "title": "テンソルの巡回座標",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Tensor",
+        "Ginzburg333.coeff",
+        "Ginzburg333.contract"
+      ],
+      "uses": []
+    },
+    {
+      "label": "def:tensor-regular",
+      "title": "Tensor regular",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.TensorRegular",
+        "Ginzburg333.CyclicData.Regular"
+      ],
+      "uses": [
+        "def:coordinates"
+      ]
+    },
+    {
+      "label": "def:ginzburg",
+      "title": "有限支持のGinzburg道複体",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Ginzburg.Generator",
+        "Ginzburg333.Ginzburg.ValidPath",
+        "Ginzburg333.Ginzburg.PathSpace",
+        "Ginzburg333.Ginzburg.differential"
+      ],
+      "uses": [
+        "def:coordinates"
+      ]
+    },
+    {
+      "label": "lem:ginzburg-grading",
+      "title": "次数と微分",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Ginzburg.cohomologicalDegree_eq_length_sub_weight",
+        "Ginzburg333.Ginzburg.differential_internal",
+        "Ginzburg333.Ginzburg.differential_square"
+      ],
+      "uses": [
+        "def:ginzburg"
+      ]
+    },
+    {
+      "label": "def:ginzburg-regular",
+      "title": "Ginzburg regular",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Ginzburg.GinzburgRegular"
+      ],
+      "uses": [
+        "def:ginzburg"
+      ]
+    },
+    {
+      "label": "def:auxiliary",
+      "title": "24次元の補助乗法",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Auxiliary",
+        "Ginzburg333.CyclicData.multiply"
+      ],
+      "uses": [
+        "def:coordinates"
+      ]
+    },
+    {
+      "label": "lem:auxiliary-laws",
+      "title": "補助乗法の法則",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.finrank_auxiliary",
+        "Ginzburg333.CyclicData.multiply_assoc",
+        "Ginzburg333.CyclicData.identity_multiply",
+        "Ginzburg333.CyclicData.multiply_identity"
+      ],
+      "uses": [
+        "def:auxiliary"
+      ]
+    },
+    {
+      "label": "lem:rank",
+      "title": "正則縮約の像と核",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.CyclicData.productSpan_eq_top_of_two_le",
+        "Ginzburg333.CyclicData.adjacent_rank_two",
+        "Ginzburg333.CyclicData.kernel_eq_span"
+      ],
+      "uses": [
+        "def:tensor-regular",
+        "lem:auxiliary-laws"
+      ]
+    },
+    {
+      "label": "lem:pencil",
+      "title": "平面にある階数2の元",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.CyclicData.plane_contains_rank_two"
+      ],
+      "uses": [
+        "def:tensor-regular"
+      ]
+    },
+    {
+      "label": "def:filtration",
+      "title": "許される部分空間とfiltrationの一段",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.CyclicData.Allowed",
+        "Ginzburg333.CyclicData.FiltrationStep",
+        "Ginzburg333.CyclicData.QuotientRow"
+      ],
+      "uses": [
+        "def:auxiliary"
+      ]
+    },
+    {
+      "label": "lem:colon",
+      "title": "colonの計算",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.CyclicData.annihilator_eq_adjacent_image",
+        "Ginzburg333.CyclicData.plane_colon_closed",
+        "Ginzburg333.CyclicData.full_colon_closed"
+      ],
+      "uses": [
+        "def:filtration",
+        "lem:rank"
+      ]
+    },
+    {
+      "label": "lem:filtration-exists",
+      "title": "filtrationの存在",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.CyclicData.exists_filtrationStep"
+      ],
+      "uses": [
+        "def:filtration",
+        "lem:colon",
+        "lem:pencil",
+        "lem:rank"
+      ]
+    },
+    {
+      "label": "def:bar",
+      "title": "頂点条件付き正規化bar",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Bar.normalizedTerm",
+        "Ginzburg333.Bar.normalizedDifferential"
+      ],
+      "uses": [
+        "def:auxiliary"
+      ]
+    },
+    {
+      "label": "def:bar-internal",
+      "title": "内部次数成分",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Bar.internalProjection",
+        "Ginzburg333.Bar.internallyNormalizedTerm",
+        "Ginzburg333.Bar.internallyNormalizedDifferential"
+      ],
+      "uses": [
+        "def:bar",
+        "def:filtration"
+      ]
+    },
+    {
+      "label": "lem:bar-projection",
+      "title": "次数射影と微分の両立",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Bar.internalProjection_differential",
+        "Ginzburg333.Bar.internallyNormalizedTerm_eq_bot"
+      ],
+      "uses": [
+        "def:bar-internal"
+      ]
+    },
+    {
+      "label": "lem:bar-short-exact",
+      "title": "内部次数ごとの短完全列",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Bar.filtration_internal_short_exact",
+        "Ginzburg333.Bar.internalInclusion_differential",
+        "Ginzburg333.Bar.internalQuotient_differential"
+      ],
+      "uses": [
+        "def:bar-internal",
+        "def:filtration",
+        "lem:bar-projection",
+        "lem:filtration-exists"
+      ]
+    },
+    {
+      "label": "lem:bar-contraction",
+      "title": "正規化自由行barの収縮",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Bar.rowContraction_homotopy_normalized"
+      ],
+      "uses": [
+        "def:bar"
+      ]
+    },
+    {
+      "label": "lem:bar-free",
+      "title": "自由行の内部次数別完全性",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Bar.internally_normalized_free_exact"
+      ],
+      "uses": [
+        "def:bar-internal",
+        "lem:bar-contraction",
+        "lem:bar-projection"
+      ]
+    },
+    {
+      "label": "lem:bar-zero",
+      "title": "語長0の基底となる消滅",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Bar.internallyNormalized_zero_surjective"
+      ],
+      "uses": [
+        "def:bar-internal",
+        "lem:bar-contraction",
+        "lem:bar-projection"
+      ]
+    },
+    {
+      "label": "lem:bar-step",
+      "title": "完全性のfiltrationステップ",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Bar.barExact_filtration_step"
+      ],
+      "uses": [
+        "def:bar-internal",
+        "lem:bar-short-exact"
+      ]
+    },
+    {
+      "label": "thm:bar-off-diagonal",
+      "title": "実際のbarの対角外完全性",
+      "kind": "theorem",
+      "lean": [
+        "Ginzburg333.Bar.normalized_bar_off_diagonal",
+        "Ginzburg333.Bar.simple_normalized_bar_off_diagonal"
+      ],
+      "uses": [
+        "def:bar-internal",
+        "def:tensor-regular",
+        "lem:bar-free",
+        "lem:bar-projection",
+        "lem:bar-step",
+        "lem:bar-zero",
+        "lem:filtration-exists"
+      ]
+    },
+    {
+      "label": "def:finite-dual",
+      "title": "有限次数の双対座標",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Comparison.simpleBarLinearBasis",
+        "Ginzburg333.Comparison.simpleBarDualCoordinates"
+      ],
+      "uses": [
+        "def:bar-internal"
+      ]
+    },
+    {
+      "label": "def:reversal",
+      "title": "符号付き因子反転",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Comparison.finiteDualReversal",
+        "Ginzburg333.Comparison.wordSign",
+        "Ginzburg333.Signs.sigma"
+      ],
+      "uses": [
+        "def:finite-dual",
+        "def:ginzburg"
+      ]
+    },
+    {
+      "label": "lem:generator-coefficients",
+      "title": "生成元係数の一致",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Comparison.generator_structure_coefficient"
+      ],
+      "uses": [
+        "def:auxiliary",
+        "def:ginzburg",
+        "def:reversal"
+      ]
+    },
+    {
+      "label": "lem:all-length-sign",
+      "title": "全ての語長での符号と転置",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Signs.sigma_formula",
+        "Ginzburg333.Signs.comparison_parity",
+        "Ginzburg333.Comparison.cobarBasis_transpose",
+        "Ginzburg333.Comparison.signedWordReversal_differential"
+      ],
+      "uses": [
+        "def:reversal",
+        "lem:generator-coefficients"
+      ]
+    },
+    {
+      "label": "thm:chain-isomorphism",
+      "title": "内部次数別の実際の鎖同型",
+      "kind": "theorem",
+      "lean": [
+        "Ginzburg333.Comparison.finiteDualReversal_differential",
+        "Ginzburg333.Comparison.totalDualReversal",
+        "Ginzburg333.Comparison.totalDualReversal_differential"
+      ],
+      "uses": [
+        "def:reversal",
+        "lem:all-length-sign",
+        "lem:ginzburg-grading"
+      ]
+    },
+    {
+      "label": "lem:dual-exact",
+      "title": "対角外の双対完全性",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Comparison.simple_dual_bar_off_diagonal"
+      ],
+      "uses": [
+        "def:finite-dual",
+        "thm:bar-off-diagonal"
+      ]
+    },
+    {
+      "label": "lem:internal-primitive",
+      "title": "同じ内部次数の原始元",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Comparison.rowPath_primitive",
+        "Ginzburg333.Comparison.ginzburg_internal_primitives"
+      ],
+      "uses": [
+        "def:ginzburg",
+        "def:tensor-regular",
+        "lem:dual-exact",
+        "lem:ginzburg-grading",
+        "thm:chain-isomorphism"
+      ]
+    },
+    {
+      "label": "lem:finite-primitives",
+      "title": "有限和による原始元の組み立て",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Ginzburg.ginzburgRegular_of_internal_primitives"
+      ],
+      "uses": [
+        "def:ginzburg-regular",
+        "lem:ginzburg-grading"
+      ]
+    },
+    {
+      "label": "thm:forward",
+      "title": "順主定理",
+      "kind": "theorem",
+      "lean": [
+        "Ginzburg333.tensorRegular_ginzburgRegular"
+      ],
+      "uses": [
+        "def:ginzburg-regular",
+        "def:tensor-regular",
+        "lem:finite-primitives",
+        "lem:internal-primitive"
+      ]
+    },
+    {
+      "label": "def:jacobi",
+      "title": "実際の内部Jacobi商",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Ginzburg.negativeTerm",
+        "Ginzburg333.Ginzburg.negativeDifferential",
+        "Ginzburg333.Ginzburg.internalJacobi"
+      ],
+      "uses": [
+        "def:ginzburg"
+      ]
+    },
+    {
+      "label": "lem:negative-exact",
+      "title": "内部次数ごとの負次数完全性",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Ginzburg.negativeDifferential_exact",
+        "Ginzburg333.Ginzburg.negativeTerm_eq_zero"
+      ],
+      "uses": [
+        "def:ginzburg-regular",
+        "def:jacobi",
+        "lem:ginzburg-grading"
+      ]
+    },
+    {
+      "label": "lem:rank-zero",
+      "title": "階数0の縮約の排除",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Ginzburg.ginzburgRegular_contraction_ne_zero"
+      ],
+      "uses": [
+        "def:coordinates",
+        "def:ginzburg-regular",
+        "lem:ginzburg-grading"
+      ]
+    },
+    {
+      "label": "lem:euler",
+      "title": "有限Euler等式",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Ginzburg.internalJacobi_finrank_euler"
+      ],
+      "uses": [
+        "def:ginzburg-regular",
+        "def:jacobi",
+        "lem:negative-exact"
+      ]
+    },
+    {
+      "label": "lem:path-count",
+      "title": "有効道の有限計数",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Ginzburg.pathLettersEquiv",
+        "Ginzburg333.Ginzburg.negativeDimension_letterCount"
+      ],
+      "uses": [
+        "def:ginzburg"
+      ]
+    },
+    {
+      "label": "lem:signed-count",
+      "title": "符号付き計数の漸化式",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Ginzburg.signedLetterEuler_quadratic",
+        "Ginzburg333.Ginzburg.signedLetterEuler_sum_counts"
+      ],
+      "uses": [
+        "lem:path-count"
+      ]
+    },
+    {
+      "label": "thm:quadratic-growth",
+      "title": "Jacobi商の多項式増大",
+      "kind": "theorem",
+      "lean": [
+        "Ginzburg333.Ginzburg.internalJacobi_quadratic_growth",
+        "Ginzburg333.Ginzburg.internalJacobi_finrank_36"
+      ],
+      "uses": [
+        "def:ginzburg-regular",
+        "def:jacobi",
+        "lem:euler",
+        "lem:path-count",
+        "lem:signed-count"
+      ]
+    },
+    {
+      "label": "def:rank-one",
+      "title": "階数1の縮約の因子",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Converse.RankOneSlice"
+      ],
+      "uses": [
+        "def:coordinates"
+      ]
+    },
+    {
+      "label": "lem:rank-one-factor",
+      "title": "正則性が破れたときの因子分解",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Converse.rankOneSlice_exists",
+        "Ginzburg333.Converse.rankOneSlice_of_not_regular"
+      ],
+      "uses": [
+        "def:rank-one",
+        "lem:rank-zero"
+      ]
+    },
+    {
+      "label": "lem:relation-quotient",
+      "title": "直線商と関係商の次元",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Converse.killLine_surjective",
+        "Ginzburg333.Converse.projectedRelationMap_rank_le_two",
+        "Ginzburg333.Converse.relationQuotient_finrank_ge_two"
+      ],
+      "uses": [
+        "def:rank-one"
+      ]
+    },
+    {
+      "label": "def:free-corner",
+      "title": "自由語への評価に必要なデータ",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Converse.FreeCornerData"
+      ],
+      "uses": [
+        "def:coordinates"
+      ]
+    },
+    {
+      "label": "lem:free-corner-exists",
+      "title": "評価データの存在",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Converse.freeCornerData_exists"
+      ],
+      "uses": [
+        "def:free-corner",
+        "def:rank-one",
+        "lem:relation-quotient"
+      ]
+    },
+    {
+      "label": "def:matrix-evaluation",
+      "title": "自由代数係数の行列評価",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Converse.LoopWords",
+        "Ginzburg333.Converse.generatorMatrix",
+        "Ginzburg333.Converse.matrixEvaluation"
+      ],
+      "uses": [
+        "def:free-corner",
+        "def:ginzburg"
+      ]
+    },
+    {
+      "label": "lem:matrix-relations",
+      "title": "全生成元の微分の消滅",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Converse.matrixEvaluation_generator_differential"
+      ],
+      "uses": [
+        "def:matrix-evaluation",
+        "lem:free-corner-exists"
+      ]
+    },
+    {
+      "label": "lem:jacobi-evaluation",
+      "title": "実際の道とJacobi商への接続",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Converse.wordToPaths_bigraded",
+        "Ginzburg333.Converse.pathMatrixEvaluation_differential",
+        "Ginzburg333.Converse.jacobiEvaluation"
+      ],
+      "uses": [
+        "def:jacobi",
+        "def:matrix-evaluation",
+        "lem:matrix-relations"
+      ]
+    },
+    {
+      "label": "lem:loop-lifts",
+      "title": "二つの自由文字の閉道持ち上げ",
+      "kind": "lemma",
+      "lean": [
+        "Ginzburg333.Converse.loopLiftData_exists",
+        "Ginzburg333.Converse.liftFreeWord_closed",
+        "Ginzburg333.Converse.liftFreeWord_entry00"
+      ],
+      "uses": [
+        "def:matrix-evaluation",
+        "lem:free-corner-exists",
+        "lem:jacobi-evaluation"
+      ]
+    },
+    {
+      "label": "thm:exponential-growth",
+      "title": "実際のJacobi商の指数下界",
+      "kind": "theorem",
+      "lean": [
+        "Ginzburg333.Converse.freeCorner_exponential_lower_bound"
+      ],
+      "uses": [
+        "def:free-corner",
+        "def:jacobi",
+        "lem:jacobi-evaluation",
+        "lem:loop-lifts"
+      ]
+    },
+    {
+      "label": "thm:converse",
+      "title": "逆主定理",
+      "kind": "theorem",
+      "lean": [
+        "Ginzburg333.ginzburgRegular_tensorRegular"
+      ],
+      "uses": [
+        "def:ginzburg-regular",
+        "def:tensor-regular",
+        "lem:free-corner-exists",
+        "lem:rank-one-factor",
+        "thm:exponential-growth",
+        "thm:quadratic-growth"
+      ]
+    },
+    {
+      "label": "thm:equivalence",
+      "title": "本来の二つの正則性の同値",
+      "kind": "theorem",
+      "lean": [
+        "Ginzburg333.ginzburgRegular_iff_tensorRegular"
+      ],
+      "uses": [
+        "def:ginzburg-regular",
+        "def:tensor-regular",
+        "thm:converse",
+        "thm:forward"
+      ]
+    },
+    {
+      "label": "def:bases",
+      "title": "独立した三つの空間の基底座標",
+      "kind": "definition",
+      "lean": [
+        "Ginzburg333.Comparison.tensorCoordinatesEquiv",
+        "Ginzburg333.Comparison.chosenTensorCoordinates"
+      ],
+      "uses": [
+        "def:coordinates"
+      ]
+    },
+    {
+      "label": "cor:bases",
+      "title": "任意の三つの三次元因子への接続",
+      "kind": "corollary",
+      "lean": [
+        "Ginzburg333.Comparison.tensorRegular_ginzburgRegular_in_bases",
+        "Ginzburg333.Comparison.ginzburgRegular_tensorRegular_in_bases",
+        "Ginzburg333.Comparison.ginzburgRegular_iff_tensorRegular_chosen_bases"
+      ],
+      "uses": [
+        "def:bases",
+        "thm:converse",
+        "thm:equivalence",
+        "thm:forward"
+      ]
+    }
+  ],
+  "declarations": {
+    "Ginzburg333.Auxiliary": {
+      "file": "Ginzburg333/Auxiliary.lean",
+      "line": 22,
+      "kind": "abbrev",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Auxiliary.lean#L22"
+    },
+    "Ginzburg333.Bar.barExact_filtration_step": {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 69,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Filtration.lean#L69"
+    },
+    "Ginzburg333.Bar.filtration_internal_short_exact": {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 165,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalExact.lean#L165"
+    },
+    "Ginzburg333.Bar.internalInclusion_differential": {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 101,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalExact.lean#L101"
+    },
+    "Ginzburg333.Bar.internalProjection": {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 21,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Internal.lean#L21"
+    },
+    "Ginzburg333.Bar.internalProjection_differential": {
+      "file": "Ginzburg333/Bar/InternalDifferential.lean",
+      "line": 27,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalDifferential.lean#L27"
+    },
+    "Ginzburg333.Bar.internalQuotient_differential": {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 108,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalExact.lean#L108"
+    },
+    "Ginzburg333.Bar.internallyNormalizedDifferential": {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 259,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Internal.lean#L259"
+    },
+    "Ginzburg333.Bar.internallyNormalizedTerm": {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 255,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Internal.lean#L255"
+    },
+    "Ginzburg333.Bar.internallyNormalizedTerm_eq_bot": {
+      "file": "Ginzburg333/Bar/InternalDifferential.lean",
+      "line": 49,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalDifferential.lean#L49"
+    },
+    "Ginzburg333.Bar.internallyNormalized_zero_surjective": {
+      "file": "Ginzburg333/Bar/Zero.lean",
+      "line": 38,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Zero.lean#L38"
+    },
+    "Ginzburg333.Bar.internally_normalized_free_exact": {
+      "file": "Ginzburg333/Bar/FreeExact.lean",
+      "line": 96,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/FreeExact.lean#L96"
+    },
+    "Ginzburg333.Bar.normalizedDifferential": {
+      "file": "Ginzburg333/Bar/Normalized.lean",
+      "line": 109,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Normalized.lean#L109"
+    },
+    "Ginzburg333.Bar.normalizedTerm": {
+      "file": "Ginzburg333/Bar/Corners.lean",
+      "line": 100,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Corners.lean#L100"
+    },
+    "Ginzburg333.Bar.normalized_bar_off_diagonal": {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 103,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Filtration.lean#L103"
+    },
+    "Ginzburg333.Bar.rowContraction_homotopy_normalized": {
+      "file": "Ginzburg333/Bar/FreeExact.lean",
+      "line": 9,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/FreeExact.lean#L9"
+    },
+    "Ginzburg333.Bar.simple_normalized_bar_off_diagonal": {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 84,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Simple.lean#L84"
+    },
+    "Ginzburg333.Comparison.chosenTensorCoordinates": {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "line": 40,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Bases.lean#L40"
+    },
+    "Ginzburg333.Comparison.cobarBasis_transpose": {
+      "file": "Ginzburg333/Comparison/Transpose.lean",
+      "line": 54,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Transpose.lean#L54"
+    },
+    "Ginzburg333.Comparison.finiteDualReversal": {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 63,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Reversal.lean#L63"
+    },
+    "Ginzburg333.Comparison.finiteDualReversal_differential": {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 164,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/FiniteChain.lean#L164"
+    },
+    "Ginzburg333.Comparison.generator_structure_coefficient": {
+      "file": "Ginzburg333/Comparison/Generators.lean",
+      "line": 32,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Generators.lean#L32"
+    },
+    "Ginzburg333.Comparison.ginzburgRegular_iff_tensorRegular_chosen_bases": {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 58,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Main.lean#L58"
+    },
+    "Ginzburg333.Comparison.ginzburgRegular_tensorRegular_in_bases": {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 35,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Main.lean#L35"
+    },
+    "Ginzburg333.Comparison.ginzburg_internal_primitives": {
+      "file": "Ginzburg333/Comparison/Primitives.lean",
+      "line": 30,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Primitives.lean#L30"
+    },
+    "Ginzburg333.Comparison.rowPath_primitive": {
+      "file": "Ginzburg333/Comparison/Primitives.lean",
+      "line": 10,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Primitives.lean#L10"
+    },
+    "Ginzburg333.Comparison.signedWordReversal_differential": {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 170,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/WordReversal.lean#L170"
+    },
+    "Ginzburg333.Comparison.simpleBarDualCoordinates": {
+      "file": "Ginzburg333/Comparison/FiniteDual.lean",
+      "line": 39,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/FiniteDual.lean#L39"
+    },
+    "Ginzburg333.Comparison.simpleBarLinearBasis": {
+      "file": "Ginzburg333/Comparison/FiniteDual.lean",
+      "line": 22,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/FiniteDual.lean#L22"
+    },
+    "Ginzburg333.Comparison.simple_dual_bar_off_diagonal": {
+      "file": "Ginzburg333/Comparison/DualExact.lean",
+      "line": 11,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/DualExact.lean#L11"
+    },
+    "Ginzburg333.Comparison.tensorCoordinatesEquiv": {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "line": 19,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Bases.lean#L19"
+    },
+    "Ginzburg333.Comparison.tensorRegular_ginzburgRegular_in_bases": {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "line": 31,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Bases.lean#L31"
+    },
+    "Ginzburg333.Comparison.totalDualReversal": {
+      "file": "Ginzburg333/Comparison/Total.lean",
+      "line": 58,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Total.lean#L58"
+    },
+    "Ginzburg333.Comparison.totalDualReversal_differential": {
+      "file": "Ginzburg333/Comparison/Total.lean",
+      "line": 68,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Total.lean#L68"
+    },
+    "Ginzburg333.Comparison.wordSign": {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 34,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Reversal.lean#L34"
+    },
+    "Ginzburg333.Converse.FreeCornerData": {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 90,
+      "kind": "structure",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Quotient.lean#L90"
+    },
+    "Ginzburg333.Converse.LoopWords": {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 10,
+      "kind": "abbrev",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Representation.lean#L10"
+    },
+    "Ginzburg333.Converse.RankOneSlice": {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 14,
+      "kind": "structure",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Factors.lean#L14"
+    },
+    "Ginzburg333.Converse.freeCornerData_exists": {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 101,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Quotient.lean#L101"
+    },
+    "Ginzburg333.Converse.freeCorner_exponential_lower_bound": {
+      "file": "Ginzburg333/Converse/Growth.lean",
+      "line": 11,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Growth.lean#L11"
+    },
+    "Ginzburg333.Converse.generatorMatrix": {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 82,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Representation.lean#L82"
+    },
+    "Ginzburg333.Converse.jacobiEvaluation": {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 56,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/JacobiMap.lean#L56"
+    },
+    "Ginzburg333.Converse.killLine_surjective": {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 117,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Factors.lean#L117"
+    },
+    "Ginzburg333.Converse.liftFreeWord_closed": {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 116,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/LoopLifts.lean#L116"
+    },
+    "Ginzburg333.Converse.liftFreeWord_entry00": {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 136,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/LoopLifts.lean#L136"
+    },
+    "Ginzburg333.Converse.loopLiftData_exists": {
+      "file": "Ginzburg333/Converse/LoopLifts.lean",
+      "line": 100,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/LoopLifts.lean#L100"
+    },
+    "Ginzburg333.Converse.matrixEvaluation": {
+      "file": "Ginzburg333/Converse/Representation.lean",
+      "line": 90,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Representation.lean#L90"
+    },
+    "Ginzburg333.Converse.matrixEvaluation_generator_differential": {
+      "file": "Ginzburg333/Converse/MatrixRelations.lean",
+      "line": 94,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/MatrixRelations.lean#L94"
+    },
+    "Ginzburg333.Converse.pathMatrixEvaluation_differential": {
+      "file": "Ginzburg333/Converse/JacobiMap.lean",
+      "line": 32,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/JacobiMap.lean#L32"
+    },
+    "Ginzburg333.Converse.projectedRelationMap_rank_le_two": {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 60,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Quotient.lean#L60"
+    },
+    "Ginzburg333.Converse.rankOneSlice_exists": {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 21,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Factors.lean#L21"
+    },
+    "Ginzburg333.Converse.rankOneSlice_of_not_regular": {
+      "file": "Ginzburg333/Converse/Factors.lean",
+      "line": 67,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Factors.lean#L67"
+    },
+    "Ginzburg333.Converse.relationQuotient_finrank_ge_two": {
+      "file": "Ginzburg333/Converse/Quotient.lean",
+      "line": 78,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Quotient.lean#L78"
+    },
+    "Ginzburg333.Converse.wordToPaths_bigraded": {
+      "file": "Ginzburg333/Converse/WordMap.lean",
+      "line": 82,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/WordMap.lean#L82"
+    },
+    "Ginzburg333.CyclicData.Allowed": {
+      "file": "Ginzburg333/Finite/Filtration.lean",
+      "line": 59,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Filtration.lean#L59"
+    },
+    "Ginzburg333.CyclicData.FiltrationStep": {
+      "file": "Ginzburg333/Finite/Filtration.lean",
+      "line": 63,
+      "kind": "structure",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Filtration.lean#L63"
+    },
+    "Ginzburg333.CyclicData.QuotientRow": {
+      "file": "Ginzburg333/Finite/Filtration.lean",
+      "line": 138,
+      "kind": "abbrev",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Filtration.lean#L138"
+    },
+    "Ginzburg333.CyclicData.Regular": {
+      "file": "Ginzburg333/Finite/Coordinates.lean",
+      "line": 216,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L216"
+    },
+    "Ginzburg333.CyclicData.adjacent_rank_two": {
+      "file": "Ginzburg333/Finite/Rank.lean",
+      "line": 73,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Rank.lean#L73"
+    },
+    "Ginzburg333.CyclicData.annihilator_eq_adjacent_image": {
+      "file": "Ginzburg333/Finite/Corner.lean",
+      "line": 54,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Corner.lean#L54"
+    },
+    "Ginzburg333.CyclicData.exists_filtrationStep": {
+      "file": "Ginzburg333/Finite/Filtration.lean",
+      "line": 76,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Filtration.lean#L76"
+    },
+    "Ginzburg333.CyclicData.full_colon_closed": {
+      "file": "Ginzburg333/Finite/Colon.lean",
+      "line": 226,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Colon.lean#L226"
+    },
+    "Ginzburg333.CyclicData.identity_multiply": {
+      "file": "Ginzburg333/Auxiliary.lean",
+      "line": 60,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Auxiliary.lean#L60"
+    },
+    "Ginzburg333.CyclicData.kernel_eq_span": {
+      "file": "Ginzburg333/Finite/Rank.lean",
+      "line": 97,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Rank.lean#L97"
+    },
+    "Ginzburg333.CyclicData.multiply": {
+      "file": "Ginzburg333/Auxiliary.lean",
+      "line": 30,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Auxiliary.lean#L30"
+    },
+    "Ginzburg333.CyclicData.multiply_assoc": {
+      "file": "Ginzburg333/Auxiliary.lean",
+      "line": 44,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Auxiliary.lean#L44"
+    },
+    "Ginzburg333.CyclicData.multiply_identity": {
+      "file": "Ginzburg333/Auxiliary.lean",
+      "line": 65,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Auxiliary.lean#L65"
+    },
+    "Ginzburg333.CyclicData.plane_colon_closed": {
+      "file": "Ginzburg333/Finite/Colon.lean",
+      "line": 190,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Colon.lean#L190"
+    },
+    "Ginzburg333.CyclicData.plane_contains_rank_two": {
+      "file": "Ginzburg333/Finite/Pencil.lean",
+      "line": 52,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Pencil.lean#L52"
+    },
+    "Ginzburg333.CyclicData.productSpan_eq_top_of_two_le": {
+      "file": "Ginzburg333/Finite/Rank.lean",
+      "line": 29,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Rank.lean#L29"
+    },
+    "Ginzburg333.Ginzburg.Generator": {
+      "file": "Ginzburg333/Ginzburg.lean",
+      "line": 19,
+      "kind": "inductive",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L19"
+    },
+    "Ginzburg333.Ginzburg.GinzburgRegular": {
+      "file": "Ginzburg333/Ginzburg.lean",
+      "line": 137,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L137"
+    },
+    "Ginzburg333.Ginzburg.PathSpace": {
+      "file": "Ginzburg333/Ginzburg.lean",
+      "line": 65,
+      "kind": "abbrev",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L65"
+    },
+    "Ginzburg333.Ginzburg.ValidPath": {
+      "file": "Ginzburg333/Ginzburg.lean",
+      "line": 59,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L59"
+    },
+    "Ginzburg333.Ginzburg.cohomologicalDegree_eq_length_sub_weight": {
+      "file": "Ginzburg333/Ginzburg.lean",
+      "line": 83,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L83"
+    },
+    "Ginzburg333.Ginzburg.differential": {
+      "file": "Ginzburg333/Ginzburg.lean",
+      "line": 126,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L126"
+    },
+    "Ginzburg333.Ginzburg.differential_internal": {
+      "file": "Ginzburg333/Ginzburg/Homogeneous.lean",
+      "line": 50,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg/Homogeneous.lean#L50"
+    },
+    "Ginzburg333.Ginzburg.differential_square": {
+      "file": "Ginzburg333/Ginzburg/SquareZero.lean",
+      "line": 59,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg/SquareZero.lean#L59"
+    },
+    "Ginzburg333.Ginzburg.ginzburgRegular_contraction_ne_zero": {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 84,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/LowDegree.lean#L84"
+    },
+    "Ginzburg333.Ginzburg.ginzburgRegular_of_internal_primitives": {
+      "file": "Ginzburg333/Ginzburg/Complex.lean",
+      "line": 98,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg/Complex.lean#L98"
+    },
+    "Ginzburg333.Ginzburg.internalJacobi": {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 49,
+      "kind": "abbrev",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L49"
+    },
+    "Ginzburg333.Ginzburg.internalJacobi_finrank_36": {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 200,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Counting.lean#L200"
+    },
+    "Ginzburg333.Ginzburg.internalJacobi_finrank_euler": {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 76,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L76"
+    },
+    "Ginzburg333.Ginzburg.internalJacobi_quadratic_growth": {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 185,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Counting.lean#L185"
+    },
+    "Ginzburg333.Ginzburg.negativeDifferential": {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 10,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L10"
+    },
+    "Ginzburg333.Ginzburg.negativeDifferential_exact": {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 14,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L14"
+    },
+    "Ginzburg333.Ginzburg.negativeDimension_letterCount": {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 173,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Paths.lean#L173"
+    },
+    "Ginzburg333.Ginzburg.negativeTerm": {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 8,
+      "kind": "abbrev",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L8"
+    },
+    "Ginzburg333.Ginzburg.negativeTerm_eq_zero": {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 35,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L35"
+    },
+    "Ginzburg333.Ginzburg.pathLettersEquiv": {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 70,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Paths.lean#L70"
+    },
+    "Ginzburg333.Ginzburg.signedLetterEuler_quadratic": {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 130,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Counting.lean#L130"
+    },
+    "Ginzburg333.Ginzburg.signedLetterEuler_sum_counts": {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 172,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Counting.lean#L172"
+    },
+    "Ginzburg333.Signs.comparison_parity": {
+      "file": "Ginzburg333/Signs.lean",
+      "line": 84,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Signs.lean#L84"
+    },
+    "Ginzburg333.Signs.sigma": {
+      "file": "Ginzburg333/Signs.lean",
+      "line": 28,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Signs.lean#L28"
+    },
+    "Ginzburg333.Signs.sigma_formula": {
+      "file": "Ginzburg333/Signs.lean",
+      "line": 33,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Signs.lean#L33"
+    },
+    "Ginzburg333.Tensor": {
+      "file": "Ginzburg333/Finite/Coordinates.lean",
+      "line": 23,
+      "kind": "abbrev",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L23"
+    },
+    "Ginzburg333.TensorRegular": {
+      "file": "Ginzburg333/Finite/Coordinates.lean",
+      "line": 221,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L221"
+    },
+    "Ginzburg333.coeff": {
+      "file": "Ginzburg333/Finite/Coordinates.lean",
+      "line": 156,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L156"
+    },
+    "Ginzburg333.contract": {
+      "file": "Ginzburg333/Finite/Coordinates.lean",
+      "line": 162,
+      "kind": "def",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L162"
+    },
+    "Ginzburg333.finrank_auxiliary": {
+      "file": "Ginzburg333/Auxiliary.lean",
+      "line": 24,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Auxiliary.lean#L24"
+    },
+    "Ginzburg333.ginzburgRegular_iff_tensorRegular": {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 24,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Main.lean#L24"
+    },
+    "Ginzburg333.ginzburgRegular_tensorRegular": {
+      "file": "Ginzburg333/Converse/Main.lean",
+      "line": 9,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Main.lean#L9"
+    },
+    "Ginzburg333.tensorRegular_ginzburgRegular": {
+      "file": "Ginzburg333/Comparison/Primitives.lean",
+      "line": 85,
+      "kind": "theorem",
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Comparison/Primitives.lean#L85"
+    }
+  }
+}

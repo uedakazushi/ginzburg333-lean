@@ -1,0 +1,5 @@
+body { font-family: system-ui, "Noto Sans CJK JP", sans-serif; line-height: 1.9; }
+code, .tt { overflow-wrap: anywhere; }
+.thm_thmtitle { font-weight: 600; }
+.content { max-width: 1050px; margin-inline: auto; }
+mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }

@@ -1,0 +1,670 @@
+\section{目的と読み方}
+
+このblueprintは、Ginzburg (3,3,3) 形式化の実装に対応する日本語の数学的案内である。
+主張は、標数0の代数閉体上で
+\[
+  \TR(w)\quad\Longleftrightarrow\quad\GR(w)
+\]
+が成り立つことである。本文では $\TR$ を \texttt{TensorRegular}、
+$\GR$ を \texttt{GinzburgRegular} の略記とする。
+順方向は正規化bar複体と有限次数双対を用い、
+逆方向は実際の内部Jacobi商の多項式増大と、階数1から得られる指数増大の矛盾を用いる。
+逆方向には代数閉性も標数0も必要ない。
+
+本文の各定義・補題には対応するLean宣言を付けた。証明の依存グラフは
+本文で選んだ数学的依存関係であり、Leanの全証明項の依存関係を列挙したものではない。
+緑色の項目は対応する宣言と証明が実装済みであることを表す。
+各Leanリンクは、両方向を完成したソースの保存点へ飛ぶ。
+元の二つの正則性を、bar完全性や表現データの存在という証明用の条件に置き換えてはいない。
+
+全体のLean検証は69数学モジュール、明示的theorem 540件、生成定理を含む公理監査1214件で成功している。
+依存公理はLeanの標準的な \texttt{propext}、\texttt{Classical.choice}、\texttt{Quot.sound} のみである。
+本文の生成・宣言対応の検査結果はリポジトリのblueprint検証記録に保存する。
+
+\section{座標、道、二つの正則性}
+
+以下で $k$ は体、頂点は $i\in\mathbb Z/3\mathbb Z$ とする。
+三つの三次元因子は別々の空間であり、同じ座標型を使うことはそれらを同一視することを意味しない。
+
+\begin{definition}[テンソルの巡回座標]\label{def:coordinates}
+\lean{Ginzburg333.Tensor,Ginzburg333.coeff,Ginzburg333.contract}\leanok
+$w=(w_{abc})$ は三つの三次元因子のテンソルの座標である。
+$w_i$ は因子を $i,i+1,i+2$ の順に置いた巡回座標で、
+\[
+ w_0(a,b,c)=w_{abc},\quad w_1(a,b,c)=w_{cab},\quad w_2(a,b,c)=w_{bca}.
+\]
+$a\in k^3$ に対して縮約 $C_i(a):k^3\to k^3$ を
+\[
+ (C_i(a)b)_c=\sum_{x,y}w_i(x,y,c)a_x b_y
+\]
+で定める。これは双対因子との基底座標による評価である。
+\end{definition}
+
+\begin{definition}[Tensor regular]\label{def:tensor-regular}
+\lean{Ginzburg333.TensorRegular,Ginzburg333.CyclicData.Regular}\leanok
+\uses{def:coordinates}
+$\TR(w)$ とは、全頂点 $i$ と全ての $a\ne0$ に対して
+$\rank C_i(a)\ge2$ が成り立つことである。
+補助的な巡回乗法データ $D=\operatorname{ofTensor}(w)$ に対しては $D.\mathrm{Regular}$ と記述する。
+\end{definition}
+
+\begin{definition}[有限支持のGinzburg道複体]\label{def:ginzburg}
+\lean{Ginzburg333.Ginzburg.Generator,Ginzburg333.Ginzburg.ValidPath,Ginzburg333.Ginzburg.PathSpace,Ginzburg333.Ginzburg.differential}\leanok
+\uses{def:coordinates}
+生成元は $x_{i,a}:i\to i+1$、$x^*_{i,a}:i+1\to i$、$t_i:i\to i$。
+内部次数はそれぞれ $1,2,3$、コホモロジー次数は $0,-1,-2$ とする。
+代数の語は右端から辿る。道空間は、始点を記録した有効道を基底とする有限支持の直和である。
+微分は次数 $+1$ の導分であり、
+\[
+\begin{split}
+ d x_{i,a}&=0,\\
+ d x^*_{i,a}&=\sum_{b,c}w_i(a,b,c)x_{i+2,c}x_{i+1,b},\\
+ d t_i&=\sum_a x^*_{i,a}x_{i,a}-\sum_a x_{i+2,a}x^*_{i+2,a}
+\end{split}
+\]
+を生成元上の定義とする。
+\end{definition}
+
+\begin{lemma}[次数と微分]\label{lem:ginzburg-grading}
+\lean{Ginzburg333.Ginzburg.cohomologicalDegree_eq_length_sub_weight,Ginzburg333.Ginzburg.differential_internal,Ginzburg333.Ginzburg.differential_square}\leanok
+\uses{def:ginzburg}
+長さ $r$、内部次数 $n$ の道のコホモロジー次数は $q=r-n$ である。
+$d$ は内部次数を保ち、コホモロジー次数を1増やし、$d^2=0$ を満たす。
+各内部次数の道空間は有限次元である。
+\end{lemma}
+\begin{proof}\leanok
+生成元の重みは負次数の絶対値に1を足したものである。これを語全体で足す。
+微分の各項の頂点と次数を生成元上で確認し、導分の再帰式へ拡張する。
+$d^2=0$ は巡回座標の一致による打ち消しで証明する。
+固定した内部次数では語長がその次数以下なので、有効道の基底は有限である。
+\end{proof}
+
+\begin{definition}[Ginzburg regular]\label{def:ginzburg-regular}
+\lean{Ginzburg333.Ginzburg.GinzburgRegular}\leanok
+\uses{def:ginzburg}
+$\GR(w)$ とは、任意の $q<0$ と有限支持の次数 $q$ の元 $x$ に対し、
+$dx=0$ なら次数 $q-1$ の有限支持の $y$ が存在して $dy=x$ となることである。
+内部次数の上限、barの消滅、avatarはこの定義に含まれない。
+\end{definition}
+
+\section{順方向の準備：補助乗法とfiltration}
+
+この章から順方向の完成まで、必要な箇所で $D.\mathrm{Regular}$ と $k$ の代数閉性を仮定する。
+
+\begin{definition}[24次元の補助乗法]\label{def:auxiliary}
+\lean{Ginzburg333.Auxiliary,Ginzburg333.CyclicData.multiply}\leanok
+\uses{def:coordinates}
+補助空間 $E$ は三つの行 $E_i$ の和で、各行は次数 $0,1,2,3$ において
+$k,k^3,k^3,k$ を持つ。正次数の積は、次数1同士の積 $D.\mathrm{mul}$ と
+次数1・次数2の組の内積で定め、次数4以上を零とする。
+頂点cornerは $e_iE_d e_{i+d}$ という規約に従う。
+\end{definition}
+
+\begin{lemma}[補助乗法の法則]\label{lem:auxiliary-laws}
+\lean{Ginzburg333.finrank_auxiliary,Ginzburg333.CyclicData.multiply_assoc,Ginzburg333.CyclicData.identity_multiply,Ginzburg333.CyclicData.multiply_identity}\leanok
+\uses{def:auxiliary}
+この乗法は結合的で単位元を持ち、$\dim_k E=24$。
+\end{lemma}
+\begin{proof}\leanok
+次数1の三因子に関する唯一の非自明な結合律は巡回恒等式
+$\langle D_i(a,b),c\rangle=\langle a,D_{i+1}(b,c)\rangle$ に帰着する。
+残りは乗法表の直接計算である。
+\end{proof}
+
+\begin{lemma}[正則縮約の像と核]\label{lem:rank}
+\lean{Ginzburg333.CyclicData.productSpan_eq_top_of_two_le,Ginzburg333.CyclicData.adjacent_rank_two,Ginzburg333.CyclicData.kernel_eq_span}\leanok
+\uses{def:tensor-regular,lem:auxiliary-laws}
+$D$ が正則なら、二次元以上の部分空間の積が次の必要な次数成分を張る。
+階数2の縮約の核は一次元であり、その非零核ベクトルによる隣接縮約も階数2になる。
+\end{lemma}
+\begin{proof}\leanok
+巡回恒等式から隣接縮約の像は適切な内積直交平面に含まれる。
+正則性の階数下界と次元比較でこれを等号にする。
+核については階数・退化次数の公式を使う。
+\end{proof}
+
+\begin{lemma}[平面にある階数2の元]\label{lem:pencil}
+\lean{Ginzburg333.CyclicData.plane_contains_rank_two}\leanok
+\uses{def:tensor-regular}
+代数閉体上で、任意の二次元平面 $U\subset k^3$ は階数2の縮約を与える非零ベクトルを含む。
+\end{lemma}
+\begin{proof}\leanok
+平面上の縮約の行列束の行列式を考える。
+一方が既に非単射ならよく、そうでなければ一変数の固有値の存在から
+非単射な非零線形結合を作る。正則性により、その階数は2である。
+\end{proof}
+
+\begin{definition}[許される部分空間とfiltrationの一段]\label{def:filtration}
+\lean{Ginzburg333.CyclicData.Allowed,Ginzburg333.CyclicData.FiltrationStep,Ginzburg333.CyclicData.QuotientRow}\leanok
+\uses{def:auxiliary}
+許される $U$ は零、階数2の縮約を与える元の張る直線、任意の平面、全空間である。
+$M_i(U)=E_i/\operatorname{rowGenerated}_i(U)$ と書く。
+filtrationの一段は $U=U'\oplus kg$ と、次の頂点の許される部分空間 $C$ を持ち、
+左から $g$ を掛ける写像の逆像が $\operatorname{rowGenerated}_{i+1}(C)$ になるデータである。
+\end{definition}
+
+\begin{lemma}[colonの計算]\label{lem:colon}
+\lean{Ginzburg333.CyclicData.annihilator_eq_adjacent_image,Ginzburg333.CyclicData.plane_colon_closed,Ginzburg333.CyclicData.full_colon_closed}\leanok
+\uses{lem:rank,def:filtration}
+直線・平面・全空間に対するcolonは、同じ許される族の部分空間が生成する行部分加群として記述できる。
+\end{lemma}
+\begin{proof}\leanok
+直線では縮約の核と隣接縮約の像を使う。平面では階数2の元と追加の生成元を選び、
+乗法表の各次数で逆像を計算する。全空間では正次数部分全体を得る。
+\end{proof}
+
+\begin{lemma}[filtrationの存在]\label{lem:filtration-exists}
+\lean{Ginzburg333.CyclicData.exists_filtrationStep}\leanok
+\uses{def:filtration}
+$k$ が代数閉体で $D$ が正則なら、非零の許される $U$ はfiltrationの一段を持つ。
+その $U'$ は $\dim U' +1=\dim U$ を満たす。
+\end{lemma}
+\begin{proof}\uses{lem:rank,lem:pencil,lem:colon}\leanok
+直線なら零から、平面なら階数2の直線から、全空間なら平面から一つ生成元を追加する。
+colonの計算により、次の頂点側も許される族に属する。
+\end{proof}
+
+\section{A：正規化barの内部次数と短完全列}
+
+\begin{definition}[頂点条件付き正規化bar]\label{def:bar}
+\lean{Ginzburg333.Bar.normalizedTerm,Ginzburg333.Bar.normalizedDifferential}\leanok
+\uses{def:auxiliary}
+正規化barは、正次数因子の語長 $r$ を持ち、隣接する因子が合成可能で、
+係数の頂点射影が最初の因子に一致する有限支持の項からなる。
+微分 $\partial$ の係数作用の項にはマイナス、最初の隣接積にはプラスが付く。
+後続の積には交代符号を付ける。実装のこの符号を比較の全段階で維持する。
+\end{definition}
+
+\begin{definition}[内部次数成分]\label{def:bar-internal}
+\lean{Ginzburg333.Bar.internalProjection,Ginzburg333.Bar.internallyNormalizedTerm,Ginzburg333.Bar.internallyNormalizedDifferential}\leanok
+\uses{def:bar,def:filtration}
+$\Bbar_{r,n}(i,U)$ は、係数の次数 $d\in\{0,1,2,3\}$ と
+語の重みの和が $n$ になる正規化barの項である。
+内部次数射影 $P_n$ は、各語 $g_1\cdots g_r$ の係数に
+\[
+ \sum_{d+\sum_j\wt(g_j)=n}\pi_d
+\]
+を作用させる。ここで $\pi_d$ は商行の実際の次数射影である。
+\end{definition}
+
+\begin{lemma}[次数射影と微分の両立]\label{lem:bar-projection}
+\lean{Ginzburg333.Bar.internalProjection_differential,Ginzburg333.Bar.internallyNormalizedTerm_eq_bot}\leanok
+\uses{def:bar-internal}
+$P_n\partial=\partial P_n$。$\partial$ は $\Bbar_{r+1,n}\to\Bbar_{r,n}$ に制限でき、
+$n<r$ の項は零である。各 $\Bbar_{r,n}$ は有限次元である。
+\end{lemma}
+\begin{proof}\leanok
+係数作用は生成元の重みだけ係数次数を増やし、語からその生成元を取り除く。
+隣接積は重みの和を保つ。次数射影は頂点射影、正規化、語長条件とも両立する。
+全ての正次数因子の重みが1以上なので、$n<r$ には基底がない。
+\end{proof}
+
+\begin{lemma}[内部次数ごとの短完全列]\label{lem:bar-short-exact}
+\lean{Ginzburg333.Bar.filtration_internal_short_exact,Ginzburg333.Bar.internalInclusion_differential,Ginzburg333.Bar.internalQuotient_differential}\leanok
+\uses{def:filtration,def:bar-internal}
+filtrationの一段に対し、
+\[
+ 0\longrightarrow \Bbar_{r,n}(i+1,C)
+ \longrightarrow \Bbar_{r,n+1}(i,U')
+ \longrightarrow \Bbar_{r,n+1}(i,U)\longrightarrow0
+\]
+は完全で、全ての写像は微分と可換する。
+包含の内部次数は $+1$ である。
+\end{lemma}
+\begin{proof}\uses{lem:bar-projection,lem:filtration-exists}\leanok
+係数の包含は $g$ を掛けるので次数を1増やす。
+係数の短完全列を有限支持の語へ適用し、次数射影と正規化射影で制限する。
+全射と核の一致は、この実際の制限写像に対して証明する。
+\end{proof}
+
+\section{B・C：自由行収縮から対角外完全性へ}
+
+\begin{lemma}[正規化自由行barの収縮]\label{lem:bar-contraction}
+\lean{Ginzburg333.Bar.rowContraction_homotopy_normalized}\leanok
+\uses{def:bar}
+自由行 $E_i$ の正規化barの正の語長の項には、収縮 $H$ が存在し、
+\[
+ \partial H+H\partial=1
+\]
+が成り立つ。
+\end{lemma}
+\begin{proof}\leanok
+係数を単位成分と正次数成分に分解し、正次数成分を新しい先頭因子へ移す。
+係数・因子を基底展開して隣接積の項を打ち消す。
+残る単位射影は、実際の頂点条件と正規化条件により恒等写像になる。
+等式はambient空間だけでなく、頂点条件付きの正規化項上で成立する。
+\end{proof}
+
+\begin{lemma}[自由行の内部次数別完全性]\label{lem:bar-free}
+\lean{Ginzburg333.Bar.internally_normalized_free_exact}\leanok
+\uses{def:bar-internal}
+$U=0$ のとき、$\Bbar_{\bullet,n}(i,0)$ は正の語長で完全である。
+\end{lemma}
+\begin{proof}\uses{lem:bar-contraction,lem:bar-projection}\leanok
+零が生成する行部分加群は零なので、自由行と商行を同定する。
+収縮で得た原始元に $P_n$ を作用させると、同じ内部次数の原始元を得る。
+\end{proof}
+
+\begin{lemma}[語長0の基底となる消滅]\label{lem:bar-zero}
+\lean{Ginzburg333.Bar.internallyNormalized_zero_surjective}\leanok
+\uses{def:bar-internal}
+$n>0$ なら、$\partial:\Bbar_{1,n}(i,U)\to\Bbar_{0,n}(i,U)$ は全射である。
+\end{lemma}
+\begin{proof}\uses{lem:bar-contraction,lem:bar-projection}\leanok
+空語の係数を自由行へ持ち上げ、正次数成分を語に移す。
+$n>0$ により単位次数の例外は消える。
+商行へ戻して内部次数射影を作用させる。
+\end{proof}
+
+\begin{lemma}[完全性のfiltrationステップ]\label{lem:bar-step}
+\lean{Ginzburg333.Bar.barExact_filtration_step}\leanok
+\uses{def:bar-internal}
+$\Bbar(i,U')$ が $(r+1,n+1)$ で完全で、
+$\Bbar(i+1,C)$ が $(r,n)$ で完全なら、$\Bbar(i,U)$ は $(r+1,n+1)$ で完全である。
+\end{lemma}
+\begin{proof}\uses{lem:bar-short-exact}\leanok
+商の閉元を中央へ持ち上げる。その微分を左端から戻し、
+左端の完全性で補正して中央の閉元を作る。
+中央の完全性で原始元を取り、商へ射影する。
+これは実際の短完全列でのdiagram chaseである。
+\end{proof}
+
+\begin{theorem}[実際のbarの対角外完全性]\label{thm:bar-off-diagonal}
+\lean{Ginzburg333.Bar.normalized_bar_off_diagonal,Ginzburg333.Bar.simple_normalized_bar_off_diagonal}\leanok
+\uses{def:tensor-regular,def:bar-internal}
+代数閉体上で正則な $D$ と許される $U$ に対して、
+$\Bbar_{\bullet,n}(i,U)$ は $n\ne r$ の項で完全である。
+特に $U=k^3$、すなわち頂点単純行のbarにも成立する。
+\end{theorem}
+\begin{proof}\uses{lem:bar-free,lem:bar-zero,lem:bar-projection,lem:bar-step,lem:filtration-exists}\leanok
+語長0では基底となる全射、自由行では収縮を使う。
+filtrationステップは部分空間の次元を減らすか、語長と内部次数を同時に1減らす。
+この帰納法に $n<r$ の零成分を接続する。
+頂点単純行は許される族の全空間に対応する。
+\end{proof}
+
+\section{D：有限次数双対とGinzburg道複体}
+
+\begin{definition}[有限次数の双対座標]\label{def:finite-dual}
+\lean{Ginzburg333.Comparison.simpleBarLinearBasis,Ginzburg333.Comparison.simpleBarDualCoordinates}\leanok
+\uses{def:bar-internal}
+頂点単純行の $\Bbar_{r,n}(i,k^3)$ は、始点条件を満たす長さ $r$・重み $n$ の語を基底に持つ。
+この有限基底を用いて、線形双対を同じ語上の有限支持座標へ移す。
+無制限なbar直和全体の双対を道の直和と同一視しない。
+\end{definition}
+
+\begin{definition}[符号付き因子反転]\label{def:reversal}
+\lean{Ginzburg333.Comparison.finiteDualReversal,Ginzburg333.Comparison.wordSign,Ginzburg333.Signs.sigma}\leanok
+\uses{def:finite-dual,def:ginzburg}
+語の因子を反転し、
+\[
+ (-1)^{\sigma(d_1,\ldots,d_r)},\qquad
+ \sigma=\sum_{j=1}^r(j-1)d_j+\binom r2+\#\{j:d_j=3\}
+\]
+を掛ける。これにより
+\[
+ \Bbar_{r,n}(i,k^3)^\vee\ \simeq\ \G_{i;r,n}
+\]
+を得る。右辺は始点 $i$、長さ $r$、内部次数 $n$ の実際の有効道成分である。
+\end{definition}
+
+\begin{lemma}[生成元係数の一致]\label{lem:generator-coefficients}
+\lean{Ginzburg333.Comparison.generator_structure_coefficient}\leanok
+\uses{def:reversal}
+補助正次数乗法の構造係数は、反転と生成元の次数に応じた符号を通じて
+元のGinzburg生成元微分の係数と一致する。
+\end{lemma}
+\begin{proof}\uses{def:auxiliary,def:ginzburg}\leanok
+順矢、逆矢、loopを分けて、縮約係数と内積の乗法表を展開する。
+逆矢の場合は $w_i(a,b,c)$、loopの場合は二つの積の符号差を得る。
+\end{proof}
+
+\begin{lemma}[全ての語長での符号と転置]\label{lem:all-length-sign}
+\lean{Ginzburg333.Signs.sigma_formula,Ginzburg333.Signs.comparison_parity,Ginzburg333.Comparison.cobarBasis_transpose,Ginzburg333.Comparison.signedWordReversal_differential}\leanok
+\uses{def:reversal}
+転置bar微分で因子を分割する符号は、反転後の次数付きLeibniz則の符号と一致する。
+この一致は任意の前後の語、任意の語長で成立する。
+\end{lemma}
+\begin{proof}\uses{lem:generator-coefficients}\leanok
+非零の分割 $(1,1),(1,2),(2,1)$ を調べる。
+分割前後の $\sigma$ の差、barの位置符号、反転後の前置語の次数を比較する。
+再帰によって任意の語長へ拡張し、双対微分の基底係数を転置する。
+\end{proof}
+
+\begin{theorem}[内部次数別の実際の鎖同型]\label{thm:chain-isomorphism}
+\lean{Ginzburg333.Comparison.finiteDualReversal_differential,Ginzburg333.Comparison.totalDualReversal,Ginzburg333.Comparison.totalDualReversal_differential}\leanok
+\uses{def:reversal}
+$\Phi_{i;r,n}$ を符号付き反転同型とすると
+\[
+ \Phi_{i;r+1,n}\partial^\vee=d\Phi_{i;r,n}.
+\]
+三頂点の有限双対の和を取ると、
+$\bigoplus_i\Bbar_{r,n}(i,k^3)^\vee\simeq\G_n^{\,r-n}$ という鎖同型になる。
+\end{theorem}
+\begin{proof}\uses{lem:all-length-sign,lem:ginzburg-grading}\leanok
+語の有限座標上で微分の係数が一致することを示す。
+因子反転はbarの合成可能性を右端から辿る有効道へ移す。
+頂点射影で道成分を分解し、三頂点の同型を足し合わせる。
+\end{proof}
+
+\begin{lemma}[対角外の双対完全性]\label{lem:dual-exact}
+\lean{Ginzburg333.Comparison.simple_dual_bar_off_diagonal}\leanok
+\uses{def:finite-dual}
+頂点単純barの有限次数双対は、$n\ne r+1$ の中央項で完全である。
+\end{lemma}
+\begin{proof}\uses{thm:bar-off-diagonal}\leanok
+元の有限次数の完全列を線形双対化する。
+ここで中央項の語長は $r+1$ であるため、対角の条件も $n=r+1$ になる。
+\end{proof}
+
+\section{E：有限支持原始元と順主定理}
+
+\begin{lemma}[同じ内部次数の原始元]\label{lem:internal-primitive}
+\lean{Ginzburg333.Comparison.rowPath_primitive,Ginzburg333.Comparison.ginzburg_internal_primitives}\leanok
+\uses{def:tensor-regular,def:ginzburg}
+代数閉体上で $\TR(w)$ とし、$x\in\G_n^q$、$q<0$、$dx=0$ とする。
+同じ内部次数 $n$ の $y\in\G_n^{q-1}$ が存在して $dy=x$。
+\end{lemma}
+\begin{proof}\uses{thm:chain-isomorphism,lem:dual-exact,lem:ginzburg-grading}\leanok
+非零の $x$ に含まれる道の長さを $r+1$ とする。
+$q=(r+1)-n<0$ だから $n\ne r+1$。
+頂点ごとに有限双対の閉元へ戻し、双対完全性で原始元を取り、鎖同型で道空間へ送る。
+最後に三頂点の原始元を足す。
+\end{proof}
+
+\begin{lemma}[有限和による原始元の組み立て]\label{lem:finite-primitives}
+\lean{Ginzburg333.Ginzburg.ginzburgRegular_of_internal_primitives}\leanok
+\uses{def:ginzburg-regular}
+各内部次数の負次数閉元に同じ内部次数の原始元を作れるなら、$\GR(w)$ が成立する。
+これは条件付きの還元補題である。
+\end{lemma}
+\begin{proof}\uses{lem:ginzburg-grading}\leanok
+有限支持の $x$ を、その支持に現れる有限個の内部次数へ射影する。
+各射影は閉元であり、得られた原始元を有限個足せばよい。
+有限和なので道空間の直和からはみ出さない。
+\end{proof}
+
+\begin{theorem}[順主定理]\label{thm:forward}
+\lean{Ginzburg333.tensorRegular_ginzburgRegular}\leanok
+\uses{def:tensor-regular,def:ginzburg-regular}
+標数0の代数閉体上で $\TR(w)\Rightarrow\GR(w)$。
+\end{theorem}
+\begin{proof}\uses{lem:internal-primitive,lem:finite-primitives}\leanok
+実際のbar比較で内部次数別原始元の存在を証明し、有限和の還元に代入する。
+原始元の存在を新しい仮定として残していない。
+\end{proof}
+
+\section{逆方向：負次数完全性から多項式増大へ}
+
+この章と逆主定理の証明では、$k$ は任意の体でよい。
+
+\begin{definition}[実際の内部Jacobi商]\label{def:jacobi}
+\lean{Ginzburg333.Ginzburg.negativeTerm,Ginzburg333.Ginzburg.negativeDifferential,Ginzburg333.Ginzburg.internalJacobi}\leanok
+\uses{def:ginzburg}
+$N_{n,s}=\G_n^{-s}$、$d_{n,s}:N_{n,s+1}\to N_{n,s}$ とし、
+\[
+ \Jac_n(w)=N_{n,0}/\im d_{n,0}
+\]
+と定める。これは実際の次数0道成分を、実際の微分の像で割った商である。
+\end{definition}
+
+\begin{lemma}[内部次数ごとの負次数完全性]\label{lem:negative-exact}
+\lean{Ginzburg333.Ginzburg.negativeDifferential_exact,Ginzburg333.Ginzburg.negativeTerm_eq_zero}\leanok
+\uses{def:jacobi,def:ginzburg-regular}
+$\GR(w)$ なら、全 $n,s$ に対して
+$N_{n,s+2}\to N_{n,s+1}\to N_{n,s}$ は完全である。
+また $s>0$、$n\le s$ の成分は零である。
+\end{lemma}
+\begin{proof}\uses{lem:ginzburg-grading}\leanok
+元のGinzburgRegularから取った原始元を内部次数 $n$ へ射影する。
+微分との可換性により境界は変わらない。
+後半は長さ $n-s$ と、空語の次数が零であることから従う。
+\end{proof}
+
+\begin{lemma}[階数0の縮約の排除]\label{lem:rank-zero}
+\lean{Ginzburg333.Ginzburg.ginzburgRegular_contraction_ne_zero}\leanok
+\uses{def:ginzburg-regular,def:coordinates}
+$\GR(w)$、$a\ne0$ なら $C_i(a)\ne0$。
+\end{lemma}
+\begin{proof}\uses{lem:ginzburg-grading}\leanok
+$C_i(a)=0$ なら、係数 $a$ による逆矢の線形結合は
+内部次数2・コホモロジー次数 $-1$ の非零閉元になる。
+原始元を内部次数2へ射影すると次数 $-2$ の原始元が必要だが、
+その内部次数と負次数を持つ非空道は存在しない。
+\end{proof}
+
+\begin{lemma}[有限Euler等式]\label{lem:euler}
+\lean{Ginzburg333.Ginzburg.internalJacobi_finrank_euler}\leanok
+\uses{def:jacobi,def:ginzburg-regular}
+$\GR(w)$ なら
+\[
+ \dim_k\Jac_n(w)=\sum_{s=0}^n(-1)^s\dim_k N_{n,s}.
+\]
+\end{lemma}
+\begin{proof}\uses{lem:negative-exact}\leanok
+完全性と階数・核の次元公式から、各負次数成分の次元を隣接する境界の次元の和にする。
+交代和は打ち消し合い、末尾の境界は零になる。
+無限級数ではなく、有限次元の有限和として証明する。
+\end{proof}
+
+\begin{lemma}[有効道の有限計数]\label{lem:path-count}
+\lean{Ginzburg333.Ginzburg.pathLettersEquiv,Ginzburg333.Ginzburg.negativeDimension_letterCount}\leanok
+\uses{def:ginzburg}
+有効道は、始点と、順矢3種・逆矢3種・loop1種からなる重み付き語に一意に対応する。
+重み $n$、負次数 $s$ の語の数を $c_{n,s}$ とすると $\dim N_{n,s}=3c_{n,s}$。
+\end{lemma}
+\begin{proof}\leanok
+始点と文字を順に読むと、各段階の実際の生成元と次の頂点が一意に決まる。
+復号との互逆性を示し、重みと負次数を保つ有限基底の同値へ制限する。
+係数3は三つの始点の選択による。
+\end{proof}
+
+\begin{lemma}[符号付き計数の漸化式]\label{lem:signed-count}
+\lean{Ginzburg333.Ginzburg.signedLetterEuler_quadratic,Ginzburg333.Ginzburg.signedLetterEuler_sum_counts}\leanok
+\uses{lem:path-count}
+$E_n=\sum_s(-1)^s c_{n,s}$ とすると
+\[
+ E_0=1,\quad E_1=3,\quad E_2=6,\quad
+ E_{n+3}=3E_{n+2}-3E_{n+1}+E_n,
+\]
+したがって $2E_n=(n+1)(n+2)$。
+\end{lemma}
+\begin{proof}\leanok
+最初の文字で語を分類する。順矢は重み1・符号プラスの3選択、
+逆矢は重み2・符号マイナスの3選択、loopは重み3・符号プラスの1選択である。
+有限和の分類で漸化式を証明し、三つの初期値から二次式を帰納的に得る。
+\end{proof}
+
+\begin{theorem}[Jacobi商の多項式増大]\label{thm:quadratic-growth}
+\lean{Ginzburg333.Ginzburg.internalJacobi_quadratic_growth,Ginzburg333.Ginzburg.internalJacobi_finrank_36}\leanok
+\uses{def:ginzburg-regular,def:jacobi}
+$\GR(w)$ なら、全ての $n$ に対して
+\[
+ 2\dim_k\Jac_n(w)=3(n+1)(n+2).
+\]
+特に $\dim_k\Jac_{36}(w)=2109$。
+\end{theorem}
+\begin{proof}\uses{lem:euler,lem:path-count,lem:signed-count}\leanok
+実際の有限Euler等式に、頂点付き道の次元と符号付き計数の式を代入する。
+\end{proof}
+
+\section{階数1からの自由語と指数下界}
+
+\begin{definition}[階数1の縮約の因子]\label{def:rank-one}
+\lean{Ginzburg333.Converse.RankOneSlice}\leanok
+\uses{def:coordinates}
+階数1の縮約データは、非零の $v,u\in k^3$ と
+\[
+ \sum_j a_jw_i(j,b,c)=v_bu_c
+\]
+を持つ。これは元の縮約係数の因子分解である。
+\end{definition}
+
+\begin{lemma}[正則性が破れたときの因子分解]\label{lem:rank-one-factor}
+\lean{Ginzburg333.Converse.rankOneSlice_exists,Ginzburg333.Converse.rankOneSlice_of_not_regular}\leanok
+\uses{def:rank-one}
+$\GR(w)$ の下で、$a\ne0$ かつ $\rank C_i(a)<2$ なら階数1の縮約データが存在する。
+\end{lemma}
+\begin{proof}\uses{lem:rank-zero}\leanok
+階数0を除外すると階数は1である。
+一次元の像の非零基底 $u$ を選び、各基底ベクトルの像の係数を $v_b$ とする。
+元の縮約が非零なので $v$ も非零である。
+\end{proof}
+
+\begin{lemma}[直線商と関係商の次元]\label{lem:relation-quotient}
+\lean{Ginzburg333.Converse.killLine_surjective,Ginzburg333.Converse.projectedRelationMap_rank_le_two,Ginzburg333.Converse.relationQuotient_finrank_ge_two}\leanok
+\uses{def:rank-one}
+実際の商 $k^3/kv$、$k^3/ku$ の二次元座標を $p,z:k^3\to k^2$ とする。
+三つの射影されたJacobi関係
+\[
+ R_j=\sum_{b,c}w_i(j,b,c)p(e_b)\otimes z(e_c)
+\]
+の張る空間は高々二次元である。そのため
+$(k^2\otimes k^2)/\spanof{R_j}$ は二次元以上を持つ。
+\end{lemma}
+\begin{proof}\leanok
+$a$ による関係の線形結合は $p(v)\otimes z(u)=0$。
+$a\ne0$ なので、三次元から関係空間への写像の核は非零である。
+階数は2以下。四次元のテンソル積の商の次元は2以上になる。
+\end{proof}
+
+\begin{definition}[自由語への評価に必要なデータ]\label{def:free-corner}
+\lean{Ginzburg333.Converse.FreeCornerData}\leanok
+\uses{def:coordinates}
+全射 $p,z:k^3\to k^2$、全射 $o:k^2\otimes k^2\to k^2$ と、
+三方向の巡回Jacobi関係が零になる恒等式を記録する。
+これは線形写像とその関係式のデータであり、指数下界そのものは含まない。
+\end{definition}
+
+\begin{lemma}[評価データの存在]\label{lem:free-corner-exists}
+\lean{Ginzburg333.Converse.freeCornerData_exists}\leanok
+\uses{def:rank-one,def:free-corner}
+$a\ne0$ と階数1の縮約データから、自由語への評価データを構成できる。
+\end{lemma}
+\begin{proof}\uses{lem:relation-quotient}\leanok
+$p,z$ は実際の直線商の座標写像を使う。
+関係商の基底から二つの座標を選び、商写像と合成して $o$ を得る。
+第一の関係は商の定義から、他の二つは因子分解と $p(v)=z(u)=0$ から消える。
+\end{proof}
+
+\begin{definition}[自由代数係数の行列評価]\label{def:matrix-evaluation}
+\lean{Ginzburg333.Converse.LoopWords,Ginzburg333.Converse.generatorMatrix,Ginzburg333.Converse.matrixEvaluation}\leanok
+\uses{def:free-corner,def:ginzburg}
+$F=k\langle T_0,T_1\rangle$ を実際の自由モノイドのモノイド代数とする。
+$F$ 上の $4\times4$ 行列を用い、三種類の順矢をブロック $1,2,1$ の間に配置する。
+$i$ の順矢は $a_bE_{0,3}$、$i+1$ の順矢は $p(e_b)$ の列、
+$i+2$ の順矢は $o$ の出力を自由文字にした行とする。
+逆矢とloopの像は零。語の像は生成元行列の順序付き積で、有限線形結合へ拡張する。
+\end{definition}
+
+\begin{lemma}[全生成元の微分の消滅]\label{lem:matrix-relations}
+\lean{Ginzburg333.Converse.matrixEvaluation_generator_differential}\leanok
+\uses{def:matrix-evaluation}
+全ての生成元 $g$ に対し、行列評価は元の生成元微分 $dg$ を零へ送る。
+\end{lemma}
+\begin{proof}\uses{lem:free-corner-exists}\leanok
+逆矢の微分の像は、評価データの三種類の関係式になる。
+頂点を巡回して三場合を扱う。
+loopの微分は逆矢の像が零なので消える。順矢の微分は最初から零である。
+\end{proof}
+
+\begin{lemma}[実際の道とJacobi商への接続]\label{lem:jacobi-evaluation}
+\lean{Ginzburg333.Converse.wordToPaths_bigraded,Ginzburg333.Converse.pathMatrixEvaluation_differential,Ginzburg333.Converse.jacobiEvaluation}\leanok
+\uses{def:matrix-evaluation,def:jacobi}
+行列評価は任意の有限支持の実際の有効道 $x$ に対して $dx$ を零へ送る。
+したがって $\Jac_n(w)\to F$ という線形写像を、行列の $(0,0)$ 成分から得る。
+同じ始終点を持つ重み $n$ の順矢語の有限線形結合は、実際の次数 $(n,0)$ の道成分へ写る。
+\end{lemma}
+\begin{proof}\uses{lem:matrix-relations}\leanok
+語の導分の再帰式と評価の積との両立から、全語の微分の像が消える。
+有効道を有限語へ忘れる写像と元の微分の可換性を使い、実際の道微分にも適用する。
+その像を消すので実際の微分の像の商へ降りる。
+持ち上げに用いる語の頂点・始終点条件は別途保持する。
+\end{proof}
+
+\begin{lemma}[二つの自由文字の閉道持ち上げ]\label{lem:loop-lifts}
+\lean{Ginzburg333.Converse.loopLiftData_exists,Ginzburg333.Converse.liftFreeWord_closed,Ginzburg333.Converse.liftFreeWord_entry00}\leanok
+\uses{def:matrix-evaluation}
+$a\ne0$ なら、二つの自由文字は内部次数3・次数0の有限支持閉道へ持ち上がる。
+任意の自由語 $s$ は、同じ頂点の内部次数 $3|s|$ の閉道の有限線形結合に持ち上がり、
+評価の $(0,0)$ 成分は自由モノイド基底の $s$ に等しい。
+\end{lemma}
+\begin{proof}\uses{lem:free-corner-exists,lem:jacobi-evaluation}\leanok
+$a_{a_0}\ne0$ を選ぶ。$o\circ(p\otimes z)$ の全射性から二つの座標単位を持ち上げ、
+$[x_{i,a_0},x_{i+2,c},x_{i+1,b}]$ の有限和を作る。
+この語は始点 $i+1$ の閉道であり、$a_{a_0}^{-1}$ で正規化する。
+自由語の連結に沿って再帰的に閉道を連結する。空語の $(0,0)$ 成分も1である。
+\end{proof}
+
+\begin{theorem}[実際のJacobi商の指数下界]\label{thm:exponential-growth}
+\lean{Ginzburg333.Converse.freeCorner_exponential_lower_bound}\leanok
+\uses{def:free-corner,def:jacobi}
+$a\ne0$ と自由語への評価データがあるとき、全ての $m\ge0$ で
+\[
+ 2^m\le\dim_k\Jac_{3m}(w).
+\]
+\end{theorem}
+\begin{proof}\uses{lem:loop-lifts,lem:jacobi-evaluation}\leanok
+長さ $m$ の二文字自由語に対応する $2^m$ 個の閉道持ち上げを、実際のJacobi商へ送る。
+それらの評価は異なる自由モノイド基底なので線形独立である。
+線形写像の像が独立なら、元の商の元も独立である。
+したがって高次の関係がこれらの元を追加で潰すことはない。
+\end{proof}
+
+\section{逆主定理、同値、一般の三次元因子}
+
+\begin{theorem}[逆主定理]\label{thm:converse}
+\lean{Ginzburg333.ginzburgRegular_tensorRegular}\leanok
+\uses{def:tensor-regular,def:ginzburg-regular}
+任意の体上で $\GR(w)\Rightarrow\TR(w)$。
+\end{theorem}
+\begin{proof}\uses{lem:rank-one-factor,lem:free-corner-exists,thm:quadratic-growth,thm:exponential-growth}\leanok
+正則性が破れる縮約を取る。階数0は排除されるので、階数1の因子分解から評価データを作る。
+$m=12$ の指数下界により $\dim\Jac_{36}(w)\ge4096$。
+負次数完全性から同じ実際の商の次元は2109である。矛盾する。
+\end{proof}
+
+\begin{theorem}[本来の二つの正則性の同値]\label{thm:equivalence}
+\lean{Ginzburg333.ginzburgRegular_iff_tensorRegular}\leanok
+\uses{def:tensor-regular,def:ginzburg-regular}
+標数0の代数閉体上で
+\[
+ \GR(w)\quad\Longleftrightarrow\quad\TR(w).
+\]
+\end{theorem}
+\begin{proof}\uses{thm:forward,thm:converse}\leanok
+元の二つの述語に対して証明した両主定理を組み合わせる。
+\end{proof}
+
+\begin{definition}[独立した三つの空間の基底座標]\label{def:bases}
+\lean{Ginzburg333.Comparison.tensorCoordinatesEquiv,Ginzburg333.Comparison.chosenTensorCoordinates}\leanok
+\uses{def:coordinates}
+三つの独立した $k$-空間 $X,Y,Z$ にそれぞれ三元基底を与える。
+実際のテンソル積基底から
+$(X\otimes Y)\otimes Z\simeq k^{3\times3\times3}$ を構成する。
+各空間の次元が3なら、有限次元基底を選択してこの座標同型を得る。
+\end{definition}
+
+\begin{corollary}[任意の三つの三次元因子への接続]\label{cor:bases}
+\lean{Ginzburg333.Comparison.tensorRegular_ginzburgRegular_in_bases,Ginzburg333.Comparison.ginzburgRegular_tensorRegular_in_bases,Ginzburg333.Comparison.ginzburgRegular_iff_tensorRegular_chosen_bases}\leanok
+\uses{def:bases}
+三つの三元基底の座標、および次元3から選択した基底の座標において、
+順方向・逆方向・同値が成り立つ。逆方向は任意の体、同値は標数0の代数閉体である。
+\end{corollary}
+\begin{proof}\uses{thm:forward,thm:converse,thm:equivalence}\leanok
+実際のテンソル積基底の線形同型で座標化し、対応する主定理を適用する。
+この系のLeanの主張は基底座標における正則性であり、別の基底非依存性定理を主張していない。
+\end{proof}
+
+\section{再現と検証範囲}
+
+Lean 4.19.0、mathlibのコミット
+\texttt{c44e0c8ee63ca166450922a373c7409c5d26b00b} を固定している。
+リポジトリの \texttt{scripts/verify.sh} は全体ビルド、主定理の型確認、
+全theoremの公理監査を実行する。日本語blueprintの生成は
+\texttt{scripts/build\_blueprint.py}、宣言対応の検査は
+\texttt{scripts/check\_blueprint.py} から再現できる。
+
+blueprintの文章と依存グラフは証明を読むための案内であり、
+証明の成否を判定するのはLeanの実際の宣言とカーネル検証である。
+HTML、PDF、宣言対応表、グラフの生成元を同じリポジトリに保存する。

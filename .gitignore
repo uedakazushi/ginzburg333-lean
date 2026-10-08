@@ -8,3 +8,10 @@ __pycache__/
 .tooling/
 
 work/
+
+# Rebuildable blueprint intermediates; HTML and final PDF are published.
+blueprint/src/linked_content.tex
+blueprint/src/*.paux
+blueprint/src/*.log
+blueprint/print/*
+!blueprint/print/print.pdf

@@ -272,6 +272,4 @@ warning: ././././Ginzburg333/Converse/Representation.lean:79:0: automatically in
 consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
   omit [Field k] in theorem ...
 note: this linter can be disabled with `set_option linter.unusedSectionVars false`
-✔ [1734/1736] Built Ginzburg333.Converse.Main
-✔ [1735/1736] Built Ginzburg333
 Build completed successfully.

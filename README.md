@@ -1,4 +1,4 @@
-# Ginzburg (3,3,3)：avatarを用いないLean形式化 — v5・同値証明済み
+# Ginzburg (3,3,3)：avatarを用いないLean形式化 — v6・同値証明済み、日本語blueprint付き
 
 **標数0の代数閉体上で `Ginzburg.GinzburgRegular w ↔ TensorRegular w` をLeanで証明しました。**
 
@@ -17,6 +17,13 @@ TensorRegularは三方向の非零縮約の階数が2以上、GinzburgRegularは
 生成定理を含む1214件の公理監査が成功しました。
 依存公理はpropext、Classical.choice、Quot.soundのみ。
 結果はSTATUS.mdとVERIFICATION.json、証明の入口はHANDOFF.mdにあります。
+
+## 日本語 Lean blueprint
+
+[blueprintの入口](blueprint/README.md)と[日本語PDF](blueprint/print/print.pdf)を同梱しています。
+順方向A〜Eと逆方向の証明を51項目に整理し、103件のLean宣言へのリンクと
+操作できる依存グラフを付けました。HTML版、LaTeXソース、再生成スクリプト、
+宣言対応表、文書の検証結果も同梱しています。
 
 ## 証明の構成
 

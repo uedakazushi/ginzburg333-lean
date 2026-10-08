@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>MathJax = {"tex": {"macros": {"kk": "k", "Bbar": "B", "Jac": "J", "G": "\\mathcal{G}", "wt": "\\operatorname{wt}", "rank": "\\operatorname{rank}", "im": "\\operatorname{im}", "TR": "\\operatorname{TR}", "GR": "\\operatorname{GR}", "spanof": ["\\langle #1\\rangle", 1]}, "inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "options": {"enableMenu": false}};</script>
+<script type="text/javascript" src="js/mathjax/tex-chtml-full.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>逆方向：負次数完全性から多項式増大へ</title>
+<link rel="next" href="sect0009.html" title="階数1からの自由語と指数下界" />
+<link rel="prev" href="sect0007.html" title="E：有限支持原始元と順主定理" />
+<link rel="up" href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Ginzburg (3,3,3) 正則性の同値<br />日本語 Lean blueprint</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">目的と読み方</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">座標、道、二つの正則性</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">順方向の準備：補助乗法とfiltration</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">A：正規化barの内部次数と短完全列</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">B・C：自由行収縮から対角外完全性へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">D：有限次数双対とGinzburg道複体</span></a>
+ </li>
+<li class="">
+  <a href="sect0007.html"><span class="toc_ref">7</span> <span class="toc_entry">E：有限支持原始元と順主定理</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0008.html"><span class="toc_ref">8</span> <span class="toc_entry">逆方向：負次数完全性から多項式増大へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0009.html"><span class="toc_ref">9</span> <span class="toc_entry">階数1からの自由語と指数下界</span></a>
+ </li>
+<li class="">
+  <a href="sect0010.html"><span class="toc_ref">10</span> <span class="toc_entry">逆主定理、同値、一般の三次元因子</span></a>
+ </li>
+<li class="">
+  <a href="sect0011.html"><span class="toc_ref">11</span> <span class="toc_entry">再現と検証範囲</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">依存グラフ</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000009">8 逆方向：負次数完全性から多項式増大へ</h1>
+<p>この章と逆主定理の証明では、\(k\) は任意の体でよい。 </p>
+<div class="definition_thmwrapper theorem-style-definition" id="def:jacobi">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">31</span>
+    <span class="definition_thmtitle">実際の内部Jacobi商</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0008.html#def:jacobi">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:ginzburg">定義 3</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.negativeTerm" class="lean_decl">Ginzburg333.Ginzburg.negativeTerm</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.negativeDifferential" class="lean_decl">Ginzburg333.Ginzburg.negativeDifferential</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.internalJacobi" class="lean_decl">Ginzburg333.Ginzburg.internalJacobi</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L8"><span class="ttfamily">negativeTerm</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L10"><span class="ttfamily">negativeDifferential</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L49"><span class="ttfamily">internalJacobi</span></a></p>
+<p> \(N_{n,s}=\mathcal{G}_n^{-s}\)、\(d_{n,s}:N_{n,s+1}\to N_{n,s}\) とし、 </p>
+<div class="displaymath" id="a0000000043">
+  \[  J_n(w)=N_{n,0}/\operatorname {im}d_{n,0}  \]
+</div>
+<p> と定める。これは実際の次数0道成分を、実際の微分の像で割った商である。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:negative-exact">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">32</span>
+    <span class="lemma_thmtitle">内部次数ごとの負次数完全性</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0008.html#lem:negative-exact">#</a>
+
+    <a class="icon proof" href="sect0008.html#a0000000044"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0008.html#def:jacobi">定義 31</a></li>
+
+          <li><a href="sect0002.html#def:ginzburg-regular">定義 5</a></li>
+
+          <li><a href="sect0002.html#lem:ginzburg-grading">補題 4</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.negativeDifferential_exact" class="lean_decl">Ginzburg333.Ginzburg.negativeDifferential_exact</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.negativeTerm_eq_zero" class="lean_decl">Ginzburg333.Ginzburg.negativeTerm_eq_zero</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L14"><span class="ttfamily">negativeDifferential_exact</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L35"><span class="ttfamily">negativeTerm_eq_zero</span></a></p>
+<p> \(\operatorname {GR}(w)\) なら、全 \(n,s\) に対して \(N_{n,s+2}\to N_{n,s+1}\to N_{n,s}\) は完全である。 また \(s{\gt}0\)、\(n\le s\) の成分は零である。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000044">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>元のGinzburgRegularから取った原始元を内部次数 \(n\) へ射影する。 微分との可換性により境界は変わらない。 後半は長さ \(n-s\) と、空語の次数が零であることから従う。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:rank-zero">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">33</span>
+    <span class="lemma_thmtitle">階数0の縮約の排除</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0008.html#lem:rank-zero">#</a>
+
+    <a class="icon proof" href="sect0008.html#a0000000045"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:ginzburg-regular">定義 5</a></li>
+
+          <li><a href="sect0002.html#def:coordinates">定義 1</a></li>
+
+          <li><a href="sect0002.html#lem:ginzburg-grading">補題 4</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.ginzburgRegular_contraction_ne_zero" class="lean_decl">Ginzburg333.Ginzburg.ginzburgRegular_contraction_ne_zero</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/LowDegree.lean#L84"><span class="ttfamily">ginzburgRegular_contraction_ne_zero</span></a></p>
+<p> \(\operatorname {GR}(w)\)、\(a\ne 0\) なら \(C_i(a)\ne 0\)。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000045">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>\(C_i(a)=0\) なら、係数 \(a\) による逆矢の線形結合は 内部次数2・コホモロジー次数 \(-1\) の非零閉元になる。 原始元を内部次数2へ射影すると次数 \(-2\) の原始元が必要だが、 その内部次数と負次数を持つ非空道は存在しない。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:euler">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">34</span>
+    <span class="lemma_thmtitle">有限Euler等式</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0008.html#lem:euler">#</a>
+
+    <a class="icon proof" href="sect0008.html#a0000000046"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0008.html#def:jacobi">定義 31</a></li>
+
+          <li><a href="sect0002.html#def:ginzburg-regular">定義 5</a></li>
+
+          <li><a href="sect0008.html#lem:negative-exact">補題 32</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.internalJacobi_finrank_euler" class="lean_decl">Ginzburg333.Ginzburg.internalJacobi_finrank_euler</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Euler.lean#L76"><span class="ttfamily">internalJacobi_finrank_euler</span></a></p>
+<p> \(\operatorname {GR}(w)\) なら </p>
+<div class="displaymath" id="a0000000047">
+  \[  \dim _kJ_n(w)=\sum _{s=0}^n(-1)^s\dim _k N_{n,s}.  \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000046">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>完全性と階数・核の次元公式から、各負次数成分の次元を隣接する境界の次元の和にする。 交代和は打ち消し合い、末尾の境界は零になる。 無限級数ではなく、有限次元の有限和として証明する。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:path-count">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">35</span>
+    <span class="lemma_thmtitle">有効道の有限計数</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0008.html#lem:path-count">#</a>
+
+    <a class="icon proof" href="sect0008.html#a0000000048"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:ginzburg">定義 3</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.pathLettersEquiv" class="lean_decl">Ginzburg333.Ginzburg.pathLettersEquiv</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.negativeDimension_letterCount" class="lean_decl">Ginzburg333.Ginzburg.negativeDimension_letterCount</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Paths.lean#L70"><span class="ttfamily">pathLettersEquiv</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Paths.lean#L173"><span class="ttfamily">negativeDimension_letterCount</span></a></p>
+<p> 有効道は、始点と、順矢3種・逆矢3種・loop1種からなる重み付き語に一意に対応する。 重み \(n\)、負次数 \(s\) の語の数を \(c_{n,s}\) とすると \(\dim N_{n,s}=3c_{n,s}\)。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000048">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>始点と文字を順に読むと、各段階の実際の生成元と次の頂点が一意に決まる。 復号との互逆性を示し、重みと負次数を保つ有限基底の同値へ制限する。 係数3は三つの始点の選択による。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:signed-count">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">36</span>
+    <span class="lemma_thmtitle">符号付き計数の漸化式</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0008.html#lem:signed-count">#</a>
+
+    <a class="icon proof" href="sect0008.html#a0000000049"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0008.html#lem:path-count">補題 35</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.signedLetterEuler_quadratic" class="lean_decl">Ginzburg333.Ginzburg.signedLetterEuler_quadratic</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.signedLetterEuler_sum_counts" class="lean_decl">Ginzburg333.Ginzburg.signedLetterEuler_sum_counts</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Counting.lean#L130"><span class="ttfamily">signedLetterEuler_quadratic</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Counting.lean#L172"><span class="ttfamily">signedLetterEuler_sum_counts</span></a></p>
+<p> \(E_n=\sum _s(-1)^s c_{n,s}\) とすると </p>
+<div class="displaymath" id="a0000000050">
+  \[  E_0=1,\quad E_1=3,\quad E_2=6,\quad E_{n+3}=3E_{n+2}-3E_{n+1}+E_n,  \]
+</div>
+<p> したがって \(2E_n=(n+1)(n+2)\)。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000049">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>最初の文字で語を分類する。順矢は重み1・符号プラスの3選択、 逆矢は重み2・符号マイナスの3選択、loopは重み3・符号プラスの1選択である。 有限和の分類で漸化式を証明し、三つの初期値から二次式を帰納的に得る。 </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm:quadratic-growth">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    定理
+    </span>
+    <span class="theorem_thmlabel">37</span>
+    <span class="theorem_thmtitle">Jacobi商の多項式増大</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0008.html#thm:quadratic-growth">#</a>
+
+    <a class="icon proof" href="sect0008.html#a0000000051"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:ginzburg-regular">定義 5</a></li>
+
+          <li><a href="sect0008.html#def:jacobi">定義 31</a></li>
+
+          <li><a href="sect0008.html#lem:euler">補題 34</a></li>
+
+          <li><a href="sect0008.html#lem:path-count">補題 35</a></li>
+
+          <li><a href="sect0008.html#lem:signed-count">補題 36</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.internalJacobi_quadratic_growth" class="lean_decl">Ginzburg333.Ginzburg.internalJacobi_quadratic_growth</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.internalJacobi_finrank_36" class="lean_decl">Ginzburg333.Ginzburg.internalJacobi_finrank_36</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Counting.lean#L185"><span class="ttfamily">internalJacobi_quadratic_growth</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Converse/Counting.lean#L200"><span class="ttfamily">internalJacobi_finrank_36</span></a></p>
+<p> \(\operatorname {GR}(w)\) なら、全ての \(n\) に対して </p>
+<div class="displaymath" id="a0000000052">
+  \[  2\dim _kJ_n(w)=3(n+1)(n+2).  \]
+</div>
+<p> 特に \(\dim _kJ_{36}(w)=2109\)。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000051">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>実際の有限Euler等式に、頂点付き道の次元と符号付き計数の式を代入する。 </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0007.html" title="E：有限支持原始元と順主定理"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0009.html" title="階数1からの自由語と指数下界"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

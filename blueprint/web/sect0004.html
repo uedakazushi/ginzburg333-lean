@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>MathJax = {"tex": {"macros": {"kk": "k", "Bbar": "B", "Jac": "J", "G": "\\mathcal{G}", "wt": "\\operatorname{wt}", "rank": "\\operatorname{rank}", "im": "\\operatorname{im}", "TR": "\\operatorname{TR}", "GR": "\\operatorname{GR}", "spanof": ["\\langle #1\\rangle", 1]}, "inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "options": {"enableMenu": false}};</script>
+<script type="text/javascript" src="js/mathjax/tex-chtml-full.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A：正規化barの内部次数と短完全列</title>
+<link rel="next" href="sect0005.html" title="B・C：自由行収縮から対角外完全性へ" />
+<link rel="prev" href="sect0003.html" title="順方向の準備：補助乗法とfiltration" />
+<link rel="up" href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Ginzburg (3,3,3) 正則性の同値<br />日本語 Lean blueprint</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">目的と読み方</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">座標、道、二つの正則性</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">順方向の準備：補助乗法とfiltration</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">A：正規化barの内部次数と短完全列</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">B・C：自由行収縮から対角外完全性へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">D：有限次数双対とGinzburg道複体</span></a>
+ </li>
+<li class="">
+  <a href="sect0007.html"><span class="toc_ref">7</span> <span class="toc_entry">E：有限支持原始元と順主定理</span></a>
+ </li>
+<li class="">
+  <a href="sect0008.html"><span class="toc_ref">8</span> <span class="toc_entry">逆方向：負次数完全性から多項式増大へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0009.html"><span class="toc_ref">9</span> <span class="toc_entry">階数1からの自由語と指数下界</span></a>
+ </li>
+<li class="">
+  <a href="sect0010.html"><span class="toc_ref">10</span> <span class="toc_entry">逆主定理、同値、一般の三次元因子</span></a>
+ </li>
+<li class="">
+  <a href="sect0011.html"><span class="toc_ref">11</span> <span class="toc_entry">再現と検証範囲</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">依存グラフ</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000005">4 A：正規化barの内部次数と短完全列</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def:bar">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">13</span>
+    <span class="definition_thmtitle">頂点条件付き正規化bar</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#def:bar">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0003.html#def:auxiliary">定義 6</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.normalizedTerm" class="lean_decl">Ginzburg333.Bar.normalizedTerm</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.normalizedDifferential" class="lean_decl">Ginzburg333.Bar.normalizedDifferential</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Corners.lean#L100"><span class="ttfamily">normalizedTerm</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Normalized.lean#L109"><span class="ttfamily">normalizedDifferential</span></a></p>
+<p> 正規化barは、正次数因子の語長 \(r\) を持ち、隣接する因子が合成可能で、 係数の頂点射影が最初の因子に一致する有限支持の項からなる。 微分 \(\partial \) の係数作用の項にはマイナス、最初の隣接積にはプラスが付く。 後続の積には交代符号を付ける。実装のこの符号を比較の全段階で維持する。 </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:bar-internal">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">14</span>
+    <span class="definition_thmtitle">内部次数成分</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#def:bar-internal">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0004.html#def:bar">定義 13</a></li>
+
+          <li><a href="sect0003.html#def:filtration">定義 10</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.internalProjection" class="lean_decl">Ginzburg333.Bar.internalProjection</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.internallyNormalizedTerm" class="lean_decl">Ginzburg333.Bar.internallyNormalizedTerm</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.internallyNormalizedDifferential" class="lean_decl">Ginzburg333.Bar.internallyNormalizedDifferential</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Internal.lean#L21"><span class="ttfamily">internalProjection</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Internal.lean#L255"><span class="ttfamily">internallyNormalizedTerm</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/Internal.lean#L259"><span class="ttfamily">internallyNormalizedDifferential</span></a></p>
+<p> \(B_{r,n}(i,U)\) は、係数の次数 \(d\in \{ 0,1,2,3\} \) と 語の重みの和が \(n\) になる正規化barの項である。 内部次数射影 \(P_n\) は、各語 \(g_1\cdots g_r\) の係数に </p>
+<div class="displaymath" id="a0000000023">
+  \[  \sum _{d+\sum _j\operatorname {wt}(g_j)=n}\pi _d  \]
+</div>
+<p> を作用させる。ここで \(\pi _d\) は商行の実際の次数射影である。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:bar-projection">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">15</span>
+    <span class="lemma_thmtitle">次数射影と微分の両立</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lem:bar-projection">#</a>
+
+    <a class="icon proof" href="sect0004.html#a0000000024"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0004.html#def:bar-internal">定義 14</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.internalProjection_differential" class="lean_decl">Ginzburg333.Bar.internalProjection_differential</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.internallyNormalizedTerm_eq_bot" class="lean_decl">Ginzburg333.Bar.internallyNormalizedTerm_eq_bot</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalDifferential.lean#L27"><span class="ttfamily">internalProjection_differential</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalDifferential.lean#L49"><span class="ttfamily">internallyNormalizedTerm_eq_bot</span></a></p>
+<p> \(P_n\partial =\partial P_n\)。\(\partial \) は \(B_{r+1,n}\to B_{r,n}\) に制限でき、 \(n{\lt}r\) の項は零である。各 \(B_{r,n}\) は有限次元である。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000024">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>係数作用は生成元の重みだけ係数次数を増やし、語からその生成元を取り除く。 隣接積は重みの和を保つ。次数射影は頂点射影、正規化、語長条件とも両立する。 全ての正次数因子の重みが1以上なので、\(n{\lt}r\) には基底がない。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:bar-short-exact">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">16</span>
+    <span class="lemma_thmtitle">内部次数ごとの短完全列</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lem:bar-short-exact">#</a>
+
+    <a class="icon proof" href="sect0004.html#a0000000025"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0003.html#def:filtration">定義 10</a></li>
+
+          <li><a href="sect0004.html#def:bar-internal">定義 14</a></li>
+
+          <li><a href="sect0004.html#lem:bar-projection">補題 15</a></li>
+
+          <li><a href="sect0003.html#lem:filtration-exists">補題 12</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.filtration_internal_short_exact" class="lean_decl">Ginzburg333.Bar.filtration_internal_short_exact</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.internalInclusion_differential" class="lean_decl">Ginzburg333.Bar.internalInclusion_differential</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Bar.internalQuotient_differential" class="lean_decl">Ginzburg333.Bar.internalQuotient_differential</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalExact.lean#L165"><span class="ttfamily">filtration_internal_short_exact</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalExact.lean#L101"><span class="ttfamily">internalInclusion_differential</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Bar/InternalExact.lean#L108"><span class="ttfamily">internalQuotient_differential</span></a></p>
+<p> filtrationの一段に対し、 </p>
+<div class="displaymath" id="a0000000026">
+  \[  0\longrightarrow B_{r,n}(i+1,C) \longrightarrow B_{r,n+1}(i,U') \longrightarrow B_{r,n+1}(i,U)\longrightarrow 0  \]
+</div>
+<p> は完全で、全ての写像は微分と可換する。 包含の内部次数は \(+1\) である。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000025">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>係数の包含は \(g\) を掛けるので次数を1増やす。 係数の短完全列を有限支持の語へ適用し、次数射影と正規化射影で制限する。 全射と核の一致は、この実際の制限写像に対して証明する。 </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0003.html" title="順方向の準備：補助乗法とfiltration"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0005.html" title="B・C：自由行収縮から対角外完全性へ"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>MathJax = {"tex": {"macros": {"kk": "k", "Bbar": "B", "Jac": "J", "G": "\\mathcal{G}", "wt": "\\operatorname{wt}", "rank": "\\operatorname{rank}", "im": "\\operatorname{im}", "TR": "\\operatorname{TR}", "GR": "\\operatorname{GR}", "spanof": ["\\langle #1\\rangle", 1]}, "inlineMath": [["$", "$"], ["\\(", "\\)"]]}, "options": {"enableMenu": false}};</script>
+<script type="text/javascript" src="js/mathjax/tex-chtml-full.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>座標、道、二つの正則性</title>
+<link rel="next" href="sect0003.html" title="順方向の準備：補助乗法とfiltration" />
+<link rel="prev" href="sect0001.html" title="目的と読み方" />
+<link rel="up" href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Ginzburg (3,3,3) 正則性の同値<br />日本語 Lean blueprint</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">目的と読み方</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">座標、道、二つの正則性</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">順方向の準備：補助乗法とfiltration</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">A：正規化barの内部次数と短完全列</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">B・C：自由行収縮から対角外完全性へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0006.html"><span class="toc_ref">6</span> <span class="toc_entry">D：有限次数双対とGinzburg道複体</span></a>
+ </li>
+<li class="">
+  <a href="sect0007.html"><span class="toc_ref">7</span> <span class="toc_entry">E：有限支持原始元と順主定理</span></a>
+ </li>
+<li class="">
+  <a href="sect0008.html"><span class="toc_ref">8</span> <span class="toc_entry">逆方向：負次数完全性から多項式増大へ</span></a>
+ </li>
+<li class="">
+  <a href="sect0009.html"><span class="toc_ref">9</span> <span class="toc_entry">階数1からの自由語と指数下界</span></a>
+ </li>
+<li class="">
+  <a href="sect0010.html"><span class="toc_ref">10</span> <span class="toc_entry">逆主定理、同値、一般の三次元因子</span></a>
+ </li>
+<li class="">
+  <a href="sect0011.html"><span class="toc_ref">11</span> <span class="toc_entry">再現と検証範囲</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">依存グラフ</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000003">2 座標、道、二つの正則性</h1>
+<p>以下で \(k\) は体、頂点は \(i\in \mathbb Z/3\mathbb Z\) とする。 三つの三次元因子は別々の空間であり、同じ座標型を使うことはそれらを同一視することを意味しない。 </p>
+<div class="definition_thmwrapper theorem-style-definition" id="def:coordinates">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">1</span>
+    <span class="definition_thmtitle">テンソルの巡回座標</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#def:coordinates">#</a>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Tensor" class="lean_decl">Ginzburg333.Tensor</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.coeff" class="lean_decl">Ginzburg333.coeff</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.contract" class="lean_decl">Ginzburg333.contract</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L23"><span class="ttfamily">Tensor</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L156"><span class="ttfamily">coeff</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L162"><span class="ttfamily">contract</span></a></p>
+<p>\(w=(w_{abc})\) は三つの三次元因子のテンソルの座標である。 \(w_i\) は因子を \(i,i+1,i+2\) の順に置いた巡回座標で、 </p>
+<div class="displaymath" id="a0000000014">
+  \[  w_0(a,b,c)=w_{abc},\quad w_1(a,b,c)=w_{cab},\quad w_2(a,b,c)=w_{bca}.  \]
+</div>
+<p> \(a\in k^3\) に対して縮約 \(C_i(a):k^3\to k^3\) を </p>
+<div class="displaymath" id="a0000000015">
+  \[  (C_i(a)b)_c=\sum _{x,y}w_i(x,y,c)a_x b_y  \]
+</div>
+<p> で定める。これは双対因子との基底座標による評価である。 </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:tensor-regular">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">2</span>
+    <span class="definition_thmtitle">Tensor regular</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#def:tensor-regular">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:coordinates">定義 1</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.TensorRegular" class="lean_decl">Ginzburg333.TensorRegular</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.CyclicData.Regular" class="lean_decl">Ginzburg333.CyclicData.Regular</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L221"><span class="ttfamily">TensorRegular</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Finite/Coordinates.lean#L216"><span class="ttfamily">Regular</span></a></p>
+<p> \(\operatorname {TR}(w)\) とは、全頂点 \(i\) と全ての \(a\ne 0\) に対して \(\operatorname {rank}C_i(a)\ge 2\) が成り立つことである。 補助的な巡回乗法データ \(D=\operatorname {ofTensor}(w)\) に対しては \(D.\mathrm{Regular}\) と記述する。 </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:ginzburg">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">3</span>
+    <span class="definition_thmtitle">有限支持のGinzburg道複体</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#def:ginzburg">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:coordinates">定義 1</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.Generator" class="lean_decl">Ginzburg333.Ginzburg.Generator</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.ValidPath" class="lean_decl">Ginzburg333.Ginzburg.ValidPath</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.PathSpace" class="lean_decl">Ginzburg333.Ginzburg.PathSpace</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.differential" class="lean_decl">Ginzburg333.Ginzburg.differential</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L19"><span class="ttfamily">Generator</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L59"><span class="ttfamily">ValidPath</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L65"><span class="ttfamily">PathSpace</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L126"><span class="ttfamily">differential</span></a></p>
+<p> 生成元は \(x_{i,a}:i\to i+1\)、\(x^*_{i,a}:i+1\to i\)、\(t_i:i\to i\)。 内部次数はそれぞれ \(1,2,3\)、コホモロジー次数は \(0,-1,-2\) とする。 代数の語は右端から辿る。道空間は、始点を記録した有効道を基底とする有限支持の直和である。 微分は次数 \(+1\) の導分であり、 </p>
+<div class="displaymath" id="a0000000016">
+  \[  \begin{split}  d x_{i,a}& =0,\\ d x^*_{i,a}& =\sum _{b,c}w_i(a,b,c)x_{i+2,c}x_{i+1,b},\\ d t_i& =\sum _a x^*_{i,a}x_{i,a}-\sum _a x_{i+2,a}x^*_{i+2,a} \end{split}  \]
+</div>
+<p> を生成元上の定義とする。 </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem:ginzburg-grading">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    補題
+    </span>
+    <span class="lemma_thmlabel">4</span>
+    <span class="lemma_thmtitle">次数と微分</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#lem:ginzburg-grading">#</a>
+
+    <a class="icon proof" href="sect0002.html#a0000000017"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:ginzburg">定義 3</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.cohomologicalDegree_eq_length_sub_weight" class="lean_decl">Ginzburg333.Ginzburg.cohomologicalDegree_eq_length_sub_weight</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.differential_internal" class="lean_decl">Ginzburg333.Ginzburg.differential_internal</a></li>
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.differential_square" class="lean_decl">Ginzburg333.Ginzburg.differential_square</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L83"><span class="ttfamily">cohomologicalDegree_eq_length_sub_weight</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg/Homogeneous.lean#L50"><span class="ttfamily">differential_internal</span></a></p>
+<p><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg/SquareZero.lean#L59"><span class="ttfamily">differential_square</span></a></p>
+<p> 長さ \(r\)、内部次数 \(n\) の道のコホモロジー次数は \(q=r-n\) である。 \(d\) は内部次数を保ち、コホモロジー次数を1増やし、\(d^2=0\) を満たす。 各内部次数の道空間は有限次元である。 </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000017">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    証明
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>生成元の重みは負次数の絶対値に1を足したものである。これを語全体で足す。 微分の各項の頂点と次数を生成元上で確認し、導分の再帰式へ拡張する。 \(d^2=0\) は巡回座標の一致による打ち消しで証明する。 固定した内部次数では語長がその次数以下なので、有効道の基底は有限である。 </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def:ginzburg-regular">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    定義
+    </span>
+    <span class="definition_thmlabel">5</span>
+    <span class="definition_thmtitle">Ginzburg regular</span>
+    <div class="thm_header_extras">
+
+
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#def:ginzburg-regular">#</a>
+
+
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>依存する項目</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="sect0002.html#def:ginzburg">定義 3</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+
+        <ul class="uses">
+
+          <li><a href="./find/#doc/Ginzburg333.Ginzburg.GinzburgRegular" class="lean_decl">Ginzburg333.Ginzburg.GinzburgRegular</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+
+
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+
+<p><b class="bfseries">Lean: </b><a href ="https://github.com/uedakazushi/ginzburg333-lean/blob/ea11e52179e60a9a64b673f43538a8a448e23b74/Ginzburg333/Ginzburg.lean#L137"><span class="ttfamily">GinzburgRegular</span></a></p>
+<p> \(\operatorname {GR}(w)\) とは、任意の \(q{\lt}0\) と有限支持の次数 \(q\) の元 \(x\) に対し、 \(dx=0\) なら次数 \(q-1\) の有限支持の \(y\) が存在して \(dy=x\) となることである。 内部次数の上限、barの消滅、avatarはこの定義に含まれない。 </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0001.html" title="目的と読み方"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Ginzburg (3,3,3) 正則性の同値日本語 Lean blueprint"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0003.html" title="順方向の準備：補助乗法とfiltration"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

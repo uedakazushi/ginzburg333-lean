@@ -1,3 +1,31 @@
+# 引き継ぎ — v6・日本語 Lean blueprint付き
+
+数学的な両主定理・同値は完成したままです。Leanソースへの変更はありません。
+日本語の入口はblueprint/README.md、本文はblueprint/src/content.tex、
+公開成果物はblueprint/web/とblueprint/print/print.pdfです。
+
+標準leanblueprint 0.0.20で51項目、103件のLean宣言、118本の数学的依存辺を記述。
+blueprint/declarations.jsonは保存点ea11e52179e60a9a64b673f43538a8a448e23b74の実際のソース行へ対応させています。
+scripts/build_blueprint.py、scripts/check_blueprint.pyで再生成・検査してください。
+固定されたLean依存を変えず、宣言検査はlake env lean --stdinで実行します。
+MathJaxとフォント、グラフの資源はHTMLと同梱しています。
+HTTPでの閲覧方法と文書処理系の準備はblueprint/README.mdを参照してください。
+
+今回の全体verifyは終了0・1214件公理監査。文書生成、103宣言のLean検査、
+日本語PDF10ページ、HTML14ページの1142内部参照、51ノードのブラウザ操作が成功しました。
+blueprint/verification.json、logs/blueprint_browser.jsonとVERIFICATION.jsonは今回の実行結果です。
+数学ソースを変えた場合はblueprint/source_commit.txtと対応表を適切に更新する必要があります。
+生成物のSHAとソースハッシュを検査記録に保存しています。
+
+ユーザーはこのリポジトリとblueprintの公開を明示指示し、mainへのpushも承認済み。
+公開済みSHAはGit履歴とremote refで確認してください。CIは今回未実行です。
+今回のAPI確認ではvisibility=private、has_pages=falseでした。
+利用可能なGitHub連携は可視性変更の管理操作を提供しません。
+mainへ保存できても、一般公開の完了はvisibility=publicを実際に確認するまで記録しないでください。
+以前のWorkのプロセスが残ると仮定せず、再開時にGitと処理系を確認してください。
+
+以下は両方向完成時のv5の数学的引き継ぎです。
+
 # 引き継ぎ — v5・両方向と同値を完成
 
 入口は `Ginzburg333/Converse/Main.lean`。

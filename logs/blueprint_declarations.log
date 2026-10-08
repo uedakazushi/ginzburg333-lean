@@ -1,0 +1,446 @@
+Ginzburg333.Auxiliary.{u_2} (k : Type u_2) : Type u_2
+'Ginzburg333.Auxiliary' does not depend on any axioms
+Ginzburg333.Bar.barExact_filtration_step.{u_1} {k : Type u_1} [Field k] {D : Ginzburg333.CyclicData k}
+  {i : Ginzburg333.Vertex} {U : Submodule k (Ginzburg333.Vec k)} (s : D.FiltrationStep i U) (r n : ℕ)
+  (hB : Ginzburg333.Bar.BarExact D i s.smaller (r + 1) (n + 1))
+  (hA : Ginzburg333.Bar.BarExact D (Ginzburg333.next i) s.colon r n) : Ginzburg333.Bar.BarExact D i U (r + 1) (n + 1)
+'Ginzburg333.Bar.barExact_filtration_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.filtration_internal_short_exact.{u_1} {k : Type u_1} [Field k] {D : Ginzburg333.CyclicData k}
+  {i : Ginzburg333.Vertex} {U : Submodule k (Ginzburg333.Vec k)} (s : D.FiltrationStep i U) (r n : ℕ) :
+  Function.Injective ⇑(Ginzburg333.Bar.internalInclusion s r n) ∧
+    Ginzburg333.Homology.ExactAt (Ginzburg333.Bar.internalInclusion s r n)
+        (Ginzburg333.Bar.internalQuotient s r (n + 1)) ∧
+      Function.Surjective ⇑(Ginzburg333.Bar.internalQuotient s r (n + 1))
+'Ginzburg333.Bar.filtration_internal_short_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.internalInclusion_differential.{u_1} {k : Type u_1} [Field k] {D : Ginzburg333.CyclicData k}
+  {i : Ginzburg333.Vertex} {U : Submodule k (Ginzburg333.Vec k)} (s : D.FiltrationStep i U) (r n : ℕ)
+  (x : ↥(Ginzburg333.Bar.internallyNormalizedTerm D (Ginzburg333.next i) s.colon (r + 1) n)) :
+  (Ginzburg333.Bar.internalInclusion s r n)
+      ((Ginzburg333.Bar.internallyNormalizedDifferential D (Ginzburg333.next i) s.colon r n) x) =
+    (Ginzburg333.Bar.internallyNormalizedDifferential D i s.smaller r (n + 1))
+      ((Ginzburg333.Bar.internalInclusion s (r + 1) n) x)
+'Ginzburg333.Bar.internalInclusion_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.internalProjection.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) (n : ℕ) :
+  Ginzburg333.Bar.Ambient (D.QuotientRow i U) →ₗ[k] Ginzburg333.Bar.Ambient (D.QuotientRow i U)
+'Ginzburg333.Bar.internalProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.internalProjection_differential.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) (n : ℕ)
+  (x : Ginzburg333.Bar.Ambient (D.QuotientRow i U)) :
+  (Ginzburg333.Bar.internalProjection D i U n)
+      ((Ginzburg333.Bar.ambientDifferential (Ginzburg333.Bar.quotientRightAction D i U)) x) =
+    (Ginzburg333.Bar.ambientDifferential (Ginzburg333.Bar.quotientRightAction D i U))
+      ((Ginzburg333.Bar.internalProjection D i U n) x)
+'Ginzburg333.Bar.internalProjection_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.internalQuotient_differential.{u_1} {k : Type u_1} [Field k] {D : Ginzburg333.CyclicData k}
+  {i : Ginzburg333.Vertex} {U : Submodule k (Ginzburg333.Vec k)} (s : D.FiltrationStep i U) (r n : ℕ)
+  (x : ↥(Ginzburg333.Bar.internallyNormalizedTerm D i s.smaller (r + 1) n)) :
+  (Ginzburg333.Bar.internalQuotient s r n) ((Ginzburg333.Bar.internallyNormalizedDifferential D i s.smaller r n) x) =
+    (Ginzburg333.Bar.internallyNormalizedDifferential D i U r n) ((Ginzburg333.Bar.internalQuotient s (r + 1) n) x)
+'Ginzburg333.Bar.internalQuotient_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.internallyNormalizedDifferential.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) (r n : ℕ) :
+  ↥(Ginzburg333.Bar.internallyNormalizedTerm D i U (r + 1) n) →ₗ[k]
+    ↥(Ginzburg333.Bar.internallyNormalizedTerm D i U r n)
+'Ginzburg333.Bar.internallyNormalizedDifferential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.internallyNormalizedTerm.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) (r n : ℕ) :
+  Submodule k (Ginzburg333.Bar.Ambient (D.QuotientRow i U))
+'Ginzburg333.Bar.internallyNormalizedTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.internallyNormalizedTerm_eq_bot.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) (r n : ℕ) (hn : n < r) :
+  Ginzburg333.Bar.internallyNormalizedTerm D i U r n = ⊥
+'Ginzburg333.Bar.internallyNormalizedTerm_eq_bot' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.internallyNormalized_zero_surjective.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) (n : ℕ) (hn : 0 < n) :
+  Function.Surjective ⇑(Ginzburg333.Bar.internallyNormalizedDifferential D i U 0 n)
+'Ginzburg333.Bar.internallyNormalized_zero_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.internally_normalized_free_exact.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (r n : ℕ) :
+  Ginzburg333.Homology.ExactAt (Ginzburg333.Bar.internallyNormalizedDifferential D i ⊥ (r + 1) n)
+    (Ginzburg333.Bar.internallyNormalizedDifferential D i ⊥ r n)
+'Ginzburg333.Bar.internally_normalized_free_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.normalizedDifferential.{u_1, u_2} {k : Type u_1} [Field k] {M : Type u_2} [AddCommGroup M] [Module k M]
+  {D : Ginzburg333.CyclicData k} (A : Ginzburg333.Bar.RightAction D M) (r : ℕ) :
+  ↥(Ginzburg333.Bar.normalizedTerm A (r + 1)) →ₗ[k] ↥(Ginzburg333.Bar.normalizedTerm A r)
+'Ginzburg333.Bar.normalizedDifferential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.normalizedTerm.{u_1, u_2} {k : Type u_1} [Field k] {M : Type u_2} [AddCommGroup M] [Module k M]
+  {D : Ginzburg333.CyclicData k} (A : Ginzburg333.Bar.RightAction D M) (r : ℕ) : Submodule k (Ginzburg333.Bar.Ambient M)
+'Ginzburg333.Bar.normalizedTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.normalized_bar_off_diagonal.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k]
+  (D : Ginzburg333.CyclicData k) (hD : D.Regular) (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k))
+  (hU : D.Allowed i U) (r n : ℕ) (hne : n ≠ r) : Ginzburg333.Bar.BarExact D i U r n
+'Ginzburg333.Bar.normalized_bar_off_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.rowContraction_homotopy_normalized.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (r : ℕ)
+  (x : ↥(Ginzburg333.Bar.normalizedTerm (Ginzburg333.Bar.rowRightAction D i) (r + 1))) :
+  (Ginzburg333.Bar.normalizedDifferential (Ginzburg333.Bar.rowRightAction D i) (r + 1))
+        ((Ginzburg333.Bar.normalizedRowContraction D i (r + 1)) x) +
+      (Ginzburg333.Bar.normalizedRowContraction D i r)
+        ((Ginzburg333.Bar.normalizedDifferential (Ginzburg333.Bar.rowRightAction D i) r) x) =
+    x
+'Ginzburg333.Bar.rowContraction_homotopy_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Bar.simple_normalized_bar_off_diagonal.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k]
+  (D : Ginzburg333.CyclicData k) (hD : D.Regular) (i : Ginzburg333.Vertex) (r n : ℕ) (hne : n ≠ r) :
+  Ginzburg333.Bar.BarExact D i ⊤ r n
+'Ginzburg333.Bar.simple_normalized_bar_off_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.chosenTensorCoordinates.{u_1, u_2, u_3, u_4} {k : Type u_1} [Field k] {X : Type u_2}
+  {Y : Type u_3} {Z : Type u_4} [AddCommGroup X] [Module k X] [AddCommGroup Y] [Module k Y] [AddCommGroup Z]
+  [Module k Z] [FiniteDimensional k X] [FiniteDimensional k Y] [FiniteDimensional k Z] (hx : Module.finrank k X = 3)
+  (hy : Module.finrank k Y = 3) (hz : Module.finrank k Z = 3) :
+  TensorProduct k (TensorProduct k X Y) Z ≃ₗ[k] Ginzburg333.Tensor k
+'Ginzburg333.Comparison.chosenTensorCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.cobarBasis_transpose.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (gs hs : List Ginzburg333.Ginzburg.Generator) :
+  (Ginzburg333.Comparison.cobarBasis D gs) hs = (Ginzburg333.Bar.innerBasisDifferential D hs) gs
+'Ginzburg333.Comparison.cobarBasis_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.finiteDualReversal.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k) (hD : D.Regular)
+  (i : Ginzburg333.Vertex) (r n : ℕ) :
+  Module.Dual k ↥(Ginzburg333.Bar.internallyNormalizedTerm D i ⊤ r n) ≃ₗ[k]
+    ↥(Ginzburg333.Comparison.rowPathComponent i r n)
+'Ginzburg333.Comparison.finiteDualReversal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.finiteDualReversal_differential.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hD : (Ginzburg333.ofTensor w).Regular) (i : Ginzburg333.Vertex) (r n : ℕ)
+  (f : Module.Dual k ↥(Ginzburg333.Bar.internallyNormalizedTerm (Ginzburg333.ofTensor w) i ⊤ r n)) :
+  ↑((Ginzburg333.Comparison.finiteDualReversal (Ginzburg333.ofTensor w) hD i (r + 1) n)
+        ((Ginzburg333.Bar.internallyNormalizedDifferential (Ginzburg333.ofTensor w) i ⊤ r n).dualMap f)) =
+    (Ginzburg333.Ginzburg.differential w)
+      ↑((Ginzburg333.Comparison.finiteDualReversal (Ginzburg333.ofTensor w) hD i r n) f)
+'Ginzburg333.Comparison.finiteDualReversal_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.generator_structure_coefficient.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (g h t : Ginzburg333.Ginzburg.Generator) :
+  (Ginzburg333.Ginzburg.wordVectorDifferential w [g]) [h, t] =
+    (-1) ^ (t.weight + 1) * Ginzburg333.Bar.positiveMultiplication (Ginzburg333.ofTensor w) t h g
+'Ginzburg333.Comparison.generator_structure_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.ginzburgRegular_iff_tensorRegular_chosen_bases.{u_1, u_2, u_3, u_4} {k : Type u_1} [Field k]
+  {X : Type u_2} {Y : Type u_3} {Z : Type u_4} [AddCommGroup X] [Module k X] [AddCommGroup Y] [Module k Y]
+  [AddCommGroup Z] [Module k Z] [FiniteDimensional k X] [FiniteDimensional k Y] [FiniteDimensional k Z] [IsAlgClosed k]
+  [CharZero k] (hx : Module.finrank k X = 3) (hy : Module.finrank k Y = 3) (hz : Module.finrank k Z = 3)
+  (w : TensorProduct k (TensorProduct k X Y) Z) :
+  Ginzburg333.Ginzburg.GinzburgRegular ((Ginzburg333.Comparison.chosenTensorCoordinates hx hy hz) w) ↔
+    Ginzburg333.TensorRegular ((Ginzburg333.Comparison.chosenTensorCoordinates hx hy hz) w)
+'Ginzburg333.Comparison.ginzburgRegular_iff_tensorRegular_chosen_bases' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Ginzburg333.Comparison.ginzburgRegular_tensorRegular_in_bases.{u_1, u_2, u_3, u_4} {k : Type u_1} [Field k]
+  {X : Type u_2} {Y : Type u_3} {Z : Type u_4} [AddCommGroup X] [Module k X] [AddCommGroup Y] [Module k Y]
+  [AddCommGroup Z] [Module k Z] (bx : Basis (Fin 3) k X) (by_ : Basis (Fin 3) k Y) (bz : Basis (Fin 3) k Z)
+  (w : TensorProduct k (TensorProduct k X Y) Z)
+  (hw : Ginzburg333.Ginzburg.GinzburgRegular ((Ginzburg333.Comparison.tensorCoordinatesEquiv bx by_ bz) w)) :
+  Ginzburg333.TensorRegular ((Ginzburg333.Comparison.tensorCoordinatesEquiv bx by_ bz) w)
+'Ginzburg333.Comparison.ginzburgRegular_tensorRegular_in_bases' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Ginzburg333.Comparison.ginzburg_internal_primitives.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k]
+  (w : Ginzburg333.Tensor k) (hD : (Ginzburg333.ofTensor w).Regular) (n : ℕ) (q : ℤ) (hq : q < 0)
+  (x : Ginzburg333.Ginzburg.PathSpace k) (hxn : Ginzburg333.Ginzburg.InternallyHomogeneous n x)
+  (hxq : Ginzburg333.Ginzburg.Homogeneous q x) (hdx : (Ginzburg333.Ginzburg.differential w) x = 0) :
+  ∃ y,
+    Ginzburg333.Ginzburg.InternallyHomogeneous n y ∧
+      Ginzburg333.Ginzburg.Homogeneous (q - 1) y ∧ (Ginzburg333.Ginzburg.differential w) y = x
+'Ginzburg333.Comparison.ginzburg_internal_primitives' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.rowPath_primitive.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k] (w : Ginzburg333.Tensor k)
+  (hD : (Ginzburg333.ofTensor w).Regular) (i : Ginzburg333.Vertex) (r n : ℕ) (hne : n ≠ r + 1)
+  (x : ↥(Ginzburg333.Comparison.rowPathComponent i (r + 1) n)) (hdx : (Ginzburg333.Ginzburg.differential w) ↑x = 0) :
+  ∃ y, (Ginzburg333.Ginzburg.differential w) ↑y = ↑x
+'Ginzburg333.Comparison.rowPath_primitive' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.signedWordReversal_differential.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (x : Ginzburg333.Ginzburg.WordSpace k) :
+  Ginzburg333.Comparison.signedWordReversal ((Ginzburg333.Comparison.cobarDifferential (Ginzburg333.ofTensor w)) x) =
+    (Ginzburg333.Ginzburg.freeDifferential w) (Ginzburg333.Comparison.signedWordReversal x)
+'Ginzburg333.Comparison.signedWordReversal_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.simpleBarDualCoordinates.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (hD : D.Regular) (i : Ginzburg333.Vertex) (r n : ℕ) :
+  Module.Dual k ↥(Ginzburg333.Bar.internallyNormalizedTerm D i ⊤ r n) ≃ₗ[k]
+    Ginzburg333.Comparison.SimpleRowBasis i r n →₀ k
+'Ginzburg333.Comparison.simpleBarDualCoordinates' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.simpleBarLinearBasis.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (hD : D.Regular) (i : Ginzburg333.Vertex) (r n : ℕ) :
+  Basis (Ginzburg333.Comparison.SimpleRowBasis i r n) k ↥(Ginzburg333.Bar.internallyNormalizedTerm D i ⊤ r n)
+'Ginzburg333.Comparison.simpleBarLinearBasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.simple_dual_bar_off_diagonal.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k]
+  (D : Ginzburg333.CyclicData k) (hD : D.Regular) (i : Ginzburg333.Vertex) (r n : ℕ) (hne : n ≠ r + 1) :
+  Ginzburg333.Homology.ExactAt (Ginzburg333.Bar.internallyNormalizedDifferential D i ⊤ r n).dualMap
+    (Ginzburg333.Bar.internallyNormalizedDifferential D i ⊤ (r + 1) n).dualMap
+'Ginzburg333.Comparison.simple_dual_bar_off_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.tensorCoordinatesEquiv.{u_1, u_2, u_3, u_4} {k : Type u_1} [Field k] {X : Type u_2}
+  {Y : Type u_3} {Z : Type u_4} [AddCommGroup X] [Module k X] [AddCommGroup Y] [Module k Y] [AddCommGroup Z]
+  [Module k Z] (bx : Basis (Fin 3) k X) (by_ : Basis (Fin 3) k Y) (bz : Basis (Fin 3) k Z) :
+  TensorProduct k (TensorProduct k X Y) Z ≃ₗ[k] Ginzburg333.Tensor k
+'Ginzburg333.Comparison.tensorCoordinatesEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.tensorRegular_ginzburgRegular_in_bases.{u_1, u_2, u_3, u_4} {k : Type u_1} [Field k]
+  {X : Type u_2} {Y : Type u_3} {Z : Type u_4} [AddCommGroup X] [Module k X] [AddCommGroup Y] [Module k Y]
+  [AddCommGroup Z] [Module k Z] [IsAlgClosed k] [CharZero k] (bx : Basis (Fin 3) k X) (by_ : Basis (Fin 3) k Y)
+  (bz : Basis (Fin 3) k Z) (w : TensorProduct k (TensorProduct k X Y) Z)
+  (hw : Ginzburg333.TensorRegular ((Ginzburg333.Comparison.tensorCoordinatesEquiv bx by_ bz) w)) :
+  Ginzburg333.Ginzburg.GinzburgRegular ((Ginzburg333.Comparison.tensorCoordinatesEquiv bx by_ bz) w)
+'Ginzburg333.Comparison.tensorRegular_ginzburgRegular_in_bases' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Ginzburg333.Comparison.totalDualReversal.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k) (hD : D.Regular)
+  (r n : ℕ) : Ginzburg333.Comparison.TotalSimpleDual D r n ≃ₗ[k] ↥(Ginzburg333.Ginzburg.bigradedComponent n (↑r - ↑n))
+'Ginzburg333.Comparison.totalDualReversal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.totalDualReversal_differential.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hD : (Ginzburg333.ofTensor w).Regular) (r n : ℕ)
+  (f : Ginzburg333.Comparison.TotalSimpleDual (Ginzburg333.ofTensor w) r n) :
+  ↑((Ginzburg333.Comparison.totalDualReversal (Ginzburg333.ofTensor w) hD (r + 1) n) fun i =>
+        (Ginzburg333.Bar.internallyNormalizedDifferential (Ginzburg333.ofTensor w) i ⊤ r n).dualMap (f i)) =
+    (Ginzburg333.Ginzburg.differential w)
+      ↑((Ginzburg333.Comparison.totalDualReversal (Ginzburg333.ofTensor w) hD r n) f)
+'Ginzburg333.Comparison.totalDualReversal_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Comparison.wordSign.{u_1} {k : Type u_1} [Field k] (gs : List Ginzburg333.Ginzburg.Generator) : k
+'Ginzburg333.Comparison.wordSign' depends on axioms: [propext]
+Ginzburg333.Converse.FreeCornerData.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) (i : Ginzburg333.Vertex)
+  (a : Ginzburg333.Vec k) : Type u_1
+'Ginzburg333.Converse.FreeCornerData' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.LoopWords.{u_2} (k : Type u_2) [Field k] : Type u_2
+'Ginzburg333.Converse.LoopWords' depends on axioms: [propext, Quot.sound]
+Ginzburg333.Converse.RankOneSlice.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) (i : Ginzburg333.Vertex)
+  (a : Ginzburg333.Vec k) : Type u_1
+'Ginzburg333.Converse.RankOneSlice' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.freeCornerData_exists.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k) (ha : a ≠ 0) (h : Ginzburg333.Converse.RankOneSlice w i a) :
+  Nonempty (Ginzburg333.Converse.FreeCornerData w i a)
+'Ginzburg333.Converse.freeCornerData_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.freeCorner_exponential_lower_bound.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k) (ha : a ≠ 0) (d : Ginzburg333.Converse.FreeCornerData w i a)
+  (m : ℕ) : 2 ^ m ≤ Module.finrank k (Ginzburg333.Ginzburg.internalJacobi w (3 * m))
+'Ginzburg333.Converse.freeCorner_exponential_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.generatorMatrix.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) (i : Ginzburg333.Vertex)
+  (a : Ginzburg333.Vec k) (d : Ginzburg333.Converse.FreeCornerData w i a) :
+  Ginzburg333.Ginzburg.Generator → Ginzburg333.Converse.CornerMatrix k
+'Ginzburg333.Converse.generatorMatrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.jacobiEvaluation.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) (i : Ginzburg333.Vertex)
+  (a : Ginzburg333.Vec k) (d : Ginzburg333.Converse.FreeCornerData w i a) (n : ℕ) :
+  Ginzburg333.Ginzburg.internalJacobi w n →ₗ[k] Ginzburg333.Converse.LoopWords k
+'Ginzburg333.Converse.jacobiEvaluation' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.killLine_surjective.{u_1} {k : Type u_1} [Field k] (v : Ginzburg333.Vec k) (hv : v ≠ 0) :
+  Function.Surjective ⇑(Ginzburg333.Converse.killLine v hv)
+'Ginzburg333.Converse.killLine_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.liftFreeWord_closed.{u_1} {k : Type u_1} [Field k] {w : Ginzburg333.Tensor k}
+  {i : Ginzburg333.Vertex} {a : Ginzburg333.Vec k} {d : Ginzburg333.Converse.FreeCornerData w i a}
+  (L : Ginzburg333.Converse.LoopLiftData w i a d) (js : List (Fin 2)) :
+  Ginzburg333.Converse.liftFreeWord L js ∈ Ginzburg333.Converse.closedWords (Ginzburg333.next i) (3 * js.length)
+'Ginzburg333.Converse.liftFreeWord_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.liftFreeWord_entry00.{u_1} {k : Type u_1} [Field k] {w : Ginzburg333.Tensor k}
+  {i : Ginzburg333.Vertex} {a : Ginzburg333.Vec k} {d : Ginzburg333.Converse.FreeCornerData w i a}
+  (L : Ginzburg333.Converse.LoopLiftData w i a d) (js : List (Fin 2)) :
+  (Ginzburg333.Converse.matrixEvaluation w i a d) (Ginzburg333.Converse.liftFreeWord L js) 0 0 =
+    MonoidAlgebra.single (FreeMonoid.ofList js) 1
+'Ginzburg333.Converse.liftFreeWord_entry00' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.loopLiftData_exists.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k) (ha : a ≠ 0) (d : Ginzburg333.Converse.FreeCornerData w i a) :
+  Nonempty (Ginzburg333.Converse.LoopLiftData w i a d)
+'Ginzburg333.Converse.loopLiftData_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.matrixEvaluation.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) (i : Ginzburg333.Vertex)
+  (a : Ginzburg333.Vec k) (d : Ginzburg333.Converse.FreeCornerData w i a) :
+  Ginzburg333.Ginzburg.WordSpace k →ₗ[k] Ginzburg333.Converse.CornerMatrix k
+'Ginzburg333.Converse.matrixEvaluation' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.matrixEvaluation_generator_differential.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k) (d : Ginzburg333.Converse.FreeCornerData w i a)
+  (g : Ginzburg333.Ginzburg.Generator) :
+  (Ginzburg333.Converse.matrixEvaluation w i a d) (Ginzburg333.Ginzburg.wordVectorDifferential w [g]) = 0
+'Ginzburg333.Converse.matrixEvaluation_generator_differential' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Ginzburg333.Converse.pathMatrixEvaluation_differential.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k) (d : Ginzburg333.Converse.FreeCornerData w i a)
+  (x : Ginzburg333.Ginzburg.PathSpace k) :
+  (Ginzburg333.Converse.pathMatrixEvaluation w i a d) ((Ginzburg333.Ginzburg.differential w) x) = 0
+'Ginzburg333.Converse.pathMatrixEvaluation_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.projectedRelationMap_rank_le_two.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k) (ha : a ≠ 0) (h : Ginzburg333.Converse.RankOneSlice w i a) :
+  Module.finrank k
+      ↥(LinearMap.range
+          (Ginzburg333.Converse.projectedRelationMap w i (Ginzburg333.Converse.killLine h.left ⋯)
+            (Ginzburg333.Converse.killLine h.right ⋯))) ≤
+    2
+'Ginzburg333.Converse.projectedRelationMap_rank_le_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.rankOneSlice_exists.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k)
+  (h : Module.finrank k ↥(LinearMap.range (((Ginzburg333.ofTensor w).mul i) a)) = 1) :
+  Nonempty (Ginzburg333.Converse.RankOneSlice w i a)
+'Ginzburg333.Converse.rankOneSlice_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.rankOneSlice_of_not_regular.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hw : Ginzburg333.Ginzburg.GinzburgRegular w) (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k) (ha : a ≠ 0)
+  (hbad : ¬2 ≤ Module.finrank k ↥(LinearMap.range (((Ginzburg333.ofTensor w).mul i) a))) :
+  Nonempty (Ginzburg333.Converse.RankOneSlice w i a)
+'Ginzburg333.Converse.rankOneSlice_of_not_regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.relationQuotient_finrank_ge_two.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k) (ha : a ≠ 0) (h : Ginzburg333.Converse.RankOneSlice w i a) :
+  2 ≤
+    Module.finrank k
+      (Ginzburg333.Converse.RelationQuotient w i (Ginzburg333.Converse.killLine h.left ⋯)
+        (Ginzburg333.Converse.killLine h.right ⋯))
+'Ginzburg333.Converse.relationQuotient_finrank_ge_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Converse.wordToPaths_bigraded.{u_1} {k : Type u_1} [Field k] (v : Ginzburg333.Vertex) (n : ℕ)
+  (x : Ginzburg333.Ginzburg.WordSpace k) (hx : x ∈ Ginzburg333.Converse.closedWords v n) :
+  (Ginzburg333.Converse.wordToPaths v) x ∈ Ginzburg333.Ginzburg.bigradedComponent n 0
+'Ginzburg333.Converse.wordToPaths_bigraded' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.Allowed.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k) (i : Ginzburg333.Vertex)
+  (U : Submodule k (Ginzburg333.Vec k)) : Prop
+'Ginzburg333.CyclicData.Allowed' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.FiltrationStep.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) : Type u_1
+'Ginzburg333.CyclicData.FiltrationStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.QuotientRow.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) : Type u_1
+'Ginzburg333.CyclicData.QuotientRow' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.Regular.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k) : Prop
+'Ginzburg333.CyclicData.Regular' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.adjacent_rank_two.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k) (hD : D.Regular)
+  (i : Ginzburg333.Vertex) {a b : Ginzburg333.Vec k} (ha : a ≠ 0) (hb : b ≠ 0) (hab : ((D.mul i) a) b = 0) :
+  Module.finrank k ↥(LinearMap.range ((D.mul (Ginzburg333.next i)) b)) = 2
+'Ginzburg333.CyclicData.adjacent_rank_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.annihilator_eq_adjacent_image.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (hD : D.Regular) (i : Ginzburg333.Vertex) {a b : Ginzburg333.Vec k} (ha : a ≠ 0) (hb : b ≠ 0)
+  (hr : Module.finrank k ↥(LinearMap.range ((D.mul i) a)) = 2) (hab : ((D.mul i) a) b = 0) :
+  LinearMap.ker (D.leftOne i a) = LinearMap.range (D.leftOne (Ginzburg333.next i) b)
+'Ginzburg333.CyclicData.annihilator_eq_adjacent_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.exists_filtrationStep.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k]
+  (D : Ginzburg333.CyclicData k) (hD : D.Regular) (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k))
+  (hU : D.Allowed i U) (hne : U ≠ ⊥) : Nonempty (D.FiltrationStep i U)
+'Ginzburg333.CyclicData.exists_filtrationStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.full_colon_closed.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k) (hD : D.Regular)
+  (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) (hU : Module.finrank k ↥U = 2) {g : Ginzburg333.Vec k}
+  (hg : g ∉ U) : Submodule.comap (D.leftOne i g) (D.rowGenerated i U) = D.rowGenerated (Ginzburg333.next i) ⊤
+'Ginzburg333.CyclicData.full_colon_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.identity_multiply.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (a : Ginzburg333.Auxiliary k) : D.multiply Ginzburg333.CyclicData.identityAuxiliary a = a
+'Ginzburg333.CyclicData.identity_multiply' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.kernel_eq_span.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (i : Ginzburg333.Vertex) {a b : Ginzburg333.Vec k} (hr : Module.finrank k ↥(LinearMap.range ((D.mul i) a)) = 2)
+  (hb : b ≠ 0) (hab : ((D.mul i) a) b = 0) : LinearMap.ker ((D.mul i) a) = Submodule.span k {b}
+'Ginzburg333.CyclicData.kernel_eq_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.multiply.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (a b : Ginzburg333.Auxiliary k) : Ginzburg333.Auxiliary k
+'Ginzburg333.CyclicData.multiply' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.multiply_assoc.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (a b c : Ginzburg333.Auxiliary k) : D.multiply (D.multiply a b) c = D.multiply a (D.multiply b c)
+'Ginzburg333.CyclicData.multiply_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.multiply_identity.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (a : Ginzburg333.Auxiliary k) : D.multiply a Ginzburg333.CyclicData.identityAuxiliary = a
+'Ginzburg333.CyclicData.multiply_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.plane_colon_closed.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k) (hD : D.Regular)
+  (i : Ginzburg333.Vertex) {a g : Ginzburg333.Vec k} (ha : a ≠ 0) (hg : g ∉ Submodule.span k {a})
+  (hr : Module.finrank k ↥(LinearMap.range ((D.mul i) a)) = 2)
+  (hplane : Module.finrank k ↥(Submodule.span k {a, g}) = 2) :
+  Submodule.comap (D.leftOne i g) (LinearMap.range (D.leftOne i a)) =
+    D.rowGenerated (Ginzburg333.next i) (D.colonPlane i a g)
+'Ginzburg333.CyclicData.plane_colon_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.plane_contains_rank_two.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k]
+  (D : Ginzburg333.CyclicData k) (hD : D.Regular) (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k))
+  (hU : Module.finrank k ↥U = 2) : ∃ a ∈ U, a ≠ 0 ∧ Module.finrank k ↥(LinearMap.range ((D.mul i) a)) = 2
+'Ginzburg333.CyclicData.plane_contains_rank_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.CyclicData.productSpan_eq_top_of_two_le.{u_1} {k : Type u_1} [Field k] (D : Ginzburg333.CyclicData k)
+  (hD : D.Regular) (i : Ginzburg333.Vertex) (U : Submodule k (Ginzburg333.Vec k)) (hU : 2 ≤ Module.finrank k ↥U) :
+  D.productSpan i U = ⊤
+'Ginzburg333.CyclicData.productSpan_eq_top_of_two_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.Generator : Type
+'Ginzburg333.Ginzburg.Generator' does not depend on any axioms
+Ginzburg333.Ginzburg.GinzburgRegular.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) : Prop
+'Ginzburg333.Ginzburg.GinzburgRegular' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.PathSpace.{u_1} (k : Type u_1) [Zero k] : Type u_1
+'Ginzburg333.Ginzburg.PathSpace' depends on axioms: [propext, Quot.sound]
+Ginzburg333.Ginzburg.ValidPath (p : Ginzburg333.Vertex × List Ginzburg333.Ginzburg.Generator) : Prop
+'Ginzburg333.Ginzburg.ValidPath' depends on axioms: [propext]
+Ginzburg333.Ginzburg.cohomologicalDegree_eq_length_sub_weight (p : Ginzburg333.Ginzburg.BasisPath) :
+  Ginzburg333.Ginzburg.cohomologicalDegree p = ↑(↑p).2.length - ↑(Ginzburg333.Ginzburg.internalDegree p)
+'Ginzburg333.Ginzburg.cohomologicalDegree_eq_length_sub_weight' depends on axioms: [propext, Quot.sound]
+Ginzburg333.Ginzburg.differential.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) :
+  Ginzburg333.Ginzburg.PathSpace k →ₗ[k] Ginzburg333.Ginzburg.PathSpace k
+'Ginzburg333.Ginzburg.differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.differential_internal.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) (n : ℕ)
+  (x : Ginzburg333.Ginzburg.PathSpace k) (hx : Ginzburg333.Ginzburg.InternallyHomogeneous n x) :
+  Ginzburg333.Ginzburg.InternallyHomogeneous n ((Ginzburg333.Ginzburg.differential w) x)
+'Ginzburg333.Ginzburg.differential_internal' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.differential_square.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (x : Ginzburg333.Ginzburg.PathSpace k) :
+  (Ginzburg333.Ginzburg.differential w) ((Ginzburg333.Ginzburg.differential w) x) = 0
+'Ginzburg333.Ginzburg.differential_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.ginzburgRegular_contraction_ne_zero.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hw : Ginzburg333.Ginzburg.GinzburgRegular w) (i : Ginzburg333.Vertex) (a : Ginzburg333.Vec k) (ha : a ≠ 0) :
+  ((Ginzburg333.ofTensor w).mul i) a ≠ 0
+'Ginzburg333.Ginzburg.ginzburgRegular_contraction_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.ginzburgRegular_of_internal_primitives.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (h :
+    ∀ (n : ℕ),
+      ∀ q < 0,
+        ∀ (x : Ginzburg333.Ginzburg.PathSpace k),
+          Ginzburg333.Ginzburg.InternallyHomogeneous n x →
+            Ginzburg333.Ginzburg.Homogeneous q x →
+              (Ginzburg333.Ginzburg.differential w) x = 0 →
+                ∃ y,
+                  Ginzburg333.Ginzburg.InternallyHomogeneous n y ∧
+                    Ginzburg333.Ginzburg.Homogeneous (q - 1) y ∧ (Ginzburg333.Ginzburg.differential w) y = x) :
+  Ginzburg333.Ginzburg.GinzburgRegular w
+'Ginzburg333.Ginzburg.ginzburgRegular_of_internal_primitives' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.internalJacobi.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) (n : ℕ) : Type u_1
+'Ginzburg333.Ginzburg.internalJacobi' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.internalJacobi_finrank_36.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hw : Ginzburg333.Ginzburg.GinzburgRegular w) : Module.finrank k (Ginzburg333.Ginzburg.internalJacobi w 36) = 2109
+'Ginzburg333.Ginzburg.internalJacobi_finrank_36' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.internalJacobi_finrank_euler.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hw : Ginzburg333.Ginzburg.GinzburgRegular w) (n : ℕ) :
+  ↑(Module.finrank k (Ginzburg333.Ginzburg.internalJacobi w n)) =
+    ∑ s ∈ Finset.range (n + 1), (-1) ^ s * ↑(Ginzburg333.Ginzburg.negativeDimension n s)
+'Ginzburg333.Ginzburg.internalJacobi_finrank_euler' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.internalJacobi_quadratic_growth.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hw : Ginzburg333.Ginzburg.GinzburgRegular w) (n : ℕ) :
+  2 * ↑(Module.finrank k (Ginzburg333.Ginzburg.internalJacobi w n)) = 3 * (↑n + 1) * (↑n + 2)
+'Ginzburg333.Ginzburg.internalJacobi_quadratic_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.negativeDifferential.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) (n s : ℕ) :
+  ↥(Ginzburg333.Ginzburg.negativeTerm n (s + 1)) →ₗ[k] ↥(Ginzburg333.Ginzburg.negativeTerm n s)
+'Ginzburg333.Ginzburg.negativeDifferential' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.negativeDifferential_exact.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hw : Ginzburg333.Ginzburg.GinzburgRegular w) (n s : ℕ) :
+  Ginzburg333.Homology.ExactAt (Ginzburg333.Ginzburg.negativeDifferential w n (s + 1))
+    (Ginzburg333.Ginzburg.negativeDifferential w n s)
+'Ginzburg333.Ginzburg.negativeDifferential_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.negativeDimension_letterCount.{u_1} {k : Type u_1} [Field k] (n s : ℕ) :
+  Ginzburg333.Ginzburg.negativeDimension n s = 3 * Ginzburg333.Ginzburg.letterCount n s
+'Ginzburg333.Ginzburg.negativeDimension_letterCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.negativeTerm.{u_1} {k : Type u_1} [Field k] (n s : ℕ) :
+  Submodule k (Ginzburg333.Ginzburg.PathSpace k)
+'Ginzburg333.Ginzburg.negativeTerm' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.negativeTerm_eq_zero.{u_1} {k : Type u_1} [Field k] (n s : ℕ) (hs : 0 < s) (hns : n ≤ s)
+  (x : ↥(Ginzburg333.Ginzburg.negativeTerm n s)) : x = 0
+'Ginzburg333.Ginzburg.negativeTerm_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.pathLettersEquiv :
+  Ginzburg333.Ginzburg.BasisPath ≃ Ginzburg333.Vertex × List Ginzburg333.Ginzburg.PathLetter
+'Ginzburg333.Ginzburg.pathLettersEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.signedLetterEuler_quadratic (n : ℕ) :
+  2 * Ginzburg333.Ginzburg.signedLetterEuler n = (↑n + 1) * (↑n + 2)
+'Ginzburg333.Ginzburg.signedLetterEuler_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Ginzburg.signedLetterEuler_sum_counts (n : ℕ) :
+  ∑ s ∈ Finset.range (n + 1), (-1) ^ s * ↑(Ginzburg333.Ginzburg.letterCount n s) =
+    Ginzburg333.Ginzburg.signedLetterEuler n
+'Ginzburg333.Ginzburg.signedLetterEuler_sum_counts' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.Signs.comparison_parity (pre post : List ℕ) (c : Ginzburg333.Signs.Cut) :
+  Ginzburg333.Signs.ginExponent pre post c % 2 = Ginzburg333.Signs.barExponent pre post c % 2
+'Ginzburg333.Signs.comparison_parity' depends on axioms: [propext, Quot.sound]
+Ginzburg333.Signs.sigma : List ℕ → ℕ
+'Ginzburg333.Signs.sigma' depends on axioms: [propext]
+Ginzburg333.Signs.sigma_formula (ds : List ℕ) :
+  Ginzburg333.Signs.sigma ds = Ginzburg333.Signs.weighted ds + ds.length.choose 2 + Ginzburg333.Signs.countThree ds
+'Ginzburg333.Signs.sigma_formula' depends on axioms: [propext, Quot.sound]
+Ginzburg333.Tensor.{u_1} (k : Type u_1) : Type u_1
+'Ginzburg333.Tensor' does not depend on any axioms
+Ginzburg333.TensorRegular.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) : Prop
+'Ginzburg333.TensorRegular' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.coeff.{u_1} {k : Type u_1} (w : Ginzburg333.Tensor k) (i : Ginzburg333.Vertex) : Ginzburg333.Tensor k
+'Ginzburg333.coeff' depends on axioms: [propext]
+Ginzburg333.contract.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k) (i : Ginzburg333.Vertex)
+  (a : Ginzburg333.Vec k) : Ginzburg333.Vec k →ₗ[k] Ginzburg333.Vec k
+'Ginzburg333.contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.finrank_auxiliary.{u_1} {k : Type u_1} [Field k] : Module.finrank k (Ginzburg333.Auxiliary k) = 24
+'Ginzburg333.finrank_auxiliary' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.ginzburgRegular_iff_tensorRegular.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k] [CharZero k]
+  (w : Ginzburg333.Tensor k) : Ginzburg333.Ginzburg.GinzburgRegular w ↔ Ginzburg333.TensorRegular w
+'Ginzburg333.ginzburgRegular_iff_tensorRegular' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.ginzburgRegular_tensorRegular.{u_1} {k : Type u_1} [Field k] (w : Ginzburg333.Tensor k)
+  (hw : Ginzburg333.Ginzburg.GinzburgRegular w) : Ginzburg333.TensorRegular w
+'Ginzburg333.ginzburgRegular_tensorRegular' depends on axioms: [propext, Classical.choice, Quot.sound]
+Ginzburg333.tensorRegular_ginzburgRegular.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k] [CharZero k]
+  (w : Ginzburg333.Tensor k) (hw : Ginzburg333.TensorRegular w) : Ginzburg333.Ginzburg.GinzburgRegular w
+'Ginzburg333.tensorRegular_ginzburgRegular' depends on axioms: [propext, Classical.choice, Quot.sound]
