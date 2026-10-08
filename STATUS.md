@@ -11,7 +11,10 @@ pull requestでは生成と検査のみ。workflow_dispatchによる手動実行
 bootstrapのcold-start cache取得に、全24件の直接Mathlib importを含めました。
 
 Pagesの公開先は https://uedakazushi.github.io/ginzburg333-lean/ です。
-この区切りではCI実行・デプロイ成功はまだ未確認です。
+初回Actions run 37736611956は処理系ソースが字句監査へ混入して失敗しました。
+処理系をrunner.temp以下へ移し、プロジェクトの監査範囲を維持して修正しました。
+字句監査に到達する前のLean・固定mathlib・全24直接importのcache取得は成功しています。
+デプロイ成功はまだ未確認です。修正版のCI結果を確認します。
 APIの観測ではhas_pages=falseであり、初回は所有者による
 Settings → Pages → Source: GitHub Actionsの設定が必要です。
 確認後に実際のCI結果と公開URLのHTTP取得結果を記録します。

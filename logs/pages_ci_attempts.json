@@ -1,0 +1,15 @@
+{
+  "attempts": [
+    {
+      "run_id": 37736611956,
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/actions/runs/37736611956",
+      "head_sha": "4866e810c3323638df199ccf1f5dd0fb64015231",
+      "build_conclusion": "failure",
+      "failed_step": "Verify all Lean sources and theorem axioms",
+      "reason": "The project textual scanner traversed the installed compiler Lean sources under .tooling; strip_comments_and_strings raised ValueError before project validation.",
+      "fix": "Install/cache the Lean distribution outside the checkout under runner.temp; retain the project audit unchanged.",
+      "lean_and_mathlib_cache_install_completed": true,
+      "deployment_conclusion": "skipped"
+    }
+  ]
+}

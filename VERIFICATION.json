@@ -40,7 +40,7 @@
   "axiom_log": "logs/kernel_axioms_all.log",
   "github_repository_created": false,
   "github_push_performed": true,
-  "ci_run_triggered": false,
+  "ci_run_triggered": true,
   "blocking_environment": null,
   "remaining_formalization_gaps": [],
   "verified_at_utc": "2026-10-08T05:27:30.185478+00:00",
@@ -198,12 +198,16 @@
     "local_project_site_references_checked": 1144,
     "lean_sources_changed": false,
     "full_lean_tests_rerun_locally_this_ci_update": false,
-    "github_workflow_run_observed": false,
+    "github_workflow_run_observed": true,
     "build_conclusion": null,
     "deployment_conclusion": null,
     "pages_http_verified": false,
     "initial_pages_source_setting_required": true,
     "pages_management_available_in_connector": false,
-    "checked_at_utc": "2026-10-08T06:14:14.286884+00:00"
+    "checked_at_utc": "2026-10-08T06:14:14.286884+00:00",
+    "first_run_id": 37736611956,
+    "attempts_log": "logs/pages_ci_attempts.json",
+    "first_run_conclusion": "failure",
+    "first_run_fix": "Move compiler installation outside checkout; project textual and kernel audit unchanged."
   }
 }

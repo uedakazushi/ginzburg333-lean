@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-10-08T06:14:14.286884+00:00",
+  "checked_at_utc": "2026-10-08T06:20:07.387527+00:00",
   "actionlint_version": "1.7.12",
   "command_checks": [
     {
@@ -38,10 +38,10 @@
   "project_site_relative_references_checked": 1144,
   "direct_mathlib_imports_in_bootstrap_cache": 24,
   "source_hashes": {
-    ".github/workflows/blueprint-pages.yml": "25670353485a822ce0f99edbed8b7f798aceb7145e348362a20fb8c361e1df61",
+    ".github/workflows/blueprint-pages.yml": "ccc72b75ce8330457a87f5c1ad286102828236303d7aeb96f5cefaee469781f1",
     "scripts/bootstrap.sh": "b7d1ebce1a0f20421f8e619e2841be901a7dbda1b13a2c4b87c534e410ab7eaa",
     "scripts/package_blueprint_pages.py": "a8a65ea657a48be8ee7392f7a611403b36eb1344c259d98729d546ccad0e77d4"
   },
   "all_passed": true,
-  "actual_github_workflow_run_observed": false
+  "actual_github_workflow_run_observed": true
 }

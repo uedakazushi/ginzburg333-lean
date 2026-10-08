@@ -9,6 +9,8 @@ PDFへの入口も追加し、実行リビジョンと検証済み数学ソー�
 
 初回のPages設定（Settings → Pages → Source: GitHub Actions）は所有者が行う必要があります。
 現在のhas_pages=falseを実際に確認済みで、利用可能な連携はPages管理操作を提供しません。
+初回run 37736611956はリポジトリ内の処理系ソースを字句監査が走査して失敗しました。
+修正版ではGINZBURG333_TOOLINGをrunner.temp以下に置きます。監査スクリプトの対象は狭めていません。
 実際のCI結果と公開URLの取得が成功するまでは、デプロイ完了と記録しないでください。
 公開先は https://uedakazushi.github.io/ginzburg333-lean/ 、PDFは同URLのblueprint_ja.pdfです。
 Actionsのworkflow/jobログとPagesのHTTP・ブラウザ検査を保存してSTATUS/GAPS/VERIFICATIONを更新してください。
