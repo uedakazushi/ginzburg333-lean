@@ -4,14 +4,14 @@
   "kernel_validation": "Not assessed by this textual audit; see VERIFICATION.json and kernel axiom logs.",
   "main_theorem_declared_textually": true,
   "main_theorem_proof": "Not assessed by this textual audit; see the actual Lean and kernel audit logs.",
-  "source_file_count": 60,
-  "source_line_count": 6451,
+  "source_file_count": 64,
+  "source_line_count": 7045,
   "declaration_counts": {
-    "abbrev": 16,
-    "theorem": 433,
-    "def": 163,
+    "abbrev": 20,
+    "theorem": 472,
+    "def": 187,
     "structure": 3,
-    "inductive": 2
+    "inductive": 3
   },
   "forbidden_tokens": [],
   "passed_textual_audit": true

@@ -51,3 +51,8 @@ import Ginzburg333
 #print axioms Ginzburg333.tensorRegular_ginzburgRegular
 #print axioms Ginzburg333.Comparison.tensorRegular_ginzburgRegular_chosen_bases
 #check Ginzburg333.tensorRegular_ginzburgRegular
+#print axioms Ginzburg333.Ginzburg.ginzburgRegular_contraction_ne_zero
+#print axioms Ginzburg333.Ginzburg.negativeDifferential_exact
+#print axioms Ginzburg333.Ginzburg.internalJacobi_finrank_euler
+#print axioms Ginzburg333.Ginzburg.internalJacobi_quadratic_growth
+#print axioms Ginzburg333.Ginzburg.internalJacobi_finrank_36

@@ -51,3 +51,8 @@
  Quot.sound]
 Ginzburg333.tensorRegular_ginzburgRegular.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k] [CharZero k]
   (w : Ginzburg333.Tensor k) (hw : Ginzburg333.TensorRegular w) : Ginzburg333.Ginzburg.GinzburgRegular w
+'Ginzburg333.Ginzburg.ginzburgRegular_contraction_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Ginzburg.negativeDifferential_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Ginzburg.internalJacobi_finrank_euler' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Ginzburg.internalJacobi_quadratic_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Ginzburg.internalJacobi_finrank_36' depends on axioms: [propext, Classical.choice, Quot.sound]

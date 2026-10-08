@@ -1,40 +1,20 @@
-# 数学的義務の完了状況 — v4
+# 残る義務 — v5・逆向き含意
 
-**要求されたA〜Eと本来の主定理は証明済みです。残る形式化の穴はありません。**
-`bash scripts/verify.sh`終了0、明示的theorem 433件、全公理監査923件。
-追加公理、sorry、admit、結論を含む仮定はありません。
+順方向TensorRegular→GinzburgRegularのA〜Eと主定理はv4で完成済み。
+追加された逆方向GinzburgRegular→TensorRegularは未証明です。
 
-## G1–G3 / A: 補助代数・商加群・内部次数付きbar
+## 今回完了
 
-元の24次元補助代数、21正次数基底、商作用、colonとfiltrationを維持。
-頂点と係数の最初の頂点射影を課した実際の正規化barに内部次数を実装しました。
-射影と微分の可換性、有限次元性、包含次数+1付き短完全列と鎖写像を証明済み。
+実際の内部次数2の閉元による階数0の除外、元のGinzburgRegularからの
+実際の有限内部次数の完全性とEuler等式、頂点と次数を保つ有限基底の計数、
+内部Jacobi商の多項式増大（n=36で2109次元）をLeanで証明しました。
 
-## G4 / B〜C: 正規化自由収縮とfiltration
+## 残る核心
 
-rowContraction_homotopy_normalizedは実際のnormalizedTermでBH+HB=1を証明します。
-零部分空間商の内部次数別完全性、r=0,n>0の消滅、n<rの零を基底に、
-実際の短完全列を使った帰納法でnormalized_bar_off_diagonalを証明しました。
-全空間商と頂点単純加群も同定済み。内部次数0のTor_0の消滅は仮定していません。
+階数1の縮約から、二つの支持直線を消す商とJacobi関係を全て消す写像を構成します。
+その写像の自由cornerに少なくとも2生成の自由代数の長さ12成分を埋め込み、
+実際の内部次数36のJacobi商の次元が4096以上となることを証明する必要があります。
+高次の追加関係がないことと、写像が実際の微分の像を消すことも必要です。
 
-## G5–G6 / D: 実際のGinzburg微分と有限双対の鎖同型
-
-各内部次数の有限bar双対を使い、全barの無限直積双対を用いません。
-生成元の構造定数、innerDifferentialとcobarDifferentialの全長の転置式、
-Signs.sigmaによる因子反転とLeibniz微分の全長の可換性を証明しました。
-finiteDualReversal_differentialは頂点別の実際の制限微分とdualMapの両立です。
-totalDualReversalとtotalDualReversal_differentialは三頂点を合わせた
-有限双対と実際のbigradedComponent全体の鎖同型を与えます。
-
-## G7 / E: 原始元、基底選択、主定理
-
-rowPath_primitive、ginzburg_internal_primitivesが実際の有限支持原始元を構成します。
-負次数では非零支持語は空語にならないことも証明し、端点を処理しました。
-既存の内部次数の有限和還元に適用し、tensorRegular_ginzburgRegularを証明済み。
-既存の条件付き還元補題と完成した主定理は別の宣言です。
-
-Bases.leanのtensorCoordinatesEquivは、独立した三つの空間X、Y、Zの
-実際のテンソル積基底の座標同型です。chosenTensorCoordinatesは各finrank=3から
-独立に基底を選び、元の両述語の含意へ接続します。
-これは選んだ座標での定理であり、別途の基底非依存dgモデルの定義や
-GL作用に関する追加定理を主張するものではありません。
+完成後に次元の矛盾から逆主定理、両述語の同値、一般の三つの基底への接続を宣言します。
+追加公理や結論を含む仮定による補完はありません。

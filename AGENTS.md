@@ -32,3 +32,8 @@ job or publication that has not occurred. No license has been added. Linux tooli
 bootstrapped with scripts/bootstrap.sh. The readlink compatibility shim fixes
 only executable path discovery in PID namespaces and does not change Lean's
 kernel or proof validation.
+
+Current additional goal: prove GinzburgRegular -> TensorRegular and equivalence.
+Converse/LowDegree excludes rank zero; Euler/Paths/Counting prove actual
+finite-degree Jacobi growth. The rank-one free-corner lower bound and converse
+main theorem remain unfinished. Preserve the proved forward theorem.

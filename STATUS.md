@@ -1,3 +1,21 @@
+# 作業状況 — v5・逆向き含意の実装中（2026年10月8日）
+
+順方向の本来の主定理は証明済みです。今回追加された逆方向
+`Ginzburg.GinzburgRegular w → TensorRegular w` は、現時点では未宣言・未証明です。
+
+今回の開始HEADは4a7657078a0af9ea51592bffc08988d135c4e2d9、ブランチwork、作業ディレクトリ/workspace/ginzburg333-lean。
+Lean 4.19.0 / mathlib c44e0c8ee63ca166450922a373c7409c5d26b00bを再確認しました。
+今回のverify.shは終了0。60数学モジュール、明示的theorem 472件、全公理監査1062件、Leanソース64件・7045行。標準の3公理以外の依存なし。
+
+Converse/LowDegreeで階数0の縮約を実際の負次数閉元から除外しました。
+Converse/Eulerで元のGinzburgRegularから実際の内部次数別完全性とJacobi商のEuler等式を導出。
+Converse/Paths、Countingで頂点・次数を保つ有限基底の符号化と符号付き計数を証明し、
+内部次数nのJacobi商について2·dim=3(n+1)(n+2)、特にn=36でdim=2109を証明しました。
+
+階数1の場合には自由代数cornerへの写像と指数増大の下界を証明する必要があります。
+この下界を仮定して逆主定理を宣言することはしていません。
+以下は順方向を完成したv4の記録です。
+
 # 作業状況 — 2026年10月8日 v4・主定理証明済み
 
 **本来の主定理 `TensorRegular w → Ginzburg.GinzburgRegular w` をLeanで宣言・証明しました。**

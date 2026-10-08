@@ -4,22 +4,22 @@
   "kernel_validation": "Not assessed by this textual audit; see VERIFICATION.json and kernel axiom logs.",
   "main_theorem_declared_textually": true,
   "main_theorem_proof": "Not assessed by this textual audit; see the actual Lean and kernel audit logs.",
-  "source_file_count": 60,
-  "source_line_count": 6451,
+  "source_file_count": 64,
+  "source_line_count": 7045,
   "declaration_counts": {
-    "abbrev": 16,
-    "theorem": 433,
-    "def": 163,
+    "abbrev": 20,
+    "theorem": 472,
+    "def": 187,
     "structure": 3,
-    "inductive": 2
+    "inductive": 3
   },
   "forbidden_tokens": [],
   "passed_textual_audit": true,
   "files": [
     {
       "file": "Audit.lean",
-      "lines": 53,
-      "sha256": "d7e740f1e6b863cca539ad3727f209629cd73f95aca39ba81f731e76d1544c7a"
+      "lines": 58,
+      "sha256": "1eff08ede02c7e4cb70dc9d4ff0498a27cfb29c108feeb2182c7d5126455df16"
     },
     {
       "file": "AuditAll.lean",
@@ -202,6 +202,26 @@
       "sha256": "c33e4d9e2398ebefc5812f84c5a105c88eb33c3983c13dd6d0f5688befdea826"
     },
     {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "lines": 206,
+      "sha256": "c15a2513f351ebec093a2335a9ccf7bc78e832080bf46468a8091adba4db80a5"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "lines": 92,
+      "sha256": "e6db975038163b7c9caf8783a6ea87769eea448437c6959666148fcca30418ab"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "lines": 100,
+      "sha256": "b5f8bd92820dfc33f65cd09a4a71b670054f77febad9921c7a63865c2d2311b4"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "lines": 187,
+      "sha256": "523e597b962e1edcd4ca69cad0835d1bb40db9d581b4f65592424aaed584da40"
+    },
+    {
       "file": "Ginzburg333/Finite/Colon.lean",
       "lines": 235,
       "sha256": "24ee1a70892e1096b30ae4a298c2212ec63b788729e4f0afb21ee237e5fa59e1"
@@ -308,8 +328,8 @@
     },
     {
       "file": "Ginzburg333.lean",
-      "lines": 56,
-      "sha256": "d0e7a5893b5ed7e4b4aeb941142a00a60e6535f623f5432427b9fe7965052dd9"
+      "lines": 60,
+      "sha256": "d5206a791c4963eda1c6e820d23b268b572a1ab20912238810470f7bb703c59d"
     },
     {
       "file": "lakefile.lean",
@@ -2417,6 +2437,414 @@
       "line": 170,
       "kind": "theorem",
       "name": "signedWordReversal_differential"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 10,
+      "kind": "theorem",
+      "name": "letterWeight_zero"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 15,
+      "kind": "def",
+      "name": "zeroLettersEquiv"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 21,
+      "kind": "theorem",
+      "name": "letterWeight_one"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 33,
+      "kind": "def",
+      "name": "oneLettersEquiv"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 38,
+      "kind": "def",
+      "name": "twoLetters"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 42,
+      "kind": "def",
+      "name": "twoLettersEquiv"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 67,
+      "kind": "def",
+      "name": "stepLetters"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 80,
+      "kind": "def",
+      "name": "stepLettersEquiv"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 109,
+      "kind": "def",
+      "name": "signedLetterEuler"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 111,
+      "kind": "theorem",
+      "name": "signedLetterEuler_zero"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 115,
+      "kind": "theorem",
+      "name": "signedLetterEuler_one"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 119,
+      "kind": "theorem",
+      "name": "signedLetterEuler_two"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 123,
+      "kind": "theorem",
+      "name": "signedLetterEuler_step"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 130,
+      "kind": "theorem",
+      "name": "signedLetterEuler_quadratic"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 152,
+      "kind": "def",
+      "name": "sigmaBigradedLettersEquiv"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 172,
+      "kind": "theorem",
+      "name": "signedLetterEuler_sum_counts"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 185,
+      "kind": "theorem",
+      "name": "internalJacobi_quadratic_growth"
+    },
+    {
+      "file": "Ginzburg333/Converse/Counting.lean",
+      "line": 200,
+      "kind": "theorem",
+      "name": "internalJacobi_finrank_36"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 8,
+      "kind": "abbrev",
+      "name": "negativeTerm"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 10,
+      "kind": "def",
+      "name": "negativeDifferential"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 14,
+      "kind": "theorem",
+      "name": "negativeDifferential_exact"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 35,
+      "kind": "theorem",
+      "name": "negativeTerm_eq_zero"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 49,
+      "kind": "abbrev",
+      "name": "internalJacobi"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 52,
+      "kind": "def",
+      "name": "negativeDimension"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 53,
+      "kind": "def",
+      "name": "boundaryDimension"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 56,
+      "kind": "theorem",
+      "name": "negativeDimension_eq_boundaries"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 64,
+      "kind": "theorem",
+      "name": "boundaryDimension_terminal"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 71,
+      "kind": "theorem",
+      "name": "jacobiDimension_add_boundary"
+    },
+    {
+      "file": "Ginzburg333/Converse/Euler.lean",
+      "line": 76,
+      "kind": "theorem",
+      "name": "internalJacobi_finrank_euler"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "homogeneous_eq_zero_of_internal_bound"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 24,
+      "kind": "def",
+      "name": "reversePath"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 27,
+      "kind": "theorem",
+      "name": "reversePath_injective"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 32,
+      "kind": "def",
+      "name": "reverseEmbedding"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 37,
+      "kind": "theorem",
+      "name": "reverseEmbedding_coefficient"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 42,
+      "kind": "theorem",
+      "name": "reverseEmbedding_injective"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 47,
+      "kind": "theorem",
+      "name": "reverseEmbedding_homogeneous"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 59,
+      "kind": "theorem",
+      "name": "contraction_zero_coefficients"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 65,
+      "kind": "theorem",
+      "name": "reverseEmbedding_closed"
+    },
+    {
+      "file": "Ginzburg333/Converse/LowDegree.lean",
+      "line": 84,
+      "kind": "theorem",
+      "name": "ginzburgRegular_contraction_ne_zero"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 8,
+      "kind": "inductive",
+      "name": "PathLetter"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 15,
+      "kind": "def",
+      "name": "weight"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 19,
+      "kind": "def",
+      "name": "negative"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 23,
+      "kind": "def",
+      "name": "atVertex"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 27,
+      "kind": "theorem",
+      "name": "atVertex_source"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 29,
+      "kind": "theorem",
+      "name": "atVertex_weight"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 31,
+      "kind": "theorem",
+      "name": "atVertex_negative"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 35,
+      "kind": "def",
+      "name": "generatorLetter"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 40,
+      "kind": "theorem",
+      "name": "generatorLetter_atVertex"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 42,
+      "kind": "theorem",
+      "name": "atVertex_generatorLetter"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 45,
+      "kind": "def",
+      "name": "letterWord"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 49,
+      "kind": "theorem",
+      "name": "letterWord_startsAt"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 54,
+      "kind": "theorem",
+      "name": "letterWord_decode"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 59,
+      "kind": "theorem",
+      "name": "decode_letterWord"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 67,
+      "kind": "def",
+      "name": "letterPath"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 70,
+      "kind": "def",
+      "name": "pathLettersEquiv"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 91,
+      "kind": "def",
+      "name": "letterWeight"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 92,
+      "kind": "def",
+      "name": "letterNegative"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 94,
+      "kind": "theorem",
+      "name": "letterWord_weight"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 99,
+      "kind": "theorem",
+      "name": "letterWord_negative"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 104,
+      "kind": "theorem",
+      "name": "letterPath_internal"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 108,
+      "kind": "theorem",
+      "name": "letterPath_cohomological"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 115,
+      "kind": "theorem",
+      "name": "letter_length_le_weight"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 123,
+      "kind": "theorem",
+      "name": "letter_negative_le_weight"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 131,
+      "kind": "abbrev",
+      "name": "WeightLetters"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 132,
+      "kind": "abbrev",
+      "name": "BigradedLetters"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 145,
+      "kind": "def",
+      "name": "bigradedLettersEquiv"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 171,
+      "kind": "def",
+      "name": "letterCount"
+    },
+    {
+      "file": "Ginzburg333/Converse/Paths.lean",
+      "line": 173,
+      "kind": "theorem",
+      "name": "negativeDimension_letterCount"
     },
     {
       "file": "Ginzburg333/Finite/Colon.lean",

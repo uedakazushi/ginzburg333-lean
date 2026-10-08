@@ -1,3 +1,30 @@
+# 引き継ぎ — v5・逆向きの増大度証明へ
+
+現在の追加目標はGinzburgRegular→TensorRegular。順方向は完成済み。
+逆主定理はまだ未宣言・未証明です。今回のverifyは終了0。
+最新の実測件数はVERIFICATION.jsonを参照してください。
+
+入口はConverse/LowDegree、Euler、Paths、Counting。
+internalJacobiは実際のbigradedComponent n 0を実際のdifferentialの像で割った商。
+negativeDifferential_exactは元のGinzburgRegularから実際の制限微分の完全性を証明します。
+internalJacobi_quadratic_growthは2·finrank=3(n+1)(n+2)。
+internalJacobi_finrank_36は実際の商のfinrankが2109であることを証明済みです。
+
+次は原論文2.2〜2.3の階数1からの自由cornerの下界。
+縮約をv⊗uに分解し、Y/kvとZ/ku（各2次元）のテンソル積を
+残りの高々2次元のJacobi関係で割ると、2次元以上のHを得ます。
+二つのH座標を選び、自由代数を係数とする4×4行列表現を作る方針です。
+頂点の次元を1,2,1とし、Xを縮約共変量、Yを商座標、ZをHへの双線形写像で表します。
+全ての巡回微分が零に写ることと、長さ12の4096個の自由語の独立性を証明してください。
+この下界はまだ実装されていません。条件付きの還元だけを逆主定理の完成としないでください。
+
+work/ConverseFactors.lean.txt、ConverseQuotient.lean.txtは中間草稿です。
+Leanソースに昇格する前に実際の検証を行ってください。
+処理系とプロセス状態は再開時に確認し、前回の実行状態を仮定しないでください。
+mainへの検証済み区切りのpushは既にユーザーが明示承認済みです。
+
+以下は順方向完成時の記録です。
+
 # 引き継ぎ — v4・要求された主定理まで完成
 
 入口は `Ginzburg333/Comparison/Primitives.lean` の

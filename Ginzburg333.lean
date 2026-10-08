@@ -54,3 +54,7 @@ import Ginzburg333.Comparison.PathVertices
 import Ginzburg333.Comparison.Primitives
 import Ginzburg333.Comparison.Total
 import Ginzburg333.Comparison.Bases
+import Ginzburg333.Converse.LowDegree
+import Ginzburg333.Converse.Euler
+import Ginzburg333.Converse.Paths
+import Ginzburg333.Converse.Counting

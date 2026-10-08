@@ -1,4 +1,4 @@
-# Ginzburg (3,3,3)：avatarを用いないLean形式化 — v4
+# Ginzburg (3,3,3)：avatarを用いないLean形式化 — v5（逆向き含意の実装中）
 
 **標数0の代数閉体上で `TensorRegular w → Ginzburg.GinzburgRegular w` を証明しました。**
 主定理は `Ginzburg333.tensorRegular_ginzburgRegular`、
@@ -6,10 +6,12 @@
 TensorRegularは三方向の非零縮約の階数が2以上、GinzburgRegularは
 実際の有限支持道空間の負次数閉元が境界であることです。元の意味を維持しています。
 
-今回の全体検証は終了0。56数学モジュール、433件の明示的theorem宣言、
-生成定理を含む923件の公理監査が成功しました。
+今回の全体検証は終了0。60数学モジュール、472件の明示的theorem宣言、
+生成定理を含む1062件の公理監査が成功しました。
 依存公理はpropext、Classical.choice、Quot.soundのみ。
 結果はSTATUS.mdとVERIFICATION.json、証明の入口はHANDOFF.mdにあります。
+
+逆向きGinzburgRegular→TensorRegularは実装中です。実際の内部Jacobi商の多項式増大まで証明済みで、階数1からの自由cornerの下界が残っています。
 
 ## 証明の構成
 
