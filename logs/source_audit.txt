@@ -3,12 +3,12 @@
   "lean_executed_by_this_audit": false,
   "kernel_validation": "Not assessed by this textual audit; see VERIFICATION.json and kernel axiom logs.",
   "main_theorem_proved": false,
-  "source_file_count": 38,
-  "source_line_count": 4280,
+  "source_file_count": 52,
+  "source_line_count": 5665,
   "declaration_counts": {
-    "abbrev": 11,
-    "theorem": 308,
-    "def": 121,
+    "abbrev": 15,
+    "theorem": 383,
+    "def": 152,
     "structure": 3,
     "inductive": 2
   },

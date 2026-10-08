@@ -146,8 +146,9 @@ Target (NOT declared as a theorem, and NOT supplied as an axiom):
   [IsAlgClosed k] [CharZero k] : TensorRegular w → GinzburgRegular w.
 
 Square-zero and homogeneity of `differential` are proved, and normalized bar
-terms and their differential are constructed. Internal grading, contraction,
-filtration vanishing and the sign-compatible finite-degree comparison remain.
+terms, internal grading, normalized free contraction and off-diagonal
+filtration vanishing are constructed. The sign-compatible finite-degree chain
+comparison and the main implication remain.
 -/
 
 end

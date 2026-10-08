@@ -32,3 +32,17 @@ import Ginzburg333.Bar.NormalizedExact
 import Ginzburg333.Bar.Internal
 import Ginzburg333.Bar.InternalDifferential
 import Ginzburg333.Bar.InternalExact
+import Ginzburg333.Bar.Free
+import Ginzburg333.Bar.FreeHomotopy
+import Ginzburg333.Bar.FreeExact
+import Ginzburg333.Bar.Zero
+import Ginzburg333.Bar.Filtration
+import Ginzburg333.Bar.Simple
+import Ginzburg333.Bar.PathBasis
+import Ginzburg333.Bar.SimpleCoordinates
+import Ginzburg333.Bar.SimpleDifferential
+import Ginzburg333.Comparison.FiniteDual
+import Ginzburg333.Comparison.Reversal
+import Ginzburg333.Comparison.Generators
+import Ginzburg333.Comparison.DualExact
+import Ginzburg333.Comparison.Cobar

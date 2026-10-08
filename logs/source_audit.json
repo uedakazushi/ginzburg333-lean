@@ -3,12 +3,12 @@
   "lean_executed_by_this_audit": false,
   "kernel_validation": "Not assessed by this textual audit; see VERIFICATION.json and kernel axiom logs.",
   "main_theorem_proved": false,
-  "source_file_count": 38,
-  "source_line_count": 4280,
+  "source_file_count": 52,
+  "source_line_count": 5665,
   "declaration_counts": {
-    "abbrev": 11,
-    "theorem": 308,
-    "def": 121,
+    "abbrev": 15,
+    "theorem": 383,
+    "def": 152,
     "structure": 3,
     "inductive": 2
   },
@@ -17,8 +17,8 @@
   "files": [
     {
       "file": "Audit.lean",
-      "lines": 31,
-      "sha256": "b58034f8c5186ea9918c9b72a0bef8862d422b47235b03fb72080f732183f182"
+      "lines": 45,
+      "sha256": "12f6acbe06c32a750d4db5b56f64c68be44b117d27c5be499c49152be813a831"
     },
     {
       "file": "AuditAll.lean",
@@ -39,6 +39,26 @@
       "file": "Ginzburg333/Bar/Corners.lean",
       "lines": 131,
       "sha256": "9f2217a4eb8f7addcf3e13aaac1c8bd6e06cab3c3e35d93740ece1781153efab"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "lines": 131,
+      "sha256": "11e5cbac715fca6f6fe828887277e39cfadca99768545312bc5599a686efe7d5"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "lines": 148,
+      "sha256": "1bbedc9390bd712ee33816a0a6e58e269b9727257089afb3110a01ead3ea3049"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeExact.lean",
+      "lines": 123,
+      "sha256": "128bf7ae4c5fe26f03d0eb09795fb7b82a905587c6138940e594d32929363fb0"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "lines": 161,
+      "sha256": "ae1177e620e994eb68cb6c995212c40a21cf5757600f5f47ef7e2f9f6ac23791"
     },
     {
       "file": "Ginzburg333/Bar/Homological.lean",
@@ -76,9 +96,29 @@
       "sha256": "c9d9893bb1310ccaf07474908032907169fb993f321612a35e6dc2084f412ff7"
     },
     {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "lines": 66,
+      "sha256": "b26832e0a336c3676c47d77f75c172cc91c7f4e30edea964bc20b3eefc751a1f"
+    },
+    {
       "file": "Ginzburg333/Bar/Positive.lean",
       "lines": 155,
       "sha256": "6a17b8feccb906751755bb63c51c2aa36c63a4bbbe8970af8e2902effd897764"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "lines": 88,
+      "sha256": "eb16734d590e115f9e4f56c2ea9e47bdd14b6bb9c60193c841cdd0f712f9cebb"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleCoordinates.lean",
+      "lines": 113,
+      "sha256": "b472772602183d7b1bb1c6422021533009d9eba5ebb31fb8b551137241716eb8"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleDifferential.lean",
+      "lines": 40,
+      "sha256": "6c03b3102011af06972ef8f71a0f185d9a466a7d0b248de7aa1eb60a786e304f"
     },
     {
       "file": "Ginzburg333/Bar/SquareZero.lean",
@@ -89,6 +129,36 @@
       "file": "Ginzburg333/Bar/Support.lean",
       "lines": 123,
       "sha256": "61606a440e362ee6dc5d55bcd04f3736053a39b27b8670edbec78b046c768507"
+    },
+    {
+      "file": "Ginzburg333/Bar/Zero.lean",
+      "lines": 69,
+      "sha256": "3420f47918a04c3fcc84a0cc76c71cb3990580587f928c7ab351d596b4e65ff7"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Cobar.lean",
+      "lines": 83,
+      "sha256": "4fa0eb3086c9378fc4ab9694b413f0244cbbb149e4fb0c49c2340be7817f1ff3"
+    },
+    {
+      "file": "Ginzburg333/Comparison/DualExact.lean",
+      "lines": 29,
+      "sha256": "b6b17a5c1f41184af987fdbc5b26ec0386a5afe9aff0311630911550db3a6623"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteDual.lean",
+      "lines": 49,
+      "sha256": "907f119be5e970bddaa1b674533f789f072acc30feca8ab2c20e4e730bde6d92"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Generators.lean",
+      "lines": 179,
+      "sha256": "384f8e72f6f9352893d41822e2418730997198a52113c020539ecaeae4e136ec"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "lines": 77,
+      "sha256": "40e70b933ae87e1f8a1fb2bf3689957caf7324545b48792381d1913b6d013ae9"
     },
     {
       "file": "Ginzburg333/Finite/Colon.lean",
@@ -162,8 +232,8 @@
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "lines": 155,
-      "sha256": "ce40ef94e8f713a405a0cf32e952afd276be246383a533913ca93c2a3553be29"
+      "lines": 156,
+      "sha256": "4c93d2638c8c8da392e1aad8ec1617bfd16a7df6f693613c4b819dc581957acf"
     },
     {
       "file": "Ginzburg333/Homology/Dual.lean",
@@ -197,8 +267,8 @@
     },
     {
       "file": "Ginzburg333.lean",
-      "lines": 34,
-      "sha256": "53c20e453f38a4fd9adb96e697185a4a8127c2a057527f39cb7c97ec15164ef0"
+      "lines": 48,
+      "sha256": "508ed3cd6c18248dbeee6b077917463b9f7252d9ba507f4c15b80d9ec154b1b8"
     },
     {
       "file": "lakefile.lean",
@@ -506,6 +576,276 @@
       "line": 118,
       "kind": "theorem",
       "name": "normalization_natural"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 10,
+      "kind": "def",
+      "name": "chainDifferential"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 16,
+      "kind": "theorem",
+      "name": "chainDifferential_succ"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 20,
+      "kind": "theorem",
+      "name": "chainDifferential_zero"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 23,
+      "kind": "def",
+      "name": "BarExact"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 30,
+      "kind": "theorem",
+      "name": "chainDifferential_square"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 37,
+      "kind": "theorem",
+      "name": "barExact_zero"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 44,
+      "kind": "theorem",
+      "name": "barExact_free"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 47,
+      "kind": "theorem",
+      "name": "barExact_below"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 59,
+      "kind": "theorem",
+      "name": "internalInclusion_chainDifferential"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 69,
+      "kind": "theorem",
+      "name": "barExact_filtration_step"
+    },
+    {
+      "file": "Ginzburg333/Bar/Filtration.lean",
+      "line": 103,
+      "kind": "theorem",
+      "name": "normalized_bar_off_diagonal"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 10,
+      "kind": "def",
+      "name": "rowRightAction"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 22,
+      "kind": "def",
+      "name": "rowCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 36,
+      "kind": "theorem",
+      "name": "rowCoordinates_source"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 43,
+      "kind": "theorem",
+      "name": "rowCoordinates_corner"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 58,
+      "kind": "def",
+      "name": "rowContractionOnWord"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 67,
+      "kind": "def",
+      "name": "rowContraction"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 70,
+      "kind": "theorem",
+      "name": "rowContraction_single"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 75,
+      "kind": "theorem",
+      "name": "identityRow_corner"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 81,
+      "kind": "theorem",
+      "name": "rowContraction_single_balanced"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 109,
+      "kind": "theorem",
+      "name": "rowContraction_balanced"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 126,
+      "kind": "theorem",
+      "name": "rowContraction_length"
+    },
+    {
+      "file": "Ginzburg333/Bar/Free.lean",
+      "line": 140,
+      "kind": "def",
+      "name": "normalizedRowContraction"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeExact.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "rowContraction_homotopy_normalized"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeExact.lean",
+      "line": 41,
+      "kind": "theorem",
+      "name": "normalized_free_row_exact"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeExact.lean",
+      "line": 57,
+      "kind": "theorem",
+      "name": "row_mkQ_action"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeExact.lean",
+      "line": 62,
+      "kind": "theorem",
+      "name": "row_bot_mkQ_injective"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeExact.lean",
+      "line": 67,
+      "kind": "theorem",
+      "name": "normalized_free_quotient_exact"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeExact.lean",
+      "line": 96,
+      "kind": "theorem",
+      "name": "internally_normalized_free_exact"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 7,
+      "kind": "theorem",
+      "name": "rowRightAction_apply"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 10,
+      "kind": "theorem",
+      "name": "positiveBasis_embed_source"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 14,
+      "kind": "theorem",
+      "name": "rowCoordinates_basis"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 19,
+      "kind": "theorem",
+      "name": "rowContraction_basis"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 26,
+      "kind": "theorem",
+      "name": "rowContraction_tensor_basis"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 39,
+      "kind": "theorem",
+      "name": "rowCoordinates_action_basis"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 49,
+      "kind": "theorem",
+      "name": "rowAction_identity_positive"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 53,
+      "kind": "theorem",
+      "name": "rowContraction_homotopy_basis"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 77,
+      "kind": "theorem",
+      "name": "rowCoordinates_identity"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 82,
+      "kind": "theorem",
+      "name": "row_decomposition"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 96,
+      "kind": "theorem",
+      "name": "rowContraction_identity"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 100,
+      "kind": "theorem",
+      "name": "rowContraction_tensor_identity"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 107,
+      "kind": "theorem",
+      "name": "positiveBasis_at_of_source_ne"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 111,
+      "kind": "theorem",
+      "name": "rowContraction_homotopy_identity"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 124,
+      "kind": "def",
+      "name": "rowHomotopyOperator"
+    },
+    {
+      "file": "Ginzburg333/Bar/FreeHomotopy.lean",
+      "line": 128,
+      "kind": "theorem",
+      "name": "rowContraction_homotopy_single"
     },
     {
       "file": "Ginzburg333/Bar/Homological.lean",
@@ -1018,6 +1358,60 @@
       "name": "filtration_normalized_short_exact"
     },
     {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "line": 10,
+      "kind": "def",
+      "name": "startsAt"
+    },
+    {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "line": 15,
+      "kind": "theorem",
+      "name": "startsAt_cons"
+    },
+    {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "line": 19,
+      "kind": "theorem",
+      "name": "endpoint_reverse_cons"
+    },
+    {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "reverse_valid_iff"
+    },
+    {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "line": 36,
+      "kind": "theorem",
+      "name": "wordWeight_reverse"
+    },
+    {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "line": 39,
+      "kind": "abbrev",
+      "name": "SimpleBarBasis"
+    },
+    {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "line": 42,
+      "kind": "abbrev",
+      "name": "GinzburgLengthBasis"
+    },
+    {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "line": 46,
+      "kind": "def",
+      "name": "reversedBasisEquiv"
+    },
+    {
+      "file": "Ginzburg333/Bar/PathBasis.lean",
+      "line": 62,
+      "kind": "theorem",
+      "name": "reversedBasis_cohomological"
+    },
+    {
       "file": "Ginzburg333/Bar/Positive.lean",
       "line": 10,
       "kind": "def",
@@ -1150,6 +1544,144 @@
       "name": "positiveMultiplication_reconstruct"
     },
     {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 9,
+      "kind": "def",
+      "name": "rowScalar"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 11,
+      "kind": "def",
+      "name": "simpleCoefficient"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 18,
+      "kind": "theorem",
+      "name": "simpleCoefficient_mkQ"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 21,
+      "kind": "def",
+      "name": "simpleUnit"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "simpleRow_expand"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 34,
+      "kind": "theorem",
+      "name": "simpleCoefficient_unit"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 37,
+      "kind": "def",
+      "name": "simpleRowEquiv"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 43,
+      "kind": "theorem",
+      "name": "simpleRow_action"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 54,
+      "kind": "theorem",
+      "name": "simpleRow_positive_action"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 61,
+      "kind": "theorem",
+      "name": "simpleRow_corner"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 66,
+      "kind": "theorem",
+      "name": "simpleRow_degree"
+    },
+    {
+      "file": "Ginzburg333/Bar/Simple.lean",
+      "line": 84,
+      "kind": "theorem",
+      "name": "simple_normalized_bar_off_diagonal"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleCoordinates.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "coefficientMap_apply"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleCoordinates.lean",
+      "line": 13,
+      "kind": "def",
+      "name": "scalarSimpleTerm"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleCoordinates.lean",
+      "line": 16,
+      "kind": "theorem",
+      "name": "simpleScalar_mem"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleCoordinates.lean",
+      "line": 48,
+      "kind": "def",
+      "name": "simpleScalarMap"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleCoordinates.lean",
+      "line": 54,
+      "kind": "def",
+      "name": "simpleUnitMap"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleCoordinates.lean",
+      "line": 57,
+      "kind": "theorem",
+      "name": "simpleUnit_mem"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleCoordinates.lean",
+      "line": 89,
+      "kind": "def",
+      "name": "simpleUnitBarMap"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleCoordinates.lean",
+      "line": 96,
+      "kind": "def",
+      "name": "simpleBarCoordinatesEquiv"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleDifferential.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "tensorWords_scalar"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleDifferential.lean",
+      "line": 15,
+      "kind": "theorem",
+      "name": "simple_bar_differential_coordinates"
+    },
+    {
+      "file": "Ginzburg333/Bar/SimpleDifferential.lean",
+      "line": 34,
+      "kind": "theorem",
+      "name": "simpleScalarMap_differential"
+    },
+    {
       "file": "Ginzburg333/Bar/SquareZero.lean",
       "line": 9,
       "kind": "def",
@@ -1274,6 +1806,204 @@
       "line": 8,
       "kind": "theorem",
       "name": "positiveMultiplication_support"
+    },
+    {
+      "file": "Ginzburg333/Bar/Zero.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "rowContraction_degree_zero"
+    },
+    {
+      "file": "Ginzburg333/Bar/Zero.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "length_zero_single"
+    },
+    {
+      "file": "Ginzburg333/Bar/Zero.lean",
+      "line": 38,
+      "kind": "theorem",
+      "name": "internallyNormalized_zero_surjective"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Cobar.lean",
+      "line": 9,
+      "kind": "def",
+      "name": "splitBasis"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Cobar.lean",
+      "line": 12,
+      "kind": "theorem",
+      "name": "splitBasis_coefficient"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Cobar.lean",
+      "line": 18,
+      "kind": "def",
+      "name": "cobarBasis"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Cobar.lean",
+      "line": 22,
+      "kind": "def",
+      "name": "cobarDifferential"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Cobar.lean",
+      "line": 25,
+      "kind": "theorem",
+      "name": "splitBasis_internal"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Cobar.lean",
+      "line": 39,
+      "kind": "theorem",
+      "name": "splitBasis_length"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Cobar.lean",
+      "line": 49,
+      "kind": "theorem",
+      "name": "cobarBasis_internal"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Cobar.lean",
+      "line": 64,
+      "kind": "theorem",
+      "name": "cobarBasis_length"
+    },
+    {
+      "file": "Ginzburg333/Comparison/DualExact.lean",
+      "line": 11,
+      "kind": "theorem",
+      "name": "simple_dual_bar_off_diagonal"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteDual.lean",
+      "line": 11,
+      "kind": "abbrev",
+      "name": "SimpleRowBasis"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteDual.lean",
+      "line": 22,
+      "kind": "def",
+      "name": "simpleBarLinearBasis"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteDual.lean",
+      "line": 28,
+      "kind": "def",
+      "name": "basisDualCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteDual.lean",
+      "line": 33,
+      "kind": "theorem",
+      "name": "basisDualCoordinates_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteDual.lean",
+      "line": 39,
+      "kind": "def",
+      "name": "simpleBarDualCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteDual.lean",
+      "line": 44,
+      "kind": "theorem",
+      "name": "simpleBarDualCoordinates_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Generators.lean",
+      "line": 10,
+      "kind": "theorem",
+      "name": "reverse_generator_vector"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Generators.lean",
+      "line": 18,
+      "kind": "theorem",
+      "name": "loop_generator_vector"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Generators.lean",
+      "line": 26,
+      "kind": "theorem",
+      "name": "forward_generator_vector"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Generators.lean",
+      "line": 32,
+      "kind": "theorem",
+      "name": "generator_structure_coefficient"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 10,
+      "kind": "abbrev",
+      "name": "RowPathBasis"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 13,
+      "kind": "def",
+      "name": "rowReversedBasisEquiv"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 31,
+      "kind": "def",
+      "name": "rowPathComponent"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 34,
+      "kind": "def",
+      "name": "wordSign"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 36,
+      "kind": "theorem",
+      "name": "wordSign_square"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 40,
+      "kind": "def",
+      "name": "signCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 44,
+      "kind": "theorem",
+      "name": "signCoordinates_single"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 48,
+      "kind": "theorem",
+      "name": "signCoordinates_square"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 55,
+      "kind": "def",
+      "name": "signCoordinatesEquiv"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 63,
+      "kind": "def",
+      "name": "finiteDualReversal"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Reversal.lean",
+      "line": 70,
+      "kind": "theorem",
+      "name": "rowPathComponent_bigraded"
     },
     {
       "file": "Ginzburg333/Finite/Colon.lean",

@@ -1,15 +1,15 @@
-⚠ [1660/1699] Replayed Ginzburg333.Finite.Coordinates
+⚠ [1660/1713] Replayed Ginzburg333.Finite.Coordinates
 warning: ././././Ginzburg333/Finite/Coordinates.lean:90:4: try 'simp' instead of 'simpa'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [1662/1699] Replayed Ginzburg333.Finite.Pencil
+⚠ [1662/1713] Replayed Ginzburg333.Finite.Pencil
 warning: ././././Ginzburg333/Finite/Pencil.lean:71:4: try 'simp at hh' instead of 'simpa using hh'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [1664/1699] Replayed Ginzburg333.Finite.Colon
+⚠ [1664/1713] Replayed Ginzburg333.Finite.Colon
 warning: ././././Ginzburg333/Finite/Colon.lean:199:57: this tactic is never executed
 note: this linter can be disabled with `set_option linter.unreachableTactic false`
 warning: ././././Ginzburg333/Finite/Colon.lean:199:57: 'omega' tactic does nothing
 note: this linter can be disabled with `set_option linter.unusedTactic false`
-⚠ [1665/1699] Replayed Ginzburg333.Auxiliary
+⚠ [1665/1713] Replayed Ginzburg333.Auxiliary
 warning: ././././Ginzburg333/Auxiliary.lean:51:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
 warning: ././././Ginzburg333/Auxiliary.lean:55:41: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
@@ -20,17 +20,225 @@ info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
 info: ././././Ginzburg333/Auxiliary.lean:86:54: Try this: ring_nf
 info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
 info: ././././Ginzburg333/Auxiliary.lean:92:54: Try this: ring_nf
-⚠ [1668/1699] Replayed Ginzburg333.Signs
+⚠ [1668/1713] Replayed Ginzburg333.Signs
 warning: ././././Ginzburg333/Signs.lean:107:7: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [1672/1699] Replayed Ginzburg333.Homology.Quotient
+⚠ [1672/1713] Replayed Ginzburg333.Homology.Quotient
 warning: ././././Ginzburg333/Homology/Quotient.lean:21:50: try 'simp' instead of 'simpa'
 note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
-⚠ [1674/1699] Replayed Ginzburg333.Finite.RowIdeals
+⚠ [1674/1713] Replayed Ginzburg333.Finite.RowIdeals
 info: ././././Ginzburg333/Finite/RowIdeals.lean:139:44: Try this: ring_nf
 warning: ././././Ginzburg333/Finite/RowIdeals.lean:139:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
-⚠ [1689/1699] Replayed Ginzburg333.Bar.SquareZero
+⚠ [1689/1713] Replayed Ginzburg333.Bar.SquareZero
 warning: ././././Ginzburg333/Bar/SquareZero.lean:147:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
 note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [1709/1713] Built Ginzburg333.Bar.SimpleDifferential
+✔ [1710/1713] Built Ginzburg333.Comparison.DualExact
+⚠ [1711/1713] Built Ginzburg333.Comparison.Generators
+warning: ././././Ginzburg333/Comparison/Generators.lean:41:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:41:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:46:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:46:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:51:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:51:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:56:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:56:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:61:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:61:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:66:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:66:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:71:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:71:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:76:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:76:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:81:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:81:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:87:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:92:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:92:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:98:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:98:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:104:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:104:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:109:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:109:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:114:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:114:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:120:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:120:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:125:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:125:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:130:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:130:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:135:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:135:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:146:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:146:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:152:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:152:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:157:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:157:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:162:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:162:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:167:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:167:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:172:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:172:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:177:92: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:177:113: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:41:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:41:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:46:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:46:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:51:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:51:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:56:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:56:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:61:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:61:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:66:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:66:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:71:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:71:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:76:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:76:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:81:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:81:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:87:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:92:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:92:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:98:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:98:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:104:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:104:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:109:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:109:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:114:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:114:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:120:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:120:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:125:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:125:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:130:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:130:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:135:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:135:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:146:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:146:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:152:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:152:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:157:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:157:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:162:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:162:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:167:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:167:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:172:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:172:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:177:92: 'simp_all [coeff]' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././Ginzburg333/Comparison/Generators.lean:177:113: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+✔ [1712/1713] Built Ginzburg333
 Build completed successfully.

@@ -29,3 +29,17 @@ import Ginzburg333
 #print axioms Ginzburg333.Bar.ambientDifferential_square
 #print axioms Ginzburg333.Bar.normalizedDifferential_square
 #print axioms Ginzburg333.Bar.filtration_normalized_short_exact
+#print axioms Ginzburg333.Bar.filtration_internal_short_exact
+#print axioms Ginzburg333.Bar.internalProjection_differential
+#print axioms Ginzburg333.Bar.rowContraction_homotopy_normalized
+#print axioms Ginzburg333.Bar.internallyNormalized_zero_surjective
+#print axioms Ginzburg333.Bar.normalized_bar_off_diagonal
+#print axioms Ginzburg333.Bar.simple_normalized_bar_off_diagonal
+#print axioms Ginzburg333.Bar.simpleScalarMap_differential
+#print axioms Ginzburg333.Comparison.simpleBarDualCoordinates_apply
+#print axioms Ginzburg333.Comparison.signCoordinates_square
+#print axioms Ginzburg333.Comparison.rowPathComponent_bigraded
+#print axioms Ginzburg333.Comparison.generator_structure_coefficient
+#print axioms Ginzburg333.Comparison.simple_dual_bar_off_diagonal
+#print axioms Ginzburg333.Comparison.cobarBasis_internal
+#print axioms Ginzburg333.Comparison.cobarBasis_length
