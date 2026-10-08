@@ -3,12 +3,12 @@
   "lean_executed_by_this_audit": false,
   "kernel_validation": "Not assessed by this textual audit; see VERIFICATION.json and kernel axiom logs.",
   "main_theorem_proved": false,
-  "source_file_count": 35,
-  "source_line_count": 3751,
+  "source_file_count": 38,
+  "source_line_count": 4280,
   "declaration_counts": {
     "abbrev": 11,
-    "theorem": 272,
-    "def": 113,
+    "theorem": 308,
+    "def": 121,
     "structure": 3,
     "inductive": 2
   },
@@ -49,6 +49,21 @@
       "file": "Ginzburg333/Bar/InnerSquare.lean",
       "lines": 100,
       "sha256": "8819194fdd670b3038eef0c8f372bf95f110cf76c510f126ccb9945673525290"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "lines": 283,
+      "sha256": "b79c38128ec033e657ca384844397dac0aa76b8dfc466e2473eae1366e015ea7"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalDifferential.lean",
+      "lines": 68,
+      "sha256": "e3c87a0e7e2d4b1721903f7c3bcfa164d08d5a7f1f300354edbcd22a843d51c3"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "lines": 175,
+      "sha256": "ffe82cb399d974bfa79a49f5c0c9f0fd3803b84d4a75407de09454bcb3de8fa4"
     },
     {
       "file": "Ginzburg333/Bar/Normalized.lean",
@@ -182,8 +197,8 @@
     },
     {
       "file": "Ginzburg333.lean",
-      "lines": 31,
-      "sha256": "f79984c8e9d2be1a8f3f5bf6e227dc6ed64754e62a3ec69a6e8315d0a203a78c"
+      "lines": 34,
+      "sha256": "53c20e453f38a4fd9adb96e697185a4a8127c2a057527f39cb7c97ec15164ef0"
     },
     {
       "file": "lakefile.lean",
@@ -587,6 +602,270 @@
       "line": 90,
       "kind": "theorem",
       "name": "innerDifferential_square"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 10,
+      "kind": "def",
+      "name": "internalComponent"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 17,
+      "kind": "def",
+      "name": "coefficientProjection"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 21,
+      "kind": "def",
+      "name": "internalProjection"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 25,
+      "kind": "theorem",
+      "name": "internalProjection_single"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 31,
+      "kind": "theorem",
+      "name": "internalProjection_apply"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 42,
+      "kind": "theorem",
+      "name": "quotientProjection_coefficientProjection"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 60,
+      "kind": "theorem",
+      "name": "internalProjection_mem"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 66,
+      "kind": "theorem",
+      "name": "internalProjection_eq_self"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 80,
+      "kind": "theorem",
+      "name": "internalProjection_idempotent"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 85,
+      "kind": "theorem",
+      "name": "internal_single"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 94,
+      "kind": "theorem",
+      "name": "internal_single_projected"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 104,
+      "kind": "theorem",
+      "name": "rowAction_positive_degree"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 114,
+      "kind": "theorem",
+      "name": "quotientAction_positive_degree"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 123,
+      "kind": "theorem",
+      "name": "quotientProjection_corner"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 136,
+      "kind": "theorem",
+      "name": "innerBasisDifferential_internal"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 161,
+      "kind": "theorem",
+      "name": "tensorWords_internal_projected"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 175,
+      "kind": "theorem",
+      "name": "onWord_internal_projected"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 196,
+      "kind": "theorem",
+      "name": "ambientDifferential_internal"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 213,
+      "kind": "theorem",
+      "name": "internalProjection_normalization"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 235,
+      "kind": "theorem",
+      "name": "internalProjection_balanced"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 242,
+      "kind": "theorem",
+      "name": "internalProjection_length"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 255,
+      "kind": "def",
+      "name": "internallyNormalizedTerm"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 259,
+      "kind": "def",
+      "name": "internallyNormalizedDifferential"
+    },
+    {
+      "file": "Ginzburg333/Bar/Internal.lean",
+      "line": 269,
+      "kind": "theorem",
+      "name": "internallyNormalizedDifferential_square"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalDifferential.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "internalProjection_on_component"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalDifferential.lean",
+      "line": 27,
+      "kind": "theorem",
+      "name": "internalProjection_differential"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalDifferential.lean",
+      "line": 49,
+      "kind": "theorem",
+      "name": "internallyNormalizedTerm_eq_bot"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 10,
+      "kind": "theorem",
+      "name": "inclusion_top_degree"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 16,
+      "kind": "theorem",
+      "name": "inclusion_coefficientProjection"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 31,
+      "kind": "theorem",
+      "name": "inclusion_internalProjection"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 39,
+      "kind": "theorem",
+      "name": "projection_internalProjection"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 55,
+      "kind": "def",
+      "name": "internallyNormalizedRetraction"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 59,
+      "kind": "theorem",
+      "name": "internallyNormalizedRetraction_mem"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 66,
+      "kind": "theorem",
+      "name": "internallyNormalizedRetraction_eq_self"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 73,
+      "kind": "theorem",
+      "name": "inclusion_internal"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 79,
+      "kind": "theorem",
+      "name": "projection_internal"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 85,
+      "kind": "def",
+      "name": "internalInclusion"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 93,
+      "kind": "def",
+      "name": "internalQuotient"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 101,
+      "kind": "theorem",
+      "name": "internalInclusion_differential"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 108,
+      "kind": "theorem",
+      "name": "internalQuotient_differential"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 115,
+      "kind": "theorem",
+      "name": "internalInclusion_injective"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 122,
+      "kind": "theorem",
+      "name": "internalQuotient_surjective"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 137,
+      "kind": "theorem",
+      "name": "internalInclusion_exact"
+    },
+    {
+      "file": "Ginzburg333/Bar/InternalExact.lean",
+      "line": 165,
+      "kind": "theorem",
+      "name": "filtration_internal_short_exact"
     },
     {
       "file": "Ginzburg333/Bar/Normalized.lean",

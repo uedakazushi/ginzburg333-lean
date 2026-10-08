@@ -29,3 +29,6 @@ import Ginzburg333.Bar.Corners
 import Ginzburg333.Bar.Support
 import Ginzburg333.Bar.Normalized
 import Ginzburg333.Bar.NormalizedExact
+import Ginzburg333.Bar.Internal
+import Ginzburg333.Bar.InternalDifferential
+import Ginzburg333.Bar.InternalExact
