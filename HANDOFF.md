@@ -21,9 +21,11 @@ blueprint/verification.json、logs/blueprint_browser.jsonとVERIFICATION.jsonは
 blueprintを含むmain保存点はc0380df5bc1bc6a14eda856a958d826d9a6625d6です。
 GitHub APIでツリーb42c4efb1ca449c1a7c799620bf8a3a76a039da7と親ea11e52179e60a9a64b673f43538a8a448e23b74を確認済み。
 この記録を加えた後続コミットのSHAはGit履歴とremote refを確認してください。CIは今回未実行です。
-今回のAPI確認ではvisibility=private、has_pages=falseでした。
-利用可能なGitHub連携は可視性変更の管理操作を提供しません。
-mainへ保存できても、一般公開の完了はvisibility=publicを実際に確認するまで記録しないでください。
+所有者の設定変更後、2026年10月8日06:01 UTCにvisibility=public、private=falseをAPIで確認しました。
+mainのb3398d8a44d16e7dc8e6098ed99747a2bd317885を確認し、認証なしでもblueprint入口・PDF・HTML・
+Converse/Main.leanがHTTP 200で取得でき、検証済みローカルファイルとSHA-256が一致しました。
+一般公開は完了です。実行記録はlogs/publication_checks.jsonとVERIFICATION.jsonにあります。
+GitHub Pagesは未設定（has_pages=false）です。HTMLの閲覧方法はblueprint/README.mdを参照してください。
 以前のWorkのプロセスが残ると仮定せず、再開時にGitと処理系を確認してください。
 
 以下は両方向完成時のv5の数学的引き継ぎです。

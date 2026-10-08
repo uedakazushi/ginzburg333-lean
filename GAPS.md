@@ -4,12 +4,11 @@
 数学的Leanソースの追加変更はありません。
 blueprint/README.mdから日本語PDF、HTML、依存グラフ、ソース対応表を参照できます。
 
-一般公開の設定が残っています。今回のGitHub API確認ではリポジトリはPrivateでした。
-利用中のGitHub連携にはリポジトリの可視性を変更する機能がありません。
-生成物はmainのc0380df5bc1bc6a14eda856a958d826d9a6625d6に保存・確認済みです。
-所有者がSettings → General → Danger Zone →
-Change repository visibilityでPublicに変更する必要があります。
-これは形式化や文書の検証の穴ではなく、公開設定に必要な管理操作です。
+一般公開も完了しました。所有者の設定変更後、GitHub APIでPublicを確認しています。
+認証なしでblueprintの入口・PDF・HTML・逆主定理のLeanソースを取得し、全てHTTP 200でした。
+取得物のSHA-256は検証済みローカルファイルと一致しています。
+公開確認の実行結果はlogs/publication_checks.jsonを参照してください。
+依頼された形式化・日本語blueprint・リポジトリ公開について未解決の義務はありません。
 
 以下はv5の形式化範囲の記録です。
 

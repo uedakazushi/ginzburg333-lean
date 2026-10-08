@@ -1,0 +1,52 @@
+{
+  "checked_at_utc": "2026-10-08T06:01:47.479545+00:00",
+  "method": "curl without credentials or Authorization header; curl configuration disabled by -q",
+  "checks": [
+    {
+      "path": "blueprint/README.md",
+      "url": "https://raw.githubusercontent.com/uedakazushi/ginzburg333-lean/main/blueprint/README.md",
+      "http_status": 200,
+      "authentication_sent": false,
+      "curl_exit_code": 0,
+      "sha256": "0c683e0d76df12a1fe95d5eea808986dabcc1bf8cfead23292899a95fb4434d8",
+      "matches_verified_local_artifact": true
+    },
+    {
+      "path": "blueprint/print/print.pdf",
+      "url": "https://raw.githubusercontent.com/uedakazushi/ginzburg333-lean/main/blueprint/print/print.pdf",
+      "http_status": 200,
+      "authentication_sent": false,
+      "curl_exit_code": 0,
+      "sha256": "ffc7f389fd104525b88ea42bebef462bf9a4637a130b3aee6cce17e2e15b2ec4",
+      "matches_verified_local_artifact": true
+    },
+    {
+      "path": "blueprint/web/index.html",
+      "url": "https://raw.githubusercontent.com/uedakazushi/ginzburg333-lean/main/blueprint/web/index.html",
+      "http_status": 200,
+      "authentication_sent": false,
+      "curl_exit_code": 0,
+      "sha256": "a4c3208e349e31d8608db0270eae1cc34995fdd365ba0b36c94e50af0a0a2062",
+      "matches_verified_local_artifact": true
+    },
+    {
+      "path": "Ginzburg333/Converse/Main.lean",
+      "url": "https://raw.githubusercontent.com/uedakazushi/ginzburg333-lean/main/Ginzburg333/Converse/Main.lean",
+      "http_status": 200,
+      "authentication_sent": false,
+      "curl_exit_code": 0,
+      "sha256": "cfd2979bc9e96c93e848cc60ddc9cc09a06ab7091930b08904974833e32656c7",
+      "matches_verified_local_artifact": true
+    }
+  ],
+  "all_passed": true,
+  "github_repository": "uedakazushi/ginzburg333-lean",
+  "github_api_observation": {
+    "visibility": "public",
+    "private": false,
+    "has_pages": false,
+    "main_sha": "b3398d8a44d16e7dc8e6098ed99747a2bd317885",
+    "main_tree_sha": "eca5543f977eb0d59284f8cd6353c48f6f1771ca",
+    "observed_at_utc": "2026-10-08T06:01:03Z"
+  }
+}

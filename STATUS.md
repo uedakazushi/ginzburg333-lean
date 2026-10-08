@@ -20,8 +20,10 @@ mainへの公開はユーザーの明示承認済みです。
 blueprintを含む保存点c0380df5bc1bc6a14eda856a958d826d9a6625d6をmainへ反映し、
 remoteのSHA・親コミット・ツリーの一致をGitHub APIで確認しました。
 ローカルworkとorigin/mainも同じ保存点に揃え、作業ディレクトリはcleanです。
-今回のAPI確認ではリポジトリの可視性はPrivateです。
-mainへの保存と一般公開を区別し、可視性変更は所有者のGitHub管理画面で行う必要があります。
+所有者の設定変更後、2026年10月8日06:01 UTCにGitHub APIでPublicを確認しました。
+認証なしでblueprintの入口・PDF・HTML・逆主定理のLeanソースを取得し、
+全てHTTP 200かつ検証済みローカルファイルとSHA-256一致でした。
+リポジトリとblueprintの一般公開は完了です。公開確認はlogs/publication_checks.jsonに保存しています。
 
 以下は両方向の証明を完成したv5の記録です。
 
