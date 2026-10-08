@@ -43,3 +43,11 @@ import Ginzburg333
 #print axioms Ginzburg333.Comparison.simple_dual_bar_off_diagonal
 #print axioms Ginzburg333.Comparison.cobarBasis_internal
 #print axioms Ginzburg333.Comparison.cobarBasis_length
+#print axioms Ginzburg333.Comparison.signedWordReversal_differential
+#print axioms Ginzburg333.Comparison.cobarBasis_transpose
+#print axioms Ginzburg333.Comparison.finiteDualReversal_differential
+#print axioms Ginzburg333.Comparison.totalDualReversal_differential
+#print axioms Ginzburg333.Comparison.ginzburg_internal_primitives
+#print axioms Ginzburg333.tensorRegular_ginzburgRegular
+#print axioms Ginzburg333.Comparison.tensorRegular_ginzburgRegular_chosen_bases
+#check Ginzburg333.tensorRegular_ginzburgRegular

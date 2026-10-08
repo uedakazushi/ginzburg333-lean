@@ -40,3 +40,14 @@
 'Ginzburg333.Comparison.simple_dual_bar_off_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Ginzburg333.Comparison.cobarBasis_internal' depends on axioms: [propext, Classical.choice, Quot.sound]
 'Ginzburg333.Comparison.cobarBasis_length' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Comparison.signedWordReversal_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Comparison.cobarBasis_transpose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Comparison.finiteDualReversal_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Comparison.totalDualReversal_differential' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Comparison.ginzburg_internal_primitives' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.tensorRegular_ginzburgRegular' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Ginzburg333.Comparison.tensorRegular_ginzburgRegular_chosen_bases' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Ginzburg333.tensorRegular_ginzburgRegular.{u_1} {k : Type u_1} [Field k] [IsAlgClosed k] [CharZero k]
+  (w : Ginzburg333.Tensor k) (hw : Ginzburg333.TensorRegular w) : Ginzburg333.Ginzburg.GinzburgRegular w

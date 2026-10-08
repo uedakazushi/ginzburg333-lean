@@ -2,13 +2,14 @@
   "audit_kind": "textual, comments and strings removed",
   "lean_executed_by_this_audit": false,
   "kernel_validation": "Not assessed by this textual audit; see VERIFICATION.json and kernel axiom logs.",
-  "main_theorem_proved": false,
-  "source_file_count": 52,
-  "source_line_count": 5665,
+  "main_theorem_declared_textually": true,
+  "main_theorem_proof": "Not assessed by this textual audit; see the actual Lean and kernel audit logs.",
+  "source_file_count": 60,
+  "source_line_count": 6451,
   "declaration_counts": {
-    "abbrev": 15,
-    "theorem": 383,
-    "def": 152,
+    "abbrev": 16,
+    "theorem": 433,
+    "def": 163,
     "structure": 3,
     "inductive": 2
   },
@@ -17,8 +18,8 @@
   "files": [
     {
       "file": "Audit.lean",
-      "lines": 45,
-      "sha256": "12f6acbe06c32a750d4db5b56f64c68be44b117d27c5be499c49152be813a831"
+      "lines": 53,
+      "sha256": "d7e740f1e6b863cca539ad3727f209629cd73f95aca39ba81f731e76d1544c7a"
     },
     {
       "file": "AuditAll.lean",
@@ -136,14 +137,29 @@
       "sha256": "3420f47918a04c3fcc84a0cc76c71cb3990580587f928c7ab351d596b4e65ff7"
     },
     {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "lines": 53,
+      "sha256": "18fcbbe04f8238df3cd8778784b6b62b62c1110a73c254cab1bff90f9e541c65"
+    },
+    {
       "file": "Ginzburg333/Comparison/Cobar.lean",
       "lines": 83,
       "sha256": "4fa0eb3086c9378fc4ab9694b413f0244cbbb149e4fb0c49c2340be7817f1ff3"
     },
     {
+      "file": "Ginzburg333/Comparison/CobarVertices.lean",
+      "lines": 44,
+      "sha256": "f760ff597e88257c634cf3a0bed5761cadc3eaf67244c0197cb1240ea90745d1"
+    },
+    {
       "file": "Ginzburg333/Comparison/DualExact.lean",
       "lines": 29,
       "sha256": "b6b17a5c1f41184af987fdbc5b26ec0386a5afe9aff0311630911550db3a6623"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "lines": 174,
+      "sha256": "6dc53d8929853cc2ffd4dbdd05daa45f7ca69e95faa0814bc0cc1bea74f40bed"
     },
     {
       "file": "Ginzburg333/Comparison/FiniteDual.lean",
@@ -156,9 +172,34 @@
       "sha256": "384f8e72f6f9352893d41822e2418730997198a52113c020539ecaeae4e136ec"
     },
     {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "lines": 79,
+      "sha256": "5a1c989ee5b1456d07daa40c20d5bf365baa4db03f334d1e2fbb4b960d024cfe"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Primitives.lean",
+      "lines": 90,
+      "sha256": "bbe1357f89f03be3edb78c3415538c19301191a4907ceff76cfe4232d2645603"
+    },
+    {
       "file": "Ginzburg333/Comparison/Reversal.lean",
       "lines": 77,
       "sha256": "40e70b933ae87e1f8a1fb2bf3689957caf7324545b48792381d1913b6d013ae9"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Total.lean",
+      "lines": 78,
+      "sha256": "6131608b42a64a94204f1c595ae72758a80d9f3ee332420bb0d3a8b06f727c84"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Transpose.lean",
+      "lines": 74,
+      "sha256": "1b6c81c770f633554fc080efbe920a7f41d0c0989650725da0e796d3684da65b"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "lines": 179,
+      "sha256": "c33e4d9e2398ebefc5812f84c5a105c88eb33c3983c13dd6d0f5688befdea826"
     },
     {
       "file": "Ginzburg333/Finite/Colon.lean",
@@ -232,8 +273,8 @@
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "lines": 156,
-      "sha256": "4c93d2638c8c8da392e1aad8ec1617bfd16a7df6f693613c4b819dc581957acf"
+      "lines": 155,
+      "sha256": "8164799efae89318f907a602b3a7f95d4d1d09f366a066121d4b43059a38dd35"
     },
     {
       "file": "Ginzburg333/Homology/Dual.lean",
@@ -267,8 +308,8 @@
     },
     {
       "file": "Ginzburg333.lean",
-      "lines": 48,
-      "sha256": "508ed3cd6c18248dbeee6b077917463b9f7252d9ba507f4c15b80d9ec154b1b8"
+      "lines": 56,
+      "sha256": "d0e7a5893b5ed7e4b4aeb941142a00a60e6535f623f5432427b9fe7965052dd9"
     },
     {
       "file": "lakefile.lean",
@@ -1826,6 +1867,42 @@
       "name": "internallyNormalized_zero_surjective"
     },
     {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "line": 10,
+      "kind": "def",
+      "name": "tripleFunctionEquiv"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "line": 19,
+      "kind": "def",
+      "name": "tensorCoordinatesEquiv"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "line": 25,
+      "kind": "theorem",
+      "name": "tensorCoordinatesEquiv_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "line": 31,
+      "kind": "theorem",
+      "name": "tensorRegular_ginzburgRegular_in_bases"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "line": 40,
+      "kind": "def",
+      "name": "chosenTensorCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Bases.lean",
+      "line": 45,
+      "kind": "theorem",
+      "name": "tensorRegular_ginzburgRegular_chosen_bases"
+    },
+    {
       "file": "Ginzburg333/Comparison/Cobar.lean",
       "line": 9,
       "kind": "def",
@@ -1874,10 +1951,100 @@
       "name": "cobarBasis_length"
     },
     {
+      "file": "Ginzburg333/Comparison/CobarVertices.lean",
+      "line": 8,
+      "kind": "theorem",
+      "name": "cobarBasis_startsAt"
+    },
+    {
+      "file": "Ginzburg333/Comparison/CobarVertices.lean",
+      "line": 37,
+      "kind": "theorem",
+      "name": "cobarBasis_scalar_mem"
+    },
+    {
       "file": "Ginzburg333/Comparison/DualExact.lean",
       "line": 11,
       "kind": "theorem",
       "name": "simple_dual_bar_off_diagonal"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "simpleBarLinearBasis_repr"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 18,
+      "kind": "theorem",
+      "name": "simpleBarLinearBasis_scalar"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 35,
+      "kind": "def",
+      "name": "dualWordCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 41,
+      "kind": "theorem",
+      "name": "dualWordCoordinates_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 55,
+      "kind": "theorem",
+      "name": "dualWordCoordinates_mem"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 60,
+      "kind": "theorem",
+      "name": "basisDualCoordinates_dualBasis"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 68,
+      "kind": "theorem",
+      "name": "dualWordCoordinates_dualBasis"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 82,
+      "kind": "theorem",
+      "name": "dualWordCoordinates_differential"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 122,
+      "kind": "def",
+      "name": "scalarWordCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 127,
+      "kind": "def",
+      "name": "reversedCoordinates"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 133,
+      "kind": "theorem",
+      "name": "reversedCoordinates_forget"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 155,
+      "kind": "theorem",
+      "name": "finiteDualReversal_forget"
+    },
+    {
+      "file": "Ginzburg333/Comparison/FiniteChain.lean",
+      "line": 164,
+      "kind": "theorem",
+      "name": "finiteDualReversal_differential"
     },
     {
       "file": "Ginzburg333/Comparison/FiniteDual.lean",
@@ -1938,6 +2105,78 @@
       "line": 32,
       "kind": "theorem",
       "name": "generator_structure_coefficient"
+    },
+    {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "line": 8,
+      "kind": "def",
+      "name": "vertexProjection"
+    },
+    {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "line": 16,
+      "kind": "theorem",
+      "name": "vertexProjection_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "line": 19,
+      "kind": "theorem",
+      "name": "vertexProjection_single"
+    },
+    {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "vertexProjection_pathTerm"
+    },
+    {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "line": 30,
+      "kind": "theorem",
+      "name": "vertexProjection_basisDifferential"
+    },
+    {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "line": 43,
+      "kind": "theorem",
+      "name": "vertexProjection_differential"
+    },
+    {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "line": 52,
+      "kind": "theorem",
+      "name": "sum_vertexProjection"
+    },
+    {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "line": 57,
+      "kind": "theorem",
+      "name": "vertexProjection_row_mem"
+    },
+    {
+      "file": "Ginzburg333/Comparison/PathVertices.lean",
+      "line": 70,
+      "kind": "theorem",
+      "name": "rowPath_zero_length"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Primitives.lean",
+      "line": 10,
+      "kind": "theorem",
+      "name": "rowPath_primitive"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Primitives.lean",
+      "line": 30,
+      "kind": "theorem",
+      "name": "ginzburg_internal_primitives"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Primitives.lean",
+      "line": 85,
+      "kind": "theorem",
+      "name": "tensorRegular_ginzburgRegular"
     },
     {
       "file": "Ginzburg333/Comparison/Reversal.lean",
@@ -2004,6 +2243,180 @@
       "line": 70,
       "kind": "theorem",
       "name": "rowPathComponent_bigraded"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Total.lean",
+      "line": 9,
+      "kind": "theorem",
+      "name": "vertexProjection_row"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Total.lean",
+      "line": 26,
+      "kind": "def",
+      "name": "vertexDecompositionEquiv"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Total.lean",
+      "line": 54,
+      "kind": "abbrev",
+      "name": "TotalSimpleDual"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Total.lean",
+      "line": 58,
+      "kind": "def",
+      "name": "totalDualReversal"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Total.lean",
+      "line": 63,
+      "kind": "theorem",
+      "name": "totalDualReversal_val"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Total.lean",
+      "line": 68,
+      "kind": "theorem",
+      "name": "totalDualReversal_differential"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Transpose.lean",
+      "line": 8,
+      "kind": "theorem",
+      "name": "prependWords_nil_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Transpose.lean",
+      "line": 14,
+      "kind": "theorem",
+      "name": "prependWords_cons_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Transpose.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "append_pairVector_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Transpose.lean",
+      "line": 32,
+      "kind": "theorem",
+      "name": "headVector_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Transpose.lean",
+      "line": 39,
+      "kind": "theorem",
+      "name": "cobarBasis_nil_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Transpose.lean",
+      "line": 44,
+      "kind": "theorem",
+      "name": "cobarBasis_one_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/Transpose.lean",
+      "line": 54,
+      "kind": "theorem",
+      "name": "cobarBasis_transpose"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 10,
+      "kind": "def",
+      "name": "signedWordReversal"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 13,
+      "kind": "theorem",
+      "name": "signedWordReversal_single"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 17,
+      "kind": "theorem",
+      "name": "wordSign_cons"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 24,
+      "kind": "theorem",
+      "name": "signedWordReversal_prepend"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 37,
+      "kind": "def",
+      "name": "pairVector"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 40,
+      "kind": "theorem",
+      "name": "pairVector_apply"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 52,
+      "kind": "theorem",
+      "name": "pairVector_reconstruct"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 70,
+      "kind": "theorem",
+      "name": "generator_vector_length"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 90,
+      "kind": "theorem",
+      "name": "generator_vector_expansion"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 99,
+      "kind": "theorem",
+      "name": "multiplication_cut"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 111,
+      "kind": "theorem",
+      "name": "neg_pow_eq_of_mod_two"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 114,
+      "kind": "theorem",
+      "name": "wordSign_split"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 129,
+      "kind": "theorem",
+      "name": "wordNegative_reverse"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 132,
+      "kind": "theorem",
+      "name": "signedWordReversal_split_suffix"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 153,
+      "kind": "theorem",
+      "name": "signedWordReversal_cobar"
+    },
+    {
+      "file": "Ginzburg333/Comparison/WordReversal.lean",
+      "line": 170,
+      "kind": "theorem",
+      "name": "signedWordReversal_differential"
     },
     {
       "file": "Ginzburg333/Finite/Colon.lean",
@@ -3261,139 +3674,139 @@
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 20,
+      "line": 19,
       "kind": "inductive",
       "name": "Generator"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 28,
+      "line": 27,
       "kind": "def",
       "name": "source"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 33,
+      "line": 32,
       "kind": "def",
       "name": "target"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 38,
+      "line": 37,
       "kind": "def",
       "name": "weight"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 43,
+      "line": 42,
       "kind": "def",
       "name": "negativeDegree"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 48,
+      "line": 47,
       "kind": "theorem",
       "name": "weight_eq_negativeDegree_add_one"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 54,
+      "line": 53,
       "kind": "def",
       "name": "endpoint?"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 60,
+      "line": 59,
       "kind": "def",
       "name": "ValidPath"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 63,
+      "line": 62,
       "kind": "abbrev",
       "name": "BasisPath"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 66,
+      "line": 65,
       "kind": "abbrev",
       "name": "PathSpace"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 68,
+      "line": 67,
       "kind": "def",
       "name": "internalDegree"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 70,
+      "line": 69,
       "kind": "def",
       "name": "cohomologicalDegree"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 73,
+      "line": 72,
       "kind": "theorem",
       "name": "word_degree"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 84,
+      "line": 83,
       "kind": "theorem",
       "name": "cohomologicalDegree_eq_length_sub_weight"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 90,
+      "line": 89,
       "kind": "def",
       "name": "coordinates"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 96,
+      "line": 95,
       "kind": "def",
       "name": "generatorDifferential"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 109,
+      "line": 108,
       "kind": "def",
       "name": "wordDifferential"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 119,
+      "line": 118,
       "kind": "def",
       "name": "pathTerm"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 123,
+      "line": 122,
       "kind": "def",
       "name": "basisDifferential"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 127,
+      "line": 126,
       "kind": "def",
       "name": "differential"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 130,
+      "line": 129,
       "kind": "def",
       "name": "Homogeneous"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 133,
+      "line": 132,
       "kind": "def",
       "name": "InternallyHomogeneous"
     },
     {
       "file": "Ginzburg333/Ginzburg.lean",
-      "line": 138,
+      "line": 137,
       "kind": "def",
       "name": "GinzburgRegular"
     },

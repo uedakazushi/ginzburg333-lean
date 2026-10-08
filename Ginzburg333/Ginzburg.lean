@@ -8,11 +8,10 @@ Words are stored in algebra multiplication order: [b,a] means the path first
 a, then b. Empty paths retain a vertex. This is the convention of equation
 (1.5) in the original paper. Invalid words are not basis elements.
 
-This file defines the actual target predicate. Square-zero is proved in Ginzburg/SquareZero.lean. The bar-comparison
-and tensor-regularity implication theorems remain absent.
-Those are explicit unfinished obligations in GAPS.md.
+This file defines the actual target predicate. Square-zero is proved in Ginzburg/SquareZero.lean. The bar comparison and tensor-regularity implication are proved in
+Comparison/FiniteChain.lean and Comparison/Primitives.lean.
 
-Status: compiled with Lean 4.19.0; negative acyclicity remains unfinished.
+Negative acyclicity from TensorRegular is proved by the avatar-free comparison.
 -/
 
 namespace Ginzburg333.Ginzburg
@@ -141,14 +140,14 @@ def GinzburgRegular (w : Tensor k) : Prop :=
       ∃ y : PathSpace k, Homogeneous (q - 1) y ∧ differential w y = x
 
 /-
-Target (NOT declared as a theorem, and NOT supplied as an axiom):
+The target implication is now proved as
+Ginzburg333.tensorRegular_ginzburgRegular in Comparison/Primitives.lean:
 
   [IsAlgClosed k] [CharZero k] : TensorRegular w → GinzburgRegular w.
 
-Square-zero and homogeneity of `differential` are proved, and normalized bar
-terms, internal grading, normalized free contraction and off-diagonal
-filtration vanishing are constructed. The sign-compatible finite-degree chain
-comparison and the main implication remain.
+The original predicate and finite-support differential above are unchanged.
+The proof uses the actual internally graded normalized bar, free-row contraction,
+filtration vanishing, finite-degree signed dual chain isomorphisms, and primitives.
 -/
 
 end

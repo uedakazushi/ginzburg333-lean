@@ -1,1 +1,1 @@
-LIBRARY BUILT; all project theorem axioms are standard. The main theorem is still absent.
+LIBRARY BUILT; main theorem checked by Audit.lean; all project theorem axioms are standard.

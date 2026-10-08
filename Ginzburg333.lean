@@ -46,3 +46,11 @@ import Ginzburg333.Comparison.Reversal
 import Ginzburg333.Comparison.Generators
 import Ginzburg333.Comparison.DualExact
 import Ginzburg333.Comparison.Cobar
+import Ginzburg333.Comparison.WordReversal
+import Ginzburg333.Comparison.Transpose
+import Ginzburg333.Comparison.CobarVertices
+import Ginzburg333.Comparison.FiniteChain
+import Ginzburg333.Comparison.PathVertices
+import Ginzburg333.Comparison.Primitives
+import Ginzburg333.Comparison.Total
+import Ginzburg333.Comparison.Bases
