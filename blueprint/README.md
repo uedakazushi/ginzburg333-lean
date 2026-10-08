@@ -36,6 +36,7 @@ python3 -m http.server 8000 --directory blueprint/web
 全Leanソースと公理を検証し、日本語PDF・HTMLを生成、103件の実際のLean宣言とリンクを検査します。
 成功した成果物をGitHub Pagesへデプロイします。pull requestでは生成・検査までを実行します。
 Actions画面から手動実行もできます。文書生成・Lean検証のログはActionsのartifactに保存されます。
+Lean検証・文書生成・デプロイは別jobであり、文書側の失敗時はfailed jobsだけを再実行できます。
 
 初回は所有者がリポジトリのSettings → Pages → Build and deployment → Sourceを
 **GitHub Actions**に設定してください。追加のsecretは不要です。
@@ -47,7 +48,7 @@ Actions画面から手動実行もできます。文書生成・Lean検証のロ
 Leanはリポジトリの固定環境を使います。文書生成にはPython 3.12、Graphviz、
 XeLaTeX、latexmk、xeCJK、Noto CJKフォント、検査にはpoppler-utilsが必要です。
 Debian/Ubuntuでは対応するTeX関連パッケージは
-`texlive-xetex texlive-lang-cjk texlive-lang-chinese fonts-noto-cjk latexmk graphviz poppler-utils` です。
+`texlive-xetex texlive-lang-cjk texlive-lang-chinese texlive-fonts-recommended fonts-noto-cjk latexmk graphviz poppler-utils` です。
 
 ```sh
 python3 -m venv .tooling/blueprint-venv

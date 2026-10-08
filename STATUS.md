@@ -14,9 +14,11 @@ Pagesの公開先は https://uedakazushi.github.io/ginzburg333-lean/ です。
 初回Actions run 37736611956は処理系ソースが字句監査へ混入して失敗しました。
 処理系をrunner.temp以下へ移し、プロジェクトの監査範囲を維持して修正しました。
 字句監査に到達する前のLean・固定mathlib・全24直接importのcache取得は成功しています。
-デプロイ成功はまだ未確認です。修正版のCI結果を確認します。
-APIの観測ではhas_pages=falseであり、初回は所有者による
-Settings → Pages → Source: GitHub Actionsの設定が必要です。
+修正版run 37737108544でLean全体検証と1214件の公理監査が成功しました。
+PDF生成はUbuntuのTeXのZapf Dingbatsフォント（pzdr.tfm）が不足して停止。
+texlive-fonts-recommendedを追加し、Lean検証jobと文書生成jobを分離しました。
+数学的な検証は成功済みで、デプロイ成功はまだ未確認です。
+所有者がSource: GitHub Actionsを設定し、APIでhas_pages=trueを確認しました。
 確認後に実際のCI結果と公開URLのHTTP取得結果を記録します。
 
 以下はリポジトリ一般公開と日本語blueprint作成のv6の記録です。

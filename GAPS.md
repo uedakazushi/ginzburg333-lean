@@ -3,11 +3,10 @@
 両方向・同値のLean形式化と日本語blueprint、リポジトリ一般公開は完了しています。
 Pages用workflowの実装とローカルの構文・公開用リンク検査も完了しました。
 
-今回の追加依頼については、初回のGitHub Pages設定、実際のActionsの成功、
+今回の追加依頼については、実際のActionsの成功、
 公開先 https://uedakazushi.github.io/ginzburg333-lean/ の取得確認が残っています。
-所有者がSettings → Pages → Build and deployment → SourceをGitHub Actionsに設定してください。
-利用中のGitHub連携にはPages設定を作成・変更する管理機能がありません。
-workflowは具体的なファイルとして実装済みであり、設定後に成功結果を確認します。
+所有者がPagesのSourceをGitHub Actionsに設定済みで、APIでhas_pages=trueを確認しました。
+workflowはmainへ反映済みで、修正版のCI実行結果を確認しています。
 
 以下はv6のリポジトリ公開完了記録です。
 

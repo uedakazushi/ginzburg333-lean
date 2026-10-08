@@ -157,7 +157,7 @@
     "checked_at_utc": "2026-10-08T05:31:21.282703+00:00"
   },
   "github_repository_visibility_observed": "public",
-  "github_pages_enabled_observed": false,
+  "github_pages_enabled_observed": true,
   "anonymous_publication_complete": true,
   "publication_blocking_capability": null,
   "blueprint_main_delivery": {
@@ -202,12 +202,20 @@
     "build_conclusion": null,
     "deployment_conclusion": null,
     "pages_http_verified": false,
-    "initial_pages_source_setting_required": true,
+    "initial_pages_source_setting_required": false,
     "pages_management_available_in_connector": false,
     "checked_at_utc": "2026-10-08T06:14:14.286884+00:00",
     "first_run_id": 37736611956,
     "attempts_log": "logs/pages_ci_attempts.json",
     "first_run_conclusion": "failure",
-    "first_run_fix": "Move compiler installation outside checkout; project textual and kernel audit unchanged."
+    "first_run_fix": "Move compiler installation outside checkout; project textual and kernel audit unchanged.",
+    "pages_source_configured_by_owner": true,
+    "second_run_id": 37737108544,
+    "second_run_sha": "20cf8a6a317deec5f9f0d4e4813803a5ae1f0ce1",
+    "lean_verification_observed_exit_code": 0,
+    "lean_verification_observed_run_id": 37737108544,
+    "lean_verification_kernel_audited_theorems": 1214,
+    "second_run_document_failure": "Missing TeX pzdr.tfm; add texlive-fonts-recommended",
+    "successful_lean_job_reusable_on_document_rerun": true
   }
 }

@@ -10,6 +10,21 @@
       "fix": "Install/cache the Lean distribution outside the checkout under runner.temp; retain the project audit unchanged.",
       "lean_and_mathlib_cache_install_completed": true,
       "deployment_conclusion": "skipped"
+    },
+    {
+      "run_id": 37737108544,
+      "url": "https://github.com/uedakazushi/ginzburg333-lean/actions/runs/37737108544",
+      "head_sha": "20cf8a6a317deec5f9f0d4e4813803a5ae1f0ce1",
+      "build_conclusion": "failure",
+      "lean_verify_exit_code": 0,
+      "kernel_theorems_audited": 1214,
+      "source_file_count": 73,
+      "source_hashes_match_local": true,
+      "failed_step": "Build Japanese PDF and HTML",
+      "reason": "Ubuntu TeX lacks pzdr.tfm (Zapf Dingbats), required by hyperref; leanblueprint pdf returned 255.",
+      "fix": "Add texlive-fonts-recommended; separate verify/build jobs so documentation reruns reuse successful Lean verification.",
+      "verification_artifact_id": 11531784856,
+      "deployment_conclusion": "skipped"
     }
   ]
 }
